@@ -45,7 +45,7 @@
             sessionStorage.setItem("isLoggedIn",false);      
             apps.navigate("#tabstrip-login");
             that.clearForm();
-             closeParentPopover();
+            closeParentPopover();
             
         },
 
@@ -78,7 +78,7 @@
             return true;
         }
     });
- app.homesetting = {
+     app.homesetting = {
         viewModel: new LoginViewModel()	
     };
     app.loginService = {
