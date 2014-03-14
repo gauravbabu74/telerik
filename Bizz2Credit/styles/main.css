@@ -322,6 +322,10 @@ body, html {
 html body .loginSection .km-list:not(.km-virtual-list)>li {
     margin:0 0 10px;
     border:1px solid rgba(0,0,0,0.1);
+    border-radius:3px;
+}
+html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
+    color:#ccc;
 }
 .loginSection ul li label input[type=text]:not(.k-input) {
     width:100%;
@@ -331,6 +335,24 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {
     width:100%;
     position:inherit;
 }
+.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {
+    /* Safari 4-5, Chrome 1-9 */ 
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#87b400), to(#9fcf0f)); 
+    /* Safari 5.1, Chrome 10+ */ 
+    background: -webkit-linear-gradient(top, #9fcf0f, #87b400);
+    /* Firefox 3.6+ */ 
+    background: -moz-linear-gradient(top, #9fcf0f, #87b400); 
+    /* IE 10 */ 
+    background: -ms-linear-gradient(top, #9fcf0f, #87b400); 
+    /* Opera 11.10+ */ 
+    background: -o-linear-gradient(top, #9fcf0f, #87b400);
+    width:80%;
+    border-radius:3px;
+    border:1px solid #808080;
+    color:#000;
+    font-size:1.125em;
+}
+.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0;}
 
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
