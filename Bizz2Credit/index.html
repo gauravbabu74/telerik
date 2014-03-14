@@ -53,18 +53,16 @@
                 <input type="submit" id="logout" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" class="login-button" value="Logout" />
             </div>
 
-            <form id="loginForm" data-bind="events: { keyup: checkEnter }">
+            <form id="loginForm" data-bind="events: { keyup: checkEnter }" class="loginSection">
                 <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
                     <li>
                         <label>
-                            Username
-                                <input type="text" data-bind="value: username"/>
+                                <input type="text" data-bind="value: username" placeholder="Username"/>
                         </label>
                     </li>
                     <li>
                         <label>
-                            Password
-                                <input type="password" data-bind="value: password" />
+                                <input type="password" data-bind="value: password" placeholder="Password" />
                         </label>
                     </li>
                 </ul>
