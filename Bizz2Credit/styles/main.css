@@ -311,6 +311,26 @@ body, html {
     width: 100%;
     opacity: 0.3;
 }
+.loginSection {
+    
+    display:block;
+}
+.loginSection ul {
+    width:90%;
+    padding:0 5%;
+}
+html body .loginSection .km-list:not(.km-virtual-list)>li {
+    margin:0 0 10px;
+    border:1px solid rgba(0,0,0,0.1);
+}
+.loginSection ul li label input[type=text]:not(.k-input) {
+    width:100%;
+    position:inherit;
+}
+.loginSection ul li label input[type=password] {
+    width:100%;
+    position:inherit;
+}
 
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
