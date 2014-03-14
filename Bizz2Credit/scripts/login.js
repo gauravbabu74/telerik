@@ -39,8 +39,6 @@
         },
         onLogout: function () {
             var that = this;
-
-            
             that.set("isLoggedIn", false);
             sessionStorage.setItem("isLoggedIn",false);      
             apps.navigate("#tabstrip-login");
@@ -78,9 +76,7 @@
             return true;
         }
     });
-     app.homesetting = {
-        viewModel: new LoginViewModel()	
-    };
+    
     app.loginService = {
         viewModel: new LoginViewModel()	
     };

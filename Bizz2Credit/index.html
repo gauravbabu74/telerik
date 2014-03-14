@@ -9,8 +9,9 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo-ui-complete.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/login.js"></script>   
-</head>
+    <script src="scripts/login.js"></script> 
+    <script src="scripts/homepage.js"></script> 
+    <script src="scripts/documents.js"></script>
 <body>
     <!--Home-->
     <div id="tabstrip-home" data-role="view">
@@ -20,23 +21,18 @@
                 <a data-align="right" data-rel="popover" href="#popover-people" data-role="button">...</a>
               </div>
         </div>
-        <div class="view-content">
-            <h1>Welcome!</h1>          
-            <p>
-                Telerik AppBuilder&trade; enables you to build cross-platform device applications regardless of your
-                    development platform by combining the convenience of a local development toolset with the
-                    power and flexibility of the cloud.
-            </p>
-            <div class="img"></div>
+        <div class="view-content" data-model="app.homesetting.viewModel">
+            <div id="homePage" data-template="homepage-listview-template" data-bind="source: homepagedata">
+			</div>
         </div>
         <div data-role="footer">
             <div data-role="navbar">
-                <a href="#tabstrip-docs">My Documents</a>
+                <a href="#tabstrip-docs">Documents</a>
             </div>
         </div>
         <div data-role="popover" id="popover-people" data-popup='{"height": "16em", "width": "20em"}'>
             
-          <div data-role="view" data-model="app.homesetting.viewModel" >
+          <div data-role="view" data-model="app.loginService.viewModel">
             <ul data-role="listview">
                 <li data-bind="click: onLogout1" >Refresh</li>
                 <li data-bind="click: onLogout">Logout</li>
@@ -81,13 +77,12 @@
 
     </div>
      <!--my documents-->
-    <div id="tabstrip-docs" data-role="view">
+    <div id="tabstrip-docs" data-role="view" data-init="viewInit">
         
         <div class="view-content">
-            <ul data-role="listview" data-click="closeParentPopover">
-                <li>Sydney, Australia</li>
-                <li>New York, USA</li>
-                <li>Miami, USA</li>
+            <a data-role="backbutton">Back</a><a data-role="backbutton">Refresh</a> 
+            <ul id="listView" data-role="listview" data-source="docsdata" data-pull-to-refresh="true" data-template="docs-template">
+               
             </ul>
         </div>
 
@@ -104,11 +99,20 @@
 
         <!--Footer-->
     </div>
+    <!-- Home page template -->
+		<script type="text/x-kendo-template" id="homepage-listview-template">
+			<h3 class="item-title">#:title#</h3>
+			<p class="item-info">#:description#</p>
+		</script>
+     <!-- Documents page template -->
+		<script type="text/x-kendo-template" id="docs-template">
+			#: name # - #: modified #
+		</script>
     <script>
     function closeParentPopover() {
      $("#popover-people").data("kendoMobilePopOver").close();
     }
-   $("#tabstrip-home").data("kendoMobileScroller").disable();
+
    </script>
 </body>
 </html>
