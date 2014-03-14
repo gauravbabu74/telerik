@@ -65,8 +65,9 @@
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
-                  url: "http://demos.telerik.com/kendo-ui/service/products",
+                  url: "http://biz2services.com/mobapp/api/user/?apiaction=userlogin&userID=pankaj&password=pankaj123",
                   dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                  type: "POST",
                   }
             }
             });
