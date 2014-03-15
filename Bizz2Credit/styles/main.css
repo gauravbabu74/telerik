@@ -34,13 +34,13 @@ body, html {
     margin: 0px auto;
 }
 
-.logo {
+.logLogo {
     background-image: url(../styles/images/logo.png);
     background-repeat: no-repeat;
     width: 319px;
     height: 60px;
     margin: 40px auto;
-     background-position:center;
+    background-position:center;
 }
 
 /* BUTTON STYLES*/
@@ -374,6 +374,18 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     border:0;
     background-color:#f4f4f4;
     border-radius:0;
+}
+.home .km-rightitem {
+    height:100%;
+    right:0;
+}
+.logo {
+    background-image: url(../styles/images/docs-logo.png);
+    background-repeat: no-repeat;
+    width: 130px;
+    height:34px;
+    margin: 10px auto;
+    background-position:center;
 }
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
