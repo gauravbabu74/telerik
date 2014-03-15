@@ -375,6 +375,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     background-color:#f4f4f4;
     border-radius:0;
 }
+.home .km-rightitem {
+    height:44%;
+    right:0;
+}
+
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
     .img {
