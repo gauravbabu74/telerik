@@ -19,7 +19,7 @@
                 return;
             }
             
-           if(that.checkUser()===true)
+           if(that.checkUser())
             {
                //that.set("isLoggedIn", true);
                sessionStorage.setItem("isLoggedIn",true);
@@ -66,8 +66,6 @@
             var that = this;
             username = that.get("username").trim(),
             password = that.get("password").trim();
-            console.log(username);
-            console.log(password);
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
@@ -88,16 +86,10 @@
                 
             	var data = this.data();
                 loginStatus = "";
-                
-                console.log(jQuery.type(loginStatus));
-                console.log(jQuery.type('1'));
-               console.log(loginStatus === '1');
                 //var loginMsg = data[0]['results']['faultmsg'];
             	if(data[0]['results']['faultcode'] === '1')
                 {
-                    
-                    loginStatus = true;
-                    
+                    loginStatus = true;                   
                 }
                 else{
                     loginStatus = false;
@@ -105,14 +97,7 @@
                 
           
             });
-            if(loginStatus)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if(loginStatus){return true;}else{return false;}
         
         }
     });
