@@ -62,18 +62,29 @@
             }
         },
         checkUser: function () {
-            var dataSource = new kendo.data.DataSource({
-            transport: {
-            read: {
-                  url: "http://biz2services.com/mobapp/api/user/?apiaction=userlogin&userID=pankaj&password=pankaj123",
-                  dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                  type: "POST",
-                  }
-            }
-            });
-            dataSource.fetch(function() {
-                  console.log(dataSource.data()); // displays "77"
-            });
+           var dataSource = new kendo.data.DataSource({
+  transport: {
+    read: function(options) {
+      // make JSONP request to http://demos.kendoui.com/service/products
+      $.ajax({
+        url: "http://demos.kendoui.com/service/products",
+        dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+        success: function(result) {
+          // notify the data source that the request succeeded
+          options.success(result);
+        },
+        error: function(result) {
+          // notify the data source that the request failed
+          options.error(result);
+        }
+      });
+    }
+  }
+});
+dataSource.fetch(function() {
+  console.log(dataSource.view().length); // displays "77"
+});
+
             return true;
         }
     });
