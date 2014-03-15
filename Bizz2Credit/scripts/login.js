@@ -18,7 +18,8 @@
 
                 return;
             }
-           if(that.checkUser())
+            
+           if(that.checkUser()===true)
             {
                //that.set("isLoggedIn", true);
                sessionStorage.setItem("isLoggedIn",true);
@@ -62,18 +63,57 @@
             }
         },
         checkUser: function () {
+            var that = this;
+            username = that.get("username").trim(),
+            password = that.get("password").trim();
+            console.log(username);
+            console.log(password);
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
-                  url: "http://demos.telerik.com/kendo-ui/service/products",
-                  dataType: "jsonp", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                  }
+                    url: "http://biz2services.com/mobapp/api/user",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: { apiaction:"userlogin",userID:username,password:password} // search for tweets that contain "html5"
+            }
+            },
+            schema: {
+                data: function(data)
+            	{
+                	return [data];
+            	}
             }
             });
-            dataSource.fetch(function() {
-                  console.log(dataSource.data()); // displays "77"
+            dataSource.fetch(function(){
+                
+            	var data = this.data();
+                loginStatus = "";
+                
+                console.log(jQuery.type(loginStatus));
+                console.log(jQuery.type('1'));
+               console.log(loginStatus === '1');
+                //var loginMsg = data[0]['results']['faultmsg'];
+            	if(data[0]['results']['faultcode'] === '1')
+                {
+                    
+                    loginStatus = true;
+                    
+                }
+                else{
+                    loginStatus = false;
+                }
+                
+          
             });
-            return true;
+            if(loginStatus)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        
         }
     });
     
