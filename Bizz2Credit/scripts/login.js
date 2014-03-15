@@ -7,10 +7,11 @@
         isLoggedIn:(sessionStorage.getItem("isLoggedIn") === true) ?  true : false,
         username: "",
         password: "",
-        onLogin: function () {
+        validateUser:function()
+        {
             var that = this,
-                username = that.get("username").trim(),
-                password = that.get("password").trim();
+            username = that.get("username").trim(),
+            password = that.get("password").trim();
 
             if (username === "" || password === "") {
                 navigator.notification.alert("Both fields are required!",
@@ -18,54 +19,16 @@
 
                 return;
             }
-            
-           if(that.checkUser())
-            {
-               //that.set("isLoggedIn", true);
-               sessionStorage.setItem("isLoggedIn",true);
-               kendo.history.navigate("#tabstrip-login");
-               that.navigateHome();
-            }
-            else
-            {
-                sessionStorage.setItem("isLoggedIn",false);
-                alert('Please check username and password.');
+            else{
+               that.userLogin();  
             }
            
-            
         },
-		navigateHome: function()
-        {            
-             apps.navigate("#tabstrip-home");
-        },
-        onLogout: function () {
-            var that = this;
-            that.set("isLoggedIn", false);
-            sessionStorage.setItem("isLoggedIn",false);      
-            apps.navigate("#tabstrip-login");
-            that.clearForm();
-            closeParentPopover();
-            
-        },
-
-        clearForm: function () {
-            var that = this;
-            that.set("username", "");
-            that.set("password", "");
-        },
-
-        checkEnter: function (e) {
-            var that = this;
-
-            if (e.keyCode === 13) {
-                $(e.target).blur();
-                that.onLogin();
-            }
-        },
-        checkUser: function () {
+        userLogin: function () {
             var that = this;
             username = that.get("username").trim(),
             password = that.get("password").trim();
+            that.showloder();
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
@@ -84,21 +47,66 @@
             });
             dataSource.fetch(function(){
                 
-            	var data = this.data();
-                loginStatus = "";
+            	var data = this.data();              
                 //var loginMsg = data[0]['results']['faultmsg'];
             	if(data[0]['results']['faultcode'] === '1')
                 {
-                    loginStatus = true;                   
+                    that.setUserLogin();
+ 
                 }
                 else{
-                    loginStatus = false;
-                }
-                
+                    that.hideloder();
+                    sessionStorage.setItem("isLoggedIn",false);
+                    alert('Please check username and password.');
+                    return;
+                }            
           
-            });
-            if(loginStatus){return true;}else{return false;}
+            });      
+        },
+       
+        setUserLogin: function () {
+               var that = this;
+               that.hideloder();
+               sessionStorage.setItem("isLoggedIn",true);
+               kendo.history.navigate("#tabstrip-login");
+               that.navigateHome();
+        },
         
+		
+        setUserLogout: function () {
+            var that = this;
+            that.set("isLoggedIn", false);
+            sessionStorage.setItem("isLoggedIn",false);      
+            apps.navigate("#tabstrip-login");
+            that.clearForm();
+            closeParentPopover();
+            
+        },
+        navigateHome: function()
+        {            
+             apps.navigate("#tabstrip-home");
+        },
+        clearForm: function () {
+            var that = this;
+            that.set("username", "");
+            that.set("password", "");
+        },
+
+        checkEnter: function (e) {
+            var that = this;
+
+            if (e.keyCode === 13) {
+                $(e.target).blur();
+                that.onLogin();
+            }
+        },
+        showloder:function()
+        {
+            apps.pane.loader.show();
+        },
+        hideloder:function()
+        {
+            apps.pane.loader.hide();
         }
     });
     

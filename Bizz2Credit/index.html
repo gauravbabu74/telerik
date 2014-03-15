@@ -35,7 +35,7 @@
           <div data-role="view" data-model="app.loginService.viewModel">
             <ul data-role="listview">
                 <li data-bind="click: onLogout1" >Refresh</li>
-                <li data-bind="click: onLogout">Logout</li>
+                <li data-bind="click: setUserLogout">Logout</li>
                 <li data-bind="click: onLogout2">Setting</li>
             </ul>
           </div>
@@ -68,7 +68,7 @@
                 </ul>
 
                 <div class="buttonArea">
-                    <input type="submit" id="login" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" class="login-button" value="Login" />
+                    <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
                 </div>
             </form>
         </div>
