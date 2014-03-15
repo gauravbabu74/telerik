@@ -320,42 +320,61 @@ body, html {
     padding:0 5%;
 }
 html body .loginSection .km-list:not(.km-virtual-list)>li {
-    margin:0 0 10px;
+    margin:0 0 15px;
     border:1px solid rgba(0,0,0,0.1);
     border-radius:3px;
     padding:0.2em;
+    -moz-box-shadow: inset 0px 0px 1px #c2c2c2;
+	-webkit-box-shadow: inset 0px 0px 1px #c2c2c2;
+	box-shadow: inset 0px 0px 1px #c2c2c2;
 }
 html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     color:#ccc;
 }
 .loginSection ul li label input[type=text]:not(.k-input) {
     width:100%;
+    font-size:0.8em;
     position:inherit;
 }
+
 .loginSection ul li label input[type=password] {
     width:100%;
     position:inherit;
 }
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {
     /* Safari 4-5, Chrome 1-9 */ 
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#87b400), to(#9fcf0f)); 
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f)); 
     /* Safari 5.1, Chrome 10+ */ 
-    background: -webkit-linear-gradient(top, #9fcf0f, #87b400);
+    background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);
     /* Firefox 3.6+ */ 
-    background: -moz-linear-gradient(top, #9fcf0f, #87b400); 
+    background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); 
     /* IE 10 */ 
-    background: -ms-linear-gradient(top, #9fcf0f, #87b400); 
+    background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); 
     /* Opera 11.10+ */ 
-    background: -o-linear-gradient(top, #9fcf0f, #87b400);
+    background: -o-linear-gradient(top, #9fcf0f, #8dbc00);
     width:80%;
     border-radius:3px;
     border:1px solid #808080;
     color:#000;
     font-size:1.125em;
-    box-shadow: 0px 1px 1px #666;
+    -moz-box-shadow: inset 0px 0px 1px #7a9e0e;
+	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
+	box-shadow: inset 0px 0px 1px #7a9e0e;
 }
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0;}
-
+.home {
+    padding:0;
+}
+.home .popup {
+    background-image: url(../styles/images/popup-img.png);
+    text-indent:-9000px;
+    width:5px;
+    height:17px;
+    background-repeat:no-repeat;
+    border:0;
+    background-color:#f4f4f4;
+    border-radius:0;
+}
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
     .img {
