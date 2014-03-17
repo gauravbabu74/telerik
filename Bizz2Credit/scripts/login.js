@@ -97,7 +97,7 @@
 
             if (e.keyCode === 13) {
                 $(e.target).blur();
-                that.onLogin();
+                that.validateUser();
             }
         },
         showloder:function()

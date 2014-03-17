@@ -12,6 +12,7 @@
     <script src="scripts/login.js"></script> 
     <script src="scripts/homepage.js"></script> 
     <script src="scripts/documents.js"></script>
+    <script src="scripts/schedule.js"></script>
 <body>
     <!--Home-->
     <div id="tabstrip-home" data-role="view" class="home">
@@ -23,7 +24,32 @@
         </div>
         <div class="view-content" data-model="app.homesetting.viewModel">
             <div id="homePage" data-template="homepage-listview-template" data-bind="source: homepagedata">
+              <div class="warps">
+              <article class="clearfix" id="dashview">
+               <div class="warps clearfix">
+                  <div id="stps">
+                      <ul>
+                        <li class="dn"><a class="reld_info" href=""><strong>&nbsp;</strong><span>Get Started</span></a></li>
+                        <li class="dn"><a href=""><strong>1</strong><span>Loan Application</span></a><span class="dnar"></span></li>
+                        <li class="activ"><a href=""><strong>2</strong><span>Loan Matches</span></a><span class="dnar"></span></li>
+                        <li><a href=""><strong>3</strong><span>Required Docs.</span></a><span class="dnar"></span></li>
+                        <li><a href=""><strong>&nbsp;</strong><span>Funded</span></a><span class="dnar"></span></li>
+        			  </ul>
+    			</div>
+    			<div class="clearfix" id="stpSumAc">
+    				<div class="stpsumry">
+                		<h2>We have 67 matches for you !</h2>
+                		<p>Application <span>23456</span> has <span>11 Results</span>select a loan from here.</p>
+    				</div>
+    				<div class="stpcurrntAc">
+      				<a class="btngr" href="">Start an Application</a>
+      				<p><a href="#tabstrip-scall" data-rel="modalview"><strong>Schedule a Call</strong></a></p> 
+      		  	</div>
+               </div>
 			</div>
+			</article>
+			</div>
+		</div>
         </div>
         <div data-role="footer">
             <div data-role="navbar">
@@ -74,6 +100,35 @@
         </div>
 
     </div>
+    <!--Schedule a Call-->
+    <div id="tabstrip-scall" data-role="modalview" data-model="app.scheduleService.viewModel">
+        
+        <div class="view-content">
+            <h3>Schedule a FREE Loan Consultation</h3>
+            <form id="scheduleForm" class="scheduleSection">
+                <input type="text" data-bind="value: phonenumber" placeholder="Phone Number"/>
+                
+                <ul data-role="listview" data-style="inset">
+                    <li>
+                        <label>
+                                <input id="datepicker"/>
+                        </label>
+                    </li>
+                    <li>
+                        <label>
+                                <input type="text" data-bind="value: stime" placeholder="Select Time" />
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="buttonArea">
+                    <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
+                    <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
+                </div>
+            </form>
+        </div>
+
+    </div>
      <!--my documents-->
     <div id="tabstrip-docs" data-role="view" data-init="viewInit">
         
@@ -112,5 +167,10 @@
     }
 
    </script>
+     <script>
+               $(document).ready(function(){
+    $("#datePicker").kendoDatePicker();
+});
+           </script>
 </body>
 </html>

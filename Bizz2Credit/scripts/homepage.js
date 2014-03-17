@@ -3,7 +3,8 @@
         app = global.app = global.app || {};
 
     HomepageViewModel = kendo.data.ObservableObject.extend({
-   title:'test',
+        
+        title:'test',
         description:'gaurav',
         
     });
