@@ -49,8 +49,7 @@ body, html {
 }
 
 .login-button {
-    width: 50%;
-    max-width: 300px;
+    width: 80%;
     font-size: .9em;
     -webkit-appearance: none;
 }
@@ -317,7 +316,9 @@ body, html {
 }
 .loginSection ul {
     width:90%;
-    padding:0 5%;
+    padding:0 5%;    
+    -webkit-padding-end:5%;
+    -webkit-padding-start:5%;
 }
 html body .loginSection .km-list:not(.km-virtual-list)>li {
     margin:0 0 15px;
@@ -352,7 +353,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); 
     /* Opera 11.10+ */ 
     background: -o-linear-gradient(top, #9fcf0f, #8dbc00);
-    width:80%;
     border-radius:3px;
     border:1px solid #808080;
     color:#000;
@@ -386,6 +386,14 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     height:34px;
     margin: 10px auto;
     background-position:center;
+}
+.km-ios #popover .km-view-title, .km-ios #popover-people .km-view-title { 
+    color: #fff; text-shadow: 0 -1px rgba(0,2,2,.5); 
+} 
+.km-ios #popover .km-navbar, .km-root > * > #popover > .km-content { 
+    background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, rgba(255, 255, 255, 0.35)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0))) #000; 
+} 
+.km-ios #popover .km-navbar .km-button { background-color: #000; 
 }
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
