@@ -314,12 +314,19 @@ body, html {
     
     display:block;
 }
-.loginSection ul {
-    width:90%;
-    padding:0 5%;    
-    -webkit-padding-end:5%;
-    -webkit-padding-start:5%;
+.loginSection .km-listview-wrapper {
+    margin:0 10%;
 }
+.loginSection ul {
+    width:100%;
+    padding:0 5%;    
+    -webkit-padding-end:0%;
+    -webkit-padding-start:0%;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    margin:0;
+}
+
 html body .loginSection .km-list:not(.km-virtual-list)>li {
     margin:0 0 15px;
     border:1px solid rgba(0,0,0,0.1);
@@ -395,6 +402,42 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
 } 
 .km-ios #popover .km-navbar .km-button { background-color: #000; 
 }
+.km-popup-arrow, .km-popup-arrow:after, .km-down .km-popup-arrow:before {
+    border:0 !important;
+}
+.km-flat .km-popup.km-pane{
+    border:0;
+    background:#e6e6e6;
+}
+.popupBox {
+    -moz-box-shadow:0px 0px 4px #7f7f7f;
+    -webkit-box-shadow:0px 0px 4 px #7f7f7f;
+    box-shadow:0px 0px 4px #7f7f7f;    
+}
+.popupBox li {
+    color:#333;
+}
+.documentClick {
+    padding:0;
+}
+.documentClick .km-view-title {
+    font-size:1em;
+    color:#333;
+    font-weight:700;
+}
+.documentClick .km-view-title a {
+    display:inline-block;
+    padding:7px;
+}
+.documentClick .km-view-title a img {
+    float:left;
+}
+.documentClick .km-view-title a span {
+    float:left;
+    display:inline;
+    padding:10px 0 0;
+}
+
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
     .img {
