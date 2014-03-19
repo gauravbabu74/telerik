@@ -77,16 +77,17 @@
             var that = this;
             that.set("isLoggedIn", false);
             sessionStorage.setItem("isLoggedIn",false);
-            kendo.history.navigate("#tabstrip-login");
             apps.navigate("#tabstrip-login");
+            kendo.history.navigate("#tabstrip-login");
             that.clearForm();
             closeParentPopover();
             
         },
         navigateHome: function()
         {  
-             kendo.history.navigate("#tabstrip-home");
+             
              apps.navigate("#tabstrip-home");
+             kendo.history.navigate("#tabstrip-home");
         },
         clearForm: function () {
             var that = this;

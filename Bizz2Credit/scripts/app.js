@@ -1,10 +1,33 @@
 (function (global) {
         app = global.app = global.app || {};
     
-    document.addEventListener('deviceready', function () {
+    // Handle device back button tap
+    var onBackKeyDown = function(e) {
+
+        e.preventDefault();
+
+        navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+			if (confirmed === true || confirmed === 1) {
+               navigator.app.exitApp();
+            }
+                
+        }, 'exit', 'Ok,Cancel');
+    };
+
+    var onDeviceReady = function() {
         navigator.splashscreen.hide();
         $(document.body).height(window.innerHeight);
-    }, false);
-    apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat", webAppCapable: false});
+        // Handle "backbutton" event
+        document.addEventListener('backbutton', onBackKeyDown, false);
+    };
 
+    // Handle "deviceready" event
+    document.addEventListener('deviceready', onDeviceReady, false);
+
+   
+   // document.addEventListener('deviceready', function () {
+       // navigator.splashscreen.hide();
+       // $(document.body).height(window.innerHeight);
+   // }, false);
+    apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat", webAppCapable: false});
 })(window);
