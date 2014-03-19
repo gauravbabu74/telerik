@@ -1,6 +1,6 @@
-(function (global) {
+(function (document) {
     var LoginViewModel,
-        app = global.app = global.app || {};
+        app = document.app = document.app || {};
 
     LoginViewModel = kendo.data.ObservableObject.extend({
    

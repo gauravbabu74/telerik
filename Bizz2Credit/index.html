@@ -15,7 +15,7 @@
     <script src="scripts/schedule.js"></script>
 <body>
     <!--Home-->
-    <div id="tabstrip-home" data-role="view" class="home" data-model="app.homesetting.viewModel">
+    <div id="tabstrip-home" data-role="view" class="home" data-model="app.homesetting.viewModel" data-init="app.homesetting.initHome">
         <div data-role="header">
               <div data-role="navbar">
                 <span data-role="view-title"><div class="logo"></div></span>
@@ -23,32 +23,45 @@
               </div>
         </div>
         <div class="view-content">
-            <div id="homePage" data-template="homepage-listview-template" data-bind="source: homepagedata">
-              <div class="warps">
-               <article class="clearfix" id="dashview">
-               <div class="warps clearfix">
-                  <div id="stps">
-                      <ul>
-                        <li class="dn"><a class="reld_info" href=""><strong>&nbsp;</strong><span>Get Started</span></a></li>
-                        <li class="dn"><a href=""><strong>1</strong><span>Loan Application</span></a><span class="dnar"></span></li>
-                        <li class="activ"><a href=""><strong>2</strong><span>Loan Matches</span></a><span class="dnar"></span></li>
-                        <li><a href=""><strong>3</strong><span>Required Docs.</span></a><span class="dnar"></span></li>
-                        <li><a href=""><strong>&nbsp;</strong><span>Funded</span></a><span class="dnar"></span></li>
-         			</ul>
-    			  </div>
-                 <div class="clearfix" id="stpSumAc">
-                 <div class="stpsumry">
-                  <h2>We have 67 matches for you !</h2>
-                  <p>Application <span>23456</span> has <span>11 Results</span>select a loan from here.</p>
+            <div id="homePage" data-template="homepage-listview-template">
+            	<div id="blackBlk">
+                <div class="warps">
+                <div class="desbrdIcon clearfix">
+               	 <div class="img"><img src="images/ic_dashboard.png" alt="img"></div> <span>Deshboard</span>
                 </div>
+                <article class="clearfix" id="dashview"><div class="warps clearfix">
+                <div id="stps">
+                <ul>
+
+                <li class="dn"><a class="reld_info" href="#"><strong>&nbsp;</strong><span>Get Started</span></a>
+                <span class="dnar"></span>
+                </li>
+
+                <li class="activ"><a href="#"><strong>1</strong><span>Loan Application</span></a><span class="dnar"></span></li>
+                <li><a href="#"><strong>2</strong><span>Loan Matches</span></a><span class="dnar"></span></li>
+                <li><a href="#"><strong>3</strong><span>Required Docs.</span></a><span class="dnar"></span></li>
+                <li><a href="#"><strong>&nbsp;</strong><span>Funded</span></a><span class="dnar"></span></li>
+                </ul>
+                </div>
+
+                <div class="clearfix" id="stpSumAc">
+                <div class="stpsumry">
+                <h2>We have 67 matches for you !</h2>
+                <p>Application <span>#23456</span> has <span>11 Results</span>
+                select a loan from here.</p>
+                </div>
+
                 <div class="stpcurrntAc">
-                 <a class="btngr" href="">Start an Application</a>
-                 <p><a href="#" data-rel="modalview"><strong>Schedule a Call</strong></a></p> 
+                <a class="btngr" href="#">Start an Application</a>
+                <p>Got a question ?<a href="#"><strong>Schedule a Call</strong></a></p>
+
                 </div>
-               </div>
-             </div>
-          </article>
-         </div>
+                </div>
+
+                </div>
+                </article>
+                </div>
+</div>
       </div>
         </div>
         <div data-role="footer">
