@@ -346,7 +346,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	box-shadow: 0 0 1px 1px #dcdcdc inset;
-    color:#dcdcdc;
+    color:#dcdcdc!important;
 }
 .loginSection ul li label input[type=text]:not(.k-input):focus, .loginSection ul li label input[type=password]:focus {
     -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;
@@ -363,7 +363,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	box-shadow: 0 0 1px 1px #dcdcdc inset;
-    color:#dcdcdc;
+    color:#dcdcdc!important;
 }
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {
     /* Safari 4-5, Chrome 1-9 */ 
