@@ -12,7 +12,7 @@
      app.homesetting = {
          viewModel: new HomepageViewModel(),
          initHome: function () {
-            alert('home start');
+            app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
             transport: {
             read: {
@@ -55,16 +55,12 @@
 				}
 				if(matchstatus == 1 && funded == 1){
 					pos = 5;
-				}
-                LoginViewModel.showloder();
+				}     
                 alert(pos);
+                app.loginService.viewModel.hideloder();
 			});      
         }
-      
-        	
+           	
     };
-    $.extend(window, {
-		LoginViewModel: app.LoginViewModel,
-		
-	});
+ 
 })(window);
