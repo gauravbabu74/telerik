@@ -346,12 +346,13 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	box-shadow: 0 0 1px 1px #dcdcdc inset;
-    color:#dcdcdc!important;
+    color:#dcdcdc;
 }
 .loginSection ul li label input[type=text]:not(.k-input):focus, .loginSection ul li label input[type=password]:focus {
     -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;
 	-moz-box-shadow: 0 0 1px 1px #90bf02 inset;
 	box-shadow: 0 0 1px 1px #90bf02 inset;
+    color:#333;
 }
 .loginSection ul li label input[type=password] {
     width:100%;
@@ -363,7 +364,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	box-shadow: 0 0 1px 1px #dcdcdc inset;
-    color:#dcdcdc!important;
+    
 }
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {
     /* Safari 4-5, Chrome 1-9 */ 
@@ -392,8 +393,10 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     background-image: url(../styles/images/popup-img.png);
     text-indent:-9000px;
     width:5px;
+    background-position:10px 0;
     height:17px;
     background-repeat:no-repeat;
+    margin:0 10px 0 0;
     border:0;
     background-color:#f4f4f4;
     border-radius:0;
@@ -407,7 +410,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     background-repeat: no-repeat;
     width: 130px;
     height:34px;
-    margin: 10px auto;
+    margin: 15px auto;
     background-position:center;
 }
 .km-ios #popover .km-view-title, .km-ios #popover-people .km-view-title { 
@@ -531,7 +534,7 @@ dashview .tooltip div span{font-size:12px; color:666666; float:left; width:47%; 
 dashview .tooltip div span:nth-child(even){ float:right; color:333; text-align:left}
 .edtdet{ text-align:center; padding:20px 0px;}
 #dashview .tooltip div a.btnblck{ background-image:none; color:#FFF; padding:11px 15px; display:inline-block; margin:0px auto; clear:both}
-#stps{ height:108px;}
+#stps{ height:108px; background:#fff;}
 #stps ul{ margin:0px; padding:10px 0px 0px 0px; height:98px; background-image:url(../styles/images/linegr.png); background-repeat:repeat-x; background-position:center center; list-style:none;}
 #stps ul li{ width:18%; float:left; padding-left:1%; padding-right:1%; padding-top:0px; text-align:center; font-size:30px; color:#CCC}
 #stps ul li a{  padding-top:20px;display:block; color:#CCC}
