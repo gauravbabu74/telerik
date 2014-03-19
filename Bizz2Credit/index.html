@@ -23,19 +23,18 @@
         </div>
         <div class="view-content" data-model="app.homesetting.viewModel">
             <div id="homePage" data-template="homepage-listview-template" data-bind="source: homepagedata">
-                
 			</div>
         </div>
         <div data-role="footer">
-            <div data-role="navbar" class="documentClick">
-                <a href="#tabstrip-docs"><img src="styles/images/ic_launcher.png"><span>Documents</span></a>
+            <div data-role="navbar">
+                <a href="#tabstrip-docs">Documents</a>
             </div>
         </div>
-        <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "10em"}'>
+        <div data-role="popover" id="popover-people" data-popup='{"height": "8em", "width": "10em"}'>
             
           <div data-role="view" data-model="app.loginService.viewModel">
             <ul data-role="listview">
-                <li data-bind="click: onLogout1">Refresh</li>
+                <li data-bind="click: onLogout1" >Refresh</li>
                 <li data-bind="click: onLogout">Logout</li>
                 <li data-bind="click: onLogout2">Setting</li>
             </ul>
