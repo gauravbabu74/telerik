@@ -18,3 +18,16 @@ function viewInit(e)
     filterable: true
     }); 
 }
+function homeInit(e)
+{
+    if(sessionStorage.getItem("isLoggedIn") === true){
+        
+         kendo.history.navigate("#tabstrip-home");
+         apps.navigate("#tabstrip-home");
+    }else{
+        
+        kendo.history.navigate("#tabstrip-login");
+        apps.navigate("#tabstrip-login");
+    }
+    
+}

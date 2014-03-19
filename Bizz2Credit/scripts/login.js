@@ -69,7 +69,6 @@
                var that = this;
                that.hideloder();
                sessionStorage.setItem("isLoggedIn",true);
-               kendo.history.navigate("#tabstrip-login");
                that.navigateHome();
         },
         
@@ -77,14 +76,16 @@
         setUserLogout: function () {
             var that = this;
             that.set("isLoggedIn", false);
-            sessionStorage.setItem("isLoggedIn",false);      
+            sessionStorage.setItem("isLoggedIn",false);
+            kendo.history.navigate("#tabstrip-login");
             apps.navigate("#tabstrip-login");
             that.clearForm();
             closeParentPopover();
             
         },
         navigateHome: function()
-        {            
+        {  
+             kendo.history.navigate("#tabstrip-home");
              apps.navigate("#tabstrip-home");
         },
         clearForm: function () {

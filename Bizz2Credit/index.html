@@ -15,7 +15,7 @@
     <script src="scripts/schedule.js"></script>
 <body>
     <!--Home-->
-    <div id="tabstrip-home" data-role="view" class="home">
+    <div id="tabstrip-home" data-role="view" class="home" data-init="homeInit">
         <div data-role="header">
               <div data-role="navbar">
                 <span data-role="view-title"><div class="logo"></div></span>
@@ -34,30 +34,29 @@
                         <li class="activ"><a href=""><strong>2</strong><span>Loan Matches</span></a><span class="dnar"></span></li>
                         <li><a href=""><strong>3</strong><span>Required Docs.</span></a><span class="dnar"></span></li>
                         <li><a href=""><strong>&nbsp;</strong><span>Funded</span></a><span class="dnar"></span></li>
-        			  </ul>
-    			</div>
-    			<div class="clearfix" id="stpSumAc">
-    				<div class="stpsumry">
-                		<h2>We have 67 matches for you !</h2>
-                		<p>Application <span>23456</span> has <span>11 Results</span>select a loan from here.</p>
-    				</div>
-    				<div class="stpcurrntAc">
-      				<a class="btngr" href="">Start an Application</a>
-      				<p><a href="#" data-rel="modalview"><strong>Schedule a Call</strong></a></p> 
-      		  	</div>
+         </ul>
+    </div>
+    <div class="clearfix" id="stpSumAc">
+    <div class="stpsumry">
+                <h2>We have 67 matches for you !</h2>
+                <p>Application <span>23456</span> has <span>11 Results</span>select a loan from here.</p>
+    </div>
+    <div class="stpcurrntAc">
+      <a class="btngr" href="">Start an Application</a>
+      <p><a href="#" data-rel="modalview"><strong>Schedule a Call</strong></a></p> 
+           </div>
                </div>
-			</div>
-			</article>
-			</div>
-		</div>
+</div>
+</article>
+</div>
+</div>
         </div>
         <div data-role="footer">
-            <div data-role="navbar">
-                <a href="#tabstrip-docs">Documents</a>
+            <div data-role="navbar" class="documentClick">
+                <a href="#tabstrip-docs"><img src="styles/images/ic_launcher.png"><span>Documents</span></a>
             </div>
         </div>
-        <div data-role="popover" id="popover-people" data-popup='{"height": "8em", "width": "10em"}'>
-            
+        <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "10em"}'>            
           <div data-role="view" data-model="app.loginService.viewModel">
             <ul data-role="listview">
                 <li data-bind="click: onLogout1" >Refresh</li>
@@ -153,20 +152,19 @@
         <!--Footer-->
     </div>
     <!-- Home page template -->
-		<script type="text/x-kendo-template" id="homepage-listview-template">
-			<h3 class="item-title">#:title#</h3>
-			<p class="item-info">#:description#</p>
-		</script>
-     <!-- Documents page template -->
-		<script type="text/x-kendo-template" id="docs-template">
-			#: name # - #: modified #
-		</script>
+    <script type="text/x-kendo-template" id="homepage-listview-template">
+        <h3 class="item-title">#:title#</h3>
+        <p class="item-info">#:description#</p>
+    </script>
+    <!-- Documents page template -->
+    <script type="text/x-kendo-template" id="docs-template">
+    	#: name # - #: modified #
+    </script>
     <script>
-    function closeParentPopover() {
-     $("#popover-people").data("kendoMobilePopOver").close();
-    }
-
-   </script>
+        function closeParentPopover() {
+        	$("#popover-people").data("kendoMobilePopOver").close();
+        }
+    </script>
      
 </body>
 </html>
