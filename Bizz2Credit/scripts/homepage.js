@@ -1,4 +1,4 @@
-(function (global) {
+(function (global,$) {
     var HomepageViewModel,
         app = global.app = global.app || {};
 
@@ -37,25 +37,33 @@
                 var loan_total = data[0]['results']['data']['loanamt'];
                 var matchstatus = data[0]['results']['data']['matchstatus'];
                 var funded = data[0]['results']['data']['funded'];
-
-                if(cntGetStarted == 0 && loan_total == 0){
-					pos = 1;
+				console.log(data);
+                //console.log(loan_total);
+                //console.log(matchstatus);
+                //console.log(funded);
+                if(cntGetStarted === 0 && loan_total === 0){
+					pos = 0;
 				}
 		
-				if(matchstatus == 2 && loan_total > 0){
+				if(matchstatus === 2 && loan_total > 0){
+					pos = 1;
+				}
+				if(matchstatus === 0){
 					pos = 2;
 				}
-				if(matchstatus == 0){
+				if(matchstatus === 1){
+					pos = 2;
+				}else if(matchstatus === 1 && funded === 0){
 					pos = 3;
 				}
-				if(matchstatus == 1){
-					pos = 3;
-				}else if(matchstatus == 1 && funded == 0){
+				if(matchstatus === 1 && funded === 1){
 					pos = 4;
-				}
-				if(matchstatus == 1 && funded == 1){
-					pos = 5;
-				}     
+				}  
+                //alert(pos);
+                console.log(pos);
+                $('#stps ul li').removeClass();
+                $('#stps ul li:eq('+pos+')').addClass('activ');
+                $('#stps ul li:lt('+pos+')').addClass('dn');
                 //alert(pos);
                 app.loginService.viewModel.hideloder();
 			});      
@@ -63,4 +71,4 @@
            	
     };
  
-})(window);
+})(window,jQuery);

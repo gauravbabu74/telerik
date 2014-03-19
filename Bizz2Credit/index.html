@@ -4,10 +4,13 @@
     <title></title>
     <meta charset="utf-8" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo-ui-complete.js"></script>
+    <script src="kendo/js/kendo.web.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/login.js"></script> 
     <script src="scripts/homepage.js"></script> 
@@ -27,7 +30,7 @@
             <div id="blackBlk">
                 <div class="warps">
                 <div class="desbrdIcon clearfix">
-               	<div class="dasimg"><img src="styles/images/ic_dashboard.png" alt="img"></div> <span>Deshboard</span>
+               	<div class="dasimg"><img src="styles/images/ic_dashboard.png" alt="img"></div> <span>Dashboard</span>
                 </div>
                 <article class="clearfix" id="dashview"><div class="warps clearfix">
                 <div id="stps">
@@ -53,7 +56,7 @@
 
                 <div class="stpcurrntAc">
                 <a class="btngr" href="#">Start an Application</a>
-                <p><a href="#"><img src="styles/images/call_schedule.png" alt="img"><strong>Schedule a Call</strong></a></p>
+                <p><a href="#tabstrip-scall" data-rel="modalview" data-role="button"><img src="styles/images/call_schedule.png" alt="img"><strong>Schedule a Call</strong></a></p>
 
                 </div>
                 </div>
@@ -113,7 +116,7 @@
 
     </div>
     <!--Schedule a Call-->
-    <div id="tabstrip-scall" data-role="modalview" data-model="app.scheduleService.viewModel">
+    <div id="tabstrip-scall" data-role="modalview"  data-height="380" data-model="app.scheduleService.viewModel">
         
         <div class="view-content">
             <h3>Schedule a FREE Loan Consultation</h3>
@@ -134,8 +137,8 @@
                 </ul>
 
                 <div class="buttonArea">
-                    <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
-                    <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
+                    <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
+                    <input type="submit" id="schedule" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="schedule-button" value="Schedule" />
                 </div>
             </form>
         </div>
