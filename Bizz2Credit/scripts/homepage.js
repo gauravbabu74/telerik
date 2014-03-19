@@ -56,11 +56,15 @@
 				if(matchstatus == 1 && funded == 1){
 					pos = 5;
 				}
-                window.LoginViewModel.showloder();
+                LoginViewModel.showloder();
                 alert(pos);
 			});      
         }
       
         	
     };
+    $.extend(window, {
+		LoginViewModel: app.LoginViewModel,
+		
+	});
 })(window);
