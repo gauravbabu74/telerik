@@ -56,7 +56,7 @@
 				if(matchstatus == 1 && funded == 1){
 					pos = 5;
 				}     
-                alert(pos);
+                //alert(pos);
                 app.loginService.viewModel.hideloder();
 			});      
         }
