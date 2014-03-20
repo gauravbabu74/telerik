@@ -579,12 +579,12 @@ body, html{ margin:0; padding:0; height:100%;}
 .stpcurrntAc{ width:100%; padding-top:5px; float:none; text-align:center}
 }
 @media only screen and (max-width: 480px){ 
-#stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 12px;    height:25px; line-height:13px;}
+#stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 12px;    height:30px; line-height:13px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; margin:5px 0;} 
 .stpsumry p {color: #333333;    font-size: 15px; margin:10px 0;}
 #stps ul li strong {height:38px;}
-#stps ul li.activ  span.dnar{ height:25px; background-position:center 0px;} 
+#stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
-#stpSumAc{padding:15px 5px 5px 5px;}
-#blackBlk {height:338px; overflow:hidden;}
+#stpSumAc{padding:17px 5px 17px 5px;}
+#blackBlk {height:348px; overflow:hidden;}
 }
