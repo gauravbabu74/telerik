@@ -11,6 +11,16 @@
     });
      app.homesetting = {
          viewModel: new HomepageViewModel(),
+         checkMatchesStatus: function(msdata)
+         {
+             console.log(msdata);
+             $.each(msdata, function( index, value ) {
+  			if(value.statusid >= 1){
+                  return true;
+              }
+			});
+             return false;
+         },
          initHome: function () {
             app.loginService.viewModel.showloder();
             var dataSource = new kendo.data.DataSource({
@@ -30,17 +40,18 @@
             }
             });
             dataSource.fetch(function(){
-                
-            	var data = this.data(); 
+                var that = this;
+            	var data = that.data(); 
                 
                 var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
                 var loan_total = data[0]['results']['data']['loanamt'];
                 var matchstatus = data[0]['results']['data']['matchstatus'];
                 var funded = data[0]['results']['data']['funded'];
-				console.log(data);
+				//console.log(data);
                 //console.log(loan_total);
                 //console.log(matchstatus);
-                //console.log(funded);
+               // console.log(app);
+                
                 if(cntGetStarted === 0 && loan_total === 0){
 					pos = 0;
 				}
@@ -48,7 +59,7 @@
 				if(matchstatus === 2 && loan_total > 0){
 					pos = 1;
 				}
-				if(matchstatus === 0){
+				if(matchstatus === 0 && app.homesetting.checkMatchesStatus(data[0]['results']['data']['loan']['matchrows'])){
 					pos = 2;
 				}
 				if(matchstatus === 1){
@@ -67,7 +78,8 @@
                 //alert(pos);
                 app.loginService.viewModel.hideloder();
 			});      
-        }
+        },
+        
            	
     };
  
