@@ -446,7 +446,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
 }
 .documentClick .km-view-title a {
     display:inline-block;
-    padding:7px;
+    padding:7px 7px 0px;
 }
 .documentClick .km-view-title a img {
     float:left;
@@ -581,7 +581,7 @@ body, html{ margin:0; padding:0; height:100%;}
 @media only screen and (max-width: 480px){ 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 12px;    height: 32px; line-height:13px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; margin:0;} 
-.stpsumry p {color: #333333;    font-size: 15px; margin:7px;}
+.stpsumry p {color: #333333;    font-size: 15px; margin:9px 07px;}
 #stps ul li strong {height:38px;}
 #stps{ height:101px;}
 }
