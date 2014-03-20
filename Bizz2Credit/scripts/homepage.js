@@ -5,41 +5,11 @@
     HomepageViewModel = kendo.data.ObservableObject.extend({
         
         title:'test',
-        description:'gaurav',
-        detailsButtonText:"",
-        dashboardRefresh:function()
-        {
-            var dataSource = new kendo.data.DataSource({
-            transport: {
-            read: {
-                    url: "http://biz2services.com/mobapp/api/user/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"userdashboard",userid:12516} // search for tweets that contain "html5"
-            }
-            },
-            schema: {
-                data: function(data)
-            	{
-                	return [data];
-                    
-            	}
-            }
-            });
-            dataSource.fetch(function(){
-
-				
-                    detailsButtonText = "Start an Application";
-                    
-                
-			}); 
-            detailsButtonText = "Start an Application";
-        },
-        
-        
+        detailsHeader:'',
+       
     });
      app.homesetting = {
-         viewModel: new HomepageViewModel(),
+         
          checkMatchesStatus: function(msdata)
          {
              console.log(msdata);
@@ -71,10 +41,8 @@
             dataSource.fetch(function(){
                 var that = this;
             	var data = that.data(); 
-                var detailsHeader = 'test';
-                var detailsDescription;
-                var detailsButtonText;
-                var detailsButtonLink;
+                detailsHeader = 'test';
+                 
                 var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
                 var loan_total = data[0]['results']['data']['loan']['total'];
                 var loan_ended = data[0]['results']['data']['loan']['ended'];
@@ -118,6 +86,7 @@
                 app.loginService.viewModel.hideloder();
 			});      
         },
+         viewModel: new HomepageViewModel(),
         
            	
     };
