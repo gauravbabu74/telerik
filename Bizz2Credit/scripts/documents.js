@@ -22,7 +22,10 @@ $(document).ready(function(){
     $("#datepicker").kendoDatePicker({
        value: new Date(),
        min: new Date(1950, 0, 1),
-       max: new Date(2049, 11, 31)
+       max: new Date(2049, 11, 31),
+       
     })
-     $("#timepicker").kendoTimePicker();
+    $('#datepicker').attr('disabled','disabled');
+    $("#timepicker").kendoTimePicker();
+    $('#timepicker').attr('disabled','disabled');
 });
