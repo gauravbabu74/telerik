@@ -574,6 +574,83 @@ body, html{ margin:0; padding:0; height:100%;}
 .blogent ul li:nth-child(even){ float:right}
 .btngr {background-color:#99cc00; padding:6px 20px; -webkit-border-radius: 3px; border-radius: 3px;     box-shadow: 3px 3px 0 0 #dfdddd; color:#FFF !important; font-weight:bold; font-size:1.1em; text-decoration:none; }
 .btngr:focus { background-color:#7da600;}
+/*************21-03-14*************/
+.schedulePopup { padding:0; margin:2%; width:96%; height:58%;}
+.schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 45px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
+.schedulePopup .scheduleSection { padding:0 15px;}
+.schedulePopup .scheduleSection .phoneNumber {
+    -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;
+	-moz-box-shadow: 0 0 1px 1px #90bf02 inset;
+	box-shadow: 0 0 1px 1px #90bf02 inset;
+    color:#333;
+    width:100%;
+    font-size:0.8em;
+    position:inherit;
+    margin-top:0;
+    border:1px solid #dcdcdc;
+    border-radius:3px;
+    padding:0.6em !important;
+}
+.schedulePopup .scheduleSection .km-listview-wrapper { padding:10px 0 0;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul { margin:0; border:0;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li { border:0; padding:0; float:right; width:49%;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li:first-child { float:left;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap {border-radius:0; border:0; padding:0;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius:0; height:auto;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { border:1px solid #d7d7d7;border-radius:1px;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-widget {width:100%;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select {background-image: url(images/icon_calender_date.png); background-repeat:no-repeat; background-size:10%; background-position:96% 5px;width:100%; background-color:transparent;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select {background-image: url(images/icon_calender_time.png); background-repeat:no-repeat; background-size:10%; background-position:96% 7px;width:100%; background-color:transparent;}
+.schedulePopup .scheduleSection .buttonArea { text-align:left;}
+.schedulePopup .scheduleSection .buttonArea .km-button {
+    width:48%; 
+    float:left;
+    /* Safari 4-5, Chrome 1-9 */ 
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7)); 
+    /* Safari 5.1, Chrome 10+ */ 
+    background: -webkit-linear-gradient(top, #e7e7e7, #cbcbcb);
+    /* Firefox 3.6+ */ 
+    background: -moz-linear-gradient(top, #e7e7e7, #cbcbcb); 
+    /* IE 10 */ 
+    background: -ms-linear-gradient(top, #e7e7e7, #cbcbcb); 
+    /* Opera 11.10+ */ 
+    background: -o-linear-gradient(top, #e7e7e7, #cbcbcb);
+    border-radius:3px;
+    border:1px solid #808080;
+    color:#000;
+    font-size:1.125em;
+    -moz-box-shadow: inset 0px 0px 1px #7a9e0e;
+	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
+	box-shadow: inset 0px 0px 1px #7a9e0e;
+    border-radius:1px;
+    padding:5px 0;
+    border:1px solid #808080;
+}
+
+.schedulePopup .scheduleSection .buttonArea .schedule-button {
+    /* Safari 4-5, Chrome 1-9 */ 
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f)); 
+    /* Safari 5.1, Chrome 10+ */ 
+    background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);
+    /* Firefox 3.6+ */ 
+    background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); 
+    /* IE 10 */ 
+    background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); 
+    /* Opera 11.10+ */ 
+    background: -o-linear-gradient(top, #9fcf0f, #8dbc00);
+    border-radius:3px;
+    border:1px solid #808080;
+    color:#000;
+    font-size:1.125em;
+    -moz-box-shadow: inset 0px 0px 1px #7a9e0e;
+	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
+	box-shadow: inset 0px 0px 1px #7a9e0e;
+    float:right; 
+    width:48%;
+    padding:5px 0;
+    border-radius:1px;
+}
+/*************21-03-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:5px; float:none; text-align:center}
