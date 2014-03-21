@@ -115,7 +115,7 @@
 
     </div>
     <!--Schedule a Call-->
-    <div id="tabstrip-scall" data-role="modalview"  data-height="380" data-model="app.scheduleService.viewModel">
+    <div id="tabstrip-scall" class="schedulePopup" data-role="modalview"  data-height="380" data-model="app.scheduleService.viewModel">
         
         <div class="view-content">
             <h3>Schedule a FREE Loan Consultation</h3>
@@ -134,7 +134,7 @@
                         </label>
                     </li>
                 </ul>
-
+				<p class="scall-text">Choose a date & time in EST(Eastern Standard Time)</p>
                 <div class="buttonArea">
                     <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
                     <input type="submit" id="schedule" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="schedule-button" value="Schedule" />
