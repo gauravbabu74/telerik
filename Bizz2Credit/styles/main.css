@@ -390,11 +390,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     padding:0;
 }
 .home .popup {
-    background-image: url(../styles/images/popup-img.png);
+    background-image: url(../styles/images/ic_action_overflow.png);
     text-indent:-9000px;
-    width:5px;
-    background-position:10px 0;
-    height:28px;
+    width:36px;
+    background-position:center center;
+    height:38px;
     background-repeat:no-repeat;
     margin:0 10px 0 0;
     border:0;
@@ -531,7 +531,7 @@ body, html{ margin:0; padding:0; height:100%;}
 #blackBlk .desbrdIcon { padding:7px 0 7px 10px; display:block;}
 #blackBlk .desbrdIcon .dasimg { float:left; padding:0 10px 0 0; width:15%;}
 #blackBlk .desbrdIcon .dasimg img { max-width:100%; width:100%; height:auto;}
-#blackBlk .desbrdIcon span { float:left; display:inline; padding:0; line-height:2.5em; color:#fff; font-weight:700; font-size:1em;}
+#blackBlk .desbrdIcon .span {background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 12px; background-size:8%; display:block; padding:0; line-height:2.5em; color:#fff; font-weight:700; font-size:1em;}
 #dashview{ background-color:#FFF; border:3px solid #ececec; -webkit-border-radius: 6px; border-radius: 6px;}
 #dashview .tooltip {background-color: #FFFFFF;     border: 1px solid #999999;	box-shadow: 3px 3px 0 0 #e0e0e0;    display: none;    height: auto;    margin: 10px auto 0;    padding: 20px 20px 10px;    text-align: left; width:230px; font-size:11px;	-webkit-border-radius: 3px; border-radius: 3px;     z-index: 9999999; }
 #dashview .tooltip span.tpar {    background-image: url("images/tootltip_ar.png");    background-position: center top;    background-repeat: no-repeat;    display: block;    height: 17px;    margin-top: -32px;    position: absolute;    width: 250px;
@@ -566,7 +566,7 @@ body, html{ margin:0; padding:0; height:100%;}
 .stpsumry p span{ color:#000; font-weight:bold }
 .stpcurrntAc{ width: 41%; float:right; padding-top:30px; text-align:right}
 .stpcurrntAc p{ padding:5px 0px 0px 0px; font-size:14px; color:#999999; margin:5px 0 0;}
-.stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#575757; background:none !important; padding:0 !important; border:0 !important;}
+.stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#575757; background-image:url(images/call_schedule.png) !important; background-color:#ececec !important; background-repeat:no-repeat !important; background-position:0px 1px !important; padding:0 0 0 18px !important; background-size:13% !important; border:0 !important;}
 .stpcurrntAc p a img{ vertical-align:middle; padding:0 3px 0 0;}
 .blogent ul{ margin:0px; padding:0px; list-style:none}
 .blogent ul li{ margin:0px; padding:0px; width:46%; float:left}
