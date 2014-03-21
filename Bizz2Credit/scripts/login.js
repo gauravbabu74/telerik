@@ -49,10 +49,10 @@
                 
             	var data = this.data();              
                 //var loginMsg = data[0]['results']['faultmsg'];
-                //console.log(data);
+                console.log(data);
             	if(data[0]['results']['faultcode'] === '1')
                 {
-                    that.setUserLogin();
+                    that.setUserLogin(data[0]['results']['UserData']);
  
                 }
                 else{
@@ -65,11 +65,20 @@
             });      
         },
        
-        setUserLogin: function () {
-               var that = this;
-               that.hideloder();
-               sessionStorage.setItem("isLoggedIn",true);
-               that.navigateHome();
+        setUserLogin: function (userinfo) {
+            var that = this;
+            that.hideloder();
+            userdata=[];
+            userdata['userFName']=userinfo['userFName'];
+            userdata.push(userinfo['userLName']);
+            userdata.push(userinfo['userID']);
+            userdata.push(userinfo['userEmail']);
+            userdata.push(userinfo['userMobile']);
+            that.set("userFName",userinfo['userFName']);
+            console.log(that);
+            sessionStorage.setItem("isLoggedIn",true);
+            sessionStorage.setItem("userinfo",userdata);
+            that.navigateHome();
         },
         
 		
@@ -77,6 +86,8 @@
             var that = this;
             that.set("isLoggedIn", false);
             sessionStorage.setItem("isLoggedIn",false);
+            sessionStorage.removeItem("userinfo");
+            localStorage.clear();
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
