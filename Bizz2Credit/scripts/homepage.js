@@ -57,6 +57,7 @@
             var dDescription="";
             var dButtonText="";
             var dButtonLink=""
+            var userName= app.loginService.viewModel.get("username");
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var loan_total = data[0]['results']['data']['loan']['total'];
             var loan_ended = data[0]['results']['data']['loan']['ended'];
@@ -85,10 +86,9 @@
             $('#stps ul li').removeClass();
             $('#stps ul li:eq('+pos+')').addClass('activ');
             $('#stps ul li:lt('+pos+')').addClass('dn');
-            console.log(sessionStorage.getItem("userinfo"));
             //console.log(app);
             //if((cntGetStarted>=1 && loan_total===0) || (loan_total===loan_ended)) {
-            dHeader ='Hi '+matchstatus+', we have '+totmatch+' potential options for you!';
+            dHeader ='Hi '+userName+', we have '+totmatch+' potential options for you!';
             dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
             dButtonText = "Start an Application";
             dButtonLink ="#";

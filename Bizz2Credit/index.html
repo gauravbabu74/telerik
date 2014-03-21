@@ -20,67 +20,64 @@
     <!--Home-->
     <div id="tabstrip-home" data-role="view" class="home" data-model="app.homesetting.viewModel" data-init="app.homesetting.initHome">
         <div data-role="header">
-              <div data-role="navbar">
-                <span data-role="view-title"><div class="logo"></div></span>
-                <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
-              </div>
+            <div data-role="navbar">
+            	<span data-role="view-title"><div class="logo"></div></span>
+            	<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
+            </div>
         </div>
         <div class="view-content">
             <div id="homePage" >
             <div id="blackBlk">
-                <div class="warps">
+            <div class="warps">
                 <div class="desbrdIcon clearfix">
-               	<div class="dasimg"><img src="styles/images/ic_dashboard.png" alt="img"></div> <span>Dashboard</span>
+                    <div class="dasimg">
+                        <img src="styles/images/ic_dashboard.png" alt="img">
+                    </div>
+                    <span>Dashboard</span>
                 </div>
-                <article class="clearfix" id="dashview"><div class="warps clearfix">
-                <div id="stps">
-                <ul>
+                <article class="clearfix" id="dashview">
+                    <div class="warps clearfix">
+                    <div id="stps">
+                        <ul>
+                            <li class="dn"><a class="reld_info" href="#"><strong>&nbsp;</strong><span>Get Started</span></a><span class="dnar"></span></li>
+                            <li class="activ"><a href="#"><strong>1</strong><span>Loan Application</span></a><span class="dnar"></span></li>
+                            <li><a href="#"><strong>2</strong><span>Loan Matches</span></a><span class="dnar"></span></li>
+                            <li><a href="#"><strong>3</strong><span>Required Docs.</span></a><span class="dnar"></span></li>
+                            <li><a href="#"><strong>&nbsp;</strong><span>Funded</span></a><span class="dnar"></span></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix" id="stpSumAc">
+                        <div class="stpsumry">
+                            <h2 data-bind="text: dHeader"></h2>
+                            <p data-bind="text: dDescription"></p>
+                        </div>
+                        <div class="stpcurrntAc">
+                            <a class="btngr" href="#" data-bind="text: dButtonText"></a>
+                            <p><a href="#tabstrip-scall" data-rel="modalview" data-role="button"><img src="styles/images/call_schedule.png" alt="img"><strong>Schedule a Call</strong></a></p>
+                        </div>
+                	</div>
 
-                <li class="dn"><a class="reld_info" href="#"><strong>&nbsp;</strong><span>Get Started</span></a>
-                <span class="dnar"></span>
-                </li>
-
-                <li class="activ"><a href="#"><strong>1</strong><span>Loan Application</span></a><span class="dnar"></span></li>
-                <li><a href="#"><strong>2</strong><span>Loan Matches</span></a><span class="dnar"></span></li>
-                <li><a href="#"><strong>3</strong><span>Required Docs.</span></a><span class="dnar"></span></li>
-                <li><a href="#"><strong>&nbsp;</strong><span>Funded</span></a><span class="dnar"></span></li>
-                </ul>
-                </div>
-                <div class="clearfix" id="stpSumAc">
-                <div class="stpsumry">
-                <h2 data-bind="text: dHeader"></h2>
-                <p>Application <span>23456</span> has <span>11 Results</span>
-                select a loan from here.</p>
-                </div>
-
-                <div class="stpcurrntAc">
-                <a class="btngr" href="#">Start an Application</a>
-                <p><a href="#tabstrip-scall" data-rel="modalview" data-role="button"><img src="styles/images/call_schedule.png" alt="img"><strong>Schedule a Call</strong></a></p>
-
-                </div>
-                </div>
-
-                </div>
+                	</div>
                 </article>
-                </div>
-</div>
-      </div>
+            </div>
+            </div>
+            </div>
         </div>
         <div data-role="footer">
             <div data-role="navbar" class="documentClick">
-                <a href="#tabstrip-docs"><img src="styles/images/ic_launcher.png"><span>Documents</span></a>
+            	<a href="#tabstrip-docs"><img src="styles/images/ic_launcher.png"><span>Documents</span></a>
             </div>
         </div>
         <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "10em"}'>            
-          <div data-role="view" data-model="app.loginService.viewModel">
-            <ul data-role="listview">
-                <li data-bind="click: onLogout1" >Refresh</li>
-                <li data-bind="click: setUserLogout">Logout</li>
-                <li data-bind="click: onLogout2">Setting</li>
-            </ul>
-          </div>
+            <div data-role="view" data-model="app.loginService.viewModel">
+                <ul data-role="listview">
+                    <li data-bind="click: onLogout1" >Refresh</li>
+                    <li data-bind="click: setUserLogout">Logout</li>
+                    <li data-bind="click: onLogout2">Setting</li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </div>
 
     <!--Login-->
     <div id="tabstrip-login" data-role="view" data-model="app.loginService.viewModel">

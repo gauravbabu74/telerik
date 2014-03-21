@@ -49,7 +49,7 @@
                 
             	var data = this.data();              
                 //var loginMsg = data[0]['results']['faultmsg'];
-                console.log(data);
+                //console.log(data);
             	if(data[0]['results']['faultcode'] === '1')
                 {
                     that.setUserLogin(data[0]['results']['UserData']);
@@ -69,13 +69,11 @@
             var that = this;
             that.hideloder();
             userdata=[];
-            userdata['userFName']=userinfo['userFName'];
+            userdata.push(userinfo['userFName']);
             userdata.push(userinfo['userLName']);
             userdata.push(userinfo['userID']);
             userdata.push(userinfo['userEmail']);
             userdata.push(userinfo['userMobile']);
-            that.set("userFName",userinfo['userFName']);
-            console.log(that);
             sessionStorage.setItem("isLoggedIn",true);
             sessionStorage.setItem("userinfo",userdata);
             that.navigateHome();
