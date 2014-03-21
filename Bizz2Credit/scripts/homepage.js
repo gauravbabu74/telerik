@@ -8,7 +8,8 @@
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
-        homeShow: function () {       
+        homeShow: function () {
+        app.loginService.viewModel.showloder();
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -28,7 +29,6 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            console.log(data[0]['results']);
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var userName= app.loginService.viewModel.get("username");
             //if((cntGetStarted>=1 && loan_total===0) || (loan_total===loan_ended)) {

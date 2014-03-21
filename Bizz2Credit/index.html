@@ -9,7 +9,7 @@
     <link href="styles/main.css" rel="stylesheet" />
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
-    <script src="kendo/js/kendo-ui-complete.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="kendo/js/kendo.web.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/login.js"></script> 
@@ -17,6 +17,7 @@
     <script src="scripts/documents.js"></script>
     <script src="scripts/schedule.js"></script>
 <body>
+     
     <!--Home-->
     <div id="tabstrip-home" data-role="view" class="home" data-show="app.homesetting.viewModel.homeShow"data-model="app.homesetting.viewModel" data-init="app.homesetting.initHome">
         <div data-role="header">
@@ -74,7 +75,7 @@
         <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "10em"}'>            
           <div data-role="view" data-model="app.loginService.viewModel">
             <ul data-role="listview">
-                <li data-bind="click: onLogout1" >Refresh</li>
+                <li data-bind="click: refreshHome" >Refresh</li>
                 <li data-bind="click: setUserLogout">Logout</li>
                 <li data-bind="click: onLogout2">Setting</li>
             </ul>

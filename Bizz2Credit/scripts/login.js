@@ -85,7 +85,6 @@
             that.set("isLoggedIn", false);
             sessionStorage.setItem("isLoggedIn",false);
             sessionStorage.removeItem("userinfo");
-            localStorage.clear();
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
@@ -114,11 +113,15 @@
         },
         showloder:function()
         {
-            apps.pane.loader.show();
+            apps.showLoading();
         },
         hideloder:function()
         {
-            apps.pane.loader.hide();
+            apps.hideLoading();
+        },
+        refreshHome:function()
+        {
+            app.homesetting.viewModel.homeShow();
         }
     });
     
