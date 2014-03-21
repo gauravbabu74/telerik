@@ -18,7 +18,7 @@
     <script src="scripts/schedule.js"></script>
 <body>
     <!--Home-->
-    <div id="tabstrip-home" data-role="view" class="home" data-model="app.homesetting.viewModel" data-init="app.homesetting.initHome">
+    <div id="tabstrip-home" data-role="view" class="home" data-show="app.homesetting.viewModel.homeShow"data-model="app.homesetting.viewModel" data-init="app.homesetting.initHome">
         <div data-role="header">
               <div data-role="navbar">
                 <span data-role="view-title"><div class="logo"></div></span>
@@ -49,13 +49,12 @@
 
                 <div class="clearfix" id="stpSumAc">
                 <div class="stpsumry">
-                <h2>We have 67 matches for you !</h2>
-                <p>Application <span>23456</span> has <span>11 Results</span>
-                select a loan from here.</p>
+                <h2 data-bind="text: dHeader"></h2>
+                <p data-bind="text: dDescription"></p>
                 </div>
 
                 <div class="stpcurrntAc">
-                <a class="btngr" href="#">Start an Application</a>
+                <a class="btngr" href="#" data-bind="text: dButtonText"></a>
                 <p><a href="#tabstrip-scall" data-rel="modalview" data-role="button"><strong>Schedule a Call</strong></a></p>
 
                 </div>
@@ -131,7 +130,7 @@
                     </li>
                     <li>
                         <label>
-                                <input type="text" data-bind="value: stime" placeholder="Select Time" />
+                                <input id="timepicker" value="10:00 AM" />
                         </label>
                     </li>
                 </ul>
@@ -164,7 +163,6 @@
                 <span data-role="view-title"></span>
             </div>
         </div>
-
         <!--Footer-->
     </div>
     <!-- Home page template -->

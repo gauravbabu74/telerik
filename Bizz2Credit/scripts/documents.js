@@ -24,4 +24,5 @@ $(document).ready(function(){
        min: new Date(1950, 0, 1),
        max: new Date(2049, 11, 31)
     })
+     $("#timepicker").kendoTimePicker();
 });

@@ -29,5 +29,5 @@
        // navigator.splashscreen.hide();
        // $(document.body).height(window.innerHeight);
    // }, false);
-    apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat", webAppCapable: false});
+    apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
 })(window);
