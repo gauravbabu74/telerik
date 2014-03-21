@@ -653,12 +653,12 @@ body, html{ margin:0; padding:0; height:100%;}
 /*************21-03-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
-.stpcurrntAc{ width:100%; padding-top:5px; float:none; text-align:center}
+.stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
 @media only screen and (max-width: 480px){ 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 12px;    height:30px; line-height:13px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; margin:5px 0;} 
-.stpsumry p {color: #333333;    font-size: 15px; margin:10px 0;}
+.stpsumry p {color: #333333; height:35px;font-size: 15px; margin:10px 0 0; overflow:scroll;}
 #stps ul li strong {height:38px;}
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
