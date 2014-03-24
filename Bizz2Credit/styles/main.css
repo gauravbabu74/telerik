@@ -342,7 +342,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     margin-top:0;
     border:1px solid #dcdcdc;
     border-radius:3px;
-    padding:0.6em !important;
+    padding:0.9em !important;
     -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	box-shadow: 0 0 1px 1px #dcdcdc inset;
@@ -360,7 +360,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     margin-top:0;
     border:1px solid #dcdcdc;
     border-radius:3px;
-    padding:0.6em!important;
+    padding:0.9em!important;
     -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;
 	box-shadow: 0 0 1px 1px #dcdcdc inset;
@@ -382,6 +382,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     color:#000;
     font-size:1.125em;
     -moz-box-shadow: inset 0px 0px 1px #7a9e0e;
+    padding:0.9em!important;
 	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
 	box-shadow: inset 0px 0px 1px #7a9e0e;
 }
@@ -392,11 +393,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
 .home .popup {
     background-image: url(../styles/images/ic_action_overflow.png);
     text-indent:-9000px;
-    width:36px;
+    width:40px;
     background-position:center center;
-    height:38px;
+    height:40px;
     background-repeat:no-repeat;
-    margin:0 10px 0 0;
+    margin:0 5px 0 0;
     border:0;
     background-color:#f4f4f4;
     border-radius:0;
@@ -432,6 +433,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content {
     -moz-box-shadow:0px 0px 4px #7f7f7f;
     -webkit-box-shadow:0px 0px 4 px #7f7f7f;
     box-shadow:0px 0px 4px #7f7f7f;    
+    margin:-13px 0 0;
 }
 .popupBox li {
     color:#333;
@@ -527,11 +529,11 @@ body, html{ margin:0; padding:0; height:100%;}
     height: 0;
     visibility: hidden;
 }
-#blackBlk { background:#000; padding:2%; display:block;}
+#blackBlk { padding:2% 2% 4%; display:block;}
 #blackBlk .desbrdIcon { padding:7px 0 7px 10px; display:block;}
 #blackBlk .desbrdIcon .dasimg { float:left; padding:0 10px 0 0; width:15%;}
 #blackBlk .desbrdIcon .dasimg img { max-width:100%; width:100%; height:auto;}
-#blackBlk .desbrdIcon .span {background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 12px; background-size:8%; display:block; padding:0; line-height:2.5em; color:#fff; font-weight:700; font-size:1em;}
+#blackBlk .desbrdIcon .span {background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 12px; background-size:8%; display:block; padding:0; line-height:2em; color:#fff; font-size:1.2em;}
 #dashview{ background-color:#FFF; border:3px solid #ececec; -webkit-border-radius: 6px; border-radius: 6px;}
 #dashview .tooltip {background-color: #FFFFFF;     border: 1px solid #999999;	box-shadow: 3px 3px 0 0 #e0e0e0;    display: none;    height: auto;    margin: 10px auto 0;    padding: 20px 20px 10px;    text-align: left; width:230px; font-size:11px;	-webkit-border-radius: 3px; border-radius: 3px;     z-index: 9999999; }
 #dashview .tooltip span.tpar {    background-image: url("images/tootltip_ar.png");    background-position: center top;    background-repeat: no-repeat;    display: block;    height: 17px;    margin-top: -32px;    position: absolute;    width: 250px;
@@ -544,7 +546,7 @@ body, html{ margin:0; padding:0; height:100%;}
 #stps{ height:108px;}
 #stps ul{ margin:0px; padding:10px 0px 0px 0px; height:98px; background-image:url(images/linegr.png); background-repeat:repeat-x; background-position:center center; list-style:none;}
 #stps ul li{ width:20%; float:left; padding-left:1%; padding-right:1%; padding-top:0px; text-align:center; font-size:30px; color:#CCC}
-#stps ul li a{  padding-top:20px;display:block; color:#CCC; text-decoration:none;}
+#stps ul li a{  padding-top:16px;display:block; color:#CCC; text-decoration:none;}
 
 #stps ul li.dn a{ background-image:url(images/stepdone.jpg); background-repeat:no-repeat;  background-position:center top; color:#cce57f   }
 #stps ul li.dn a span{ color:#cce57f  }
@@ -555,8 +557,8 @@ body, html{ margin:0; padding:0; height:100%;}
 #stps ul li strong{ font-weight:normal; background-color:#FFF; padding:0px 10px; display:inline-block; height:45px;}
 #stps ul li:first-child { background-image:url(images/bkg-step.png); background-repeat:no-repeat; background-position:top center;}
 #stps ul li:last-child { background-image:url(images/bkg-step2.png); background-repeat:no-repeat; background-position:top center;}
-#stps ul li:first-child strong{ background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:5px 14px}
-#stps ul li:last-child strong{ background-image:url(images/dollar.png); background-repeat:no-repeat; background-position:8px 13px}
+#stps ul li:first-child strong{ background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:5px 13px}
+#stps ul li:last-child strong{ background-image:url(images/dollar.png); background-repeat:no-repeat; background-position:8px 12px}
 #stps ul li.dn:last-child strong{ background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:-777px -377px}
 #stps ul li span{ font-size:14px; color:#ccc; display:block; height:32px}
 #stpSumAc{ background-color:#ececec; padding:15px 30px 5px 30px;}
@@ -575,7 +577,7 @@ body, html{ margin:0; padding:0; height:100%;}
 .btngr {background-color:#99cc00; padding:6px 20px; -webkit-border-radius: 3px; border-radius: 3px;     box-shadow: 3px 3px 0 0 #dfdddd; color:#FFF !important; font-weight:bold; font-size:1.1em; text-decoration:none; }
 .btngr:focus { background-color:#7da600;}
 /*************21-03-14*************/
-.schedulePopup { padding:0; margin:2%; width:96%; height:58%;}
+.schedulePopup { padding:0; margin:2%; width:96%; height:89%;}
 .schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 45px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
 .schedulePopup .scheduleSection { padding:0 15px;}
 .schedulePopup .scheduleSection .phoneNumber {
@@ -584,23 +586,24 @@ body, html{ margin:0; padding:0; height:100%;}
 	box-shadow: 0 0 1px 1px #90bf02 inset;
     color:#333;
     width:100%;
-    font-size:0.8em;
+    font-size:1em;
     position:inherit;
     margin-top:0;
     border:1px solid #dcdcdc;
     border-radius:3px;
-    padding:0.6em !important;
+    padding:0.9em 0.9em 0.9em 0.3em !important;
 }
 .schedulePopup .scheduleSection .km-listview-wrapper { padding:10px 0 0;}
+.schedulePopup .scheduleSection .scall-text { font-size:0.75em; padding:0; margin:10px 0 15px; text-align:center;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul { margin:0; border:0;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li { border:0; padding:0; float:right; width:49%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li:first-child { float:left;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap {border-radius:0; border:0; padding:0;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius:0; height:auto;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius:0; height:auto; padding:0.6em 0;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { border:1px solid #d7d7d7;border-radius:1px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-widget {width:100%;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select {background-image: url(images/icon_calender_date.png); background-repeat:no-repeat; background-size:10%; background-position:96% 5px;width:100%; background-color:transparent;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select {background-image: url(images/icon_calender_time.png); background-repeat:no-repeat; background-size:10%; background-position:96% 7px;width:100%; background-color:transparent;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select {background-image: url(images/icon_calender_date.png); background-repeat:no-repeat; background-size:10%; background-position:95% 12px;width:100%; background-color:transparent;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select {background-image: url(images/icon_calender_time.png); background-repeat:no-repeat; background-size:10%; background-position:95% 13px;width:100%; background-color:transparent;}
 .schedulePopup .scheduleSection .buttonArea { text-align:left;}
 .schedulePopup .scheduleSection .buttonArea .km-button {
     width:48%; 
@@ -623,7 +626,7 @@ body, html{ margin:0; padding:0; height:100%;}
 	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
 	box-shadow: inset 0px 0px 1px #7a9e0e;
     border-radius:1px;
-    padding:5px 0;
+    padding:0.6em 0;
     border:1px solid #808080;
 }
 
@@ -647,21 +650,24 @@ body, html{ margin:0; padding:0; height:100%;}
 	box-shadow: inset 0px 0px 1px #7a9e0e;
     float:right; 
     width:48%;
-    padding:5px 0;
+    padding:0.6em 0;
     border-radius:1px;
 }
+#tabstrip-home > .km-content { background-color:#000;}
 /*************21-03-14*************/
+/********24-03-14*************/
+
+/********24-03-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
 @media only screen and (max-width: 480px){ 
-#stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 12px;    height:30px; line-height:13px;}
-.stpsumry h2 {color: #333333;    font-size: 15px; margin:5px 0;} 
-.stpsumry p {color: #333333; height:35px;font-size: 15px; margin:10px 0 0; overflow:scroll;}
+#stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
+.stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 0;} 
+.stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
 #stps ul li strong {height:38px;}
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
-#stpSumAc{padding:17px 5px 17px 5px;}
-#blackBlk {height:352px; overflow:hidden;}
+#stpSumAc{padding:17px 1.3em 17px 1.3em;}
 }
