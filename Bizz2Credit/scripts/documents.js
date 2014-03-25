@@ -28,4 +28,5 @@ $(document).ready(function(){
     $('#datepicker').attr('disabled','disabled');
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');
+   // $( ".km-loader").wrap( "<div class='km-loader-new'></div>" );
 });

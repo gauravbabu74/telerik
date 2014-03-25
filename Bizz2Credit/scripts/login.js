@@ -122,6 +122,7 @@
         refreshHome:function()
         {
             app.homesetting.viewModel.homeShow();
+            closeParentPopover();
         }
     });
     
