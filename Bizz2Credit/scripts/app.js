@@ -13,19 +13,13 @@
                 
         }, 'exit', 'Ok,Cancel');
     };
-    
-var omenu = function()
-    {
-         $("#example #megaStore #menu").kendoMenu({
-        	animation: { open: { effects: "fadeIn" } }
-    		});
-    }
+
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
         $(document.body).height(window.innerHeight);
         // Handle "backbutton" event
-        //document.addEventListener('backbutton', onBackKeyDown, false);
-        document.addEventListener("menubutton",omenu, false);
+        document.addEventListener('backbutton', onBackKeyDown, false);
+       // document.addEventListener("menubutton",omenu, false);
     };
 
     // Handle "deviceready" event
