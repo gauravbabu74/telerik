@@ -13,13 +13,31 @@
                 
         }, 'exit', 'Ok,Cancel');
     };
-
+var omenu = function(e)
+    {
+        e.preventDefault();
+        var optionsmenu = new OptionsMenu({
+        id: "optionsmenu",
+        items: [ 
+            [ {
+                label: "Settings",
+                image: "menu/settings.png",
+                action: onSettings
+            }, 
+            {
+                label: "Help",
+                image: "menu/help.png",
+                action: onHelp
+            } ]
+        ]
+    });
+    }
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
         $(document.body).height(window.innerHeight);
         // Handle "backbutton" event
         document.addEventListener('backbutton', onBackKeyDown, false);
-        //document.addEventListener("menubutton",omenu, false);
+        document.addEventListener("menubutton",omenu, false);
     };
 
     // Handle "deviceready" event
