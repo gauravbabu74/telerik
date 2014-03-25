@@ -13,9 +13,17 @@
                 
         }, 'exit', 'Ok,Cancel');
     };
+    var onSettings = function() {
+        console.log("settings");
+    };
+ 
+    var onHelp = function() {
+        console.log("help");
+    };
 var omenu = function(e)
     {
-        e.preventDefault();
+        //e.preventDefault();
+        alert('menu call');
         var optionsmenu = new OptionsMenu({
         id: "optionsmenu",
         items: [ 
