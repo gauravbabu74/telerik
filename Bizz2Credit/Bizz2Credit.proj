@@ -25,7 +25,7 @@
     <WP8ProductID>{20c77197-a82d-4a33-b110-1a13820f888c}</WP8ProductID>
     <WP8PublisherID>{b1e837e4-97e7-412d-b328-aca98ef1e64b}</WP8PublisherID>
     <WP8Publisher />
-    <WP8SupportedResolutions />
+    <WP8SupportedResolutions>ID_RESOLUTION_WVGA;ID_RESOLUTION_WXGA;ID_RESOLUTION_HD720P</WP8SupportedResolutions>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Telerik\ICE\Tools\Mobile\MobileTools.targets" />
 </Project>

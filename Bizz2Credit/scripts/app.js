@@ -19,6 +19,7 @@
         $(document.body).height(window.innerHeight);
         // Handle "backbutton" event
         document.addEventListener('backbutton', onBackKeyDown, false);
+        //document.addEventListener("menubutton",omenu, false);
     };
 
     // Handle "deviceready" event
@@ -29,5 +30,6 @@
        // navigator.splashscreen.hide();
        // $(document.body).height(window.innerHeight);
    // }, false);
+
     apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
 })(window);

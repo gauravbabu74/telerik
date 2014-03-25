@@ -656,46 +656,38 @@ body, html{ margin:0; padding:0; height:100%;}
 #tabstrip-home > .km-content { background-color:#000;}
 /*************21-03-14*************/
 /********25-03-14*************/
-.km-loader-new {
+.km-loadBlk {
+    padding:0;
+}
+.km-flat .km-loader {
+    background:rgba(0,0,0,0.6);
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.7);
-    position:absolute;
-    z-index:1000;
-   
-}
-.km-loader-new .km-loader { 
-    opacity:1;
-    height:2em;
-    width:40%;
-    border-radius:1px;
-	-moz-border-radius:2px;
-    padding:17px 5px;
-	-webkit-border-radius:2px;
-    left:40%;
-    background-color:#fff;
-}
-.km-loader-new .km-loader .km-loading-left {
-    background-image: url(images/loding.gif);
-    background-position:left top;
-    background-repeat:no-repeat;
-    position:static;
-    width:2em;
-    float:left;
-    margin:-13px 0 0 0px;
-    height:2em;
-    background-color:transparent;
     border-radius:0;
-    -webkit-animation-delay:0;
-    -webkit-animation:0;
+    position:absolute;
+    margin:0;
+    top:0;
+    opacity:1;
+    left:0;
+    background:rgba(0,0,0,0.6);
+    padding:0;
 }
-.km-loader-new .km-loader .km-loading , .km-loader-new .km-loader .km-loading-right { display:none;}
-.km-loader-new .km-loader h1 {
-    position:static;
+.km-root .km-flat .km-loading-left, .km-root .km-flat .km-loading-right, .km-loadBlk .km-loading { display:none;}
+.km-flat .km-loader h1 {
+    position:absolute;
     display:inline;
     color:#333;
-    margin:-25px 0 0 35px;
-    float:left;
+    left:0;
+    top:50%;
+    margin:0 10%;  
+    background-image: url(images/loding.gif);
+    background-position:10px 12px;
+    background-repeat:no-repeat;
+    width:80%;
+    padding:18px 0 0 45px;
+    height:4.5em;
+    border-radius:2px;
+    background-color:#fff;
     text-align:left;
     font-size:0.75em;
 }
