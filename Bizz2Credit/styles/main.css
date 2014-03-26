@@ -578,7 +578,7 @@ body, html{ margin:0; padding:0; height:100%;}
 .btngr {background-color:#99cc00; padding:6px 20px; -webkit-border-radius: 3px; border-radius: 3px;     box-shadow: 3px 3px 0 0 #dfdddd; color:#FFF !important; font-weight:bold; font-size:1.1em; text-decoration:none; }
 .btngr:focus { background-color:#7da600;}
 /*************21-03-14*************/
-.schedulePopup { padding:0; margin:0 1% 5%; width:98.3%; height:83%;}
+.schedulePopup { padding:0; margin:0 1% 6%; width:98.3%; height:82%;}
 .schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 55px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
 .schedulePopup .scheduleSection { padding:0 15px;}
 .schedulePopup .scheduleSection .phoneNumber {
@@ -600,7 +600,7 @@ body, html{ margin:0; padding:0; height:100%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li { border:0; padding:0; float:right; width:49%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li:first-child { float:left;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap {border-radius:0; border:0; padding:0;}
-.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius:0; height:auto; padding:0.6em 0;}
+.schedulePopup .scheduleSection .km-listview-wrapper ul li .k-picker-wrap .k-input {border-radius:0; height:auto; padding:0.6em 0 0.6em 10px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { border:1px solid #d7d7d7;border-radius:1px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-widget {width:100%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select {background-image: url(images/icon_calender_date.png); background-repeat:no-repeat; background-size:10%; background-position:95% 12px;width:100%; background-color:transparent;}
@@ -608,7 +608,6 @@ body, html{ margin:0; padding:0; height:100%;}
 .schedulePopup .scheduleSection .buttonArea { text-align:left;}
 .schedulePopup .scheduleSection .buttonArea .km-button {
     width:48%; 
-    float:left;
     /* Safari 4-5, Chrome 1-9 */ 
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7)); 
     /* Safari 5.1, Chrome 10+ */ 
@@ -629,6 +628,8 @@ body, html{ margin:0; padding:0; height:100%;}
     border-radius:1px;
     padding:0.6em 0;
     border:1px solid #808080;
+    z-index:1000;
+    margin:0 1px 0 0;
 }
 
 .schedulePopup .scheduleSection .buttonArea .schedule-button {
@@ -649,10 +650,11 @@ body, html{ margin:0; padding:0; height:100%;}
     -moz-box-shadow: inset 0px 0px 1px #7a9e0e;
 	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
 	box-shadow: inset 0px 0px 1px #7a9e0e;
-    float:right; 
     width:48%;
     padding:0.6em 0;
+    margin:0 0 0 1px;
     border-radius:1px;
+    z-index:1000;
 }
 #tabstrip-home > .km-content { background-color:#000;}
 /*************21-03-14*************/
@@ -682,11 +684,11 @@ body, html{ margin:0; padding:0; height:100%;}
     top:50%;
     margin:0 10%;  
     background-image: url(images/loding.gif);
-    background-position:10px 12px;
+    background-position:10px 14px;
     background-repeat:no-repeat;
     width:80%;
     padding:18px 0 0 45px;
-    height:4.5em;
+    height:4.7em;
     border-radius:2px;
     background-color:#fff;
     text-align:left;
