@@ -29,20 +29,20 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            console.log(data);
+            //console.log(data);
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var matchstatus = data[0]['results']['data']['matchstatus'];
             var totmatch = data[0]['results']['data']['totmatch'];
             var creditscore = data[0]['results']['data']['creditscore'];
             var loan_total = data[0]['results']['data']['loan']['total'];
-            var loan_posted = data[0]['results']['data']['loan']['total'];
+            var loan_posted = data[0]['results']['data']['loan']['posted'];
             var loan_ended = data[0]['results']['data']['loan']['ended'];
             var loan_saved = data[0]['results']['data']['loan']['saved'];
             var matches = data[0]['results']['data']['loan']['matches'];
             var matchrows =data[0]['results']['data']['loan']['matchrows'];
             var funded =data[0]['results']['data']['funded'];
             var userName= sessionStorage.getItem("userFName");
-            //console.log(app);
+            //console.log(apps);
         
             if((cntGetStarted >= 1 && loan_posted === 0)){
                     if(totmatch === 0)
