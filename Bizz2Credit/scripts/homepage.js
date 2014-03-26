@@ -41,7 +41,7 @@
             var matches = data[0]['results']['data']['loan']['matches'];
             var matchrows =data[0]['results']['data']['loan']['matchrows'];
             var funded =data[0]['results']['data']['funded'];
-            var userName= app.loginService.viewModel.get("username");
+            var userName= sessionStorage.getItem("userFName");
             //console.log(app);
         
             if((cntGetStarted >= 1 && loan_posted === 0)){

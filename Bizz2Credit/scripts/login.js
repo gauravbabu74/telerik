@@ -12,14 +12,17 @@
             var that = this,
             username = that.get("username").trim(),
             password = that.get("password").trim();
-
             if (username === "" || password === "") {
                 navigator.notification.alert("Both fields are required!",
                     function () { }, "Login failed", 'OK');
 
                 return;
             }
+            if(!that.checkConnection()){
+                    return;
+                }
             else{
+               
                that.userLogin();  
             }
            
@@ -68,14 +71,12 @@
         setUserLogin: function (userinfo) {
             var that = this;
             that.hideloder();
-            userdata=[];
-            userdata.push(userinfo['userFName']);
-            userdata.push(userinfo['userLName']);
-            userdata.push(userinfo['userID']);
-            userdata.push(userinfo['userEmail']);
-            userdata.push(userinfo['userMobile']);
             sessionStorage.setItem("isLoggedIn",true);
-            sessionStorage.setItem("userinfo",userdata);
+            sessionStorage.setItem("userFName",userinfo['userFName']);
+            sessionStorage.setItem("userLName",userinfo['userLName']);
+            sessionStorage.setItem("userID",userinfo['userID']);
+            sessionStorage.setItem("userEmail",userinfo['userEmail']);
+            sessionStorage.setItem("userMobile",userinfo['userMobile']);
             that.navigateHome();
         },
         
@@ -84,7 +85,11 @@
             var that = this;
             that.set("isLoggedIn", false);
             sessionStorage.setItem("isLoggedIn",false);
-            sessionStorage.removeItem("userinfo");
+            sessionStorage.removeItem("userFName");
+            sessionStorage.removeItem("userLName");
+            sessionStorage.removeItem("userID");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("userMobile");
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
@@ -123,7 +128,26 @@
         {
             app.homesetting.viewModel.homeShow();
             closeParentPopover();
-        }
+        },
+        checkConnection:function()
+        {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN] = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI] = 'WiFi connection';
+            states[Connection.CELL_2G] = 'Cell 2G connection';
+            states[Connection.CELL_3G] = 'Cell 3G connection';
+            states[Connection.CELL_4G] = 'Cell 4G connection';
+            states[Connection.CELL] = 'Cell generic connection';
+            states[Connection.NONE] = 'No network connection';
+            if (states[networkState] === 'No network connection') {
+                navigator.notification.alert('No active connection found!');
+                return false;
+            }
+            return true;
+        },
     });
     
     app.loginService = {

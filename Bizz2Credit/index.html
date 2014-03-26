@@ -103,7 +103,7 @@
                     </a>
                 </div>
             </div>
-            <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "10em"}'>
+            <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "12em"}'>
                 <div data-role="view" data-model="app.loginService.viewModel">
                     <ul data-role="listview">
                         <li data-bind="click: refreshHome" >Refresh</li>
@@ -158,12 +158,12 @@
                     <ul data-role="listview" data-style="inset">
                         <li>
                             <label>
-                                <input id="datepicker"/>
+                                <input id="datepicker" placeholder="Select Date" data-bind="value: sDate"/>
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input id="timepicker" value="10:00 AM" />
+                                <input id="timepicker" placeholder="Select Time"/>
                             </label>
                         </li>
                     </ul>
@@ -172,7 +172,7 @@
                     </p>
                     <div class="buttonArea">
                         <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
-                        <input type="submit" id="schedule" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="schedule-button" value="Schedule" />
+                        <input type="submit" id="schedule" data-role="button" data-bind="click: validateSchedule" class="schedule-button" value="Schedule" />
                     </div>
                 </form>
             </div>
