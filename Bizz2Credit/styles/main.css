@@ -282,6 +282,7 @@ body, html {
 .km-ios .km-list > li,
 .km-flat .km-list > li {
     background: none;
+    cursor:pointer; 
 }
 
 /* Separator Style*/
@@ -569,13 +570,13 @@ body, html{ margin:0; padding:0; height:100%;}
 .stpsumry p span{ color:#000; font-weight:bold }
 .stpcurrntAc{ width: 41%; float:right; padding-top:30px; text-align:right}
 .stpcurrntAc p{ padding:5px 0px 0px 0px; font-size:14px; color:#999999; margin:5px 0 0;}
-.stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#575757; background-image:url(images/call_schedule.png) !important; background-color:#ececec !important; background-repeat:no-repeat !important; background-position:0px 1px !important; padding:0 0 0 18px !important; background-size:13% !important; border:0 !important;}
+.stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#000; background-image:url(images/call_schedule.png) !important; background-color:#ececec !important; background-repeat:no-repeat !important; background-position:0px 1px !important; padding:0 0 0 18px !important; background-size:13% !important; border:0 !important;}
 .stpcurrntAc p a img{ vertical-align:middle; padding:0 3px 0 0;}
 .blogent ul{ margin:0px; padding:0px; list-style:none}
 .blogent ul li{ margin:0px; padding:0px; width:46%; float:left}
 .blogent ul li img{ width:100%;}
 .blogent ul li:nth-child(even){ float:right}
-.btngr {background-color:#99cc00; padding:6px 20px; -webkit-border-radius: 3px; border-radius: 3px;     box-shadow: 3px 3px 0 0 #dfdddd; color:#FFF !important; font-weight:bold; font-size:1.1em; text-decoration:none; }
+.btngr {background-color:#99cc00; padding:6px 12px; -webkit-border-radius: 3px; border-radius: 3px;     box-shadow: 3px 3px 0 0 #dfdddd; color:#000 !important; font-weight:normal; font-size:0.85em; font-family:arial; text-decoration:none; }
 .btngr:focus { background-color:#7da600;}
 /*************21-03-14*************/
 .schedulePopup { padding:0; margin:0 1% 6%; width:98.3%; height:82%;}
@@ -607,7 +608,7 @@ body, html{ margin:0; padding:0; height:100%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select {background-image: url(images/icon_calender_time.png); background-repeat:no-repeat; background-size:10%; background-position:95% 13px;width:100%; background-color:transparent;}
 .schedulePopup .scheduleSection .buttonArea { text-align:left;}
 .schedulePopup .scheduleSection .buttonArea .km-button {
-    width:48%; 
+    width:48.5%; 
     /* Safari 4-5, Chrome 1-9 */ 
     background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7)); 
     /* Safari 5.1, Chrome 10+ */ 
@@ -650,7 +651,7 @@ body, html{ margin:0; padding:0; height:100%;}
     -moz-box-shadow: inset 0px 0px 1px #7a9e0e;
 	-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;
 	box-shadow: inset 0px 0px 1px #7a9e0e;
-    width:48%;
+    width:48.5%;
     padding:0.6em 0;
     margin:0 0 0 1px;
     border-radius:1px;

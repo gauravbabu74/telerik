@@ -16,7 +16,7 @@
                     url: "http://biz2services.com/mobapp/api/user/",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"userdashboard",userid:12516} // search for tweets that contain "html5"
+                    data: { apiaction:"userdashboard",userid:sessionStorage.getItem("userID")} // search for tweets that contain "html5"
                 }
             },
             schema: {
@@ -29,7 +29,7 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            //console.log(data);
+            console.log(data);
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var matchstatus = data[0]['results']['data']['matchstatus'];
             var totmatch = data[0]['results']['data']['totmatch'];
@@ -106,8 +106,8 @@
                 }
             if(matchstatus===0 && matches===0) { 
                  dHeader= 'You have '+matches+' loan matches';
-                 dDescription='No worries! We are here to help you. </br>Use BizAnalyzer to find ways to improve your business\'s finances and funding opportunities.';
-                 dButtonText = "Check your BizAnalyzer&trade; Score";
+                 dDescription='No worries! We are here to help you.Use BizAnalyzer to find ways to improve your business\'s finances and funding opportunities.';
+                 dButtonText = "Check your BizAnalyzer Score";
                  dButtonLink ="#";
                 }
             if(matchstatus === 1 && app.homesetting.checkMatchesStatus(matchrows)){
