@@ -72,7 +72,10 @@ $(document).ready(function(){
        max: new Date(2049, 11, 31),
        format: "MM-dd-yyyy",
        
-    })
+    });
+    
+
+     
     $('#datepicker').attr('disabled','disabled');
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');

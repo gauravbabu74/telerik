@@ -63,7 +63,7 @@
                 	dHeader ='Hi '+userName+', we have '+totmatch+' potential options for you!';
                     dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
                     dButtonText = "Start an Application";
-                    dButtonLink ="#";
+                    dButtonLink ="#tabstrip-mess-one";
                 }
             if((cntGetStarted>=1 && loan_total===0) || (loan_total===loan_ended)) {
                 
@@ -78,13 +78,13 @@
             		
             		dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
             		dButtonText = "Start an Application";
-            		dButtonLink ="#";
+            		dButtonLink ="#tabstrip-mess-one";
                 }
             if(cntGetStarted===0 && loan_total===0) {
                     dHeader='Hi '+userName+', We have 1200+ lenders to finance your needs';
                     dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
                     dButtonText = "Start an Application";
-                    dButtonLink ="#";
+                    dButtonLink ="#tabstrip-mess-one";
 				}
            /* if(loan_total === loan_saved && loan_total>0) {
 					dHeader= userName+', your loan application is incomplete.';
@@ -96,7 +96,7 @@
                 	dHeader= userName+', your loan application is incomplete.';
                     dDescription='In order to see what loan offers you qualify for, you must finish the application. Please click to resume or schedule a call to receive help from a loan expert.';
                     dButtonText = "Complete Application";
-                    dButtonLink ="#";
+                    dButtonLink ="#tabstrip-mess-two";
                 }
             if(matchstatus===0 && matches>=1) {
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
@@ -108,7 +108,7 @@
                  dHeader= 'You have '+matches+' loan matches';
                  dDescription='No worries! We are here to help you.Use BizAnalyzer to find ways to improve your business\'s finances and funding opportunities.';
                  dButtonText = "Check your BizAnalyzer Score";
-                 dButtonLink ="#";
+                 dButtonLink ="#tabstrip-mess-third";
                 }
             if(matchstatus === 1 && app.homesetting.checkMatchesStatus(matchrows)){
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
@@ -130,7 +130,10 @@
             	dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
             	dButtonLink ="#";
 		    }
-            app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
+             $("#home-call-btn").html("");
+             var html = '<a class="btngr" href="'+dButtonLink+'" data-rel="modalview" data-role="button">'+dButtonText+'</a>';
+             $("#home-call-btn").append(html);
+             app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
            
         });    
         },       
