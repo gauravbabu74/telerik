@@ -12,15 +12,15 @@
                 
         }, 'exit', 'Ok,Cancel');
           }
+        else
+        {
+            apps.navigate("#:back");
+        }
     };
 
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
         $(document.body).height(window.innerHeight);
-        // Handle "backbutton" event
-       // console.log(apps.view()['element']['0']['id']);
-        //alert('sadadadad');
-       // console.log(apps.view().id);
         document.addEventListener('backbutton', onBackKeyDown, false);
        // document.addEventListener("menubutton",omenu, false);
     };
