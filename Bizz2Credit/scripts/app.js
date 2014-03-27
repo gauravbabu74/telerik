@@ -3,9 +3,8 @@
     
     // Handle device back button tap
     var onBackKeyDown = function(e) {
-
+      if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home')
         e.preventDefault();
-
         navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 			if (confirmed === true || confirmed === 1) {
                navigator.app.exitApp();
@@ -18,6 +17,9 @@
         navigator.splashscreen.hide();
         $(document.body).height(window.innerHeight);
         // Handle "backbutton" event
+       // console.log(apps.view()['element']['0']['id']);
+        //alert('sadadadad');
+       // console.log(apps.view().id);
         document.addEventListener('backbutton', onBackKeyDown, false);
        // document.addEventListener("menubutton",omenu, false);
     };
@@ -32,4 +34,5 @@
    // }, false);
 
     apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
+    
 })(window);
