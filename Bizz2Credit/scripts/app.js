@@ -3,7 +3,7 @@
     
     // Handle device back button tap
     var onBackKeyDown = function(e) {
-      if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home')
+      if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
         e.preventDefault();
         navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 			if (confirmed === true || confirmed === 1) {
@@ -11,6 +11,7 @@
             }
                 
         }, 'exit', 'Ok,Cancel');
+          }
     };
 
     var onDeviceReady = function() {
