@@ -580,7 +580,7 @@ body, html{ margin:0; padding:0; height:100%;}
 .btngr:focus { background-color:#7da600;}
 /*************21-03-14*************/
 .schedulePopup { padding:0; margin:0 1% 6%; width:98.3%; height:82%;}
-.schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 55px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
+.schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 60px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
 .schedulePopup .scheduleSection { padding:0 15px;}
 .schedulePopup .scheduleSection .phoneNumber {
     -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;
@@ -696,6 +696,17 @@ body, html{ margin:0; padding:0; height:100%;}
     font-size:0.75em;
 }
 /********25-03-14*************/
+/*********27-03-14*************/
+.modal-mess-one {padding:0; width:98%; margin:0 0 0 1.3%;}
+.modal-mess-one .closeBt {border-bottom:2px solid #99cc00; padding:1px 0 5px 0 !important;}
+.modal-mess-one .closeBt a {background-image: url(images/cross.png); background-repeat:no-repeat; background-size:50%; border-radius:2px; float:right; margin:5px 5px 0 0; height:30px; width:30px; border:0; text-indent:-9000px; background-position:center 8px; background-color:#ddd; text-shadow:0;}
+.modal-mess-one .closeBt a:focus { background-color:#bdbdbd;}
+.modal-mess-one .closeBt .k-button:focus:active:not(.k-state-disabled):not([disabled]) {
+-webkit-box-shadow:inset 0 0 3px 4px #bdbdbd;
+box-shadow:inset 0 0 3px 4px #bdbdbd
+}
+.modal-mess-one p {color:#333; line-height:1.8em; font-size:1.2em; text-align:center; margin:8px 15px;}
+/*********27-03-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}

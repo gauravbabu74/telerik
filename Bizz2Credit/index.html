@@ -16,7 +16,8 @@
         <script src="scripts/login.js"></script>
         <script src="scripts/homepage.js"></script>
         <script src="scripts/documents.js"></script>
-        <script src="scripts/schedule.js"></script>    
+        <script src="scripts/schedule.js"></script>
+        <script src="scripts/matches.js"></script>
     <body>
         <!--Home-->
         <div id="tabstrip-home" data-role="view" class="home" data-show="app.homesetting.viewModel.homeShow"data-model="app.homesetting.viewModel" data-init="app.homesetting.initHome">
@@ -181,30 +182,33 @@
 
         </div>
          <!--home message 1-->
-        <div id="tabstrip-mess-one" class="modal-mess-one" data-role="modalview"  data-height="180">
+        <div id="tabstrip-mess-one" class="modal-mess-one" data-role="modalview"  data-height="165">
 
-            
+            <div class="closeBt clearfix">
                 <a data-role="button"  data-click="oneCloseModal">Close</a>
+             </div>
                 <p>To start  your application, please log on to the web version of Biz2credit.com</p>
                 
             
 
         </div>
         <!--home message 2-->
-        <div id="tabstrip-mess-two" class="modal-mess-one" data-role="modalview"  data-height="180">
+        <div id="tabstrip-mess-two" class="modal-mess-one" data-role="modalview"  data-height="165">
 
-           
+           <div class="closeBt clearfix">
                 <a data-role="button"  data-click="twoCloseModal">Close</a>
+               </div>
                 <p>To complete your application, please log on to the web version of Biz2credit.com</p>
                 
             
 
         </div>
         <!--home message 3-->
-        <div id="tabstrip-mess-third" class="modal-mess-one" data-role="modalview"  data-height="180">
+        <div id="tabstrip-mess-third" class="modal-mess-one" data-role="modalview"  data-height="165">
 
-            
+            <div class="closeBt clearfix">
                 <a data-role="button"  data-click="thirdCloseModal">Close</a>
+                </div>
                 <p>To avail this feature, Please log on to the web version of Biz2credit.com</p>
                 
         </div>
@@ -219,6 +223,24 @@
             </div>
 
         </div>
+        <!---matches page-->
+         <div id="tabstrip-matches" data-role="view" class="home-matches" data-show="app.matchsetting.viewModel.homeShow" data-model="app.matchsetting.viewModel">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                        <div class="logo-matches"></div>
+                    </span>
+                </div>
+            </div>
+            <div class="view-content" data-role="content">
+                
+                	<ul data-role="listview" data-style="inset" data-source="matchesData"  data-template="matches-template">
+
+                	</ul> 
+               
+            </div>
+		</div>
+
         <!--Layout-->
         <div data-role="layout" data-id="tabstrip-layout">
 
@@ -230,10 +252,9 @@
             </div>
             <!--Footer-->
         </div>
-        <!-- Home page template -->
-        <script type="text/x-kendo-template" id="homepage-listview-template">
-            <h3 class="item-title">#:title#</h3>
-            <p class="item-info">#:description#</p>
+        <!-- Matches page template -->
+        <script type="text/x-kendo-template" id="matches-template">
+       	 #: name # - #: modified #
         </script>
         <!-- Documents page template -->
         <script type="text/x-kendo-template" id="docs-template">

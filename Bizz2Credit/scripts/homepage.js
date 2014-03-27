@@ -42,7 +42,6 @@
             var matchrows =data[0]['results']['data']['loan']['matchrows'];
             var funded =data[0]['results']['data']['funded'];
             var userName= sessionStorage.getItem("userFName");
-            //console.log(apps);
         
             if((cntGetStarted >= 1 && loan_posted === 0)){
                     if(totmatch === 0)
@@ -102,7 +101,7 @@
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
                  dDescription='Please review your matches and select your preferred financing option(s)';
                  dButtonText = "Select a Loan Product";
-                 dButtonLink ="#";
+                 dButtonLink ="#tabstrip-matches";
                 }
             if(matchstatus===0 && matches===0) { 
                  dHeader= 'You have '+matches+' loan matches';
@@ -114,24 +113,31 @@
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
                  dDescription='Please review your matches and select your preferred financing option(s)';
                  dButtonText = "Select a Loan Product";
-                 dButtonLink ="#";
+                 dButtonLink ="#tabstrip-matches";
                 }
             else if(matchstatus === 1 && funded === 0)
             {
                  dHeader= userName+', the below submissions are still pending.';
                  dDescription= 'Please review these items and complete any remaining actions if necessary';
                  dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
-                 dButtonLink ="#";
+                 dButtonLink ="#tabstrip-matches";
             }
             if(matchstatus === 1 && funded === 1){
 			
 				dHeader= userName+', the below submissions are still pending.';
 				dDescription= 'Please review these items and complete any remaining actions if necessary';
             	dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
-            	dButtonLink ="#";
+            	dButtonLink ="#tabstrip-matches";
 		    }
              $("#home-call-btn").html("");
-             var html = '<a class="btngr" href="'+dButtonLink+'" data-rel="modalview" data-role="button">'+dButtonText+'</a>';
+            if(dButtonLink === "#tabstrip-matches")
+            {
+                var html = '<a class="btngr" href="'+dButtonLink+'">'+dButtonText+'</a>';
+            }
+            else{
+                var html = '<a class="btngr" href="'+dButtonLink+'" data-rel="modalview" data-role="button">'+dButtonText+'</a>';
+            }
+             
              $("#home-call-btn").append(html);
              app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
            
@@ -199,12 +205,14 @@
     app.homesetting = {
         checkMatchesStatus: function(msdata)
         {
+            var ms = true;
             $.each(msdata, function( index, value ) {
                 if(value.statusid > 1){
-                	return false;
+                	ms = false;
                 }
+                
             });
-            return true;
+            return ms;
         },
         initHome: function () {
         app.loginService.viewModel.showloder();
