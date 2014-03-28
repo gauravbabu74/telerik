@@ -19,6 +19,7 @@
                 data: function(data)
                 {
                     //console.log(data);
+                    
                 	return [data['results']['data']['loan']['matchrows']];
                 }
             }
@@ -26,7 +27,7 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            console.log(data);
+           // console.log(data);
             MatchespageViewModel.setMatches(data);
          });
         	   
