@@ -42,7 +42,30 @@
             var matchrows =data[0]['results']['data']['loan']['matchrows'];
             var funded =data[0]['results']['data']['funded'];
             var userName= sessionStorage.getItem("userFName");
-        
+        	if(cntGetStarted === 0 && loan_total === 0){
+            	pos = 1;
+               
+            }
+            if(matchstatus === 2 && loan_total > 0){
+            	pos = 2;
+               
+            }
+            if(matchstatus === 0){
+            	pos = 3;
+                
+            }
+            if(matchstatus === 1 &&  app.homesetting.checkMatchesStatus(data[0]['results']['data']['loan']['matchrows'])){
+            	pos = 3;
+                
+            }else if(matchstatus === 1 && funded === 0){
+            	pos = 4;
+              
+            }
+            if(matchstatus === 1 && funded === 1){
+            	pos = 5;
+               
+            }  
+
             if((cntGetStarted >= 1 && loan_posted === 0)){
                     if(totmatch === 0)
                     {
@@ -129,7 +152,12 @@
             	dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
             	dButtonLink ="#tabstrip-matches";
 		    }
-             $("#home-call-btn").html("");
+            
+            $('#stps ul li').removeClass();
+            $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
+            $('#stps ul li:lt('+(pos-1)+')').addClass('dn');
+            
+            $("#home-call-btn").html("");
             if(dButtonLink === "#tabstrip-matches")
             {
                 var html = '<a class="btngr" href="'+dButtonLink+'">'+dButtonText+'</a>';
@@ -214,53 +242,7 @@
             });
             return ms;
         },
-        initHome: function () {
-        app.loginService.viewModel.showloder();
-        var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/user/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"userdashboard",userid:12516} // search for tweets that contain "html5"
-                }
-            },
-            schema: {
-                data: function(data)
-                {
-                	return [data];
-                }
-            }
-        });
-        dataSource.fetch(function(){
-            var that = this;
-            var data = that.data(); 
-            var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
-            var loan_total = data[0]['results']['data']['loan']['total'];
-            var matchstatus = data[0]['results']['data']['matchstatus'];
-            var funded = data[0]['results']['data']['funded'];				
-            if(cntGetStarted === 0 && loan_total === 0){
-            	pos = 0;
-            }
-            if(matchstatus === 2 && loan_total > 0){
-            	pos = 1;
-            }
-            if(matchstatus === 0 && app.homesetting.checkMatchesStatus(data[0]['results']['data']['loan']['matchrows'])){
-            	pos = 2;
-            }
-            if(matchstatus === 1){
-            	pos = 2;
-            }else if(matchstatus === 1 && funded === 0){
-            	pos = 3;
-            }
-            if(matchstatus === 1 && funded === 1){
-            	pos = 4;
-            }  
-            $('#stps ul li').removeClass();
-            $('#stps ul li:eq('+pos+')').addClass('activ');
-            $('#stps ul li:lt('+pos+')').addClass('dn');
-        });      
-        },
+        
 		viewModel: new HomepageViewModel(),     	
     };
  

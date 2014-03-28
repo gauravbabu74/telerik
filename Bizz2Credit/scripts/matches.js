@@ -2,7 +2,7 @@
     var MatchespageViewModel,
         app = global.app = global.app || {};
 
-    MatchespageViewModel = kendo.data.ObservableObject.extend({
+    MatchespageViewModel = kendo.observable({
        
        init: function () {
         var matchesData = new kendo.data.DataSource({
@@ -36,7 +36,7 @@
     });
     app.matchsetting = {
 
-		viewModel: new MatchespageViewModel(),     	
+		viewModel: MatchespageViewModel,     	
     };
  
 })(window,jQuery);
