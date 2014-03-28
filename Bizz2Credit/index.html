@@ -224,22 +224,20 @@
 
         </div>
         <!---matches page-->
-         <div id="tabstrip-matches" data-role="view" class="home-matches" data-show="app.matchsetting.viewModel.homeShow" data-model="app.matchsetting.viewModel">
+        <div data-role="view" id="tabstrip-matches"  data-show="MatchespageViewModel.getMatches" data-model="MatchespageViewModel">
             <div data-role="header">
                 <div data-role="navbar">
                     <span data-role="view-title">
-                        <div class="logo-matches"></div>
+                        <div class="logo"></div>
                     </span>
                 </div>
             </div>
-            <div class="view-content" data-role="content">
-                
-                	<ul data-role="listview" data-style="inset" data-source="matchesData"  data-template="matches-template">
-
-                	</ul> 
-               
+            <div  data-role="content">
+            <!-- List of cards -->
+            	<div id="MatchesList"  data-bind="source: Matches" data-template="matches-template"></div>
             </div>
-		</div>
+        </div>
+         
 
         <!--Layout-->
         <div data-role="layout" data-id="tabstrip-layout">
@@ -254,11 +252,40 @@
         </div>
         <!-- Matches page template -->
         <script type="text/x-kendo-template" id="matches-template">
-       	 #: name # - #: modified #
+            <ul data-role="listview" data-style="inset">
+                <li>
+            	<div class="row1">
+                		<p>
+                			#if(pro_display_name){#
+                			<img src="https://www.biz2credit.com/images/#: pro_display_name #">
+                			#}#
+                		</p>
+                		<p> #: product_name #</p>
+                		<p></p>
+                </div>
+                <div class="row2">
+                    #if(typeof minloc_amt !== "undefined"){#
+                    	<p>Funding Amount:$#: minloc_amt# - $#:maxloc_amt#</p>
+                    #}else{#
+                    	<p>Funding Amount:$#: minaloc_amt# - $#:maxaloc_amt#</p>
+                    #}#
+            		<p>Factor Rate:$#: min_interestrate# - $#:max_interestrate#</p>
+            		<p>Term:</p>
+					<p>Average Processing Time:#: expected_time#</p>
+					<p><a href='/##tabstrip-scall' data-rel='modalview' data-role='button'>Documents Required:</a></p>
+				</div>
+				<div class="row3">
+					<a href='/##' data-role='button'>Apply</a>
+				</div>
+           	 </li>
+            </ul>
         </script>
         <!-- Documents page template -->
         <script type="text/x-kendo-template" id="docs-template">
+			<div class="match-row">
+            
             #: name # - #: modified #
+            </div>
         </script>
         <script>
             function oneCloseModal() {
