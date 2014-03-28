@@ -559,8 +559,9 @@ body, html{ margin:0; padding:0; height:100%;}
 #stps ul li strong{ font-weight:normal; background-color:#FFF; padding:0px 10px; display:inline-block; height:45px;}
 #stps ul li:first-child { background-image:url(images/bkg-step.png); background-repeat:no-repeat; background-position:top center;}
 #stps ul li:last-child { background-image:url(images/bkg-step2.png); background-repeat:no-repeat; background-position:top center;}
-#stps ul li:first-child strong{ background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:5px 13px}
-#stps ul li:last-child strong{ background-image:url(images/dollar.png); background-repeat:no-repeat; background-position:8px 12px}
+#stps ul li.activ:last-child strong {background-image:url(images/dollar.png); background-repeat:no-repeat; background-position:8px 10px}
+#stps ul li:first-child strong{ /*background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:5px 13px*/}
+#stps ul li:last-child strong{ background-image:url(images/gr-dollar.png); background-repeat:no-repeat; background-position:8px 10px}
 #stps ul li.dn:last-child strong{ background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:-777px -377px}
 #stps ul li span{ font-size:14px; color:#ccc; display:block; height:32px}
 #stpSumAc{ background-color:#ececec; padding:15px 30px 5px 30px;}
@@ -718,5 +719,5 @@ box-shadow:inset 0 0 3px 4px #bdbdbd
 #stps ul li strong {height:38px;}
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
-#stpSumAc{padding:17px 1.3em 17px 1.3em;}
+#stpSumAc{padding:17px 1.3em 10px 1.3em;}
 }
