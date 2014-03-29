@@ -18,6 +18,7 @@
         <script src="scripts/documents.js"></script>
         <script src="scripts/schedule.js"></script>
         <script src="scripts/matches.js"></script>
+        </head>
     <body>
         <!--Home-->
         <div id="tabstrip-home" data-role="view" class="home" data-show="app.homesetting.viewModel.homeShow"data-model="app.homesetting.viewModel">
@@ -223,20 +224,7 @@
             </div>
 
         </div>
-        <!---matches page-->
-        <div data-role="view" id="tabstrip-matches" data-show="app.homesetting.viewModel.homeShow"data-model="app.homesetting.viewModel">
-            <div data-role="header">
-                <div data-role="navbar">
-                    <span data-role="view-title">
-                        <div class="logo"></div>
-                    </span>
-                </div>
-            </div>
-            <div  data-role="content">
-            <!-- List of cards -->
-            	<div id="MatchesList"  data-bind="source: Matches" data-template="matches-template"></div>
-            </div>
-        </div>
+       
          
 
         <!--Layout-->
@@ -250,36 +238,7 @@
             </div>
             <!--Footer-->
         </div>
-        <!-- Matches page template -->
-        <script type="text/x-kendo-template" id="matches-template">
-            <ul data-role="listview" data-style="inset">
-                <li>
-            	<div class="row1">
-                		<p>
-                			#if(pro_display_name){#
-                			<img src="https://www.biz2credit.com/images/#: pro_display_name #">
-                			#}#
-                		</p>
-                		<p> #: product_name #</p>
-                		<p></p>
-                </div>
-                <div class="row2">
-                    #if(typeof minloc_amt !== "undefined"){#
-                    	<p>Funding Amount:$#: minloc_amt# - $#:maxloc_amt#</p>
-                    #}else{#
-                    	<p>Funding Amount:$#: minaloc_amt# - $#:maxaloc_amt#</p>
-                    #}#
-            		<p>Factor Rate:$#: min_interestrate# - $#:max_interestrate#</p>
-            		<p>Term:</p>
-					<p>Average Processing Time:#: expected_time#</p>
-					<p><a href='/##tabstrip-scall' data-rel='modalview' data-role='button'>Documents Required:</a></p>
-				</div>
-				<div class="row3">
-					<a href='/##' data-role='button'>Apply</a>
-				</div>
-           	 </li>
-            </ul>
-        </script>
+        
         <!-- Documents page template -->
         <script type="text/x-kendo-template" id="docs-template">
 			<div class="match-row">

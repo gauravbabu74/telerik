@@ -126,7 +126,7 @@
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
                  dDescription='Please review your matches and select your preferred financing option(s)';
                  dButtonText = "Select a Loan Product";
-                 dButtonLink ="#tabstrip-matches";
+                 dButtonLink ="views/matches.html";
                 }
             if(matchstatus===0 && matches===0) { 
                  dHeader= 'You have '+matches+' loan matches';
@@ -138,21 +138,22 @@
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
                  dDescription='Please review your matches and select your preferred financing option(s)';
                  dButtonText = "Select a Loan Product";
-                 dButtonLink ="#tabstrip-matches";
+                 dButtonLink ="views/matches.html";
                 }
             else if(matchstatus === 1 && funded === 0)
             {
                  dHeader= userName+', the below submissions are still pending.';
                  dDescription= 'Please review these items and complete any remaining actions if necessary';
                  dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
-                 dButtonLink ="#tabstrip-matches";
+                 dButtonLink ="views/matches.html";
             }
             if(matchstatus === 1 && funded === 1){
 			
 				dHeader= userName+', the below submissions are still pending.';
 				dDescription= 'Please review these items and complete any remaining actions if necessary';
             	dButtonText = app.homesetting.viewModel.getLatestMatchStatus(matchrows);
-            	dButtonLink ="#tabstrip-matches";
+            	dButtonLink ="views/matches.html";
+                
 		    }
             
             $('#stps ul li').removeClass();
@@ -160,9 +161,9 @@
             $('#stps ul li:lt('+(pos-1)+')').addClass('dn');
             
             $("#home-call-btn").html("");
-            if(dButtonLink === "#tabstrip-matches")
+            if(dButtonLink === "views/matches.html")
             {
-                var html = '<a class="btngr" href="'+dButtonLink+'">'+dButtonText+'</a>';
+                var html = '<a class="btngr" href="'+dButtonLink+'" data-role="button">'+dButtonText+'</a>';
             }
             else{
                 var html = '<a class="btngr" href="'+dButtonLink+'" data-rel="modalview" data-role="button">'+dButtonText+'</a>';
