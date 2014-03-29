@@ -9,13 +9,13 @@
     </div>
     <div  data-role="content">
     <!-- List of cards -->
-    	<div id="MatchesList"  data-bind="source: Matches" data-template="matches-template"></div>
+    	<ul id="MatchesList" class="matches-view" data-bind="source: Matches" data-template="matches-template"></ul>
     </div>
 </div>
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="matches-template">
-            <ul data-role="listview" data-style="inset" class="matches-view">
+            
                 <li>
             	<div class="row1">
                 		<p>
@@ -41,5 +41,5 @@
 					<a href='/##' data-role='button'>Apply</a>
 				</div>
            	 </li>
-            </ul>
+            
         </script>
