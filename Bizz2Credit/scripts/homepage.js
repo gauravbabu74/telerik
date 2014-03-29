@@ -3,7 +3,7 @@
         app = global.app = global.app || {};
 
     HomepageViewModel = kendo.data.ObservableObject.extend({
-
+		Matches:[],
         dHeader:(window.localStorage.getItem("dHeader") !== null) ?  localStorage.getItem("dHeader") : '',
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
@@ -29,6 +29,8 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
+            
+            app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
             //console.log(data);
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var matchstatus = data[0]['results']['data']['matchstatus'];
@@ -228,7 +230,13 @@
             var m = parseInt(m);
             var n = parseInt(n);
             return Math.floor( Math.random() * (n - m + 1) ) + m;  
-        }
+        },
+        setMatches: function(data)
+           { 
+               var that = this;
+               that.set("Matches", data);
+               //app.loginService.viewModel.hideloder();
+           },
     });
     app.homesetting = {
         checkMatchesStatus: function(msdata)
