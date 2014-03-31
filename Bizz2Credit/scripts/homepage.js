@@ -29,7 +29,7 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            console.log(data['0']['results']['data']['loan']['matchrows']);
+            //console.log(data['0']['results']['data']['loan']['matchrows']);
             app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
             //console.log(data);
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
@@ -236,6 +236,7 @@
            { 
                var that = this;
                that.set("Matches", data);
+               console.log(data);
                //app.loginService.viewModel.hideloder();
            },
     });

@@ -9,6 +9,7 @@
     </div>
     <div  data-role="content">
     <!-- List of cards -->
+        <a data-role="backbutton">Back</a>
     	<ul id="MatchesList" class="matches-view" data-bind="source: Matches" data-template="matches-template"></ul>
     </div>
 </div>
@@ -16,7 +17,7 @@
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="matches-template">
             
-                <li>
+                <li class="clearfix">
             	<div class="row1">
                 		<p>
                 			#if(pro_display_name){#
@@ -33,7 +34,42 @@
                     	<p>Funding Amount:$#: minaloc_amt# - $#:maxaloc_amt#</p>
                     #}#
             		<p>Factor Rate:$#: min_interestrate# - $#:max_interestrate#</p>
-            		<p>Term:</p>
+            		<p>Term: 
+            
+                    #if(product_type==="ACH" || product_type==="Cashadvance"){#
+                   	 # var termNum = termrange;console.log(termrange) #
+                    #}else{#
+                    	# var termNum = loan_term; console.log(loan_term)#
+                    #}#
+                      
+                    #if(product_type==="ACH" || product_type==="WCL" || product_type==="Cashadvance"){#
+                    	# term = termNum + " months"#
+                   	 #= term #
+                    #}else if (product_type === "termloan"){#
+                    	#if(prodid === "386"){#
+                   		 #term = "Up to "+termNum+" years" #
+                    		#= term #
+                    	#}else{#
+                    		#term = termNum + " years" #
+                    		#= term #
+                    	#}#
+                    #}else {#
+                    	#if(termNum==="0" && termNum !== ""){#
+                    		#term = "revolving"#
+                    		#= term #
+                    	#}else{#
+                    		#term= termNum+" years"#
+                    		#= term #
+                    	#}#
+                    #}#
+            
+            
+            
+            
+            
+            
+            
+            		</p>
 					<p>Average Processing Time:#: expected_time#</p>
 					<p><a href='/##tabstrip-scall' data-rel='modalview' data-role='button'>Documents Required:</a></p>
 				</div>

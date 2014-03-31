@@ -183,8 +183,9 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .modal-mess-one p {color:#333; line-height:1.8em; font-size:1.2em; text-align:center; margin:8px 15px;}
 /*********27-03-14*************/
 /*********29-04-14**************/
-.matches-view { margin:0; padding:0;}
-.matches-view li { padding:0.5em; border-top:1px solid #7f7f7f !important;}
+.matches-view { margin:0; padding:0; width:100%;}
+.matches-view li { clear:both; display:block; padding:0.5em; border-top:1px solid #7f7f7f !important;}
+.matches-view li:first-child { border:0 !important;}
 .matches-view li p { padding:0 0 3px; margin:0; font-size:0.9em; color:#666; line-height:1.2em;}
 .matches-view li .row2 p{white-space:nowrap; }
 .matches-view li .row1 { width:25%; float:left; padding:40px 2% 0 0;}
