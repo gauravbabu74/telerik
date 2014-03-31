@@ -9,7 +9,7 @@
     </div>
     <div  data-role="content">
     <!-- List of cards -->
-        <a data-role="backbutton">Back</a>
+        
     	<ul id="MatchesList" class="matches-view" data-bind="source: Matches" data-template="matches-template"></ul>
     </div>
 </div>
@@ -25,7 +25,11 @@
                 			#}#
                 		</p>
                 		<p> #: product_name #</p>
-                		<p></p>
+                		<span>         
+                        	#if(mca_action){#
+                        		#:'Instant Approval'#
+                        	#}#
+            			</span>
                 </div>
                 <div class="row2">
                     #if(typeof minloc_amt !== "undefined"){#
@@ -37,9 +41,9 @@
             		<p>Term: 
             
                     #if(product_type==="ACH" || product_type==="Cashadvance"){#
-                   	 # var termNum = termrange;console.log(termrange) #
+                   	 # var termNum = termrange #
                     #}else{#
-                    	# var termNum = loan_term; console.log(loan_term)#
+                    	# var termNum = loan_term #
                     #}#
                       
                     #if(product_type==="ACH" || product_type==="WCL" || product_type==="Cashadvance"){#
@@ -62,19 +66,22 @@
                     		#= term #
                     	#}#
                     #}#
-            
-            
-            
-            
-            
-            
-            
             		</p>
 					<p>Average Processing Time:#: expected_time#</p>
 					<p><a href='/##tabstrip-scall' data-rel='modalview' data-role='button'>Documents Required:</a></p>
 				</div>
 				<div class="row3">
-					<a href='/##' data-role='button'>Apply</a>
+            
+                #if(statusid === "1"){#
+					<a class="appy" href='/##' data-role='button'>Apply</a>
+                #}else if(statusid === "11"){#
+					<a class="funded" href='/##' data-role='button'>#: status_name #</a>
+                #}else if(statusid === "7"){#
+					<a class="approval" href='/##' data-role='button'>#: status_name #</a>
+                #}else{#
+					<a class="pending" href='/##' data-role='button'>#: status_name #</a>
+                #}#
+	
 				</div>
            	 </li>
             
