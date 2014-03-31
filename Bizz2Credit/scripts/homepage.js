@@ -263,12 +263,12 @@
                 var that = this;
                 var data = that.data();
                 $("#tabstrip-mess-fourth p").html("");
-                html ="<ul class='rdocs'>";
+                html ="<ol class='rdocs'>";
                 for(i =0; i < data[0]['results']['docLists'].length; i ++)
                 {
                    html += "<li>"+data[0]['results']['docLists'][i]+"</li>"; 
                 }
-				html +="</ul>";
+				html +="</ol>";
                 $(".doc-content").append(html);
                 $("#tabstrip-mess-fourth").data("kendoMobileModalView").open();
                  app.loginService.viewModel.hideloder();

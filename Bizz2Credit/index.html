@@ -216,10 +216,10 @@
         <div id="tabstrip-mess-fourth" class="modal-mess-one" data-role="modalview"  data-height="165">
 
             <div class="closeBt clearfix">
-                <a data-role="button"  data-click="thirdCloseModal">Close</a>
+                <h4>Required Documents</h4>
                 </div>
                 <p class="doc-content"></p>
-                
+                <a data-role="button"  data-click="fourthCloseModal">Close</a>
         </div>
         <!--my documents-->
         <div id="tabstrip-docs" data-role="view" data-init="viewInit">
@@ -264,9 +264,13 @@
             function thirdCloseModal() {
             	$("#tabstrip-mess-third").data("kendoMobileModalView").close();
             }
+            function fourthCloseModal() {
+            	$("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
+            }
             function closeParentPopover() {
                 $("#popover-people").data("kendoMobilePopOver").close();
             }
+            
         </script>
 										 	 
     </body>
