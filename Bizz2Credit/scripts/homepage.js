@@ -233,12 +233,48 @@
             return Math.floor( Math.random() * (n - m + 1) ) + m;  
         },
         setMatches: function(data)
-           { 
+        { 
                var that = this;
                that.set("Matches", data);
-               console.log(data);
+               //console.log(data);
                //app.loginService.viewModel.hideloder();
-           },
+        },
+        reqDocuments: function(prodid,prodtype)
+        {
+        app.loginService.viewModel.showloder();
+
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/user/",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: { apiaction:"reqdoclist",prodid:386,prodtype:'Unsecure'} // search for tweets that contain "html5"
+                    }
+                },
+                schema: {
+                    data: function(data)
+                    {
+                    	return [data];
+                    }
+                }
+            });
+            dataSource.fetch(function(){
+                var that = this;
+                var data = that.data();
+                $("#tabstrip-mess-fourth p").html("");
+                html ="<ul class='rdocs'>";
+                for(i =0; i < data[0]['results']['docLists'].length; i ++)
+                {
+                   html += "<li>"+data[0]['results']['docLists'][i]+"</li>"; 
+                }
+				html +="</ul>";
+                $(".doc-content").append(html);
+                $("#tabstrip-mess-fourth").data("kendoMobileModalView").open();
+                 app.loginService.viewModel.hideloder();
+            });    
+        },
+        
     });
     app.homesetting = {
         checkMatchesStatus: function(msdata)
@@ -247,8 +283,7 @@
             $.each(msdata, function( index, value ) {
                 if(value.statusid > 1){
                 	ms = false;
-                }
-                
+                } 
             });
             return ms;
         },

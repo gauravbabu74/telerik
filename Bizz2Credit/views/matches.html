@@ -25,11 +25,13 @@
                 			#}#
                 		</p>
                 		<p> #: product_name #</p>
-                		<span>         
-                        	#if(mca_action){#
+                        #if(mca_action){#
+                        	<span>         
+
                         		#:'Instant Approval'#
-                        	#}#
-            			</span>
+
+                        	</span>
+                        #}#
                 </div>
                 <div class="row2">
                     #if(typeof minloc_amt !== "undefined"){#
@@ -37,7 +39,31 @@
                     #}else{#
                     	<p>Funding Amount:$#: minaloc_amt# - $#:maxaloc_amt#</p>
                     #}#
-            		<p>Factor Rate:$#: min_interestrate# - $#:max_interestrate#</p>
+            		<p>
+
+                    #if(product_type==="ACH" || product_type==="Cashadvance"){#
+                    	#if(typeof maxfactor !== "undefined"){#
+
+                    		#:"Factor Rate:$" # #: minfactor # - $ #: maxfactor #
+
+                    	#}else{#
+
+                    		#:"Factor Rate:$" # #: min_interestrate # - $ #: max_interestrate #
+
+                    	#}#
+                    #}else{#
+
+                    	#if(typeof maxfactor !== "undefined"){#
+
+                    		#:"Factor Rate:$" # #: minfactor # - $ #: maxfactor #
+
+                    	#}else{#
+
+                    		#:"Interest Rate:$" # #: min_interestrate # - $ #: max_interestrate ##: "% APR"#
+
+                    	#}#
+                    #}#
+                    </p>
             		<p>Term: 
             
                     #if(product_type==="ACH" || product_type==="Cashadvance"){#
@@ -68,18 +94,18 @@
                     #}#
             		</p>
 					<p>Average Processing Time:#: expected_time#</p>
-					<p><a href='/##tabstrip-scall' data-rel='modalview' data-role='button'>Documents Required:</a></p>
+					<p><a data-bind="click: reqDocuments" data-rel='modalview' data-role='button'>Documents Required:</a></p>
 				</div>
 				<div class="row3">
             
                 #if(statusid === "1"){#
 					<a class="appy" href='/##' data-role='button'>Apply</a>
                 #}else if(statusid === "11"){#
-					<a class="funded" href='/##' data-role='button'>#: status_name #</a>
+					<a class="funded" href="\#tabstrip-mess-third" data-rel="modalview" data-role="button">#: status_name #</a>
                 #}else if(statusid === "7"){#
-					<a class="approval" href='/##' data-role='button'>#: status_name #</a>
+					<a class="approval" href="\#tabstrip-mess-third" data-rel="modalview" data-role="button">#: status_name #</a>
                 #}else{#
-					<a class="pending" href='/##' data-role='button'>#: status_name #</a>
+					<a class="pending" href="\#tabstrip-mess-third" data-rel="modalview" data-role="button">#: status_name #</a>
                 #}#
 	
 				</div>
