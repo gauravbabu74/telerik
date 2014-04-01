@@ -232,7 +232,15 @@
             </div>
 
         </div>
-       
+       <!--home message 3-->
+        <div id="tabstrip-mess-dynamic" class="modal-mess-one" data-role="modalview"  data-height="165">
+
+            <div class="closeBt clearfix">
+                <a data-role="button"  data-click="dynamiceCloseModal">Close</a>
+                </div>
+                <p></p>
+                
+        </div>
          
 
         <!--Layout-->
@@ -266,6 +274,9 @@
             }
             function fourthCloseModal() {
             	$("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
+            }
+             function dynamiceCloseModal() {
+            	$("#tabstrip-mess-dynamic").data("kendoMobileModalView").close();
             }
             function closeParentPopover() {
                 $("#popover-people").data("kendoMobilePopOver").close();

@@ -94,12 +94,12 @@
                     #}#
             		</p>
 					<p>Average Processing Time:#: expected_time#</p>
-					<p><a data-bind="click: reqDocuments" data-rel='modalview' data-role='button'>Documents Required:</a></p>
+					<p><a data-prodid="#= prodid #" data-prodtype="#= prodtype #" data-bind="click: reqDocuments" data-rel='modalview' data-role='button'>Documents Required:</a></p>
 				</div>
 				<div class="row3">
             
                 #if(statusid === "1"){#
-					<a class="appy" href='/##' data-role='button'>Apply</a>
+					<a class="appy" data-bind="click: matchAppy" data-role='button'>Apply</a>
                 #}else if(statusid === "11"){#
 					<a class="funded" href="\#tabstrip-mess-third" data-rel="modalview" data-role="button">#: status_name #</a>
                 #}else if(statusid === "7"){#

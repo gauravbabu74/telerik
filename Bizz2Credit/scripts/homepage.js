@@ -239,8 +239,9 @@
                //console.log(data);
                //app.loginService.viewModel.hideloder();
         },
-        reqDocuments: function(prodid,prodtype)
+        reqDocuments: function(e)
         {
+            var pdata = e.button.data();
         app.loginService.viewModel.showloder();
 
             var dataSource = new kendo.data.DataSource({
@@ -249,7 +250,7 @@
                         url: "http://biz2services.com/mobapp/api/user/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: { apiaction:"reqdoclist",prodid:386,prodtype:'Unsecure'} // search for tweets that contain "html5"
+                        data: { apiaction:"reqdoclist",prodid:pdata.prodid,prodtype:pdata.prodtype} // search for tweets that contain "html5"
                     }
                 },
                 schema: {
@@ -271,9 +272,19 @@
 				html +="</ol>";
                 $(".doc-content").append(html);
                 $("#tabstrip-mess-fourth").data("kendoMobileModalView").open();
-                 app.loginService.viewModel.hideloder();
+                app.loginService.viewModel.hideloder();
             });    
         },
+        matchAppy:function()
+        {
+            app.loginService.viewModel.showloder();
+            // this space for send mail
+            $("#tabstrip-mess-dynamic p").html("");
+            html ="To apply for this product, Please log on to the web version of Biz2credit.com";
+            $("#tabstrip-mess-dynamic p").append(html);
+            $("#tabstrip-mess-dynamic").data("kendoMobileModalView").open();
+            app.loginService.viewModel.hideloder();
+        }
         
     });
     app.homesetting = {
