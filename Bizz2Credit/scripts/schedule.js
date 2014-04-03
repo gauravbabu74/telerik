@@ -73,9 +73,6 @@ $(document).ready(function(){
        format: "MM-dd-yyyy",
        
     });
-    
-
-     
     $('#datepicker').attr('disabled','disabled');
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');

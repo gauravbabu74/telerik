@@ -69,16 +69,16 @@
                     </p>
             		<p>Term: 
             
-                    #if(product_type==="ACH" || product_type==="Cashadvance"){#
-                   	 # var termNum = termrange #
+                    #if(prodtype==="ACH" || prodtype==="Cashadvance"){#
+                   	 # var termNum = termrange ;console.log(product_type)#
                     #}else{#
                     	# var termNum = loan_term #
                     #}#
                       
-                    #if(product_type==="ACH" || product_type==="WCL" || product_type==="Cashadvance"){#
+                    #if(prodtype==="ACH" || prodtype==="WCL" || prodtype==="Cashadvance"){#
                     	# term = termNum + " months"#
                    	 #= term #
-                    #}else if (product_type === "termloan"){#
+                    #}else if (prodtype === "termloan"){#
                     	#if(prodid === "386"){#
                    		 #term = "Up to "+termNum+" years" #
                     		#= term #
@@ -96,8 +96,8 @@
                     	#}#
                     #}#
             		</p>
-					<p>Average Processing Time:#: expected_time#</p>
-					<p><a data-prodid="#= prodid #" data-prodtype="#= prodtype #" data-bind="click: reqDocuments" data-rel='modalview' data-role='button'>Documents Required:</a></p>
+					<p>Average Processing Time:#: expected_time+ " week(s)"#</p>
+					<p><a data-prodid="#= prodid #" data-prodtype="#= prodtype #" data-bind="click: reqDocuments" data-rel='modalview' data-role='button'>Documents Required:#= totaldoc #</a></p>
 				</div>
 				<div class="row3">
             
