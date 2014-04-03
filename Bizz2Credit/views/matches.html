@@ -19,19 +19,22 @@
             
                 <li class="clearfix">
             	<div class="row1">
-                		<p>
-                			#if(pro_display_name){#
-                			<img src="https://www.biz2credit.com/images/#: pro_display_name #">
-                			#}#
+                		<p>#if(typeof pro_display_name  !== "undefined"){#
+                				#if(pro_display_name){#
+                					<img src="https://www.biz2credit.com/images/#: pro_display_name #">
+                				#}#
+            				#}#
                 		</p>
                 		<p> #: product_name #</p>
-                        #if(mca_action){#
-                        	<span>         
+            			#if(typeof mca_action  !== "undefined"){#
+                        	#if(mca_action){#
+                        		<span>         
 
-                        		#:'Instant Approval'#
+                        			#:'Instant Approval'#
 
-                        	</span>
-                        #}#
+                        		</span>
+                        	#}#
+           			 #}#
                 </div>
                 <div class="row2">
                     #if(typeof minloc_amt !== "undefined"){#
