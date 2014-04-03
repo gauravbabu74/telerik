@@ -18,15 +18,20 @@
             },
             schema: {
                 data: function(data)
-                {
-                	return [data];
+                {   var i=0;
+                    var max = i + 35;
+                    var data1 = [];
+                    for (; i < max; i ++) {
+                    data1.unshift({ name: "record" + i, modified: +new Date() });
+                    }
+                	return [data1];
                 }
             }
         });
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            app.documentsetting.viewModel.setDocuments(data[0]['results']['data']['loan']['matchrows']);
+            app.documentsetting.viewModel.setDocuments(data);
             
         });
        
@@ -34,8 +39,9 @@
         setDocuments: function(data)
         { 
                var that = this;
-               that.set("documents", data);
-              // console.log(documents);
+             console.log(data);
+               that.set("documents", data['0']);
+              //console.log(data);
                app.loginService.viewModel.hideloder();
                
         },

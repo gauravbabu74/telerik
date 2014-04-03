@@ -1,10 +1,18 @@
 <div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
-
-<div class="view-content">
+<div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title">
+                <div class="matches-logo"></div>
+            </span>
+        </div>
+    </div>
+<div data-role="content">
     <a data-role="backbutton">Back</a>
-    <ul id="listView" data-role="listview" data-source="docsdata" data-pull-to-refresh="true" data-template="docs-template">
-
-    </ul>
+    <ul id="listView" data-bind="source: documents"  data-template="docs-template"></ul>
 </div>
 
 </div>
+<!-- Matches page template -->
+        <script type="text/x-kendo-template" id="docs-template">
+            <li><p> #: name #</p></li>
+        </script>
