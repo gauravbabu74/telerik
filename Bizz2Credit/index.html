@@ -101,7 +101,7 @@
             </div>
             <div data-role="footer">
                 <div data-role="navbar" class="documentClick">
-                    <a href="#tabstrip-docs">
+                    <a href="views/documents.html" data-role="button">
                         <img src="styles/images/ic_launcher.png"><span>Documents</span>
                     </a>
                 </div>
@@ -221,17 +221,7 @@
                 <p class="doc-content"></p>
                 <a data-role="button"  data-click="fourthCloseModal">Close</a>
         </div>
-        <!--my documents-->
-        <div id="tabstrip-docs" data-role="view" data-init="viewInit">
-
-            <div class="view-content">
-                <a data-role="backbutton">Back</a>
-                <ul id="listView" data-role="listview" data-source="docsdata" data-pull-to-refresh="true" data-template="docs-template">
-
-                </ul>
-            </div>
-
-        </div>
+      
        <!--home message 3-->
         <div id="tabstrip-mess-dynamic" class="modal-mess-one" data-role="modalview"  data-height="165">
 

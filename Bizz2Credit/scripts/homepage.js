@@ -272,6 +272,7 @@
 				html +="</ol>";
                 $(".doc-content").append(html);
                 $("#tabstrip-mess-fourth").data("kendoMobileModalView").open();
+                $("#tabstrip-mess-fourth").find(".km-scroll-container").css("-webkit-transform", "");
                 app.loginService.viewModel.hideloder();
             });    
         },
@@ -283,6 +284,7 @@
             html ="To apply for this product, Please log on to the web version of Biz2credit.com";
             $("#tabstrip-mess-dynamic p").append(html);
             $("#tabstrip-mess-dynamic").data("kendoMobileModalView").open();
+            
             app.loginService.viewModel.hideloder();
         }
         
