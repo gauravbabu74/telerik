@@ -23,7 +23,7 @@
                     var max = i + 35;
                     var data1 = [];
                     for (; i < max; i ++) {
-                    data1.unshift({ name: "record" + i, modified: +new Date() });
+                    data1.unshift({ appid: "record" + i, modified: +new Date() });
                     }
                 	return [data1];
                 }
@@ -40,7 +40,7 @@
         setDocuments: function(data)
         { 
                var that = this;
-             console.log(data);
+             //console.log(data);
                that.set("documents", data['0']);
               //console.log(data);
                app.loginService.viewModel.hideloder();
@@ -77,15 +77,19 @@
                     var max = i + 35;
                     var data1 = [];
                     for (; i < max; i ++) {
-                    data1.unshift({ name: "record" + i, modified: +new Date() });
+                    data1.unshift({ appid: "record" + i, modified: +new Date() });
                     }
+                    
                 	return [data1];
                 }
-            }
+            },
+
+serverFiltering: true,
+            filter: { field: "appid", operator: "startswith", value: "r" },  
         });
         dataSource.fetch(function(){
-            var that = this;
-            var data = that.data();
+            var data = dataSource.view();
+            console.log(data)
             app.documentsetting.viewModel.setDocuments(data);
             
         });
