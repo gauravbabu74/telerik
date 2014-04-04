@@ -172,7 +172,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .km-loadBlk { padding:0;}
 .km-flat .km-loader { background:rgba(0,0,0,0.6); width:100%; height:100%; border-radius:0; position:absolute; margin:0; top:0;  opacity:1;  left:0;  background:rgba(0,0,0,0.6);  padding:0;}
 .km-root .km-flat .km-loading-left, .km-root .km-flat .km-loading-right, .km-loadBlk .km-loading { display:none;}
-.km-flat .km-loader h1 { position:absolute; display:inline; color:#333; left:0; top:50%; margin:0 10%;background-image: url(images/loding.gif);   background-position:10px 14px;  background-repeat:no-repeat;  width:80%;  padding:18px 0 0 45px;  height:4.7em;  border-radius:2px;  background-color:#fff;  text-align:left;  font-size:0.75em;}
+.km-flat .km-loader h1 { position:absolute; display:inline; color:#333; left:0; top:50%; margin:0 10%;background-image: url(images/loding.gif);   background-position:10px 17px;  background-repeat:no-repeat;  width:80%;  padding:23px 0 0 45px;  height:5.2em;  border-radius:2px;  background-color:#fff;  text-align:left;  font-size:0.75em;}
 /********25-03-14*************/
 /*********27-03-14*************/
 .modal-mess-one {padding:0; width:98%; margin:0 0 0 1.3%;}
