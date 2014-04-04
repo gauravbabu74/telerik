@@ -77,8 +77,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .popupBox li { color:#333;}
 .documentClick {padding:0;}
 .documentClick .km-view-title { font-size:1em; color:#333; font-weight:700;}
-.documentClick .km-view-title a {display:inline-block; padding:10px 7px 3px;}
-.documentClick .km-view-title a img { float:left;}
+.documentClick .km-view-title a {display:inline-block; padding:10px 7px 0px; background:none; border:0; margin:0;}
+.documentClick .km-view-title a img { float:left; width:37%;}
 .documentClick .km-view-title a span {float:left; display:inline; padding:10px 0 0;}
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
@@ -139,7 +139,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .stpsumry p span{ color:#000; font-weight:bold }
 .stpcurrntAc{ width: 41%; float:right; padding-top:30px; text-align:right}
 .stpcurrntAc p{ padding:5px 0px 0px 0px; font-size:14px; color:#999999; margin:2px 0 0;}
-.stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#000; background-image:url(images/call_schedule.png) !important; background-color:#ececec !important; background-repeat:no-repeat !important; background-position:5px 3px !important; padding:2px 15px 2px 25px !important; background-size:13% !important; border:0 !important;}
+.stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#000; background-image:url(images/call_schedule.png) !important; background-color:#ececec !important; background-repeat:no-repeat !important; background-position:5px 3px !important; padding:5px 15px 6px 25px !important; background-size:13% !important; border:0 !important;}
 .stpcurrntAc p a img{ vertical-align:middle; padding:0 3px 0 0;}
 .blogent ul{ margin:0px; padding:0px; list-style:none}
 .blogent ul li{ margin:0px; padding:0px; width:46%; float:left}
