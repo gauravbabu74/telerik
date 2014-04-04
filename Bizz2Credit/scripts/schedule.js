@@ -73,6 +73,8 @@ $(document).ready(function(){
        format: "MM-dd-yyyy",
        
     });
+ $('#tabstrip-docs').append('<p>slfjksfksaofspfopsofp</p>');
+    
     $('#datepicker').attr('disabled','disabled');
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');
