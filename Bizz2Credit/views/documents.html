@@ -3,14 +3,15 @@
     <div data-role="header">
         <div data-role="navbar">
             <span data-role="view-title">
-                		<a data-role="backbutton" data-bind="invisible: showfilter">Back</a>
-                        <a data-bind="click: setVisibilty, visible: showfilter">Back</a>
-                        <form id="searchForm" data-bind="invisible: showfilter">
+                		<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
+                        <a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
+                        <form class="docs-searchForm" data-bind="invisible: showfilter">
+                        <form class="searchForm" data-bind="invisible: showfilter">
                         	<p>Documents</p>
                         	<input type="submit"   data-bind="click: setVisibilty"class="login-button" value="search"/>
                             <input type="submit"   data-bind="click: refreshView"class="login-button" value="refresh" />
                         </form>
-                       <form id="searchForm" data-bind="visible: showfilter">
+                       <form class="docs-searchForm" data-bind="visible: showfilter">
 
                         	<input type="text"  placeholder="Search"/>
                        </form>
