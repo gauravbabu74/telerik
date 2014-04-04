@@ -74,23 +74,24 @@
             schema: {
                 data: function(data)
                 {   var i=0;
-                    var max = i + 35;
+                    var max = i + 10;
                     var data1 = [];
                     for (; i < max; i ++) {
-                    data1.unshift({ appid: "record" + i, modified: +new Date() });
+                    data1.unshift({ appid: "record" + i});
                     }
                     
                 	return [data1];
                 }
             },
-
-serverFiltering: true,
-            filter: { field: "appid", operator: "startswith", value: "r" },  
+              
+            filter:{ logic: "or", filters: [ { field: "appid", operator: "startswith", value: "Jane" } ] } 
+                
         });
+             console.log(dataSource);
         dataSource.fetch(function(){
-            var data = dataSource.view();
+            var data = dataSource.data();
             console.log(data)
-            app.documentsetting.viewModel.setDocuments(data);
+            app.documentsetting.viewModel.setDocuments(data['0']);
             
         });
         }
