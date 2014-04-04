@@ -71,27 +71,28 @@
                     data: { apiaction:"userdashboard",userid:sessionStorage.getItem("userID")} // search for tweets that contain "html5"
                 }
             },
+                 
             schema: {
                 data: function(data)
                 {   var i=0;
                     var max = i + 10;
                     var data1 = [];
                     for (; i < max; i ++) {
-                    data1.unshift({ appid: "record" + i});
+                    data1[i]={ appid: "record" + i};
                     }
-                    
+                    console.log(data1)
                 	return [data1];
                 }
             },
-              
-            filter:{ logic: "or", filters: [ { field: "appid", operator: "startswith", value: "Jane" } ] } 
+           filter:{ logic: "or", filters: [ { field: "appid", operator: "startswith", value: "Jane" } ] } ,   
+           
                 
         });
-             console.log(dataSource);
+             
         dataSource.fetch(function(){
-            var data = dataSource.data();
+            var data = dataSource.view();
             console.log(data)
-            app.documentsetting.viewModel.setDocuments(data['0']);
+            app.documentsetting.viewModel.setDocuments(data);
             
         });
         }

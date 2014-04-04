@@ -1,15 +1,15 @@
 <div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
 
-    <div data-role="header">
+    <div data-role="header" class="docs-header">
         <div data-role="navbar">
             <span data-role="view-title">
                 		<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
                         <a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
-                        
+                        <p data-bind="invisible: showfilter">Documents</p>
                         <form class="searchForm" data-bind="invisible: showfilter">
-                        	<p>Documents</p>
-                        	<input type="submit"   data-bind="click: setVisibilty"class="login-button" value="search"/>
-                            <input type="submit"   data-bind="click: refreshView"class="login-button" value="refresh" />
+                        	
+                        	<input type="submit"   data-bind="click: setVisibilty"class="docs-search" value="search"/>
+                            <input type="submit"   data-bind="click: refreshView"class="docs-refresh" value="refresh" />
                              <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
                         </form>
                        <form class="docs-searchForm" data-bind="visible: showfilter">
