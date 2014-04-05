@@ -217,12 +217,16 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /*********1-04-14****************/
 /*********4-04-14*************/
 .docs-header {padding:0;}
-.docs-header .km-widget {background:#fff; border-bottom:1px solid #99cc00;}
+.docs-header .km-widget {background:#fff; border-bottom:2px solid #99cc00;}
 .docs-header .km-widget .docs-back {background-image: url(images/arrow-Icon-launcher.png); background-repeat:no-repeat; background-size:94%; background-position:center 7px; text-indent:-9000px; border:0;padding:0; margin:0; width:16%;height:38px; float:left;}
 .docs-header .km-widget .docs-docu { float:left; color:#333; font-size:0.85em; width:46%; text-align:left;}
 .docs-header .km-widget .docs-search {background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:100%; background-position:center 7px; text-indent:-9000px; width:11%; height:50px; border:0; background-color:transparent; float:left;}
 .docs-header .km-widget .docs-refresh {background-image: url(images/action_refresh.png); background-repeat:no-repeat; background-size:75%; background-position:center 7px; text-indent:-9000px; width:13%; height:50px; border:0; background-color:transparent; float:left;}
 .docs-header .km-widget .docs-popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:transparent;  border-radius:0;}
+.docs-header .km-widget #docs-filter { float:left; width:70%;}
+.docs-header .km-widget #docs-filter .km-filter-form { margin:0; padding:0;}
+.docs-header .km-widget #docs-filter .km-filter-wrap { margin:0 0 0 2%; padding-bottom:0; padding-top:0;background-image: url(images/search-bg.png); background-repeat:no-repeat; background-size:100%; background-position:center 40px;}
+.docs-header .km-widget #docs-filter .km-filter-wrap input { text-indent:25px; border:0;background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:14%; height:28px; padding:0; background-position:left 0px;}
 /*********4-04-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
