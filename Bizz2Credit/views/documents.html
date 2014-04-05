@@ -1,38 +1,29 @@
-<div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
+ <!--Document Section---->
+        <div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
 
-    <div data-role="header" class="docs-header">
-        <div data-role="navbar">
-            <span data-role="view-title">
-                		<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
-                        <a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
-                        <p class="docs-docu" data-bind="invisible: showfilter">Documents</p>
-                        <form class="searchForm" data-bind="invisible: showfilter">
-                        	
-                        	<input type="submit"   data-bind="click: setVisibilty"class="docs-search" value="search"/>
-                            <input type="submit"   data-bind="click: refreshView"class="docs-refresh" value="refresh" />
-                             <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
-                        </form>
-                       <form class="docs-searchForm" data-bind="visible: showfilter">
+            <div data-role="header" class="docs-header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                    	<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
+                    	<a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
+                    	<p class="docs-docu" data-bind="invisible: showfilter">Documents</p>
+                    	<div class="searchForm" data-bind="invisible: showfilter">
+                    		<a data-bind="click: setVisibilty"class="docs-search">search</a>
+                    		<a data-bind="click: refreshView"class="docs-refresh">refresh</a>
+                    		<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
+                    	</div>
+                    	<div id="docs-filter" data-bind="visible: showfilter"></div>
+                    </span>
+                </div>
+            </div>
 
-                        	<input id="docs-filter" type="text"  placeholder="Search"/>
-                       </form>
-            </span>
+            <div  data-role="content">
+            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'appid', operator: 'startswith', }"></ul> 
+            </div>
         </div>
-    </div>
-    
-    <div  data-role="content">
-    <ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'appid', operator: 'startswith', }"></ul></div>
-</div>
 
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
             <p> #: appid #</p>
         </script>
-<script>
-    $(document).ready(function(){
-    alert('fsfsfsf')
-    $('.km-filter-form').remove();
-    $(".km-filter-form").detach().appendTo('#docs-filter')
-    });
-     </script>

@@ -8,6 +8,7 @@
 		documentShow:function()
         {
             app.loginService.viewModel.showloder();
+            $(".km-filter-form").detach().appendTo('#docs-filter');
        	 var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
