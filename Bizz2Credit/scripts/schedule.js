@@ -73,14 +73,7 @@ $(document).ready(function(){
        format: "MM-dd-yyyy",
        
     });
-   $("#listView").kendoMobileListView({
-         
-            filterable: {
-                field: "appid",
-                operator: "startswith"
-            },
-            endlessScroll: true
-        });
+    $(".km-filter-form").detach().appendTo('#docs-filter');
     $('#datepicker').attr('disabled','disabled');
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');

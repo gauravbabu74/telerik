@@ -101,7 +101,7 @@
             </div>
             <div data-role="footer">
                 <div data-role="navbar" class="documentClick">
-                    <a href="views/documents.html" data-role="button">
+                    <a href="#tabstrip-docs" data-role="button">
                         <img src="styles/images/ic_launcher.png"><span>Documents</span>
                     </a>
                 </div>
@@ -231,7 +231,29 @@
                 <p></p>
                 
         </div>
-         
+         <!--Document Section---->
+        <div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
+
+            <div data-role="header" class="docs-header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                    	<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
+                    	<a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
+                    	<p class="docs-docu" data-bind="invisible: showfilter">Documents</p>
+                    	<form class="searchForm" data-bind="invisible: showfilter">
+                    		<input type="submit"   data-bind="click: setVisibilty"class="docs-search" value="search"/>
+                    		<input type="submit"   data-bind="click: refreshView"class="docs-refresh" value="refresh" />
+                    		<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
+                    	</form>
+                    	<div id="docs-filter" data-bind="visible: showfilter"></div>
+                    </span>
+                </div>
+            </div>
+
+            <div  data-role="content">
+            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'appid', operator: 'startswith', }"></ul> 
+            </div>
+        </div>
 
         <!--Layout-->
         <div data-role="layout" data-id="tabstrip-layout">
@@ -244,7 +266,14 @@
             </div>
             <!--Footer-->
         </div>
+        
+        <!-- Documents page template -->
+        <script type="text/x-kendo-template" id="docs-template">
+            <p> #: appid #</p>
+        </script>
+        
         <script>
+           
             function oneCloseModal() {
             	$("#tabstrip-mess-one").data("kendoMobileModalView").close();
             }
@@ -265,6 +294,12 @@
             }
             
         </script>
-										 	 
+        <script>
+            $(document).ready(function(){
+
+            	$(".km-filter-form").detach().appendTo('#docs-filter');
+
+            });
+        </script>
     </body>
 </html>
