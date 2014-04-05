@@ -80,18 +80,17 @@
                     for (; i < max; i ++) {
                     data1[i]={ appid: "record" + i};
                     }
-                    console.log(data1)
                 	return [data1];
                 }
             },
-           filter:{ logic: "or", filters: [ { field: "appid", operator: "startswith", value: "Jane" } ] } ,   
+           filter:{ logic: "and", filters: [ { field: "appid", operator: "startswith", value: "rec" } ] } ,   
            
                 
         });
              
         dataSource.fetch(function(){
             var data = dataSource.view();
-            console.log(data)
+            console.log(dataSource);
             app.documentsetting.viewModel.setDocuments(data);
             
         });

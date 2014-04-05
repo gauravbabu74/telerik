@@ -5,7 +5,7 @@
             <span data-role="view-title">
                 		<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
                         <a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
-                        <p data-bind="invisible: showfilter">Documents</p>
+                        <p class="docs-docu" data-bind="invisible: showfilter">Documents</p>
                         <form class="searchForm" data-bind="invisible: showfilter">
                         	
                         	<input type="submit"   data-bind="click: setVisibilty"class="docs-search" value="search"/>
@@ -14,18 +14,23 @@
                         </form>
                        <form class="docs-searchForm" data-bind="visible: showfilter">
 
-                        	<input type="text"  placeholder="Search"/>
+                        	<input id="docs-filter" type="text"  placeholder="Search"/>
                        </form>
             </span>
         </div>
     </div>
     
-    
+    <div  data-role="content">
     <ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" ></ul></div>
-
+</div>
 
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
             <p> #: appid #</p>
         </script>
+<script>
+    
+    $('.km-filter-form').remove();
+    
+     </script>
