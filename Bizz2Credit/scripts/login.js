@@ -99,8 +99,8 @@
         navigateHome: function()
         {  
              
-             apps.navigate("#tabstrip-home");
-             kendo.history.navigate("#tabstrip-home");
+             apps.navigate("views/homepage.html");
+             //kendo.history.navigate("#tabstrip-home");
         },
         clearForm: function () {
             var that = this;
