@@ -21,7 +21,7 @@
     </div>
     
     <div  data-role="content">
-    <ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" ></ul></div>
+    <ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'appid', operator: 'startswith', }"></ul></div>
 </div>
 
 
@@ -30,7 +30,9 @@
             <p> #: appid #</p>
         </script>
 <script>
-    
+    $(document).ready(function(){
+    alert('fsfsfsf')
     $('.km-filter-form').remove();
-    
+    $(".km-filter-form").detach().appendTo('#docs-filter')
+    });
      </script>
