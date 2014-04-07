@@ -16,7 +16,7 @@
                     url: "http://biz2services.com/mobapp/api/user/",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"userdashboard",userid:sessionStorage.getItem("userID")} // search for tweets that contain "html5"
+                    data: { apiaction:"userdashboard",userid:localStorage.getItem("userID")} // search for tweets that contain "html5"
                 }
             },
             schema: {
@@ -29,7 +29,8 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            //console.log(data['0']['results']['data']['loan']['matchrows']);
+            console.log(data);
+            
             app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
             //console.log(data);
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
@@ -43,7 +44,7 @@
             var matches = data[0]['results']['data']['loan']['matches'];
             var matchrows =data[0]['results']['data']['loan']['matchrows'];
             var funded =data[0]['results']['data']['funded'];
-            var userName= sessionStorage.getItem("userFName");
+            var userName= localStorage.getItem("userFName");
         	if(cntGetStarted === 0 && loan_total === 0){
             	pos = 1;
                

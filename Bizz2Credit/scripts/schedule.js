@@ -25,6 +25,7 @@
                 return;
             }
             else{
+                
                app.loginService.viewModel.showloder();
                // alert('Schedule call');
                that.setSchedule(phonenumber,sDate,sTime);  
@@ -40,7 +41,7 @@
                             url: "http://biz2services.com/mobapp/api/user/",
                             type:"POST",
                             dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                            data: { apiaction:"callschedule",userid:sessionStorage.getItem("userID"),name:sessionStorage.getItem("userFName"),email:sessionStorage.getItem("userEmail"),appid:"",phone:phonenumber ,calldate:sDate,calltime:sTime}
+                            data: { apiaction:"callschedule",userid:localStorage.getItem("userID"),name:localStorage.getItem("userFName"),email:localStorage.getItem("userEmail"),appid:"",phone:phonenumber ,calldate:sDate,calltime:sTime}
                     },
                 },
                     schema: {
