@@ -12,10 +12,6 @@
                 
         }, 'exit', 'Ok,Cancel');
           }
-        else if(apps.view()['element']['0']['id']==='tabstrip-docs' && app.documentsetting.viewModel.showfilter === true)
-        {
-             app.documentsetting.viewModel.set("showfilter", false);
-        }
         else
         {
             apps.navigate("#:back");
@@ -31,15 +27,13 @@
 
     // Handle "deviceready" event
     document.addEventListener('deviceready', onDeviceReady, false);
-	//console.log(localStorage.getItem("isLoggedIn"));
-    if(localStorage.getItem("isLoggedIn") === 'true')
-    {
-    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-home",skin: "flat"}); 
-    }
-    else
-    {
-    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
-    }
+
    
+   // document.addEventListener('deviceready', function () {
+       // navigator.splashscreen.hide();
+       // $(document.body).height(window.innerHeight);
+   // }, false);
+
+    apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
     
 })(window);

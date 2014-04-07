@@ -84,7 +84,9 @@
                 	return [data1];
                 }
             },
-     
+           filter:{ logic: "and", filters: [ { field: "appid", operator: "startswith", value: "rec" } ] } ,   
+           
+                
         });
              
         dataSource.fetch(function(){

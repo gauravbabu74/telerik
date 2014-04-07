@@ -4,7 +4,7 @@
 
     LoginViewModel = kendo.data.ObservableObject.extend({
    
-        isLoggedIn:(localStorage.getItem("isLoggedIn") === true) ?  true : false,
+        isLoggedIn:(sessionStorage.getItem("isLoggedIn") === true) ?  true : false,
         username: "",
         password: "",
         validateUser:function()
@@ -60,7 +60,7 @@
                 }
                 else{
                     that.hideloder();
-                    localStorage.setItem("isLoggedIn",false);
+                    sessionStorage.setItem("isLoggedIn",false);
                     alert('Please check username and password.');
                     return;
                 }            
@@ -71,12 +71,12 @@
         setUserLogin: function (userinfo) {
             var that = this;
             that.hideloder();
-            localStorage.setItem("isLoggedIn",true);
-            localStorage.setItem("userFName",userinfo['userFName']);
-            localStorage.setItem("userLName",userinfo['userLName']);
-            localStorage.setItem("userID",userinfo['userID']);
-            localStorage.setItem("userEmail",userinfo['userEmail']);
-            localStorage.setItem("userMobile",userinfo['userMobile']);
+            sessionStorage.setItem("isLoggedIn",true);
+            sessionStorage.setItem("userFName",userinfo['userFName']);
+            sessionStorage.setItem("userLName",userinfo['userLName']);
+            sessionStorage.setItem("userID",userinfo['userID']);
+            sessionStorage.setItem("userEmail",userinfo['userEmail']);
+            sessionStorage.setItem("userMobile",userinfo['userMobile']);
             that.navigateHome();
         },
         
@@ -84,12 +84,12 @@
         setUserLogout: function () {
             var that = this;
             that.set("isLoggedIn", false);
-            localStorage.setItem("isLoggedIn",false);
-            localStorage.removeItem("userFName");
-            localStorage.removeItem("userLName");
-            localStorage.removeItem("userID");
-            localStorage.removeItem("userEmail");
-            localStorage.removeItem("userMobile");
+            sessionStorage.setItem("isLoggedIn",false);
+            sessionStorage.removeItem("userFName");
+            sessionStorage.removeItem("userLName");
+            sessionStorage.removeItem("userID");
+            sessionStorage.removeItem("userEmail");
+            sessionStorage.removeItem("userMobile");
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
