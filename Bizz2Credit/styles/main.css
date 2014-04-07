@@ -78,7 +78,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentClick {padding:0;}
 .documentClick .km-view-title { font-size:1em; color:#333; font-weight:700;}
 .documentClick .km-view-title a {display:inline-block; padding:10px 7px 0px; background:none; border:0; margin:0;}
-.documentClick .km-view-title a img { float:left; width:37%;}
+.documentClick .km-view-title a img { float:left; }
 .documentClick .km-view-title a span {float:left; display:inline; padding:10px 0 0;}
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
@@ -148,7 +148,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .btngr {background-color:#99cc00; padding:6px 8px; -webkit-border-radius: 3px; border-radius: 3px; min-width:262px; display:block;box-shadow: 3px 3px 0 0 #dfdddd; color:#000 !important; font-weight:normal; font-size:0.95em; font-family:arial; text-decoration:none; }
 .btngr:focus { background-color:#7da600;}
 /*************21-03-14*************/
-.schedulePopup { padding:0; margin:8px 1% 6%; width:98.3%; height:87%;}
+.schedulePopup { padding:8px 1.5% 6% 2.3%; margin:0; }
 .schedulePopup h3 { font-size:1em; color:#99cc00; font-weight:normal; padding:15px 60px 15px 15px; margin:0 0 15px; border-bottom:2px solid #99cc00;}
 .schedulePopup .scheduleSection { padding:0 15px;}
 .schedulePopup .scheduleSection .phoneNumber {    -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset;    color:#333;   width:100%;   font-size:1em;   position:inherit;   margin-top:0;   border:1px solid #dcdcdc;  border-radius:3px;   padding:0.9em 0.9em 0.9em 0.3em !important;}
