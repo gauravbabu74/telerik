@@ -31,8 +31,8 @@
 
     // Handle "deviceready" event
     document.addEventListener('deviceready', onDeviceReady, false);
-
-    if(sessionStorage.getItem("isLoggedIn") === true)
+	//console.log(localStorage.getItem("isLoggedIn"));
+    if(localStorage.getItem("isLoggedIn") === 'true')
     {
     	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-home",skin: "flat"}); 
     }
