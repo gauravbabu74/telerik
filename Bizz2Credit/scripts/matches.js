@@ -28,7 +28,6 @@
             var that = this;
             var data = that.data();
            // console.log(data);
-            
             MatchespageViewModel.setMatches(data);
          });
         	   
