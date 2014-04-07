@@ -26,7 +26,6 @@
                     for (; i < max; i ++) {
                     data1.unshift({ appid: "record" + i, modified: +new Date() });
                     }
-                    
                 	return [data1];
                 }
             }
