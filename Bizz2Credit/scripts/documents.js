@@ -50,6 +50,7 @@
         setVisibilty:function()
         {
             var that = this;
+            $(".km-filter-reset").trigger("click");
             if(app.documentsetting.viewModel.showfilter === true)
             {
                 that.set("showfilter", false);
