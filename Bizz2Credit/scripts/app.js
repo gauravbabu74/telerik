@@ -32,12 +32,14 @@
     // Handle "deviceready" event
     document.addEventListener('deviceready', onDeviceReady, false);
 
+    if(sessionStorage.getItem("isLoggedIn") === true)
+    {
+    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-home",skin: "flat"}); 
+    }
+    else
+    {
+    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
+    }
    
-   // document.addEventListener('deviceready', function () {
-       // navigator.splashscreen.hide();
-       // $(document.body).height(window.innerHeight);
-   // }, false);
-
-    apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
     
 })(window);
