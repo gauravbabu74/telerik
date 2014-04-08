@@ -4,9 +4,10 @@ body, html { margin: 0;height: 100%; width: 100%;}
 .view-content h1.welcome {text-align: center;}
 .view-content h3 {color: #42454a; font-size: 1.1em;}
 .view-content p { color: #4a4e54; font-size: 1em;}
-input:focus {  border:0 !important; background-color:transparent;}
+input{outline:none;}
+input:focus { outline:none; border:0 !important; background-color:transparent;}
 *:focus {
-    outline: 0;
+    outline: 0;outline:none;
 }
 input, .docs-filter-box{-webkit-appearance: none;appearance:none;-moz-appearance:none;} 
 /* IMAGE STYLES*/
