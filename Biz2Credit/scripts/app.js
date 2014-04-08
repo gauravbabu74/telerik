@@ -24,7 +24,7 @@
 
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
-        $(document.body).height(window.innerHeight);
+       // $(document.body).height(window.innerHeight);
         document.addEventListener('backbutton', onBackKeyDown, false);
        // document.addEventListener("menubutton",omenu, false);
     };
