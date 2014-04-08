@@ -226,7 +226,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget #docs-filter { float:left; width:70%;}
 .docs-header .km-widget #docs-filter .km-filter-form { margin:0; padding:0;}
 .docs-header .km-widget #docs-filter .km-filter-wrap { margin:0 0 0 2%; padding-bottom:0; padding-top:0;background-image: url(images/search-bg.png); background-repeat:no-repeat; background-size:100%; background-position:center 40px;}
-.docs-header .km-widget #docs-filter .km-filter-wrap input { text-indent:25px; border:0;background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:14%; height:28px; padding:0; background-position:left 0px;}
+.docs-header .km-widget #docs-filter .km-filter-wrap input {  border:0;background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:14%; height:28px; padding:0; background-position:left 0px;}
 /*********4-04-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
