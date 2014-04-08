@@ -4,10 +4,10 @@ body, html { margin: 0;height: 100%; width: 100%;}
 .view-content h1.welcome {text-align: center;}
 .view-content h3 {color: #42454a; font-size: 1.1em;}
 .view-content p { color: #4a4e54; font-size: 1em;}
-input{outline:none;}
-input:focus { outline:none; border:0 !important; background-color:transparent;}
+input{outline:1px solid red;}
+input:focus { outline:1px solid red; border:0 !important; background-color:transparent;}
 *:focus {
-    outline: 0;outline:none;
+    outline: 1px solid red;
 }
 input, .docs-filter-box{-webkit-appearance: none;appearance:none;-moz-appearance:none;} 
 /* IMAGE STYLES*/
@@ -66,7 +66,7 @@ background-clip: border-box;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin:0 0 5%; border:0; padding:0;}
 html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { color:#ccc;}
 .loginSection ul li label input[type=text]:not(.k-input) { width:99%; font-size:0.8em; position:inherit; margin-top:0;border:1px solid #dcdcdc; border-radius:3px;padding:0.9em !important; -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;box-shadow: 0 0 1px 1px #dcdcdc inset;color:#dcdcdc;}
-.loginSection ul li label input[type=text]:not(.k-input):focus, .loginSection ul li label input[type=password]:focus { -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset; color:#333;}
+.loginSection ul li label input[type=text]:not(.k-input):focus, .loginSection ul li label input[type=password]:focus { -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset; color:#333;outline:1px solid red;}
 .loginSection ul li label input[type=password] { width:99%; position:inherit; margin-top:0; border:1px solid #dcdcdc; border-radius:3px; padding:0.9em!important; -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;box-shadow: 0 0 1px 1px #dcdcdc inset;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {/* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));  /* Safari 5.1, Chrome 10+ */ background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00); /* Firefox 3.6+ */ background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); /* IE 10 */ background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); /* Opera 11.10+ */ background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px; border:1px solid #808080; color:#000; font-size:1.125em; -moz-box-shadow: inset 0px 0px 1px #7a9e0e; padding:0.9em!important;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0;}
