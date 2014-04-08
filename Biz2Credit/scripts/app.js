@@ -33,11 +33,11 @@
     document.addEventListener('deviceready', onDeviceReady, false);
     if(localStorage.getItem("isLoggedIn") === 'true')
     {
-    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-home",skin: "flat",loading: "<h1>Please wait...</h1>"}); 
+    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-home",skin: "flat"}); 
     }
     else
     {
-    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat",loading: "<h1>Please wait...</h1>"});
+    	apps = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout",initial: "tabstrip-login",skin: "flat"});
     }
    
     
