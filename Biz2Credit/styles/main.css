@@ -116,7 +116,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #dashview .tooltip div a.btnblck{ background-image:none; color:#FFF; padding:11px 15px; display:inline-block; margin:0px auto; clear:both}
 #stps{ height:108px;}
 #stps ul{ margin:0px; padding:10px 0px 0px 0px; height:98px; background-image:url(images/linegr.png); background-repeat:repeat-x; background-position:center center; list-style:none;}
-#stps ul li{ width:20%; float:left; padding-left:1%; padding-right:1%; padding-top:0px; text-align:center; font-size:30px; color:#CCC}
+#stps ul li{ position:relative; width:20%; float:left; padding-left:1%; padding-right:1%; padding-top:0px; text-align:center; font-size:30px; color:#CCC}
 #stps ul li div{  padding-top:16px;display:block; color:#CCC; text-decoration:none;}
 
 #stps ul li.dn div{ background-image:url(images/stepdone.jpg); background-repeat:no-repeat;  background-position:center top; color:#cce57f   }
@@ -229,6 +229,14 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget #docs-filter .km-filter-wrap { margin:0 0 0 2%; padding-bottom:0; padding-top:0;background-image: url(images/search-bg.png); background-repeat:no-repeat; background-size:100%; background-position:center 40px;}
 .docs-header .km-widget #docs-filter .km-filter-wrap input {  border:0;background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:14%; height:28px; padding:0; background-position:left 0px;}
 /*********4-04-14*************/
+/*********09-04-14*************/
+.removeBtn { background-color:transparent !important; padding:0!important; margin:0!important; border:0!important;}
+#stps ul li .removeBtn { background-color:#fff !important; margin:0; padding:16px 0 0!important; border:0;}
+#stps ul li article { text-align:left; padding:10px 5px 5px; background-color:#fff; border:1px solid #ccc; position:absolute; border-radius:2px; z-index:50; top:80px; width:190px;}
+#stps ul li .artclArow {background-image: url(images/tol-tip-arrow.png); background-repeat:no-repeat; width:10px; height:8px; text-indent:-5000px; position:absolute; left:25px; top:-7px;}
+#stps ul li article span { font-size:10px; color:rgb(168, 168, 168); line-height:12px; height:auto; text-align:right; padding-bottom:6px;}
+#stps ul li article span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
+/*********09-04-14*************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
