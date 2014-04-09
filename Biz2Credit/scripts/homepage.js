@@ -12,7 +12,7 @@
         toolStatus:false,
         name:localStorage.getItem("userFName"),
         email:localStorage.getItem("userEmail"),
-        phone:localStorage.getItem("userMobile"),
+        phone:"+"+localStorage.getItem("userMobile"),
         dHeader:(window.localStorage.getItem("dHeader") !== null) ?  localStorage.getItem("dHeader") : '',
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
@@ -300,11 +300,11 @@
         setHomeToolTips:function(data)
         {console.log(data);
             var that = this;
-            that.set("LoanAmt", data['loanamt']);
-            that.set("YearsBus", data['ageofbuss']);
-            that.set("AnnnualRevenue", data['annrevenue']);
+            that.set("LoanAmt", "$"+data['loanamt']);
+            that.set("YearsBus", data['ageofbuss']+" yrs.");
+            that.set("AnnnualRevenue", "$"+data['annrevenue']);
             that.set("CreditScore", data['creditscore']);
-            that.set("State", data['state']);
+            that.set("State",data['state']);
          
         },
         setToolTips:function()

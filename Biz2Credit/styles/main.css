@@ -232,9 +232,10 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /*********09-04-14*************/
 .removeBtn { background-color:transparent !important; padding:0!important; margin:0!important; border:0!important;}
 #stps ul li .removeBtn { background-color:#fff !important; margin:0; padding:16px 0 0!important; border:0;}
-#stps ul li article { text-align:left; padding:10px 5px 5px; background-color:#fff; border:1px solid #ccc; position:absolute; border-radius:2px; z-index:50; top:80px; width:190px;}
+#stps ul li article {box-shadow: 1px 3px 0px #acacac; text-align:left; padding:10px 5px 5px; background-color:#fff; border:1px solid #ccc; position:absolute; border-radius:2px; z-index:50; top:80px; width:190px;}
 #stps ul li .artclArow {background-image: url(images/tol-tip-arrow.png); background-repeat:no-repeat; width:10px; height:8px; text-indent:-5000px; position:absolute; left:25px; top:-7px;}
 #stps ul li article span { font-size:10px; color:rgb(168, 168, 168); line-height:12px; height:auto; text-align:right; padding-bottom:6px;}
+#stps ul li article .state { margin-bottom:7px;}
 #stps ul li article span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
 /*********09-04-14*************/
 @media screen and (max-width: 768px){ 
