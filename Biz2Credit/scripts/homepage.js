@@ -4,6 +4,15 @@
 
     HomepageViewModel = kendo.data.ObservableObject.extend({
 		Matches:[],
+        LoanAmt:"",
+        YearsBus:"",
+        AnnnualRevenue:"",
+        CreditScore:"",
+        State:"",
+        toolStatus:false,
+        name:localStorage.getItem("userFName"),
+        email:localStorage.getItem("userEmail"),
+        phone:localStorage.getItem("userMobile"),
         dHeader:(window.localStorage.getItem("dHeader") !== null) ?  localStorage.getItem("dHeader") : '',
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
@@ -170,6 +179,7 @@
             }
              
              $("#home-call-btn").append(html);
+             app.homesetting.viewModel.setHomeToolTips(data[0]['results']['data']);
              app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
            
         });    
@@ -236,7 +246,7 @@
         { 
                var that = this;
                that.set("Matches", data);
-               console.log(data);
+               //console.log(data);
                //app.loginService.viewModel.hideloder();
         },
         reqDocuments: function(e)
@@ -286,7 +296,31 @@
             $("#tabstrip-mess-dynamic").data("kendoMobileModalView").open();
             
             app.loginService.viewModel.hideloder();
+        },
+        setHomeToolTips:function(data)
+        {console.log(data);
+            var that = this;
+            that.set("LoanAmt", data['loanamt']);
+            that.set("YearsBus", data['ageofbuss']);
+            that.set("AnnnualRevenue", data['annrevenue']);
+            that.set("CreditScore", data['creditscore']);
+            that.set("State", data['state']);
+         
+        },
+        setToolTips:function()
+        {
+          
+            var that = this;
+            if(app.homesetting.viewModel.toolStatus === true)
+            {
+                that.set("toolStatus", false); 
+            }
+            else
+            { 
+                that.set("toolStatus", true);
+            }
         }
+        
         
     });
     app.homesetting = {

@@ -44,32 +44,43 @@
                                     <div id="stps">
                                         <ul>
 
-                                            <li class="dn">
-                                                <a class="reld_info" href="#">
+                                            <li class="dn"  id="container" >
+                                                <div class="reld_info" data-bind="click: setToolTips" data-role="button">
                                                     <strong>0</strong><span>Get Started</span>
-                                                </a>
+                                                </div>
                                                 <span class="dnar"></span>
+												<article id="home-tools-tips" data-bind="visible: toolStatus">
+                                                		<span>Loan Amount<span data-bind="text: LoanAmt"></span></span>
+                                                		<span>Years in Business<span data-bind="text: YearsBus"></span></span>
+                                                        <span>Annual Revenue<span data-bind="text: AnnnualRevenue"></span></span>
+                                                        <span>Credit Score<span data-bind="text: CreditScore"></span></span>
+                                                        <span>State<span data-bind="text: State"></span></span>
+                                                        <span>Name<span data-bind="text: name"></span></span>
+                                                        <span>Email<span data-bind="text: email"></span></span>
+                                                        <span>Phone<span data-bind="text: phone"></span></span>
+                                                </article>    
+                                                
                                             </li>
 
                                             <li class="activ">
-                                                <a href="#">
+                                                <div>
                                                     <strong>1</strong><span>Loan Application</span>
-                                                </a><span class="dnar"></span>
+                                                </div><span class="dnar"></span>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <div>
                                                     <strong>2</strong><span>Loan Matches</span>
-                                                </a><span class="dnar"></span>
+                                                </div><span class="dnar"></span>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <div>
                                                     <strong>3</strong><span>Required Docs.</span>
-                                                </a><span class="dnar"></span>
+                                                </div><span class="dnar"></span>
                                             </li>
                                             <li>
-                                                <a href="#">
+                                                <div>
                                                     <strong>&nbsp;</strong><span>Funded</span>
-                                                </a><span class="dnar"></span>
+                                                </div><span class="dnar"></span>
                                             </li>
                                         </ul>
                                     </div>
@@ -147,6 +158,7 @@
                         <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
                     </div>
                 </form>
+               
             </div>
 
         </div>
@@ -270,5 +282,6 @@
             }
             
         </script>
+
     </body>
 </html>

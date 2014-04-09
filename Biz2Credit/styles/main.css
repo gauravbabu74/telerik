@@ -117,12 +117,12 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps{ height:108px;}
 #stps ul{ margin:0px; padding:10px 0px 0px 0px; height:98px; background-image:url(images/linegr.png); background-repeat:repeat-x; background-position:center center; list-style:none;}
 #stps ul li{ width:20%; float:left; padding-left:1%; padding-right:1%; padding-top:0px; text-align:center; font-size:30px; color:#CCC}
-#stps ul li a{  padding-top:16px;display:block; color:#CCC; text-decoration:none;}
+#stps ul li div{  padding-top:16px;display:block; color:#CCC; text-decoration:none;}
 
-#stps ul li.dn a{ background-image:url(images/stepdone.jpg); background-repeat:no-repeat;  background-position:center top; color:#cce57f   }
-#stps ul li.dn a span{ color:#cce57f  }
-#stps ul li.activ a{ color:#666666   }
-#stps ul li.activ a span{ color:#666666  }
+#stps ul li.dn div{ background-image:url(images/stepdone.jpg); background-repeat:no-repeat;  background-position:center top; color:#cce57f   }
+#stps ul li.dn div span{ color:#cce57f  }
+#stps ul li.activ div{ color:#666666   }
+#stps ul li.activ div span{ color:#666666  }
 #stps ul li.activ  span.dnar{ height:24px; display:block;    background-image:url(images/downarrow.png); background-repeat:no-repeat; background-position:top center;}
 
 #stps ul li strong{ font-weight:normal; background-color:#FFF; padding:0px 10px; display:inline-block; height:45px;}
