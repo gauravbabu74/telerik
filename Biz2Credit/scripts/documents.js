@@ -12,21 +12,22 @@
        	 var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
-                    url: "http://biz2services.com/mobapp/api/user/",
+                    url: "http://biz2services.com/mobapp/api/folder/",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"userdashboard",userid:sessionStorage.getItem("userID")} // search for tweets that contain "html5"
+                    data: { apiaction:"getcatetree",userID:localStorage.getItem("userID")} // search for tweets that contain "html5"
                 }
             },
             schema: {
                 data: function(data)
-                {   var i=0;
-                    var max = i + 35;
-                    var data1 = [];
-                    for (; i < max; i ++) {
-                    data1.unshift({ appid: "record" + i, modified: +new Date() });
-                    }
-                	return [data1];
+                { //  var i=0;
+                    //var max = i + 35;
+                    //var data1 = [];
+                    //for (; i < max; i ++) {
+                    //data1.unshift({ appid: "record" + i, modified: +new Date() });
+                    //}
+                    //console.log(data);
+                	return [data];
                 }
             }
         });
@@ -41,8 +42,8 @@
         setDocuments: function(data)
         { 
                var that = this;
-             //console.log(data);
-               that.set("documents", data['0']);
+             console.log(data);
+               that.set("documents", data['0']['results']['DocLists']);
               //console.log(data);
                app.loginService.viewModel.hideloder();
                
@@ -76,13 +77,13 @@
                  
             schema: {
                 data: function(data)
-                {   var i=0;
-                    var max = i + 10;
-                    var data1 = [];
-                    for (; i < max; i ++) {
-                    data1[i]={ appid: "record" + i};
-                    }
-                	return [data1];
+                {  // var i=0;
+                   // var max = i + 10;
+                   // var data1 = [];
+                   // for (; i < max; i ++) {
+                   // data1[i]={ appid: "record" + i};
+                    //}
+                	return [data];
                 }
             },
      

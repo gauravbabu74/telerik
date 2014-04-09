@@ -18,12 +18,12 @@
             </div>
 
             <div  data-role="content">
-            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'appid', operator: 'startswith', }"></ul> 
+            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'docName', operator: 'startswith', }"></ul> 
             </div>
         </div>
 
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
-            <p> #: appid #</p>
+            <p> #: docName #</p>
         </script>
