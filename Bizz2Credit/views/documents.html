@@ -1,0 +1,28 @@
+<div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
+
+    <div data-role="header">
+        <div data-role="navbar">
+            <span data-role="view-title">
+                		<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
+                        <a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
+                        <form class="docs-searchForm" data-bind="invisible: showfilter">
+                        <form class="searchForm" data-bind="invisible: showfilter">
+                        	<p>Documents</p>
+                        	<input type="submit"   data-bind="click: setVisibilty"class="login-button" value="search"/>
+                            <input type="submit"   data-bind="click: refreshView"class="login-button" value="refresh" />
+                        </form>
+                       <form class="docs-searchForm" data-bind="visible: showfilter">
+
+                        	<input type="text"  placeholder="Search"/>
+                       </form>
+            </span>
+        </div>
+    </div>
+    <ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template"></ul>
+
+
+</div>
+<!-- Matches page template -->
+        <script type="text/x-kendo-template" id="docs-template">
+            <p> #: name #</p>
+        </script>

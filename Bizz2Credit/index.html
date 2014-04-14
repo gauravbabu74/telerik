@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.default.min.css" rel="stylesheet" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.web.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/login.js"></script>
+        <script src="scripts/homepage.js"></script>
+        <script src="scripts/documents.js"></script>
+        <script src="scripts/schedule.js"></script>
+        <script src="scripts/matches.js"></script>
+        </head>
+    <body>
+        <!--Home-->
+        <div id="tabstrip-home" data-role="view" class="home" data-show="app.homesetting.viewModel.homeShow"data-model="app.homesetting.viewModel">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                        <div class="logo"></div>
+                    </span>
+                    <a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="popup"></a>
+                </div>
+            </div>
+            <div class="view-content">
+                <div id="homePage" data-template="homepage-listview-template">
+                    <div id="blackBlk">
+                        <div class="warps">
+                            <div class="desbrdIcon clearfix">
+                                <div class="dasimg">
+                                    <img src="styles/images/ic_dashboard.png" alt="img">
+                                </div>
+                                <div class="span">Dashboard</div>
+                            </div>
+                            <article class="clearfix" id="dashview">
+                                <div class="warps clearfix">
+                                    <div id="stps">
+                                        <ul>
+
+                                            <li class="dn">
+                                                <a class="reld_info" href="#">
+                                                    <strong>0</strong><span>Get Started</span>
+                                                </a>
+                                                <span class="dnar"></span>
+                                            </li>
+
+                                            <li class="activ">
+                                                <a href="#">
+                                                    <strong>1</strong><span>Loan Application</span>
+                                                </a><span class="dnar"></span>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <strong>2</strong><span>Loan Matches</span>
+                                                </a><span class="dnar"></span>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <strong>3</strong><span>Required Docs.</span>
+                                                </a><span class="dnar"></span>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <strong>&nbsp;</strong><span>Funded</span>
+                                                </a><span class="dnar"></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="clearfix" id="stpSumAc">
+                                        <div class="stpsumry">
+                                            <h2 data-bind="text: dHeader"></h2>
+                                            <p data-bind="text: dDescription"></p>
+                                        </div>
+
+                                        <div class="stpcurrntAc">
+                                            <div id="home-call-btn">
+                                            	<a class="btngr" href="#" data-bind="text: dButtonText"></a>
+                                            </div>
+                                            <p>
+                                                <a href="#tabstrip-scall" data-rel="modalview" data-role="button">
+                                                    <strong>Schedule a Call</strong>
+                                                </a>
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer">
+                <div data-role="navbar" class="documentClick">
+                    <a href="views/documents.html" data-role="button">
+                        <img src="styles/images/ic_launcher.png"><span>Documents</span>
+                    </a>
+                </div>
+            </div>
+            <div data-role="popover" class="popupBox" id="popover-people" data-popup='{"height": "10em", "width": "12em"}'>
+                <div data-role="view" data-model="app.loginService.viewModel">
+                    <ul data-role="listview">
+                        <li data-bind="click: refreshHome" >Refresh</li>
+                        <li data-bind="click: setUserLogout">Logout</li>
+                        <li data-bind="click: onLogout2">Setting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--Login-->
+        <div id="tabstrip-login" data-role="view" data-model="app.loginService.viewModel">
+
+            <div class="view-content">
+                <div class="logLogo"></div>
+                <h1 class="welcome" data-bind="visible: isLoggedIn">
+                    Welcome, <span data-bind="text: username"></span>!
+                </h1>
+                <div class="buttonArea">
+                    <input type="submit" id="logout" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" class="login-button" value="Logout" />
+                </div>
+
+                <form id="loginForm" data-bind="events: { keyup: checkEnter }" class="loginSection">
+                    <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
+                        <li>
+                            <label>
+                                <input type="text" data-bind="value: username" placeholder="Username"/>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="password" data-bind="value: password" placeholder="Password" />
+                            </label>
+                        </li>
+                    </ul>
+
+                    <div class="buttonArea">
+                        <input type="submit" id="login" data-role="button" data-bind="click: validateUser, invisible: isLoggedIn" class="login-button" value="Login" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <!--Schedule a Call-->
+        <div id="tabstrip-scall" class="schedulePopup" data-role="modalview"  data-height="380" data-model="app.scheduleService.viewModel">
+
+            <div class="view-content">
+                <h3>Schedule a FREE Loan Consultation</h3>
+                <form id="scheduleForm" class="scheduleSection">
+                    <input type="text" data-bind="value: phonenumber" class="phoneNumber" placeholder="Phone Number"/>
+
+                    <ul data-role="listview" data-style="inset">
+                        <li>
+                            <label>
+                                <input id="datepicker" placeholder="Select Date" data-bind="value: sDate"/>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input id="timepicker" placeholder="Select Time"/>
+                            </label>
+                        </li>
+                    </ul>
+                    <p class="scall-text">
+                        Choose a date & time in EST(Eastern Standard Time)
+                    </p>
+                    <div class="buttonArea">
+                        <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
+                        <input type="submit" id="schedule" data-role="button" data-bind="click: validateSchedule" class="schedule-button" value="Schedule" />
+                    </div>
+                </form>
+            </div>
+
+        </div>
+         <!--home message 1-->
+        <div id="tabstrip-mess-one" class="modal-mess-one" data-role="modalview"  data-height="165">
+
+            <div class="closeBt clearfix">
+                <a data-role="button"  data-click="oneCloseModal">Close</a>
+             </div>
+                <p>To start  your application, please log on to the web version of Biz2credit.com</p>
+                
+            
+
+        </div>
+        <!--home message 2-->
+        <div id="tabstrip-mess-two" class="modal-mess-one" data-role="modalview"  data-height="165">
+
+           <div class="closeBt clearfix">
+                <a data-role="button"  data-click="twoCloseModal">Close</a>
+               </div>
+                <p>To complete your application, please log on to the web version of Biz2credit.com</p>
+                
+            
+
+        </div>
+        <!--home message 3-->
+        <div id="tabstrip-mess-third" class="modal-mess-one" data-role="modalview"  data-height="165">
+
+            <div class="closeBt clearfix">
+                <a data-role="button"  data-click="thirdCloseModal">Close</a>
+                </div>
+                <p>To avail this feature, Please log on to the web version of Biz2credit.com</p>
+                
+        </div>
+        <!--home message 3-->
+        <div id="tabstrip-mess-fourth" class="reqWindow" data-role="modalview" data-height="313">
+
+            <div class="reqWindow">
+                <h4>Required Documents</h4>
+                </div>
+                <p class="doc-content"></p>
+                <a data-role="button"  data-click="fourthCloseModal">Close</a>
+        </div>
+      
+       <!--home message 3-->
+        <div id="tabstrip-mess-dynamic" class="modal-mess-one" data-role="modalview"  data-height="165">
+
+            <div class="closeBt clearfix">
+                <a data-role="button"  data-click="dynamiceCloseModal">Close</a>
+                </div>
+                <p></p>
+                
+        </div>
+         
+
+        <!--Layout-->
+        <div data-role="layout" data-id="tabstrip-layout">
+
+            <!--Header-->
+            <div data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </div>
+            <!--Footer-->
+        </div>
+        <script>
+            function oneCloseModal() {
+            	$("#tabstrip-mess-one").data("kendoMobileModalView").close();
+            }
+           function twoCloseModal() {
+            	$("#tabstrip-mess-two").data("kendoMobileModalView").close();
+            }
+            function thirdCloseModal() {
+            	$("#tabstrip-mess-third").data("kendoMobileModalView").close();
+            }
+            function fourthCloseModal() {
+            	$("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
+            }
+             function dynamiceCloseModal() {
+            	$("#tabstrip-mess-dynamic").data("kendoMobileModalView").close();
+            }
+            function closeParentPopover() {
+                $("#popover-people").data("kendoMobilePopOver").close();
+            }
+            
+        </script>
+										 	 
+    </body>
+</html>
