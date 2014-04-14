@@ -8,8 +8,10 @@
 		documentShow:function()
         {
             app.loginService.viewModel.showloder();
+            alert('call');
             $(".km-filter-form").detach().appendTo('#docs-filter');
        	 var dataSource = new kendo.data.DataSource({
+                
             transport: {
                 read: {
                     url: "http://biz2services.com/mobapp/api/folder/",
@@ -20,20 +22,18 @@
             },
             schema: {
                 data: function(data)
-                { //  var i=0;
-                    //var max = i + 35;
-                    //var data1 = [];
-                    //for (; i < max; i ++) {
-                    //data1.unshift({ appid: "record" + i, modified: +new Date() });
-                    //}
-                    //console.log(data);
-                	return [data];
+                { 
+                    console.log(data['results']['DocLists'].filter(function(index){if(index['CreatedStatus']==='Online'){ return true}})) ;       
+                	return [data['results']['DocLists'].filter(function(index){if(index['CreatedStatus']==='Online'){ return true}}).reverse()];
                 }
-            }
+            },
+  
+  
         });
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
+            //console.log(dataSource)
             app.documentsetting.viewModel.setDocuments(data);
             
         });
@@ -42,9 +42,10 @@
         setDocuments: function(data)
         { 
                var that = this;
-             console.log(data);
-               that.set("documents", data['0']['results']['DocLists']);
-              //console.log(data);
+               //console.log(data);
+            
+               that.set("documents", data['0']);
+             // console.log(data);
                app.loginService.viewModel.hideloder();
                
         },
@@ -68,22 +69,18 @@
        	 var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
-                    url: "http://biz2services.com/mobapp/api/user/",
+                    url: "http://biz2services.com/mobapp/api/folder/",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"userdashboard",userid:sessionStorage.getItem("userID")} // search for tweets that contain "html5"
+                    data: { apiaction:"getcatetree",userID:localStorage.getItem("userID")} // search for tweets that contain "html5"
                 }
             },
                  
             schema: {
                 data: function(data)
-                {  // var i=0;
-                   // var max = i + 10;
-                   // var data1 = [];
-                   // for (; i < max; i ++) {
-                   // data1[i]={ appid: "record" + i};
-                    //}
-                	return [data];
+                { 
+                    console.log(data['results']['DocLists'].filter(function(index){if(index['CreatedStatus']==='Online'){ return true}})) ;       
+                	return [data['results']['DocLists'].filter(function(index){if(index['CreatedStatus']==='Online'){ return true}}).reverse()];
                 }
             },
      
@@ -91,7 +88,7 @@
              
         dataSource.fetch(function(){
             var data = dataSource.view();
-            console.log(dataSource);
+            //console.log(dataSource);
             app.documentsetting.viewModel.setDocuments(data);
             
         });

@@ -298,7 +298,7 @@
             app.loginService.viewModel.hideloder();
         },
         setHomeToolTips:function(data)
-        {console.log(data);
+        {
             var that = this;
             that.set("LoanAmt", "$"+data['loanamt']);
             that.set("YearsBus", data['ageofbuss']+" yrs.");

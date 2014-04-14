@@ -25,5 +25,16 @@
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
-            <p> #: docName #</p>
+            #if(docType === "Folder"){#
+            	<span class="folder"> #: docName #</span>
+            #}else{#
+                # var ext = getFileExtension(docName) #
+            	<span class="#= ext #">#: docName #</span>
+            #}#
+            
+            #function getFileExtension(filename)
+            {
+                var ext = /^.+\.([^.]+)$/.exec(filename);
+                return ext === null ? "" : ext[1];
+            }#
         </script>
