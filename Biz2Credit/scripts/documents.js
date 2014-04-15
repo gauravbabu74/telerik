@@ -9,6 +9,7 @@
         parentPage:'',
 		documentShow:function(e)
         { 
+            app.loginService.viewModel.showloder();
             if(typeof e.view.params.parent !== "undefined")
             {
                 var parentId = e.view.params.parent;
@@ -20,10 +21,9 @@
                 var parentId = 0;
                 app.documentsetting.viewModel.setMainPage();
             }
+        
             
-            //console.log(e);
             
-            app.loginService.viewModel.showloder();
             if(typeof $("#docs-filter .km-filter-form").attr("Class") === 'undefined'){
                 $(".km-filter-form").detach().appendTo('#docs-filter');
             }
