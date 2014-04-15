@@ -1,5 +1,5 @@
  <!--Document Section---->
-        <div id="tabstrip-docs" data-role="view" data-init="app.documentsetting.viewModel.documentShow" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-docs" data-role="view"  data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
 
             <div data-role="header" class="docs-header">
                 <div data-role="navbar">
@@ -19,7 +19,7 @@
 
             <div class="documentContent" data-role="content">
                 <a class="inner-docs-back" data-role="backbutton" data-bind="visible: innerPage">Documents</a>
-            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith', }"></ul> 
+            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith'}"></ul> 
             </div>
         </div>
 

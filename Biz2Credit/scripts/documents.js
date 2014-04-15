@@ -23,7 +23,10 @@
             
             //console.log(e);
             app.loginService.viewModel.showloder();
-            $(".km-filter-form").detach().appendTo('#docs-filter');
+            if(typeof $("#docs-filter .km-filter-form").attr("Class") === 'undefined'){
+                $(".km-filter-form").detach().appendTo('#docs-filter');
+            }
+            
        	 var dataSource = new kendo.data.DataSource({
                 
             transport: {
