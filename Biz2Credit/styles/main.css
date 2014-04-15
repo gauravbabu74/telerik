@@ -242,7 +242,12 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent { padding:0;}
 .documentContent .km-listview-wrapper { padding:0;}
 .documentContent .km-listview-wrapper ul { list-style:none;}
-.documentContent .km-listview-wrapper ul li { border-bottom:1px solid #fff; background-color:#f5f5f5;}
+.documentContent .km-listview-wrapper ul li { border-bottom:1px solid #fff; background-color:#f5f5f5; color:#333;}
+.documentContent .km-listview-wrapper ul li .sharedfolder {background-image: url(images/single-share-folder.png); background-repeat:no-repeat; background-size:14%; display:block; padding:5px 0 5px 50px; background-position:left 0px; line-height:26px;}
+.documentContent .km-listview-wrapper ul li .Folder {background-image: url(images/folder.png); background-repeat:no-repeat; background-size:14%; display:block; padding:5px 0 5px 50px; background-position:left 0px; line-height:26px;}
+.documentContent .km-listview-wrapper ul li .docx {background-image: url(images/dos.png); background-repeat:no-repeat; background-size:10%; display:block; padding:5px 0 5px 50px; background-position:5px 0px; line-height:26px;}
+.documentContent .km-listview-wrapper ul li .jpg {background-image: url(images/jpg.png); background-repeat:no-repeat; background-size:10%; display:block; padding:5px 0 5px 50px; background-position:5px 0px; line-height:26px;}
+.documentContent .km-listview-wrapper ul li .doc  {background-image: url(images/dos.png); background-repeat:no-repeat; background-size:10%; display:block; padding:5px 0 5px 50px; background-position:5px 0px; line-height:26px;}
 /*********15-04-14************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}

@@ -17,25 +17,34 @@
                 </div>
             </div>
 
-            <div  data-role="content">
-            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith', }"></ul> 
+            <div class="documentContent" data-role="content">
+                <a class="inner-docs-back" data-role="backbutton" data-bind="visible: innerPage">Documents</a>
+            	<ul id="listView" data-role="listview" data-bind="source: documents,visible: innerdocuments"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith', }"></ul> 
             </div>
         </div>
 
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
-            #if(docType === "Folder"){#
-                #if(name === "Shared Files" || name === "Shared Folders"){#
-                	<span class="sharedfolder"> #: name #</span>
+             #if(typeof docType !== "undefined" || typeof docType !== "undefined"){#
+                #if(docType === "Folder"){#
+                    #if(name === "Shared Files" || name === "Shared Folders"){#
+                    	<a href="\#tabstrip-docs?parent=#: data.id #" class="parent">
+                    	<span class="sharedfolder"></span><span> #: name #</span>
+                    	</a>
+                    #}else{#
+                   	 <a href="\#tabstrip-docs?parent=#: data.id #" class="parent">
+                    	<span class="#: docType #"></span><span> #: name #</span>
+                    	</a>
+                    #}#
+
                 #}else{#
-                    <span class="#: docType #"> #: name #</span>
+                	# var ext = getFileExtension(name) #
+                	<a href="\#hierarchical-view?parent=#: data.id #" class="parent">   
+                	<span class="#= ext #"></span><span>#: name #</span>
+                	</a>
                 #}#
-                
-            #}else{#
-                # var ext = getFileExtension(name) #
-            	<span class="#= ext #">#: name #</span>
-            #}#
+          	#}#
             
             #function getFileExtension(filename)
             {
