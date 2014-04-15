@@ -22,6 +22,7 @@
             }
             
             //console.log(e);
+            
             app.loginService.viewModel.showloder();
             if(typeof $("#docs-filter .km-filter-form").attr("Class") === 'undefined'){
                 $(".km-filter-form").detach().appendTo('#docs-filter');
