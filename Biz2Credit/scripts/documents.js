@@ -22,16 +22,23 @@
             schema: {
                 data: function(data)
                 { 
-                    //console.log(data);
+                    
                     var docsArray = [];
                     $.each( data['results']['DocLists'], function( i, val ) {
                         
-                        docsArray[i]=val;
-                        if(data['results']['DocLists'][i]['name']==='Shared Files' || data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                            docsArray.unshift(val);
+                        
+                        if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                            sharedFiles =val;
                         }
-  
+                        else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                            sharedFolders =val;
+                        }
+                        else{
+                            docsArray.push(val);
+                        } 
 					});
+                    docsArray.unshift(sharedFiles,sharedFolders);
+                    console.log(docsArray)
                 	return [docsArray];
                 }
             },
@@ -78,7 +85,7 @@
                     url: "http://biz2services.com/mobapp/api/folder/",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: { apiaction:"getcatetree",userID:localStorage.getItem("userID")} // search for tweets that contain "html5"
+                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:"0"}  // search for tweets that contain "html5"
                 }
             },
                  
@@ -89,12 +96,18 @@
                     var docsArray = [];
                     $.each( data['results']['DocLists'], function( i, val ) {
                         
-                        docsArray[i]=val;
-                        if(data['results']['DocLists'][i]['name']==='Shared Files' || data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                            docsArray.unshift(val);
+                        
+                        if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                            sharedFiles =val;
                         }
-  
+                        else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                            sharedFolders =val;
+                        }
+                        else{
+                            docsArray.push(val);
+                        } 
 					});
+                    docsArray.unshift(sharedFiles,sharedFolders);
                 	return [docsArray];
                 }
             },

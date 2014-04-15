@@ -18,7 +18,7 @@
             </div>
 
             <div  data-role="content">
-            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'docName', operator: 'startswith', }"></ul> 
+            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith', }"></ul> 
             </div>
         </div>
 
@@ -26,7 +26,12 @@
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
             #if(docType === "Folder"){#
-            	<span class="folder"> #: name #</span>
+                #if(name === "Shared Files" || name === "Shared Folders"){#
+                	<span class="sharedfolder"> #: name #</span>
+                #}else{#
+                    <span class="#: docType #"> #: name #</span>
+                #}#
+                
             #}else{#
                 # var ext = getFileExtension(name) #
             	<span class="#= ext #">#: name #</span>
