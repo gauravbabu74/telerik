@@ -238,6 +238,12 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps ul li article .state { margin-bottom:7px;}
 #stps ul li article span span { color:rgb(36, 36, 36);padding:0 0 0 5px;display:inline-block; text-align:left; width:52%;}
 /*********09-04-14*************/
+/*********15-04-14************/
+.documentContent { padding:0;}
+.documentContent .km-listview-wrapper { padding:0;}
+.documentContent .km-listview-wrapper ul { list-style:none;}
+.documentContent .km-listview-wrapper ul li { border-bottom:1px solid #fff; background-color:#f5f5f5;}
+/*********15-04-14************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
