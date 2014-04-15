@@ -30,18 +30,18 @@
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
                     	<a href="\#tabstrip-docs?parent=#: data.id #" class="parent">
-                    	<span class="sharedfolder"></span><span> #: name #</span>
+                    	<span class="sharedfolder"> <span>#: name #</span></span>
                     	</a>
                     #}else{#
                    	 <a href="\#tabstrip-docs?parent=#: data.id #" class="parent">
-                    	<span class="#: docType #"></span><span> #: name #</span>
+                    	<span class="#: docType #"><span> #: name #</span></span>
                     	</a>
                     #}#
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
                 	<a href="\#hierarchical-view?parent=#: data.id #" class="parent">   
-                	<span class="#= ext # default-icon"></span><span>#: name #</span>
+                	<span class="#= ext # default-icon"><span>#: name #</span></span>
                 	</a>
                 #}#
           	#}#
