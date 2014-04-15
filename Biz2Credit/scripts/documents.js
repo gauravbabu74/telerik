@@ -5,8 +5,77 @@
     DocumentsViewModel = kendo.data.ObservableObject.extend({
         documents:[],
         showfilter:false,
-		documentShow:function()
-        {
+        innerPage:false,
+        parentPage:'',
+		documentShow:function(e)
+        { 
+            if(typeof e.view.params.parent !== "undefined")
+            {
+                var parentId = e.view.params.parent;
+                app.documentsetting.viewModel.setInnerPage();
+                
+            }
+            else
+            {
+                var parentId = 0;
+                app.documentsetting.viewModel.setMainPage();
+            }
+            
+            //console.log(e);
+            app.loginService.viewModel.showloder();
+            $(".km-filter-form").detach().appendTo('#docs-filter');
+       	 var dataSource = new kendo.data.DataSource({
+                
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/folder/",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                }
+            },
+            schema: {
+                data: function(data)
+                {   var docsArray = [];
+                    if(data['results']['faultcode']===1)
+                    {
+                        
+                        var sharedFiles ="";
+                            var sharedFolders ="";
+                        $.each( data['results']['DocLists'], function( i, val ) {
+                            
+                            
+                            if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                                 sharedFiles =val;
+                            }
+                            else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                                 sharedFolders =val;
+                            }
+                            else{
+                                docsArray.push(val);
+                            } 
+    					});
+                        if(sharedFiles !== '' && sharedFolders !=='')
+                        {
+                        	docsArray.unshift(sharedFiles,sharedFolders);
+                        }
+                        console.log(data);
+                    }
+                	return [docsArray];
+                }
+            },
+        });
+        dataSource.fetch(function(){
+            var that = this;
+            var data = that.data();
+            //console.log(dataSource)
+            app.documentsetting.viewModel.setDocuments(data);
+            
+        });
+       
+       }, 
+        innerDocumentShow:function(e)
+        {   
             app.loginService.viewModel.showloder();
             $(".km-filter-form").detach().appendTo('#docs-filter');
        	 var dataSource = new kendo.data.DataSource({
@@ -51,7 +120,7 @@
             
         });
        
-       }, 
+       },
         setDocuments: function(data)
         { 
                var that = this;
@@ -76,6 +145,25 @@
             }
              
         },
+        setInnerPage:function()
+        {
+            var that = this;
+            
+           
+            that.set("innerPage", true);
+          
+             
+        },
+        setMainPage:function()
+        {
+            var that = this;
+            
+           
+            that.set("innerPage", false);
+          
+             
+        },
+        
         refreshView:function()
         {
            app.loginService.viewModel.showloder();

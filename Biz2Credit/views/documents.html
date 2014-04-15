@@ -19,7 +19,7 @@
 
             <div class="documentContent" data-role="content">
                 <a class="inner-docs-back" data-role="backbutton" data-bind="visible: innerPage">Documents</a>
-            	<ul id="listView" data-role="listview" data-bind="source: documents,visible: innerdocuments"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith', }"></ul> 
+            	<ul id="listView" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith', }"></ul> 
             </div>
         </div>
 
@@ -41,7 +41,7 @@
                 #}else{#
                 	# var ext = getFileExtension(name) #
                 	<a href="\#hierarchical-view?parent=#: data.id #" class="parent">   
-                	<span class="#= ext #"></span><span>#: name #</span>
+                	<span class="#= ext # default-icon"></span><span>#: name #</span>
                 	</a>
                 #}#
           	#}#
