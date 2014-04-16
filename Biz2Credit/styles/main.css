@@ -260,7 +260,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li .png  {background-image: url(images/png.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px;}
 .folder-events { padding:0;}
 .folder-events .km-scroll-container { padding:0;}
-.folder-events .km-scroll-container ul { list-style:none;}
+.folder-events .km-scroll-container ul { list-style:none; padding:0; margin:0;}
+.folder-events .km-scroll-container ul li {border-bottom:1px solid #333; padding:5px;}
 /*********15-04-14************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
