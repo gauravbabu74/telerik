@@ -87,6 +87,7 @@ $(document).ready(function(){
     $(".ftouch").kendoTouch({
     minHold: 2000,
     hold: function (e) {
+        e.preventDefault();
         console.log("holding for a while.");
     }
 });
