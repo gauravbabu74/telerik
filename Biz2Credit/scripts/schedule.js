@@ -84,23 +84,4 @@ $(document).ready(function(){
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">02PM - 04PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">04PM - 06PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">06PM - 08PM</li>');
-    $("#istView .ftouch").kendoTouch({
-    minHold: 2000,
-    hold: function (e) {
-        e.preventDefault();
-        alert("holding for a while.");
-    }
-    });
-    
-    
-     function listViewInit(e) {
-        e.view.element.find("#list-edit-listview").kendoTouch({
-            filter: ">li",
-            minHold: 2000,
-            hold: function (e) {
-                e.preventDefault();
-                alert("holding for a while.");
-            }
-        });
-    }
 });
