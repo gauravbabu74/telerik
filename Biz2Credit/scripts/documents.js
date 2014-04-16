@@ -7,16 +7,7 @@
         showfilter:false,
         innerPage:false,
         parentPage:'',
-        listViewInit:function(e) {
-            e.view.element.find("#list-edit-listview").kendoTouch({
-                filter: ">li",
-                minHold: 2000,
-                hold: function (e) {
-                    e.preventDefault();
-                    alert("holding for a while.");
-                }
-            });
-        },
+        
 		documentShow:function(e)
         { 
             app.loginService.viewModel.showloder();
