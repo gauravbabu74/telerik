@@ -167,10 +167,10 @@
             var data = dataSource.view();
             //console.log(dataSource);
             app.documentsetting.viewModel.setDocuments(data);
-            
+            app.documentsetting.viewModel.hideRefreshLoading();
             
         });
-            that.set("showrefreshLoading", false);
+           
         },
         deleteFolder:function(e)
         {
@@ -183,6 +183,11 @@
         moveFolder:function(e)
         {
             alert('move call');
+        },
+        hideRefreshLoading:function()
+        {
+            var that = this;
+            that.set("showrefreshLoading", false);
         }
     });
     app.documentsetting = {
