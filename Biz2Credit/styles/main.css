@@ -242,7 +242,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent { padding:0;}
 .documentContent .km-listview-wrapper { padding:0;}
 .documentContent .inner-docs-back {padding:.5em .7em;display:block; background-color:#fff; border:0; }
-.documentContent .inner-docs-back span { padding: 0 0 0 50px;background-image: url(images/up_to_docvault_icon.png); background-size:22%; background-repeat:no-repeat; height:40px; }
+.documentContent .inner-docs-back span { padding: 0 0 0 50px;background-image: url(images/up_to_docvault_icon.png); background-size:11%; background-repeat:no-repeat; height:40px; display:block;}
 .documentContent .km-listview-wrapper ul { list-style:none;}
 .documentContent .km-listview-wrapper ul li { border-bottom:1px solid #fff; background-color:#f5f5f5; color:#333;}
 .documentContent .km-listview-wrapper ul li span {padding:0 0 0 50px; display:block; height:40px;}
