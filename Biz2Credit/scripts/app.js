@@ -3,6 +3,7 @@
     
     // Handle device back button tap
     var onBackKeyDown = function(e) {
+        alert(apps.view()['element']['0']['id']);
       if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
         e.preventDefault();
         navigator.notification.confirm('Do you really want to exit?', function (confirmed) {

@@ -170,6 +170,14 @@
         deleteFolder:function(e)
         {
             alert('delete call');
+        },
+        renameFolder:function(e)
+        {
+            alert('rename call');
+        },
+        moveFolder:function(e)
+        {
+            alert('move call');
         }
     });
     app.documentsetting = {
