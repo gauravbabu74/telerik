@@ -84,4 +84,10 @@ $(document).ready(function(){
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">02PM - 04PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">04PM - 06PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">06PM - 08PM</li>');
+    $(".ftouch").kendoTouch({
+    minHold: 2000,
+    hold: function (e) {
+        console.log("holding for a while.");
+    }
+});
 });
