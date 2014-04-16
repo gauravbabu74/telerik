@@ -90,5 +90,17 @@ $(document).ready(function(){
         e.preventDefault();
         alert("holding for a while.");
     }
-});
+    });
+    
+    
+     function listViewInit(e) {
+        e.view.element.find("#list-edit-listview").kendoTouch({
+            filter: ">li",
+            minHold: 2000,
+            hold: function (e) {
+                e.preventDefault();
+                alert("holding for a while.");
+            }
+        });
+    }
 });
