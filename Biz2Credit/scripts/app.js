@@ -18,7 +18,7 @@
              app.documentsetting.viewModel.set("showfilter", false);
         }
         else
-        {   $("#tabstrip-folder-events").kendoMobileModalView("close");
+        {   //$("#tabstrip-folder-events").kendoMobileModalView("close");
             apps.navigate("#:back");
         }
     };
