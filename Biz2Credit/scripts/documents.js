@@ -7,7 +7,6 @@
         showfilter:false,
         innerPage:false,
         parentPage:'',
-        
 		documentShow:function(e)
         { 
             app.loginService.viewModel.showloder();

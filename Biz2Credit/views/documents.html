@@ -1,5 +1,5 @@
  <!--Document Section---->
-        <div id="tabstrip-docs" data-role="view"  data-init="listViewInit" data-show="app.documentsetting.viewModel.documentShow"data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-docs" data-role="view"  data-init="listViewInit" data-show="app.documentsetting.viewModel.documentShow" data-model="app.documentsetting.viewModel">
 
             <div data-role="header" class="docs-header">
                 <div data-role="navbar">
@@ -22,19 +22,32 @@
             	<ul id="list-edit-listview" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith'}"></ul> 
             </div>
         </div>
-
+<!--home message 3-->
+        <div id="tabstrip-folder-events" class="folder-events" data-role="modalview"  data-height="165" data-model="app.documentsetting.viewModel">
+            <ul>
+            	<li>
+                 	<a data-role="button"  data-bind="click: deleteFolder">Delete</a>
+                </li>
+            	<li>
+            		<a data-role="button"  data-bind="click: renameFolder">Rename</a>
+            	</li>
+            	<li>
+            		<a data-role="button"  data-bind="click: moveFolder">Move</a>
+            	</li>
+            </ul>  
+        </div>
 
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
-            <li>
+            <li id="#: data.id #">
              #if(typeof docType !== "undefined" || typeof docType !== "undefined"){#
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
-                    	<a href="\#tabstrip-docs?parent=#: data.id #" class="parent ftouch" id="#: data.id #">
+                    	<a  class="parent ftouch" id="#: data.id #">
                     	<span class="sharedfolder"> <span>#: name #</span></span>
                     	</a>
                     #}else{#
-                   	 <a href="\#tabstrip-docs?parent=#: data.id #" class="parent ftouch" id="#: data.id #">
+                   	 <a  class="parent ftouch" id="#: data.id #">
                     	<span class="#: docType #"><span> #: name #</span></span>
                     	</a>
                     #}#
@@ -46,7 +59,7 @@
                 	</a>
                 #}#
           	#}#
-            </li>
+           </li>
             #function getFileExtension(filename)
             {
                 var ext = /^.+\.([^.]+)$/.exec(filename);
@@ -55,10 +68,23 @@
         </script>
         <script>
             function listViewInit(e) {
-                e.view.element.find("#list-edit-listview").kendoTouch({            
-                	tap: function (e) {
-                        e.preventDefault()
-                		alert("holding for a while.");
-                	}     
+                e.view.element.find("#list-edit-listview").kendoTouch({ 
+                    filter: ">li",
+                    tap: function (e) {    
+                        if(!hold)
+                        {
+                        	apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id)
+                        	//console.log('touch');
+                        }
+                    },
+                    touchstart: function (e) {
+                    	hold = false;
+                    },
+                    hold: function (e) {
+                    	hold = true;
+                         $("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                		 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                    	//console.log('hold');
+                    }                    
             });
         }</script>
