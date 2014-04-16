@@ -267,7 +267,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .folder-events .km-scroll-container ul { list-style:none; padding:0; margin:0;}
 .folder-events .km-scroll-container ul li {border-bottom:1px solid #cecece; padding:5px;}
 .folder-events .km-scroll-container ul li:last-child { border:0;}
-.folder-events .km-scroll-container ul li a { padding:10px 0 10px 5px; margin:0; background-color:transparent; border:0; color:#333;}
+.folder-events .km-scroll-container ul li a { display:block; padding:10px 0 10px 5px; margin:0; background-color:transparent; border:0; color:#333;}
 /*********15-04-14************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
