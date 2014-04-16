@@ -8,6 +8,7 @@
         innerPage:false,
         parentPage:'',
         currentFolderId:'',
+        showrefreshLoading:false,
 		documentShow:function(e)
         { 
             app.loginService.viewModel.showloder();
@@ -124,7 +125,9 @@
         
         refreshView:function()
         {
-           app.loginService.viewModel.showloder();
+           //app.loginService.viewModel.showloder();
+            var that = this;
+            that.set("showrefreshLoading", true);
        	 var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -165,7 +168,9 @@
             //console.log(dataSource);
             app.documentsetting.viewModel.setDocuments(data);
             
+            
         });
+            that.set("showrefreshLoading", false);
         },
         deleteFolder:function(e)
         {

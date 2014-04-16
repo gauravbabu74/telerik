@@ -9,7 +9,8 @@
                     	<p class="docs-docu" data-bind="invisible: showfilter">Documents</p>
                     	<div class="searchForm" data-bind="invisible: showfilter">
                     		<a data-bind="click: setVisibilty"class="docs-search">search</a>
-                    		<a data-bind="click: refreshView"class="docs-refresh">refresh</a>
+                    		<a data-bind="click: refreshView,invisible: showrefreshLoading" class="refresh-com docs-refresh">refresh</a>
+                            <a data-bind="click: refreshView,visible: showrefreshLoading" class="refresh-loading docs-refresh">refresh</a>
                     		<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
                     	</div>
                     	<div id="docs-filter" data-bind="visible: showfilter"></div>
