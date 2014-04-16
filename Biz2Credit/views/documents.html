@@ -23,9 +23,9 @@
             </div>
         </div>
 <!--home message 3-->
-        <div id="tabstrip-folder-events" class="folder-events" data-role="modalview"  data-height="165" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-folder-events" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
-                <a class="folderName"></a>
+                <span class="folderName"></span>
                 <a data-role="button" data-aligh="right"  data-click="folderEventsCloseModal">Close</a>
                </div>
             <ul>
@@ -90,6 +90,7 @@
             		 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
                      $('#tabstrip-folder-events .folderName').html('');
                      $('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                     $('#tabstrip-folder-events .folderName').attr("id",e.touch.currentTarget.id)
                     }                    
             });
         }

@@ -7,6 +7,7 @@
         showfilter:false,
         innerPage:false,
         parentPage:'',
+        currentFolderId:'',
 		documentShow:function(e)
         { 
             app.loginService.viewModel.showloder();
@@ -65,53 +66,6 @@
                         }
                         console.log(data);
                     }
-                	return [docsArray];
-                }
-            },
-        });
-        dataSource.fetch(function(){
-            var that = this;
-            var data = that.data();
-            //console.log(dataSource)
-            app.documentsetting.viewModel.setDocuments(data);
-            
-        });
-       
-       }, 
-        innerDocumentShow:function(e)
-        {   
-            app.loginService.viewModel.showloder();
-            $(".km-filter-form").detach().appendTo('#docs-filter');
-       	 var dataSource = new kendo.data.DataSource({
-                
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:"0"} // search for tweets that contain "html5"
-                }
-            },
-            schema: {
-                data: function(data)
-                { 
-                    
-                    var docsArray = [];
-                    $.each( data['results']['DocLists'], function( i, val ) {
-                        
-                        
-                        if(data['results']['DocLists'][i]['name']==='Shared Files'){
-                            sharedFiles =val;
-                        }
-                        else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                            sharedFolders =val;
-                        }
-                        else{
-                            docsArray.push(val);
-                        } 
-					});
-                    docsArray.unshift(sharedFiles,sharedFolders);
-                    console.log(docsArray)
                 	return [docsArray];
                 }
             },
@@ -212,6 +166,10 @@
             app.documentsetting.viewModel.setDocuments(data);
             
         });
+        },
+        deleteFolder:function(e)
+        {
+            alert('delete call');
         }
     });
     app.documentsetting = {
