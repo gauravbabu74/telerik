@@ -58,7 +58,7 @@
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
-                	<a href="\#hierarchical-view?parent=#: data.id #" class="parent">   
+                	<a href="\#" class="parent">   
                 	<span class="#= ext # default-icon"><span>#: name #</span></span>
                 	</a>
                 #}#
@@ -89,7 +89,7 @@
                        
                          $("#tabstrip-folder-events").data("kendoMobileModalView").open();
                 		 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                    console.log(e);
+                    //console.log(e);
                         $('#tabstrip-folder-events .folderName').html('');
                          $('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
                     }                    
