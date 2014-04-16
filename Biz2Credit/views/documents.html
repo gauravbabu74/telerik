@@ -24,6 +24,9 @@
         </div>
 <!--home message 3-->
         <div id="tabstrip-folder-events" class="folder-events" data-role="modalview"  data-height="165" data-model="app.documentsetting.viewModel">
+            <div class="closeBt clearfix">
+                <a data-role="button"  data-click="folderEventsCloseModal">Close</a>
+               </div>
             <ul>
             	<li>
                  	<a data-role="button"  data-bind="click: deleteFolder">Delete</a>
@@ -87,4 +90,8 @@
                     	//console.log('hold');
                     }                    
             });
-        }</script>
+        }
+            function folderEventsCloseModal() {
+            	$("#tabstrip-folder-events").data("kendoMobileModalView").close();
+            }
+        </script>
