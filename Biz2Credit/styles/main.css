@@ -222,7 +222,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget .docs-back {background-image: url(images/arrow-Icon-launcher.png); background-repeat:no-repeat; background-size:94%; background-position:center 7px; text-indent:-9000px; border:0;padding:0; margin:0; width:16%;height:50px; float:left;}
 .docs-header .km-widget .docs-docu { float:left; color:#333; font-size:0.85em; width:46%; text-align:left;}
 .docs-header .km-widget .docs-search {background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:100%; background-position:center 7px; text-indent:-9000px; width:11%; height:50px; border:0; background-color:transparent; float:left;}
-.docs-header .km-widget .docs-refresh {background-image: url(images/action_refresh.png); background-repeat:no-repeat; background-size:75%; background-position:center 10px; text-indent:-9000px; width:13%; height:50px; border:0; background-color:transparent; float:left;}
+.docs-header .km-widget .refresh-com {background-image: url(images/action_refresh.png); background-repeat:no-repeat; background-size:75%; background-position:center 10px; text-indent:-9000px; width:13%; height:50px; border:0; background-color:transparent; float:left;}
+.docs-header .km-widget .refresh-loading {background-image: url(images/loding.gif); background-repeat:no-repeat; background-size:60%; background-position:center 14px; text-indent:-9000px; width:13%; height:50px; border:0; background-color:transparent; float:left;}
 .docs-header .km-widget .docs-popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:transparent;  border-radius:0;}
 .docs-header .km-widget #docs-filter { float:left; width:70%;}
 .docs-header .km-widget #docs-filter .km-filter-form { margin:0; padding:0;}
