@@ -77,21 +77,19 @@
                     tap: function (e) {    
                         if(!hold)
                         {
-                        	apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id)
-                        	//console.log('touch');
+                        	apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id);
                         }
                     },
                     touchstart: function (e) {
                     	hold = false;
                     },
                     hold: function (e) {
-                    	hold = true;
-						navigator.notification.vibrate(100);
-                         $("#tabstrip-folder-events").data("kendoMobileModalView").open();
-                		 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                    //console.log(e);
-                        $('#tabstrip-folder-events .folderName').html('');
-                         $('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                	 hold = true;
+					 navigator.notification.vibrate(100);
+                     $("#tabstrip-folder-events").data("kendoMobileModalView").open();
+            		 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                     $('#tabstrip-folder-events .folderName').html('');
+                     $('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
                     }                    
             });
         }

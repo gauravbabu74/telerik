@@ -260,8 +260,13 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li .png  {background-image: url(images/png.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px;}
 .folder-events { padding:0;}
 .folder-events .km-scroll-container { padding:0;}
+.folder-events .km-scroll-container .closeBt { padding:15px 12px; background-color:#e9e9e9; border-bottom:1px solid #cecece; color:#333; text-align:center;}
+.folder-events .km-scroll-container .closeBt span { font-size:1em; font-weight:700;}
+.folder-events .km-scroll-container .closeBt a { float:right; margin:0; padding:0; background-color:transparent; border:0; color:#99cc00; text-align:right;}
 .folder-events .km-scroll-container ul { list-style:none; padding:0; margin:0;}
-.folder-events .km-scroll-container ul li {border-bottom:1px solid #333; padding:5px;}
+.folder-events .km-scroll-container ul li {border-bottom:1px solid #cecece; padding:5px;}
+.folder-events .km-scroll-container ul li:last-child { border:0;}
+.folder-events .km-scroll-container ul li a { padding:10px 0 10px 5px; margin:0; background-color:transparent; border:0; color:#333;}
 /*********15-04-14************/
 @media screen and (max-width: 768px){ 
 .stpsumry{ width:100%; float:none; text-align:center}
