@@ -96,11 +96,11 @@
                 		hold = false;
                	 },
                 	hold: function (e) {
-                        //console.log(e);
+                       // console.log(kendo);
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
                 		hold = true;
-                		navigator.notification.vibrate(50);
+                		navigator.notification.vibrate(10);
                 		$("#tabstrip-folder-events").data("kendoMobileModalView").open();
                 		$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
                 		$('.folderName').html('');
