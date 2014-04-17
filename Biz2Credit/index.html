@@ -122,8 +122,8 @@
                 <div data-role="view" data-model="app.loginService.viewModel">
                     <ul data-role="listview">
                         <li data-bind="click: refreshHome" >Refresh</li>
-                        <li data-bind="click: setUserLogout">Logout</li>
                         <li data-bind="click: onLogout2">Setting</li>
+                         <li data-bind="click: setUserLogout">Logout</li>
                     </ul>
                 </div>
             </div>
@@ -275,6 +275,7 @@
             }
             function closeParentPopover() {
                 $("#popover-people").data("kendoMobilePopOver").close();
+                $("#popover-docs").data("kendoMobilePopOver").close();
             }
             
         </script>

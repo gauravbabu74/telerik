@@ -9,31 +9,8 @@
         parentPage:'',
         currentFolderId:0,
         showrefreshLoading:false,
-        listViewInit:function(e) {
-                e.view.element.find("#list-edit-listview").kendoTouch({ 
-                    filter: ">li",
-                    tap: function (e) {    
-                        if(!hold)
-                        {
-                        	apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id);
-                        }
-                    },
-                    touchstart: function (e) {
-                    	hold = false;
-                    },
-                    hold: function (e) {
-                	 hold = true;
-					 navigator.notification.vibrate(100);
-                     $("#tabstrip-folder-events").data("kendoMobileModalView").open();
-            		 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                     $('#tabstrip-folder-events .folderName').html('');
-                     $('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
-                     $('#tabstrip-folder-events .folderName').attr("id",e.touch.currentTarget.id)
-                    }                    
-            });
-        },
 		documentShow:function(e)
-        { 
+        {  
             app.loginService.viewModel.showloder();
             if(typeof e.view.params.parent !== "undefined")
             {
@@ -48,15 +25,7 @@
                 app.documentsetting.viewModel.setMainPage();
                 app.documentsetting.viewModel.setcurrentFolderId(0);
             }
-        
-            
-            
-            if(typeof $("#docs-filter .km-filter-form").attr("Class") === 'undefined'){
-                $(".km-filter-form").detach().appendTo('#docs-filter');
-            }
-            
-       	 var dataSource = new kendo.data.DataSource({
-                
+       	 var dataSource = new kendo.data.DataSource({         
             transport: {
                 read: {
                     url: "http://biz2services.com/mobapp/api/folder/",
@@ -70,12 +39,10 @@
                 {   var docsArray = [];
                     if(data['results']['faultcode']===1)
                     {
-                        
                         var sharedFiles ="";
-                            var sharedFolders ="";
+                        var sharedFolders ="";
                         $.each( data['results']['DocLists'], function( i, val ) {
-                            
-                            
+
                             if(data['results']['DocLists'][i]['name']==='Shared Files'){
                                  sharedFiles =val;
                             }
@@ -90,7 +57,6 @@
                         {
                         	docsArray.unshift(sharedFiles,sharedFolders);
                         }
-                        //console.log(data);
                     }
                 	return [docsArray];
                 }
@@ -99,7 +65,6 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            //console.log(dataSource)
             app.documentsetting.viewModel.setDocuments(data);
             
         });
@@ -108,12 +73,38 @@
         setDocuments: function(data)
         { 
                var that = this;
-               //console.log(data);
-            
                that.set("documents", data['0']);
-             // console.log(data);
-               app.loginService.viewModel.hideloder();
-               
+            $("#list-edit-listview").kendoMobileListView({
+                dataSource: app.documentsetting.viewModel.documents,
+                template: $("#docs-template").html(),
+                filterable: {
+                field: "name",
+                operator: "startswith"
+                },
+                }).kendoTouch({ 
+                	filter: ">li",
+                	tap: function (e) {    
+                		if(!hold)
+                		{
+                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id);
+               		 }
+                	},
+                	touchstart: function (e) {
+                		hold = false;
+               	 },
+                	hold: function (e) {
+                		hold = true;
+                		navigator.notification.vibrate(100);
+                		$("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                		$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                		$('#tabstrip-folder-events .folderName').html('');
+                		$('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                		$('#tabstrip-folder-events .folderName').attr("id",e.touch.currentTarget.id)
+                	}                    
+            });
+            $('#docs-filter').html('');
+            $(".km-filter-form").detach().appendTo('#docs-filter');
+            app.loginService.viewModel.hideloder();    
         },
         setVisibilty:function()
         {
@@ -150,18 +141,14 @@
         
         refreshView:function(e)
         {
-           //app.loginService.viewModel.showloder();
-            //console.log(app.documentsetting.viewModel.currentFolderId);
-             if( app.documentsetting.viewModel.currentFolderId === 0)
+         
+            if( app.documentsetting.viewModel.currentFolderId === 0)
             {
                 var parentId = 0;
-                
-                
             }
             else
             {
-                var parentId =  app.documentsetting.viewModel.currentFolderId;
-                
+                var parentId =  app.documentsetting.viewModel.currentFolderId;    
             }
             console.log(parentId);
             var that = this;
@@ -174,8 +161,7 @@
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
                 }
-            },
-                 
+            },    
             schema: {
                  data: function(data)
                 {   var docsArray = [];
@@ -200,8 +186,7 @@
                         if(sharedFiles !== '' && sharedFolders !=='')
                         {
                         	docsArray.unshift(sharedFiles,sharedFolders);
-                        }
-                        //console.log(data);
+                        }     
                     }
                 	return [docsArray];
                 }
@@ -210,13 +195,11 @@
         });
              
         dataSource.fetch(function(){
-            var data = dataSource.view();
-            //console.log(dataSource);
+            var data = dataSource.view(); 
             app.documentsetting.viewModel.setDocuments(data);
             app.documentsetting.viewModel.hideRefreshLoading();
             
-        });
-           
+        });   
         },
         deleteFolder:function(e)
         {
@@ -239,6 +222,27 @@
         {
             var that = this;
             that.set("currentFolderId", id);
+        },
+        newFolder:function()
+        {
+           // apps.navigate("#tabstrip-new-folder");
+            $("#tabstrip-new-folder").data("kendoMobileModalView").open();
+                //$("#tabstrip-mess-fourth").find(".km-scroll-container").css("-webkit-transform", "");
+           /* var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/folder/",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
+                }
+            },    
+            
+        });*/
+        },
+        setUserLogout:function()
+        {
+            app.loginService.viewModel.setUserLogout();
         }
     });
     app.documentsetting = {

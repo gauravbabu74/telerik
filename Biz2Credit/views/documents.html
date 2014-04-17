@@ -1,5 +1,5 @@
  <!--Document Section---->
-        <div id="tabstrip-docs" data-role="view"  data-init="app.documentsetting.viewModel.listViewInit" data-show="app.documentsetting.viewModel.documentShow" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-docs" data-role="view" data-show="app.documentsetting.viewModel.documentShow" data-model="app.documentsetting.viewModel">
 
             <div data-role="header" class="docs-header">
                 <div data-role="navbar">
@@ -11,7 +11,7 @@
                     		<a data-bind="click: setVisibilty"class="docs-search">search</a>
                     		<a data-bind="click: refreshView,invisible: showrefreshLoading" class="refresh-com docs-refresh">refresh</a>
                             <a data-bind="click: refreshView,visible: showrefreshLoading" class="refresh-loading docs-refresh">refresh</a>
-                    		<a data-align="right" data-rel="popover" href="#popover-people" data-role="button" class="docs-popup"></a>
+                    		<a data-align="right" data-rel="popover" href="#popover-docs" data-role="button" class="docs-popup"></a>
                     	</div>
                     	<div id="docs-filter" data-bind="visible: showfilter"></div>
                     </span>
@@ -19,11 +19,20 @@
             </div>
 
             <div class="documentContent" data-role="content">
-                <a class="inner-docs-back" data-role="backbutton" data-bind="visible: innerPage">Documents</a>
-            	<ul id="list-edit-listview" data-role="listview" data-bind="source: documents"  data-template="docs-template" data-filterable="{ field: 'name', operator: 'startswith'}"></ul> 
+                <a class="inner-docs-back" data-role="backbutton"  data-bind="visible: innerPage">Documents</a>
+            	<ul id="list-edit-listview"></ul> 
+            </div>
+            <div data-role="popover" class="popupBox" id="popover-docs" data-popup='{"height": "10em", "width": "12em"}'>
+                <div data-role="view" data-model="app.documentsetting.viewModel">
+                    <ul data-role="listview">
+                        <li data-bind="click: newFolder" >New Folder</li>
+                        <li data-bind="click: onLogout2">Setting</li>
+                        <li data-bind="click: setUserLogout">Logout</li>
+                    </ul>
+                </div>
             </div>
         </div>
-<!--home message 3-->
+<!--folder events-->
         <div id="tabstrip-folder-events" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
                 <span class="folderName"></span>
@@ -41,10 +50,22 @@
             	</li>
             </ul>  
         </div>
-
+<!--Add New Folder-->
+        <div id="tabstrip-new-folder" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
+            <div class="closeBt clearfix">
+                <span class="newfolder">New Folder</span>
+               </div>
+            <form id="new-folder-form" class="scheduleSection">
+                    <input type="text" data-bind="value: newFolderName" class="new-folder-field" placeholder="New Folder"/>
+            <div class="buttonArea">
+                        <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
+                        <input type="submit"  data-role="button" data-bind="click: validateSchedule" class="new-folder-create" value="Create" />
+                    </div>
+             </form>
+        </div>
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
-            <li id="#: data.id #">
+           
              #if(typeof docType !== "undefined" || typeof docType !== "undefined"){#
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
@@ -64,7 +85,7 @@
                 	</a>
                 #}#
           	#}#
-           </li>
+           
             #function getFileExtension(filename)
             {
                 var ext = /^.+\.([^.]+)$/.exec(filename);
