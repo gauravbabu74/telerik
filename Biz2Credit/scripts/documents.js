@@ -28,6 +28,7 @@
                 app.documentsetting.viewModel.setMainPage();
                 app.documentsetting.viewModel.setParentId(0);
             }
+            console.log(parentId);
        	 var dataSource = new kendo.data.DataSource({         
             transport: {
                 read: {
@@ -68,6 +69,7 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
+            //alert('call');
             app.documentsetting.viewModel.setDocuments(data);
             
         });
@@ -75,8 +77,8 @@
        },
         setDocuments: function(data)
         { 
-               var that = this;
-               that.set("documents", data['0']);
+            var that = this;
+            that.set("documents", data['0']);
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
@@ -107,6 +109,17 @@
                 		$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
                 		$('.folderName').attr("id",e.touch.currentTarget.id)
                 	}                    
+            });
+            $("#list-move-listview").kendoMobileListView({
+                dataSource: app.documentsetting.viewModel.documents,
+                template: $("#docsmove-template").html(),
+                }).kendoTouch({ 
+                	filter: ">li",
+                	tap: function (e) {    
+
+                		apps.navigate('#tabstrip-movedocs?parent='+e.touch.currentTarget.id);
+
+                	},          	                  
             });
             $('#docs-filter').html('');
             $(".km-filter-form").detach().appendTo('#docs-filter');
@@ -250,12 +263,17 @@
         },
         renameFolder:function(e)
         {
-            folderEventsCloseModal();
+             folderEventsCloseModal();
              $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
         },
         moveFolder:function(e)
         {
-            alert('move call');
+            folderEventsCloseModal();
+            apps.navigate('views/movedocs.html');
+        },
+        backDocslistPage:function()
+        {
+            apps.navigate('views/documents.html');
         },
         hideRefreshLoading:function()
         {
@@ -275,8 +293,7 @@
         {
             var that = this;
             newFolderName = that.get("newFolderName");
-
-             var dataSource = new kendo.data.DataSource({
+            var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
                     url: "http://biz2services.com/mobapp/api/folder",
