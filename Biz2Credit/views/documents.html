@@ -95,20 +95,20 @@
              #if(typeof docType !== "undefined" || typeof docType !== "undefined"){#
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
-                    	<a  class="parent ftouch" id="#: data.id #">
+                    	
                     	<span class="sharedfolder"> <span>#: name #</span></span>
-                    	</a>
+                    	
                     #}else{#
-                   	 <a  class="parent ftouch" id="#: data.id #">
+                   	 
                     	<span class="#: docType #"><span> #: name #</span></span>
-                    	</a>
+                    	
                     #}#
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
-                	<a href="\#" class="parent">   
+                	  
                 	<span class="#= ext # default-icon"><span>#: name #</span></span>
-                	</a>
+                	
                 #}#
           	#}#
            
