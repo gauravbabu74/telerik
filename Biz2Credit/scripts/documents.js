@@ -100,7 +100,7 @@
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
                 		hold = true;
-                		navigator.notification.vibrate(100);
+                		navigator.notification.vibrate(50);
                 		$("#tabstrip-folder-events").data("kendoMobileModalView").open();
                 		$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
                 		$('.folderName').html('');
@@ -231,7 +231,7 @@
                 }
             },    
             schema: {
-                 data: function(data)
+                data: function(data)
                 {   
                 	return [data];
                 }
