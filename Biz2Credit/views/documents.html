@@ -25,7 +25,7 @@
             <div data-role="popover" class="popupBox" id="popover-docs" data-popup='{"height": "10em", "width": "12em"}'>
                 <div data-role="view" data-model="app.documentsetting.viewModel">
                     <ul data-role="listview">
-                        <li data-bind="click: newFolder" >New Folder</li>
+                        <li data-bind="click: newFolderModal" >New Folder</li>
                         <li data-bind="click: onLogout2">Setting</li>
                         <li data-bind="click: setUserLogout">Logout</li>
                     </ul>
@@ -53,15 +53,28 @@
 <!--Add New Folder-->
         <div id="tabstrip-new-folder" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
-                <span class="newfolder">New Folder</span>
-               </div>
+            	<span class="newfolder">New Folder</span>
+            </div>
             <form id="new-folder-form" class="scheduleSection">
-                    <input type="text" data-bind="value: newFolderName" class="new-folder-field" placeholder="New Folder"/>
-            <div class="buttonArea">
-                        <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
-                        <input type="submit"  data-role="button" data-bind="click: validateSchedule" class="new-folder-create" value="Create" />
-                    </div>
-             </form>
+            	<input type="text" data-bind="value: newFolderName" class="new-folder-field" placeholder="New Folder"/>
+            	<div class="buttonArea">
+            		<input type="submit" data-role="button" data-click="newFolderCloseModal" value="Cancel" />
+            		<input type="submit"  data-role="button" data-bind="click: newFolderCreate" class="new-folder-create" value="Create" />
+            	</div>
+            </form>
+        </div>
+<!--Rename Folder-->
+        <div id="tabstrip-delete-folder" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
+            <div class="closeBt clearfix">
+            	<span class="folderName"></span>
+            </div>
+            <form id="new-folder-form" class="scheduleSection">
+            	<p>Are you sure want to delete this folder?</p>
+            	<div class="buttonArea">
+            		<input type="submit" data-role="button" data-click="newFolderCloseModal" value="Cancel" />
+            		<input type="submit" data-role="button" data-bind="click: thisFolderDelete" class="new-folder-create" value="Delete" />
+            	</div>
+            </form>
         </div>
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
@@ -96,5 +109,9 @@
             
             function folderEventsCloseModal() {
             	$("#tabstrip-folder-events").data("kendoMobileModalView").close();
+            }
+            function newFolderCloseModal() {
+            	$("#tabstrip-new-folder").data("kendoMobileModalView").close();
+                $("#tabstrip-delete-folder").data("kendoMobileModalView").close();
             }
         </script>

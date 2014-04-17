@@ -7,23 +7,25 @@
         showfilter:false,
         innerPage:false,
         parentPage:'',
-        currentFolderId:0,
+        parentId:0,
         showrefreshLoading:false,
+        newFolderName:'',
+        
 		documentShow:function(e)
-        {  
+        { 
             app.loginService.viewModel.showloder();
             if(typeof e.view.params.parent !== "undefined")
             {
-                var parentId = e.view.params.parent;
+                parentId = e.view.params.parent;
                 app.documentsetting.viewModel.setInnerPage();
-                app.documentsetting.viewModel.setcurrentFolderId(e.view.params.parent);
+                app.documentsetting.viewModel.setParentId(e.view.params.parent);
                 
             }
             else
             {
-                var parentId = 0;
+                parentId = 0;
                 app.documentsetting.viewModel.setMainPage();
-                app.documentsetting.viewModel.setcurrentFolderId(0);
+                app.documentsetting.viewModel.setParentId(0);
             }
        	 var dataSource = new kendo.data.DataSource({         
             transport: {
@@ -93,13 +95,16 @@
                 		hold = false;
                	 },
                 	hold: function (e) {
+                        //console.log(e);
+                        sessionStorage.currentFId = e.touch.currentTarget.id;
+                        sessionStorage.currentFName = e.touch.currentTarget.innerText;
                 		hold = true;
                 		navigator.notification.vibrate(100);
                 		$("#tabstrip-folder-events").data("kendoMobileModalView").open();
                 		$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                		$('#tabstrip-folder-events .folderName').html('');
-                		$('#tabstrip-folder-events .folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
-                		$('#tabstrip-folder-events .folderName').attr("id",e.touch.currentTarget.id)
+                		$('.folderName').html('');
+                		$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                		$('.folderName').attr("id",e.touch.currentTarget.id)
                 	}                    
             });
             $('#docs-filter').html('');
@@ -142,13 +147,13 @@
         refreshView:function(e)
         {
          
-            if( app.documentsetting.viewModel.currentFolderId === 0)
+            if( app.documentsetting.viewModel.parentId === 0)
             {
-                var parentId = 0;
+                parentId = 0;
             }
             else
             {
-                var parentId =  app.documentsetting.viewModel.currentFolderId;    
+                parentId =  app.documentsetting.viewModel.parentId;    
             }
             console.log(parentId);
             var that = this;
@@ -169,7 +174,7 @@
                     {
                         
                         var sharedFiles ="";
-                            var sharedFolders ="";
+                        var sharedFolders ="";
                         $.each( data['results']['DocLists'], function( i, val ) {
                             
                             
@@ -201,9 +206,15 @@
             
         });   
         },
-        deleteFolder:function(e)
+        thisFolderDelete:function()
         {
-            alert('delete call');
+            
+             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+        },
+        deleteFolder:function(e)
+        { 
+             folderEventsCloseModal();
+             $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
         renameFolder:function(e)
         {
@@ -218,27 +229,45 @@
             var that = this;
             that.set("showrefreshLoading", false);
         },
-        setcurrentFolderId:function(id)
+        setParentId:function(id)
         {
             var that = this;
-            that.set("currentFolderId", id);
+            that.set("parentId", id);
         },
-        newFolder:function()
+        newFolderModal:function()
+        { 
+            $("#tabstrip-new-folder").data("kendoMobileModalView").open();  
+        },
+        newFolderCreate:function()
         {
-           // apps.navigate("#tabstrip-new-folder");
-            $("#tabstrip-new-folder").data("kendoMobileModalView").open();
-                //$("#tabstrip-mess-fourth").find(".km-scroll-container").css("-webkit-transform", "");
-           /* var dataSource = new kendo.data.DataSource({
+            var that = this;
+            newFolderName = that.get("newFolderName");
+
+             var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
-                    url: "http://biz2services.com/mobapp/api/folder/",
+                    url: "http://biz2services.com/mobapp/api/folder",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
+                    data: {apiaction:"addfolder",userID:localStorage.getItem("userID"),parentID:parentId,folderName:newFolderName}  // search for tweets that contain "html5"
                 }
             },    
-            
-        });*/
+            schema: {
+                 data: function(data)
+                {   
+                	return [data];
+                }
+            },
+     
+        });
+             
+        dataSource.fetch(function(){
+            var data = dataSource.data(); 
+
+            console.log(data);
+        });   
+        newFolderCloseModal();
+        app.documentsetting.viewModel.refreshView(); 
         },
         setUserLogout:function()
         {
