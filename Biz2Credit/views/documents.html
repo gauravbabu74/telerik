@@ -63,7 +63,7 @@
             	</div>
             </form>
         </div>
-<!--Rename Folder-->
+<!--Delete Folder-->
         <div id="tabstrip-delete-folder" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
             	<span class="folderName"></span>
@@ -73,6 +73,19 @@
             	<div class="buttonArea">
             		<input type="submit" data-role="button" data-click="newFolderCloseModal" value="Cancel" />
             		<input type="submit" data-role="button" data-bind="click: thisFolderDelete" class="new-folder-create" value="Delete" />
+            	</div>
+            </form>
+        </div>
+<!--Rename Folder-->
+        <div id="tabstrip-rename-folder" class="folder-events" data-role="modalview"  data-height="200" data-model="app.documentsetting.viewModel">
+            <div class="closeBt clearfix">
+            	<span class="newfolder">Rename Folder</span>
+            </div>
+            <form id="new-folder-form" class="scheduleSection">
+            	<input type="text" data-bind="value: renameFolderName" class="new-folder-field" placeholder="Rename Folder"/>
+            	<div class="buttonArea">
+            		<input type="submit" data-role="button" data-click="newFolderCloseModal" value="Cancel" />
+            		<input type="submit" data-role="button" data-bind="click: thisFolderRename" class="new-folder-create" value="Rename" />
             	</div>
             </form>
         </div>
@@ -113,5 +126,7 @@
             function newFolderCloseModal() {
             	$("#tabstrip-new-folder").data("kendoMobileModalView").close();
                 $("#tabstrip-delete-folder").data("kendoMobileModalView").close();
+                $("#tabstrip-rename-folder").data("kendoMobileModalView").close();
+                
             }
         </script>

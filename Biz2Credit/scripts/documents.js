@@ -10,7 +10,8 @@
         parentId:0,
         showrefreshLoading:false,
         newFolderName:'',
-        
+        renameFolderName:'',
+        currentFolderName:(sessionStorage.getItem("currentFName") === true) ?  sessionStorage.getItem("currentFName") : "",
 		documentShow:function(e)
         { 
             app.loginService.viewModel.showloder();
@@ -216,9 +217,41 @@
              folderEventsCloseModal();
              $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
+        thisFolderRename:function()
+        {
+            var that = this;
+            var renameFolder = that.get("renameFolderName");
+		    var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/folder",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"renamefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),folderName:renameFolder,parentID:parentId}  // search for tweets that contain "html5"
+                }
+            },    
+            schema: {
+                 data: function(data)
+                {   
+                	return [data];
+                }
+            },
+     
+        });
+             
+        dataSource.fetch(function(){
+            var data = dataSource.data(); 
+
+            console.log(data);
+        }); 
+       // newFolderCloseModal();
+       // app.documentsetting.viewModel.refreshView(); 
+            
+        },
         renameFolder:function(e)
         {
-            alert('rename call');
+            folderEventsCloseModal();
+             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
         },
         moveFolder:function(e)
         {
