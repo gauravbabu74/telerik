@@ -6,16 +6,18 @@
         documents:[],
         showfilter:false,
         innerPage:false,
-        parentPage:'',
         parentId:0,
         showrefreshLoading:false,
         newFolderName:'',
         renameFolderName:'',
-        currentFolderName:(sessionStorage.getItem("currentFName") === true) ?  sessionStorage.getItem("currentFName") : "",
-		documentShow:function(e)
+        moveDocsId:0,
+        moveInnerPage:false,
+        documentShow:function(e)
         { 
-            app.loginService.viewModel.showloder();
-            if(typeof e.view.params.parent !== "undefined")
+           console.log(kendo);
+            //alert('calldoc');
+           app.loginService.viewModel.showloder();
+           if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
             {
                 parentId = e.view.params.parent;
                 app.documentsetting.viewModel.setInnerPage();
@@ -27,8 +29,8 @@
                 parentId = 0;
                 app.documentsetting.viewModel.setMainPage();
                 app.documentsetting.viewModel.setParentId(0);
-            }
-            console.log(parentId);
+            }   
+
        	 var dataSource = new kendo.data.DataSource({         
             transport: {
                 read: {
@@ -75,6 +77,68 @@
         });
        
        },
+        movedocumentShow:function(e)
+        { 
+            //console.log(e);
+            //alert('callmove');
+            app.loginService.viewModel.showloder();
+            if(typeof e.view.params.parent !== "undefined")
+            {
+                parentId = e.view.params.parent;
+                app.documentsetting.viewModel.setMoveInnerPage();
+                app.documentsetting.viewModel.setmoveDocsId(e.view.params.parent);
+                
+            }
+            else
+            {
+                parentId = 0;
+                app.documentsetting.viewModel.setMoveMainPage();
+                app.documentsetting.viewModel.setmoveDocsId(app.documentsetting.viewModel.moveDocsId);
+            } 
+
+       	 var dataSource = new kendo.data.DataSource({         
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/folder/",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                }
+            },
+            schema: {
+                data: function(data)
+                {   var docsArray = [];
+                    if(data['results']['faultcode']===1)
+                    {
+                        var sharedFiles ="";
+                        var sharedFolders ="";
+                        $.each( data['results']['DocLists'], function( i, val ) {
+
+                            if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                                 sharedFiles =val;
+                            }
+                            else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                                 sharedFolders =val;
+                            }
+                            else{
+                                docsArray.push(val);
+                            } 
+    					});
+                        if(sharedFiles !== '' && sharedFolders !=='')
+                        {
+                        	docsArray.unshift(sharedFiles,sharedFolders);
+                        }
+                    }
+                	return [docsArray];
+                }
+            },
+        });
+        dataSource.fetch(function(){
+            var that = this;
+            var data = that.data();
+            app.documentsetting.viewModel.setDocuments(data);
+        });
+       },
         setDocuments: function(data)
         { 
             var that = this;
@@ -98,12 +162,15 @@
                 		hold = false;
                	 },
                 	hold: function (e) {
-                       // console.log(kendo);
+                        console.log(e);
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
                 		hold = true;
-                		navigator.notification.vibrate(30);
-                		$("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                		navigator.notification.vibrate(20);
+                        if(e.touch.initialTouch.className !== 'sharedfolder')
+                        {
+                			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                        }
                 		$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
                 		$('.folderName').html('');
                 		$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
@@ -157,7 +224,24 @@
           
              
         },
-        
+        setMoveInnerPage:function()
+        {
+            var that = this;
+            
+           
+            that.set("moveInnerPage", true);
+          
+             
+        },
+        setMoveMainPage:function()
+        {
+            var that = this;
+            
+           
+            that.set("moveInnerPage", false);
+          
+             
+        },
         refreshView:function(e)
         {
          
@@ -269,11 +353,14 @@
         moveFolder:function(e)
         {
             folderEventsCloseModal();
+            
+            
             apps.navigate('views/movedocs.html');
         },
         backDocslistPage:function()
         {
-            apps.navigate('views/documents.html');
+            apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
+            $("#movePageback").data("kendoMobileBackButton").destroy();
         },
         hideRefreshLoading:function()
         {
@@ -284,6 +371,11 @@
         {
             var that = this;
             that.set("parentId", id);
+        },
+        setmoveDocsId:function(id)
+        {
+            var that = this;
+            that.set("moveDocsId", id);
         },
         newFolderModal:function()
         { 

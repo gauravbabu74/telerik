@@ -78,7 +78,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .popupBox li { color:#333;}
 .documentClick {padding:0;}
 .documentClick .km-view-title { font-size:1em; color:#333; font-weight:700;}
-.documentClick .km-view-title a {display:inline-block; padding:10px 7px 0px; background:none; border:0; margin:0;}
+.documentClick .km-view-title a {display:inline-block; padding:7px 7px 0px; background:none; border:0; margin:0 !important;}
 .documentClick .km-view-title a img { float:left; }
 .documentClick .km-view-title a span {float:left; display:inline; padding:10px 0 0;}
 /* RETINA DISPLAY STYLES*/
@@ -134,11 +134,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps ul li.dn:last-child strong{ background-image:url(images/b2c-dash.png); background-repeat:no-repeat; background-position:-777px -377px}
 #stps ul li span{ font-size:14px; color:#ccc; display:block; height:32px}
 #stpSumAc{ background-color:#ececec; padding:15px 30px 5px 30px;}
-.stpsumry{ width: 50%; float:left; text-align:center;}
+.stpsumry{ width:100%; text-align:center;}
 .stpsumry h2{ font-size:18px; color:#333333}
 .stpsumry p{ font-size:18px; color:#666666}
 .stpsumry p span{ color:#000; font-weight:bold }
-.stpcurrntAc{ width: 41%; float:right; padding-top:30px; text-align:right}
+.stpcurrntAc{ width:100%; padding-top:30px; text-align:center;}
 .stpcurrntAc p{ padding:5px 0px 0px 0px; font-size:14px; color:#999999; margin:2px 0 0;}
 .stpcurrntAc p a{ margin-left:10px; text-decoration:underline; color:#000; background-image:url(images/call_schedule.png) !important; background-color:#ececec !important; background-repeat:no-repeat !important; background-position:5px 3px !important; padding:5px 15px 6px 25px !important; background-size:13% !important; border:0 !important;}
 .stpcurrntAc p a img{ vertical-align:middle; padding:0 3px 0 0;}
@@ -281,7 +281,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
-@media (min-width:480px) and (max-width:480px) { 
+@media (min-width:533px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
 .stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
@@ -289,7 +289,14 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
-.logLogo { margin:15px auto;}
+.logLogo { margin:15px auto 20px;}
+html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
+.logo { margin:12px auto;}
+.documentClick .km-view-title a { padding:0px 10px 0;}
+.documentClick .km-view-title a img { width:35%; padding:5px 5px 0 0;}
+.documentClick .km-view-title a span { padding:15px 0 0;}
+.stpsumry{ width:100%; float:none; text-align:center}
+.stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
 @media (min-width:320px) and (max-width:320px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
@@ -299,5 +306,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
+.stpsumry{ width:100%; float:none; text-align:center}
+.stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
 
