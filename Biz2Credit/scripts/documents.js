@@ -12,15 +12,25 @@
         renameFolderName:'',
         moveDocsId:0,
         moveInnerPage:false,
-        lastPageId:0,
         documentShow:function(e)
         { 
            //console.log(kendo);
             //alert('calldoc');
-            app.loginService.viewModel.showloder();
-            app.documentsetting.viewModel.setParentId(0);
-			parentId = 0;
-            app.documentsetting.viewModel.setMainPage();
+           app.loginService.viewModel.showloder();
+           if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
+            {
+                parentId = e.view.params.parent;
+                app.documentsetting.viewModel.setInnerPage();
+                app.documentsetting.viewModel.setParentId(e.view.params.parent);
+                
+            }
+            else
+            {
+                parentId = 0;
+                app.documentsetting.viewModel.setMainPage();
+                app.documentsetting.viewModel.setParentId(0);
+            }   
+
        	 var dataSource = new kendo.data.DataSource({         
             transport: {
                 read: {
@@ -133,8 +143,6 @@
         { 
             var that = this;
             that.set("documents", data['0']);
-           
-
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
@@ -144,28 +152,22 @@
                 },
                 }).kendoTouch({ 
                 	filter: ">li",
+                    minHold: 2000,
                 	tap: function (e) {    
                 		if(!hold)
                 		{
-                            that.set("documents", '');
-                           
-                            //console.log('parent'+app.documentsetting.viewModel.parentId);
-                            that.set("lastPageId", app.documentsetting.viewModel.parentId);
-                            that.set("parentId", e.touch.currentTarget.id);
-                             $("#list-edit-listview").data("kendoMobileListView").destroy();
-                            app.documentsetting.viewModel.refreshView();
-                            
-                			//apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id);
+                            $("#list-edit-listview").data("kendoMobileListView").destroy();
+                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id);
                		 }
                 	},
                 	touchstart: function (e) {
                 		hold = false;
                	 },
                 	hold: function (e) {
-                        //console.log(e);
+                        hold = true;
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
-                		hold = true;
+                		
                 		navigator.notification.vibrate(20);
                         if(e.touch.initialTouch.className !== 'sharedfolder')
                         {
@@ -183,7 +185,7 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                 	tap: function (e) {    
-
+						$("#list-move-listview").data("kendoMobileListView").destroy();
                 		apps.navigate('#tabstrip-movedocs?parent='+e.touch.currentTarget.id);
 
                 	},          	                  
@@ -248,16 +250,12 @@
             if( app.documentsetting.viewModel.parentId === 0)
             {
                 parentId = 0;
-                //app.documentsetting.viewModel.setParentId(0);
-                app.documentsetting.viewModel.setMainPage();
             }
             else
             {
-                app.documentsetting.viewModel.setInnerPage();
-                //app.documentsetting.viewModel.setParentId(app.documentsetting.viewModel.parentId);
                 parentId =  app.documentsetting.viewModel.parentId;    
             }
-            //console.log(parentId);
+            console.log(parentId);
             var that = this;
             that.set("showrefreshLoading", true);
        	 var dataSource = new kendo.data.DataSource({
@@ -267,71 +265,6 @@
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                 data: function(data)
-                {   var docsArray = [];
-                    if(data['results']['faultcode']===1)
-                    {
-                        
-                        var sharedFiles ="";
-                        var sharedFolders ="";
-                        $.each( data['results']['DocLists'], function( i, val ) {
-                            
-                            
-                            if(data['results']['DocLists'][i]['name']==='Shared Files'){
-                                 sharedFiles =val;
-                            }
-                            else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                                 sharedFolders =val;
-                            }
-                            else{
-                                docsArray.push(val);
-                            } 
-    					});
-                        if(sharedFiles !== '' && sharedFolders !=='')
-                        {
-                        	docsArray.unshift(sharedFiles,sharedFolders);
-                        }     
-                    }
-                	return [docsArray];
-                }
-            },
-     
-        });
-             
-        dataSource.fetch(function(){
-            var data = dataSource.view(); 
-            app.documentsetting.viewModel.setDocuments(data);
-            app.documentsetting.viewModel.hideRefreshLoading();
-            
-        });   
-        },
-        backrefreshView:function(lastPageId)
-        {
-         if( app.documentsetting.viewModel.lastPageId === 0)
-            {
-                
-                
-                app.documentsetting.viewModel.setMainPage();
-            }
-            else
-            {
-                app.documentsetting.viewModel.setInnerPage();
-               
-               
-            }
-           
-            var that = this;
-            that.set("showrefreshLoading", true);
-       	 var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:lastPageId}  // search for tweets that contain "html5"
                 }
             },    
             schema: {
@@ -439,7 +372,6 @@
         setParentId:function(id)
         {
             var that = this;
-            
             that.set("parentId", id);
         },
         setmoveDocsId:function(id)
@@ -484,21 +416,6 @@
         setUserLogout:function()
         {
             app.loginService.viewModel.setUserLogout();
-        },
-        goBackPage:function()
-        {
-            console.log(app.documentsetting.viewModel.lastPageId);
-            var that = this;
-            if( app.documentsetting.viewModel.parentId === 0)
-            {
-                apps.navigate('views/documents.html');
-            }
-            else
-            {
-                app.documentsetting.viewModel.setInnerPage();
-                that.set("documents", '');
-                app.documentsetting.viewModel.backrefreshView(app.documentsetting.viewModel.lastPageId);    
-            }
         }
     });
     app.documentsetting = {
