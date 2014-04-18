@@ -14,8 +14,11 @@
         moveInnerPage:false,
         documentShow:function(e)
         { 
-           //console.log(kendo);
-            //alert('calldoc');
+
+            if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
+            {
+            	$("#list-edit-listview").data("kendoMobileListView").destroy();
+            }
            app.loginService.viewModel.showloder();
            if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
             {
@@ -143,6 +146,9 @@
         { 
             var that = this;
             that.set("documents", data['0']);
+            console.log($("#list-edit-listview"));
+            console.log($("#list-edit-listview").data("kendoMobileListView"));
+            
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
@@ -152,12 +158,10 @@
                 },
                 }).kendoTouch({ 
                 	filter: ">li",
-                    minHold: 2000,
                 	tap: function (e) {    
                 		if(!hold)
                 		{
-                            $("#list-edit-listview").data("kendoMobileListView").destroy();
-                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id);
+                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id); 
                		 }
                 	},
                 	touchstart: function (e) {
@@ -185,9 +189,7 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                 	tap: function (e) {    
-						$("#list-move-listview").data("kendoMobileListView").destroy();
                 		apps.navigate('#tabstrip-movedocs?parent='+e.touch.currentTarget.id);
-
                 	},          	                  
             });
             $('#docs-filter').html('');
