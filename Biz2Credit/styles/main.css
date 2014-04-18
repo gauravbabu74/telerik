@@ -269,6 +269,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .folder-events .scheduleSection input[type=text] { margin:0 2% 35px; width:96%; font-size:0.8em; position:inherit;border:1px solid #dcdcdc; border-radius:3px;padding:1em !important; font-size:1em; color:#dcdcdc;-webkit-appearance: none;appearance:none;-moz-appearance:none; outline:0; color:#333;-webkit-appearance: none;appearance:none;-moz-appearance:none; outline:0;}
 .folder-events .scheduleSection input[type=text]:focus {-webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset;}
 .folder-events .scheduleSection .buttonArea .km-button {width:48.5%;  /* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7));    /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #e7e7e7, #cbcbcb);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #e7e7e7, #cbcbcb);   /* IE 10 */   background: -ms-linear-gradient(top, #e7e7e7, #cbcbcb);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #e7e7e7, #cbcbcb);  border-radius:3px;  border:1px solid #808080;color:#000; font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;   border-radius:1px;   padding:0.6em 0;   border:1px solid #808080;   z-index:1000;  margin:0 1px 0 0;}
+.folder-events .scheduleSection p { font-size:1em; margin:0 10px 53px; text-align:center; color:#333;}
 .folder-events .scheduleSection .buttonArea .new-folder-create { /* Safari 4-5, Chrome 1-9 */  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));   /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #9fcf0f, #8dbc00);   /* IE 10 */   background: -ms-linear-gradient(top, #9fcf0f, #8dbc00);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px;  border:1px solid #808080;  color:#000;  font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;    width:48.5%; padding:0.6em 0; margin:0 0 0 1px; border-radius:1px; z-index:1000;}
 
 .folder-events .km-scroll-container ul { list-style:none; padding:0; margin:0;}
@@ -276,11 +277,21 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .folder-events .km-scroll-container ul li:last-child { border:0;}
 .folder-events .km-scroll-container ul li a { display:block; padding:10px 0 10px 5px; margin:0; background-color:transparent; border:0; color:#333;}
 /*********15-04-14************/
-@media screen and (max-width: 768px){ 
+@media (min-width:768px) and (max-width:768px) { 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
-@media only screen and (max-width: 480px){ 
+@media (min-width:480px) and (max-width:480px) { 
+#stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
+.stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
+.stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
+#stps ul li strong {height:38px;}
+#stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
+#stps{ height:101px;}
+#stpSumAc{padding:17px 1.3em 10px 1.3em;}
+.logLogo { margin:15px auto;}
+}
+@media (min-width:320px) and (max-width:320px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
 .stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
