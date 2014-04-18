@@ -145,10 +145,7 @@
         setDocuments: function(data)
         { 
             var that = this;
-            that.set("documents", data['0']);
-            console.log($("#list-edit-listview"));
-            console.log($("#list-edit-listview").data("kendoMobileListView"));
-            
+            that.set("documents", data['0']);  
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
