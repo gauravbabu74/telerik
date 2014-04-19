@@ -19,9 +19,9 @@
             {
             	$("#list-edit-listview").data("kendoMobileListView").destroy();
             }
-           $("#list-edit-listview").find(".km-scroll-container").css("-webkit-transform", "");
-           app.loginService.viewModel.showloder();
-           if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
+            $("#list-edit-listview").find(".km-scroll-container").css("-webkit-transform", "");
+            app.loginService.viewModel.showloder();
+            if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
             {
                 parentId = e.view.params.parent;
                 app.documentsetting.viewModel.setInnerPage();
@@ -85,22 +85,22 @@
         { 
             //console.log(e);
             //alert('callmove');
-            if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
+            if(typeof $("#list-move-listview").data("kendoMobileListView") !=='undefined' )
             {
-            	$("#list-edit-listview").data("kendoMobileListView").destroy();
+            	$("#list-move-listview").data("kendoMobileListView").destroy();
             }
             $("#list-move-listview").find(".km-scroll-container").css("-webkit-transform", "");
             app.loginService.viewModel.showloder();
             if(typeof e.view.params.parent !== "undefined")
             {
-                parentId = e.view.params.parent;
+                moveParentId = e.view.params.parent;
                 app.documentsetting.viewModel.setMoveInnerPage();
                 app.documentsetting.viewModel.setmoveDocsId(e.view.params.parent);
                 
             }
             else
             {
-                parentId = 0;
+                moveParentId = 0;
                 app.documentsetting.viewModel.setMoveMainPage();
                 app.documentsetting.viewModel.setmoveDocsId(app.documentsetting.viewModel.moveDocsId);
             } 
@@ -111,7 +111,7 @@
                     url: "http://biz2services.com/mobapp/api/folder/",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:moveParentId} // search for tweets that contain "html5"
                 }
             },
             schema: {
@@ -193,8 +193,18 @@
                 template: $("#docsmove-template").html(),
                 }).kendoTouch({ 
                 	filter: ">li",
-                	tap: function (e) {    
-                		apps.navigate('#tabstrip-movedocs?parent='+e.touch.currentTarget.id);
+                	tap: function (e) { 
+                        alert('movetap')
+                        $("#tabstrip-movedocs").kendoWindow({
+                            actions: {}, /*from Vlad's answer*/
+                            draggable: true,
+                            height: "",
+                            modal: true,
+                            resizable: false,
+                            width: "",
+                            visible: true /*don't show it yet*/
+                            }).data("kendoWindow").center().open();
+                		///apps.navigate('#tabstrip-movedocs?parent='+e.touch.currentTarget.id);
                 	},          	                  
             });
             $('#docs-filter').html('');
