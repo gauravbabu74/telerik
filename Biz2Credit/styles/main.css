@@ -254,7 +254,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentContent .km-listview-wrapper ul li .default-icon {background-image: url(images/unknown.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px;}
 .documentContent .km-listview-wrapper ul li .docx {background-image: url(images/dos.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px; }
 .documentContent .km-listview-wrapper ul li .jpg {background-image: url(images/jpg.png); background-repeat:no-repeat; background-size:11%;background-position:13px 7px;}
-.documentContent .km-listview-wrapper ul li .jpg {background-image: url(images/jpg.png); background-repeat:no-repeat; background-size:11%;background-position:13px 7px;}
 .documentContent .km-listview-wrapper ul li .doc  {background-image: url(images/dos.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px;}
 .documentContent .km-listview-wrapper ul li .txt  {background-image: url(images/text.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px;}
 .documentContent .km-listview-wrapper ul li .xls  {background-image: url(images/xls.png); background-repeat:no-repeat; background-size:11%; background-position:13px 7px;}
@@ -285,7 +284,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 }
-@media (min-width:480px) and (max-width:480px) { 
+@media (min-width:533px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
 .stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
@@ -307,6 +306,13 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:8%; background-position: 95% 9px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:9%; background-position: 95% 9px;}
 .stpsumry p {color: #333333; height:35px;font-size:1em; margin:7px 0 7px; overflow:scroll; line-height:1.3em;}
+.docs-header .km-widget .docs-back { width:10%;}
+.docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
+.docs-header .km-widget .docs-search { width:8%;}
+.docs-header .km-widget .refresh-com { width:10%;background-position: center 7px;}
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:10%;}
+.documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size: 7%; background-position:16px 7px;}
+
 }
 @media (min-width:320px) and (max-width:320px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
