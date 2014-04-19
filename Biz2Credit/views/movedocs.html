@@ -1,17 +1,17 @@
  <!--Document Section---->
-        <div id="tabstrip-movedocs"  data-role="modalview" data-show="app.documentsetting.viewModel.movedocumentShow" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-movedocs"  data-role="view" data-show="app.movedocumentsetting.viewModel.movedocumentShow" data-model="app.movedocumentsetting.viewModel">
             <div data-role="header" class="docs-header">
                 <div data-role="navbar">
                     <span data-role="view-title">
-                    	<a class="docs-back" data-role="backbutton" >Back</a>
+                    	<a class="docs-back" data-role="button" data-bind="click: backDocslistPage" >Back</a>
                     	<p class="docs-docu">Biz2Credit</p>
                     </span>
                 </div>
             </div>
 
             <div class="documentContent" data-role="content">
-                <a id="movePageback" class="inner-docs-back" data-role="backbutton"  data-bind="visible: moveInnerPage">Documents</a>
-            	<ul id="list-move-listview"></ul> 
+                <a id="movePageback" class="inner-docs-back"   data-bind="click:gobackMovePage,visible: moveInnerPage">Documents</a>
+            	<ul class="list-move-listview"></ul> 
             </div>
             
             <div data-role="footer">

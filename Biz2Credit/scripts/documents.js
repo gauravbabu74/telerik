@@ -10,11 +10,8 @@
         showrefreshLoading:false,
         newFolderName:'',
         renameFolderName:'',
-        moveDocsId:0,
-        moveInnerPage:false,
         documentShow:function(e)
         { 
-
             if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
             {
             	$("#list-edit-listview").data("kendoMobileListView").destroy();
@@ -81,186 +78,6 @@
         });
        
        },
-        movedocumentShow:function(e)
-        { 
-            //console.log(e);
-            //alert('callmove');
-            if(typeof $("#list-move-listview").data("kendoMobileListView") !=='undefined' )
-            {
-            	$("#list-move-listview").data("kendoMobileListView").destroy();
-            }
-            $("#list-move-listview").find(".km-scroll-container").css("-webkit-transform", "");
-            app.loginService.viewModel.showloder();
-            if(typeof e.view.params.parent !== "undefined")
-            {
-                moveParentId = e.view.params.parent;
-                app.documentsetting.viewModel.setMoveInnerPage();
-                app.documentsetting.viewModel.setmoveDocsId(e.view.params.parent);
-                
-            }
-            else
-            {
-                moveParentId = 0;
-                app.documentsetting.viewModel.setMoveMainPage();
-                app.documentsetting.viewModel.setmoveDocsId(app.documentsetting.viewModel.moveDocsId);
-            } 
-
-       	 var dataSource = new kendo.data.DataSource({         
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:moveParentId} // search for tweets that contain "html5"
-                }
-            },
-            schema: {
-                data: function(data)
-                {   var docsArray = [];
-                    if(data['results']['faultcode']===1)
-                    {
-                        var sharedFiles ="";
-                        var sharedFolders ="";
-                        $.each( data['results']['DocLists'], function( i, val ) {
-
-                            if(data['results']['DocLists'][i]['name']==='Shared Files'){
-                                 sharedFiles =val;
-                            }
-                            else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                                 sharedFolders =val;
-                            }
-                            else{
-                                docsArray.push(val);
-                            } 
-    					});
-                        if(sharedFiles !== '' && sharedFolders !=='')
-                        {
-                        	docsArray.unshift(sharedFiles,sharedFolders);
-                        }
-                    }
-                	return [docsArray];
-                }
-            },
-        });
-        dataSource.fetch(function(){
-            var that = this;
-            var data = that.data();
-            app.documentsetting.viewModel.setDocuments(data);
-        });
-       },
-        setDocuments: function(data)
-        { 
-            var that = this;
-            that.set("documents", data['0']);  
-            $("#list-edit-listview").kendoMobileListView({
-                dataSource: app.documentsetting.viewModel.documents,
-                template: $("#docs-template").html(),
-                filterable: {
-                field: "name",
-                operator: "startswith"
-                },
-                }).kendoTouch({ 
-                	filter: ">li",
-                	tap: function (e) {    
-                		if(!hold)
-                		{
-                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id); 
-               		 }
-                	},
-                	touchstart: function (e) {
-                		hold = false;
-               	 },
-                	hold: function (e) {
-                        hold = true;
-                        
-                		
-                        if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
-                        {
-                            sessionStorage.currentFId = e.touch.currentTarget.id;
-                            sessionStorage.currentFName = e.touch.currentTarget.innerText;
-                            navigator.notification.vibrate(20);
-                			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
-                            $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                			$('.folderName').html('');
-                			$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
-                			$('.folderName').attr("id",e.touch.currentTarget.id)
-                        }
-                		
-                	}                    
-            });
-            $("#list-move-listview").kendoMobileListView({
-                dataSource: app.documentsetting.viewModel.documents,
-                template: $("#docsmove-template").html(),
-                }).kendoTouch({ 
-                	filter: ">li",
-                	tap: function (e) { 
-                        alert('movetap')
-                        $("#tabstrip-movedocs").kendoWindow({
-                            actions: {}, /*from Vlad's answer*/
-                            draggable: true,
-                            height: "",
-                            modal: true,
-                            resizable: false,
-                            width: "",
-                            visible: true /*don't show it yet*/
-                            }).data("kendoWindow").center().open();
-                		///apps.navigate('#tabstrip-movedocs?parent='+e.touch.currentTarget.id);
-                	},          	                  
-            });
-            $('#docs-filter').html('');
-            $(".km-filter-form").detach().appendTo('#docs-filter');
-            app.loginService.viewModel.hideloder();    
-        },
-        setVisibilty:function()
-        {
-            var that = this;
-            $(".km-filter-reset").trigger("click");
-            if(app.documentsetting.viewModel.showfilter === true)
-            {
-                that.set("showfilter", false);
-            }
-            else
-            {
-                that.set("showfilter", true);
-            }
-             
-        },
-        setInnerPage:function()
-        {
-            var that = this;
-            
-           
-            that.set("innerPage", true);
-          
-             
-        },
-        setMainPage:function()
-        {
-            var that = this;
-            
-           
-            that.set("innerPage", false);
-          
-             
-        },
-        setMoveInnerPage:function()
-        {
-            var that = this;
-            
-           
-            that.set("moveInnerPage", true);
-          
-             
-        },
-        setMoveMainPage:function()
-        {
-            var that = this;
-            
-           
-            that.set("moveInnerPage", false);
-          
-             
-        },
         refreshView:function(e)
         {
          
@@ -327,6 +144,84 @@
             
         });   
         },
+        setDocuments: function(data)
+        { 
+            var that = this;
+            that.set("documents", data['0']);  
+            $("#list-edit-listview").kendoMobileListView({
+                dataSource: app.documentsetting.viewModel.documents,
+                template: $("#docs-template").html(),
+                filterable: {
+                field: "name",
+                operator: "startswith"
+                },
+                }).kendoTouch({ 
+                	filter: ">li",
+                	tap: function (e) {    
+                		if(!hold)
+                		{
+                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id); 
+               		 }
+                	},
+                	touchstart: function (e) {
+                		hold = false;
+               	 },
+                	hold: function (e) {
+                        hold = true;
+                        
+                		
+                        if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
+                        {
+                            sessionStorage.currentFId = e.touch.currentTarget.id;
+                            sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                            navigator.notification.vibrate(20);
+                			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                            $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                			$('.folderName').html('');
+                			$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                			$('.folderName').attr("id",e.touch.currentTarget.id)
+                        }
+                		
+                	}                    
+            });
+           
+            $('#docs-filter').html('');
+            $(".km-filter-form").detach().appendTo('#docs-filter');
+            app.loginService.viewModel.hideloder();    
+        },
+        setVisibilty:function()
+        {
+            var that = this;
+            $(".km-filter-reset").trigger("click");
+            if(app.documentsetting.viewModel.showfilter === true)
+            {
+                that.set("showfilter", false);
+            }
+            else
+            {
+                that.set("showfilter", true);
+            }
+             
+        },
+        setInnerPage:function()
+        {
+            var that = this;
+            
+           
+            that.set("innerPage", true);
+          
+             
+        },
+        setMainPage:function()
+        {
+            var that = this;
+            
+           
+            that.set("innerPage", false);
+          
+             
+        },
+
         thisFolderDelete:function()
         {
             
@@ -357,15 +252,15 @@
                 }
             },
      
-        });
+            });
              
-        dataSource.fetch(function(){
-            var data = dataSource.data(); 
+            dataSource.fetch(function(){
+                var data = dataSource.data(); 
 
-            console.log(data);
-        }); 
-       // newFolderCloseModal();
-       // app.documentsetting.viewModel.refreshView(); 
+                console.log(data);
+            }); 
+       // 	newFolderCloseModal();
+       // 	app.documentsetting.viewModel.refreshView(); 
             
         },
         renameFolder:function(e)
@@ -376,16 +271,9 @@
         moveFolder:function(e)
         {
             folderEventsCloseModal();
-            
-            
+
             apps.navigate('views/movedocs.html');
-        },
-        backDocslistPage:function()
-        {  console.log(kendo.history);
-           // kendo.history.navigate('#tabstrip-login');
-            apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
-           
-        },
+        },   
         hideRefreshLoading:function()
         {
             var that = this;
@@ -396,11 +284,7 @@
             var that = this;
             that.set("parentId", id);
         },
-        setmoveDocsId:function(id)
-        {
-            var that = this;
-            that.set("moveDocsId", id);
-        },
+      
         newFolderModal:function()
         { 
             $("#tabstrip-new-folder").data("kendoMobileModalView").open();  
@@ -425,20 +309,21 @@
                 }
             },
      
-        });
-             
-        dataSource.fetch(function(){
-            var data = dataSource.data(); 
+            });
+                 
+            dataSource.fetch(function(){
+                var data = dataSource.data(); 
 
-            console.log(data);
-        });   
-        newFolderCloseModal();
-        app.documentsetting.viewModel.refreshView(); 
+                console.log(data);
+            });   
+            newFolderCloseModal();
+            app.documentsetting.viewModel.refreshView(); 
         },
         setUserLogout:function()
         {
             app.loginService.viewModel.setUserLogout();
-        }
+        },
+        
     });
     app.documentsetting = {
         
