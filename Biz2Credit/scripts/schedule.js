@@ -67,6 +67,9 @@
     };
 })(window);
 $(document).ready(function(){
+    var staticNotification = $("#staticNotification").kendoNotification({
+                        appendTo: "#appendto"
+                    }).data("kendoNotification");
     $("#datepicker").kendoDatePicker({
        min: new Date(1950, 0, 1),
        max: new Date(2049, 11, 31),
