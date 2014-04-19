@@ -172,18 +172,20 @@
                	 },
                 	hold: function (e) {
                         hold = true;
-                        sessionStorage.currentFId = e.touch.currentTarget.id;
-                        sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                        
                 		
-                		navigator.notification.vibrate(20);
-                        if(e.touch.initialTouch.className !== 'sharedfolder')
+                        if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                         {
+                            sessionStorage.currentFId = e.touch.currentTarget.id;
+                            sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                            navigator.notification.vibrate(20);
                 			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                            $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                			$('.folderName').html('');
+                			$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                			$('.folderName').attr("id",e.touch.currentTarget.id)
                         }
-                		$("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                		$('.folderName').html('');
-                		$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
-                		$('.folderName').attr("id",e.touch.currentTarget.id)
+                		
                 	}                    
             });
             $("#list-move-listview").kendoMobileListView({
