@@ -13,13 +13,13 @@
                 
         }, 'exit', 'Ok,Cancel');
           }
-        else if(apps.view()['element']['0']['id']==='tabstrip-docs' && apps.view()['element']['0']['id']==='tabstrip-movedocs')
-        {
-            e.preventDefault();
-        }
         else if(apps.view()['element']['0']['id']==='tabstrip-docs' && app.documentsetting.viewModel.showfilter === true)
         {
              app.documentsetting.viewModel.set("showfilter", false);
+        }
+        else if(apps.view()['element']['0']['id']==='tabstrip-docs' || apps.view()['element']['0']['id']==='tabstrip-movedocs')
+        {
+            e.preventDefault();
         }
         else
         {   //$("#tabstrip-folder-events").kendoMobileModalView("close");
