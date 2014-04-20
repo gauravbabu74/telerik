@@ -227,8 +227,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget .docs-popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:transparent;  border-radius:0;}
 .docs-header .km-widget #docs-filter { float:left; width:70%;}
 .docs-header .km-widget #docs-filter .km-filter-form { margin:0; padding:0;}
-.docs-header .km-widget #docs-filter .km-filter-wrap { margin:0 0 0 2%; padding-bottom:0; padding-top:0;background-image: url(images/search-bg.png); background-repeat:no-repeat; background-size:100%; background-position:center 40px;}
-.docs-header .km-widget #docs-filter .km-filter-wrap input {  border:0;background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:14%; height:28px; padding:0; background-position:left 0px;}
+.docs-header .km-widget #docs-filter .km-filter-wrap { margin:0 0 0 2%; padding-bottom:0; padding-top:0;background-image: url(images/search-bg.png); background-repeat:no-repeat; background-size:100%; background-position:center 35px;}
+.docs-header .km-widget #docs-filter .km-filter-wrap input {  border:0;height:28px; padding:0;}
 /*********4-04-14*************/
 /*********09-04-14*************/
 .removeBtn { background-color:transparent !important; padding:0!important; margin:0!important; border:0!important;}
@@ -310,9 +310,13 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
 .docs-header .km-widget .docs-search { width:8%;}
 .docs-header .km-widget .refresh-com { width:10%;background-position: center 7px;}
+.docs-header .km-widget .refresh-loading { width:9%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:10%;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size: 7%; background-position:16px 7px;}
-
+.docs-header .km-widget #docs-filter { width:80%;}
+.docs-header .km-widget #docs-filter .km-filter-wrap { background-position:center 35px;}
+.matches-view li .row3 a {padding: 3em 0em 0.5em;}
+    #blackBlk .desbrdIcon .span {background-size:10%;}
 }
 @media (min-width:320px) and (max-width:320px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}

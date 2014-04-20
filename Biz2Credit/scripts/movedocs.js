@@ -8,13 +8,11 @@
         moveInnerPage:false,
         movedocumentShow:function(e)
         { 
-            backHistory=[];
+            app.loginService.viewModel.showloder();
             if(typeof $(".list-move-listview").data("kendoMobileListView") !=='undefined' )
             {
             	$(".list-move-listview").data("kendoMobileListView").destroy();
             }
-            $(".list-move-listview").find(".km-scroll-container").css("-webkit-transform", "");
-            app.loginService.viewModel.showloder();
             if(typeof e.view.params.parent !== "undefined")
             {
                 moveParentId = e.view.params.parent;
@@ -22,7 +20,9 @@
                 
             }
             else
-            {   backHistory.push(0);
+            {   
+                backHistory=[];
+                backHistory.push(0);
                 moveParentId = 0;
                 app.movedocumentsetting.viewModel.setMoveMainPage();
                 app.movedocumentsetting.viewModel.setMoveDocsId(app.movedocumentsetting.viewModel.moveDocsId);
@@ -72,14 +72,12 @@
         });
        },
         moveRefreshView:function(e)
-        {  
+        { 
+            app.loginService.viewModel.showloder();
             if(typeof $(".list-move-listview").data("kendoMobileListView") !=='undefined' )
             {
             	$(".list-move-listview").data("kendoMobileListView").destroy();
             }
-            $(".list-move-listview").find(".km-scroll-container").css("-webkit-transform", "");
-            app.loginService.viewModel.showloder();
-
        	 var dataSource = new kendo.data.DataSource({         
             transport: {
                 read: {
@@ -147,7 +145,8 @@
                         app.movedocumentsetting.viewModel.moveRefreshView();
                 	},          	                  
             }); 
-            app.loginService.viewModel.hideloder();    
+            app.loginService.viewModel.hideloder();
+            $("#tabstrip-movedocs").find(".km-scroll-container").css("-webkit-transform", "");
         },
         setMoveInnerPage:function()
         {
@@ -161,10 +160,7 @@
         },
         backDocslistPage:function()
         {  
-            //console.log(kendo.history)
-            kendo.history.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
             apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
-             console.log(kendo.history)
         },
         setMoveDocsId:function(id)
         {
@@ -173,7 +169,7 @@
         },
         gobackMovePage:function()
         {
-            console.log(backHistory[backHistory.length-2]);
+
 			if(app.movedocumentsetting.viewModel.moveDocsId !== "0")
             {
             	app.movedocumentsetting.viewModel.setMoveInnerPage();

@@ -4,7 +4,7 @@
             <div data-role="header" class="docs-header">
                 <div data-role="navbar">
                     <span data-role="view-title">
-                    	<a class="docs-back" data-role="backbutton" data-bind="invisible: showfilter">Back</a>
+                    	<a class="docs-back" href="#tabstrip-home" data-role="button" data-bind="invisible: showfilter">Back</a>
                     	<a class="docs-back" data-bind="click: setVisibilty, visible: showfilter">Back</a>
                     	<p class="docs-docu" data-bind="invisible: showfilter">Documents</p>
                     	<div class="searchForm" data-bind="invisible: showfilter">
@@ -19,7 +19,7 @@
             </div>
 
             <div class="documentContent" data-role="content">
-                <a class="inner-docs-back" data-role="backbutton"  data-bind="visible: innerPage">Documents</a>
+                <a class="inner-docs-back"   data-bind="click:gobackDocsPage,visible: innerPage">Documents</a>
             	<ul id="list-edit-listview"></ul> 
             </div>
             <div data-role="popover" class="popupBox" id="popover-docs" data-popup='{"height": "10em", "width": "12em"}'>

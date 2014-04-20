@@ -12,12 +12,12 @@
         renameFolderName:'',
         documentShow:function(e)
         { 
-            if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
+            app.loginService.viewModel.showloder();
+            if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined')
             {
             	$("#list-edit-listview").data("kendoMobileListView").destroy();
+                //$("#list-edit-listview").unwrap();
             }
-            $("#list-edit-listview").find(".km-scroll-container").css("-webkit-transform", "");
-            app.loginService.viewModel.showloder();
             if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
             {
                 parentId = e.view.params.parent;
@@ -27,6 +27,8 @@
             }
             else
             {
+                docsBackHistory=[];
+                docsBackHistory.push(0);
                 parentId = 0;
                 app.documentsetting.viewModel.setMainPage();
                 app.documentsetting.viewModel.setParentId(0);
@@ -72,28 +74,28 @@
         dataSource.fetch(function(){
             var that = this;
             var data = that.data();
-            //alert('call');
-            app.documentsetting.viewModel.setDocuments(data);
-            
+            app.documentsetting.viewModel.setDocuments(data); 
         });
-       
        },
-        refreshView:function(e)
+       refreshView:function(e)
         {
          
             if( app.documentsetting.viewModel.parentId === 0)
             {
                 parentId = 0;
+                app.documentsetting.viewModel.setMainPage();
             }
             else
             {
-                parentId =  app.documentsetting.viewModel.parentId;    
+                parentId =  app.documentsetting.viewModel.parentId;
+                app.documentsetting.viewModel.setInnerPage();
             }
             if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
             {
             	$("#list-edit-listview").data("kendoMobileListView").destroy();
+                //$("#list-edit-listview").unwrap();
             }
-            $("#list-edit-listview").find(".km-scroll-container").css("-webkit-transform", "");
+            //app.loginService.viewModel.showloder();
             var that = this;
             that.set("showrefreshLoading", true);
        	 var dataSource = new kendo.data.DataSource({
@@ -157,10 +159,22 @@
                 },
                 }).kendoTouch({ 
                 	filter: ">li",
-                	tap: function (e) {    
+                	tap: function (e) { 
                 		if(!hold)
                 		{
-                			apps.navigate('#tabstrip-docs?parent='+e.touch.currentTarget.id); 
+                            if(e.touch.currentTarget.id !== "0")
+                            {  
+                            	app.documentsetting.viewModel.setInnerPage();
+                            	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
+                            }
+                            else
+                            {
+                            	app.movedocumentsetting.viewModel.setMainPage();
+                            	app.movedocumentsetting.viewModel.setParentId(0);
+                            } 
+                        	docsBackHistory.push(e.touch.currentTarget.id);
+                        	app.documentsetting.viewModel.refreshView();
+                            
                		 }
                 	},
                 	touchstart: function (e) {
@@ -168,8 +182,7 @@
                	 },
                 	hold: function (e) {
                         hold = true;
-                        
-                		
+
                         if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                         {
                             sessionStorage.currentFId = e.touch.currentTarget.id;
@@ -184,7 +197,7 @@
                 		
                 	}                    
             });
-           
+            $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
             $('#docs-filter').html('');
             $(".km-filter-form").detach().appendTo('#docs-filter');
             app.loginService.viewModel.hideloder();    
@@ -206,20 +219,20 @@
         setInnerPage:function()
         {
             var that = this;
-            
-           
-            that.set("innerPage", true);
-          
-             
+            if(app.documentsetting.viewModel.parentId === 0)
+            {
+                 $("#list-edit-listview").html("");
+            }
+            that.set("innerPage", true); 
         },
         setMainPage:function()
         {
             var that = this;
-            
-           
-            that.set("innerPage", false);
-          
-             
+            if(app.documentsetting.viewModel.parentId !== 0)
+            {
+                 $("#list-edit-listview").html("");
+            }
+            that.set("innerPage", false);  
         },
 
         thisFolderDelete:function()
@@ -323,6 +336,24 @@
         {
             app.loginService.viewModel.setUserLogout();
         },
+        gobackDocsPage:function()
+        {
+            if(app.documentsetting.viewModel.parentId !== "0")
+            {
+            	app.documentsetting.viewModel.setInnerPage();
+            }
+            else
+            {
+            	app.documentsetting.viewModel.setMainPage();
+
+            }
+            if(docsBackHistory[docsBackHistory.length-2] === 0){
+               app.documentsetting.viewModel.setMainPage(); 
+            }
+            app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
+            docsBackHistory.pop()
+            app.documentsetting.viewModel.refreshView(); 
+        }
         
     });
     app.documentsetting = {
