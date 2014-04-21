@@ -185,6 +185,41 @@
             app.movedocumentsetting.viewModel.setMoveDocsId(backHistory[backHistory.length-2]);
             backHistory.pop()
             app.movedocumentsetting.viewModel.moveRefreshView(); 
+        },
+        thisFolderMove:function()
+        {
+            alert('move');
+            console.log(sessionStorage.getItem("currentFId"));
+            console.log(app.movedocumentsetting.viewModel.moveDocsId);
+            /*
+            var that = this;
+		    var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/folder",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"movefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
+                }
+            },    
+            schema: {
+                data: function(data)
+                {   
+                	return [data];
+                }
+            },
+     
+            });
+             
+            dataSource.fetch(function(){
+                var data = dataSource.data(); 
+
+                console.log(data);
+            });*/
+       // 	newFolderCloseModal();
+       // 	app.documentsetting.viewModel.refreshView();
+            app.movedocumentsetting.viewModel.backDocslistPage();
+            
         }
     });
     app.movedocumentsetting = {
