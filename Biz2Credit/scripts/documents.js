@@ -211,8 +211,6 @@
                             console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
                              $("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].scrollHeight;
                              $("#tabstrip-files-events").data("kendoMobileModalView").open();
-                           
-                          
                              $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
                         }
                 		
@@ -256,19 +254,38 @@
             that.set("innerPage", false);  
         },
 
-        thisFolderDelete:function()
-        {
-            
-             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
-        },
+        
         deleteFolder:function(e)
         { 
-             folderEventsCloseModal();
+             CloseModal();
              $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+        },
+        thisFolderDelete:function()
+        {
+            alert('pending delete webservices');
+            CloseModal();
+             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+        },
+        deleteFile:function()
+        {
+           CloseModal();
+           $("#tabstrip-delete-files").data("kendoMobileModalView").open();
+        } ,
+        thisFileDelete:function()
+        {
+            alert('pending delete webservices');
+            CloseModal();
+             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+        },
+       
+        renameFolder:function(e)
+        {
+             CloseModal();
+             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
         },
         thisFolderRename:function()
         {
-            var that = this;
+            /*var that = this;
             var renameFolder = that.get("renameFolderName");
 		    var dataSource = new kendo.data.DataSource({
             transport: {
@@ -292,19 +309,26 @@
                 var data = dataSource.data(); 
 
                 console.log(data);
-            }); 
-       // 	newFolderCloseModal();
-       // 	app.documentsetting.viewModel.refreshView(); 
+            }); */
+          alert('rename call');
+      	CloseModal();
+          app.documentsetting.viewModel.refreshView(); 
             
         },
-        renameFolder:function(e)
+        renameFile:function()
         {
-             folderEventsCloseModal();
-             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
+           CloseModal();
+             $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
+        },
+        thisFileRename:function()
+        {
+            
+            alert('rename file call');
+            CloseModal();
         },
         moveFolder:function(e)
         {
-            folderEventsCloseModal();
+            CloseModal();
 
             apps.navigate('views/movedocs.html');
         },   
@@ -350,7 +374,7 @@
 
                 console.log(data);
             });   
-            newFolderCloseModal();
+            CloseModal();
             app.documentsetting.viewModel.refreshView(); 
         },
         setUserLogout:function()

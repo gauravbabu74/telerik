@@ -100,11 +100,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 .warps {margin: 0 auto; max-width: 960px; width: 100%;}
 .clearfix:after { clear: both; content: " "; display: block; font-size: 0; height: 0; visibility: hidden;}
-#blackBlk { padding:0% 0% 4%; display:block; width:96%; margin:0 2%;}
+#blackBlk { padding:1% 0% 4%; display:block; width:96%; margin:0 2%;}
 #blackBlk .desbrdIcon { padding:3%; display:block;}
-#blackBlk .desbrdIcon .dasimg { padding:0; width:13%; display:inline-block;}
-#blackBlk .desbrdIcon .dasimg img { max-width:100%; width:100%; height:auto;}
-#blackBlk .desbrdIcon .span {background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 12px; background-size:8%; display:block; padding:0; line-height:2em; color:#fff; font-size:1.2em;}
+#blackBlk .desbrdIcon .dasimg { padding:1%; display:block;background-image: url("images/ic_dashboard.png"); background-repeat:no-repeat; background-position: left 0px; background-size:9%;}
+#blackBlk .desbrdIcon .dasimg span { display:table-cell; vertical-align:middle; text-indent:35%; width:150px;}
+#blackBlk .desbrdIcon .span {background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 12px; background-size:8%; display:block; padding:0.5% 0 1%; line-height:2em; color:#fff; font-size:1.2em;}
 #dashview{ background-color:#FFF; border:3px solid #ececec; -webkit-border-radius: 6px; border-radius: 6px;}
 #dashview .tooltip {background-color: #FFFFFF;     border: 1px solid #999999;	box-shadow: 3px 3px 0 0 #e0e0e0;    display: none;    height: auto;    margin: 10px auto 0;    padding: 20px 20px 10px;    text-align: left; width:230px; font-size:11px;	-webkit-border-radius: 3px; border-radius: 3px;     z-index: 9999999; }
 #dashview .tooltip span.tpar {    background-image: url("images/tootltip_ar.png");    background-position: center top;    background-repeat: no-repeat;    display: block;    height: 17px;    margin-top: -32px;    position: absolute;    width: 250px;
@@ -291,17 +291,14 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
-.logLogo { margin:15px auto 20px;}
-html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .logo { margin:12px auto;}
 .documentClick .km-view-title a { padding:0px 10px 0;}
-.documentClick .km-view-title a img { width:35%; padding:5px 5px 0 0;}
 .documentClick .km-view-title a span { padding:13px 0 0;}
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 .btngr { padding:11px 8px;}
 .stpcurrntAc { padding-top:7px;}
-#blackBlk .desbrdIcon .span{ margin:13px 0 0; padding:0;background-position: right 4px;}
+#blackBlk .desbrdIcon .span{ margin:13px 0 0;background-position: right 4px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:8%; background-position: 95% 9px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:9%; background-position: 95% 9px;}
 .stpsumry p {color: #333333; height:35px;font-size:1em; margin:7px 0 7px; overflow:scroll; line-height:1.3em;}
@@ -319,6 +316,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 }
 @media (min-width:0px) and (max-width:600px) { 
 #blackBlk .desbrdIcon .span { margin:0;}
+#blackBlk .desbrdIcon .dasimg { background-size:14%;}
+.documentClick .km-view-title a img { width:36%; padding:5px 5px 0 0;}
 }
 @media (min-width:0px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
@@ -330,6 +329,15 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
-
+#blackBlk .desbrdIcon .dasimg { background-size:9%;}
+.logLogo { margin:15px auto 20px;}
+html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
+}
+@media (min-width:0px) and (max-width:360px) { 
+ #blackBlk .desbrdIcon .dasimg { background-size:14%;} 
+#blackBlk .desbrdIcon .span {background-position: right 13px;}
+.logLogo { margin:80px auto 20px;}
+html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
+.documentClick .km-view-title a img { width:39%; padding:5px 5px 0 0;}
 }
 
