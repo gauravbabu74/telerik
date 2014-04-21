@@ -219,7 +219,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /*********4-04-14*************/
 .docs-header {padding:0;}
 .docs-header .km-widget {background:#fff; border-bottom:2px solid #99cc00;}
-.docs-header .km-widget .docs-back {background-image: url(images/arrow-Icon-launcher.png); background-repeat:no-repeat; background-size:94%; background-position:center 7px; text-indent:-9000px; border:0;padding:0; margin:0; width:16%;height:50px; float:left;}
+.docs-header .km-widget .docs-back {background-image: url(images/arrow-Icon-launcher.png); background-repeat:no-repeat; background-size:94%; background-position:center 10px; text-indent:-9000px; border:0;padding:0; margin:0; width:16%;height:50px; float:left;}
 .docs-header .km-widget .docs-docu { float:left; color:#333; font-size:0.85em; width:46%; text-align:left;}
 .docs-header .km-widget .docs-search {background-image: url(images/action_search.png); background-repeat:no-repeat; background-size:100%; background-position:center 7px; text-indent:-9000px; width:11%; height:50px; border:0; background-color:transparent; float:left;}
 .docs-header .km-widget .refresh-com {background-image: url(images/action_refresh.png); background-repeat:no-repeat; background-size:75%; background-position:center 10px; text-indent:-9000px; width:13%; height:50px; border:0; background-color:transparent; float:left;}
@@ -302,11 +302,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:8%; background-position: 95% 9px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:9%; background-position: 95% 9px;}
 .stpsumry p {color: #333333; height:35px;font-size:1em; margin:7px 0 7px; overflow:scroll; line-height:1.3em;}
-.docs-header .km-widget .docs-back { width:10%;}
-.docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
-.docs-header .km-widget .docs-search { width:8%;}
 .docs-header .km-widget .refresh-com { width:10%;background-position: center 7px;}
-.docs-header .km-widget .refresh-loading { width:9%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:10%;}
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size: 7%; background-position:16px 7px;}
 .docs-header .km-widget #docs-filter { width:80%;}
@@ -318,6 +314,10 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon .span { margin:0;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;}
 .documentClick .km-view-title a img { width:36%; padding:5px 5px 0 0;}
+.docs-header .km-widget .docs-back { width:10%;}
+.docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
+.docs-header .km-widget .docs-search { width:8%;}
+    .docs-header .km-widget .refresh-loading { width:9%;}
 }
 @media (min-width:0px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
@@ -332,6 +332,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon .dasimg { background-size:9%;}
 .logLogo { margin:15px auto 20px;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
+
 }
 @media (min-width:0px) and (max-width:360px) { 
  #blackBlk .desbrdIcon .dasimg { background-size:14%;} 
@@ -339,5 +340,11 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .logLogo { margin:80px auto 20px;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .documentClick .km-view-title a img { width:39%; padding:5px 5px 0 0;}
+.docs-header .km-widget .docs-back { width:16%;}
+.docs-header .km-widget .docs-search { width:12%;}
+.docs-header .km-widget .docs-docu  { padding:5px 0 0; width:45%;}
+.docs-header .km-widget .refresh-com {width:15%;}
+.docs-header .km-widget .refresh-loading { width:15%;}
+    
 }
 
