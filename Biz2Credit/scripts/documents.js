@@ -160,22 +160,24 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                 	tap: function (e) { 
+                        e.touch.currentTarget.className='km-state-active'
+                        console.log(e);
                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
                     		if(!hold)
                     		{
                                 if(e.touch.currentTarget.id !== "0")
                                 {  
-                                	app.documentsetting.viewModel.setInnerPage();
-                                	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
+                                	//app.documentsetting.viewModel.setInnerPage();
+                                	//app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
                                 }
                                 else
-                                {
-                                	app.movedocumentsetting.viewModel.setMainPage();
-                                	app.movedocumentsetting.viewModel.setParentId(0);
+                                {//
+                                	//app.movedocumentsetting.viewModel.setMainPage();
+                                	//app.movedocumentsetting.viewModel.setParentId(0);
                                 } 
-                            	docsBackHistory.push(e.touch.currentTarget.id);
-                            	app.documentsetting.viewModel.refreshView();
+                            	//docsBackHistory.push(e.touch.currentTarget.id);
+                            	//.documentsetting.viewModel.refreshView();
                                 
                    		 }
                         }
@@ -185,11 +187,12 @@
                         }
                 	},
                 	touchstart: function (e) {
-                         //console.log(e);
+                         
                 		hold = false;
                	 },
                 	hold: function (e) {
                         hold = true;
+                        e.touch.currentTarget.className='km-state-active';
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
                         navigator.notification.vibrate(20);
@@ -213,7 +216,7 @@
                              $("#tabstrip-files-events").data("kendoMobileModalView").open();
                              $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
                         }
-                		
+                		e.touch.currentTarget.className='';
                 	}                    
             });
             $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
