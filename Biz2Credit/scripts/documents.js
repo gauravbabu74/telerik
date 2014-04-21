@@ -168,16 +168,16 @@
                     		{
                                 if(e.touch.currentTarget.id !== "0")
                                 {  
-                                	//app.documentsetting.viewModel.setInnerPage();
-                                	//app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
+                                	app.documentsetting.viewModel.setInnerPage();
+                                	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
                                 }
                                 else
-                                {//
-                                	//app.movedocumentsetting.viewModel.setMainPage();
-                                	//app.movedocumentsetting.viewModel.setParentId(0);
+                                {
+                                	app.movedocumentsetting.viewModel.setMainPage();
+                                	app.movedocumentsetting.viewModel.setParentId(0);
                                 } 
-                            	//docsBackHistory.push(e.touch.currentTarget.id);
-                            	//.documentsetting.viewModel.refreshView();
+                            	docsBackHistory.push(e.touch.currentTarget.id);
+                            	app.documentsetting.viewModel.refreshView();
                                 
                    		 }
                         }
