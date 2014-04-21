@@ -10,7 +10,7 @@ body, html { margin: 0;height: 100%; width: 100%;}
 .logLogo {background-image: url(../styles/images/logo.png);background-repeat: no-repeat;width: 319px; height: 60px; margin: 40px auto;background-position:center;}
 /* BUTTON STYLES*/
 .buttonArea { text-align: center;}
-.login-button { width:79%; font-size: .9em; -webkit-appearance: none;}
+.login-button { width:99%; font-size: .9em; -webkit-appearance: none; margin:0;}
 /* MAP STYLES*/
 #no-map {position: absolute; margin: 0 auto; top: 40%; text-align: center;}
 #map-canvas { position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
@@ -64,7 +64,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .loginSection ul li label input[type=text]:not(.k-input):focus, .loginSection ul li label input[type=password]:focus { -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset; color:#333;-webkit-appearance: none;appearance:none;-moz-appearance:none; outline:0;}
 .loginSection ul li label input[type=password] { width:99%; position:inherit; margin-top:0; border:1px solid #dcdcdc; border-radius:3px; padding:0.9em!important; -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;box-shadow: 0 0 1px 1px #dcdcdc inset;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {/* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));  /* Safari 5.1, Chrome 10+ */ background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00); /* Firefox 3.6+ */ background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); /* IE 10 */ background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); /* Opera 11.10+ */ background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px; border:1px solid #808080; color:#000; font-size:1.125em; -moz-box-shadow: inset 0px 0px 1px #7a9e0e; padding:0.9em!important;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;}
-.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0;}
+.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}
 .home {padding:0;}
 .home .popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:#f4f4f4;  border-radius:0;}
 .home .km-rightitem { height:100%; right:0;}
@@ -100,9 +100,9 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
 .warps {margin: 0 auto; max-width: 960px; width: 100%;}
 .clearfix:after { clear: both; content: " "; display: block; font-size: 0; height: 0; visibility: hidden;}
-#blackBlk { padding:2% 0% 4%; display:block; width:96%; margin:0 2%;}
-#blackBlk .desbrdIcon { padding:7px 0 7px 10px; display:block;}
-#blackBlk .desbrdIcon .dasimg { float:left; padding:0 10px 0 0; width:15%;}
+#blackBlk { padding:0% 0% 4%; display:block; width:96%; margin:0 2%;}
+#blackBlk .desbrdIcon { padding:3%; display:block;}
+#blackBlk .desbrdIcon .dasimg { padding:0; width:13%; display:inline-block;}
 #blackBlk .desbrdIcon .dasimg img { max-width:100%; width:100%; height:auto;}
 #blackBlk .desbrdIcon .span {background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 12px; background-size:8%; display:block; padding:0; line-height:2em; color:#fff; font-size:1.2em;}
 #dashview{ background-color:#FFF; border:3px solid #ececec; -webkit-border-radius: 6px; border-radius: 6px;}
@@ -242,10 +242,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 /*********15-04-14************/
 .documentContent { padding:0;}
 .documentContent .km-listview-wrapper { padding:0;}
-.documentContent .inner-docs-back {text-decoration:none; padding:.5em .7em;display:block; background-color:#fff; border:0; }
-.documentContent .inner-docs-back span { padding: 0 0 0 55px;background-image: url(images/up_to_docvault_icon.png); background-size:22%; background-repeat:no-repeat;background-position:5px 0px; height:34px; display:block; color:#333; display:table-cell; vertical-align:middle;}
+.inner-docs-back {text-decoration:none; padding:.5em .7em;display:block; background-color:#fff; border:0; }
+.inner-docs-back span { padding: 0 0 0 55px;background-image: url(images/up_to_docvault_icon.png); background-size:22%; background-repeat:no-repeat;background-position:5px 0px; height:34px; display:block; color:#333; display:table-cell; vertical-align:middle;}
 .documentContent .km-listview-wrapper ul { list-style:none;}
 .documentContent .km-listview-wrapper ul li {padding:0 5px 0 0; border-bottom:1px solid #fff; background-color:#f5f5f5; color:#333;}
+.documentContent .km-listview-wrapper ul li:focus { background-color:#eeffd9;}
 .documentContent .km-listview-wrapper ul li a { text-decoration:none; }
 .documentContent .km-listview-wrapper ul li span {padding:5px 10px 5px 65px; display:block;}
 .documentContent .km-listview-wrapper ul li span span { padding:0;display:table-cell; vertical-align: middle; line-height: normal; height:43px;}
@@ -280,11 +281,9 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .movebuttonArea { padding:10px; background-color:#fff;}
 .movebuttonArea .cancel {width:48.5%;  /* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7));    /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #e7e7e7, #cbcbcb);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #e7e7e7, #cbcbcb);   /* IE 10 */   background: -ms-linear-gradient(top, #e7e7e7, #cbcbcb);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #e7e7e7, #cbcbcb);  border-radius:3px;  border:1px solid #808080;color:#000; font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;   border-radius:1px;   padding:0.6em 0;   border:1px solid #808080;   z-index:1000;  margin:0 1px 0 0;}
 .movebuttonArea .moveButton {/* Safari 4-5, Chrome 1-9 */  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));   /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #9fcf0f, #8dbc00);   /* IE 10 */   background: -ms-linear-gradient(top, #9fcf0f, #8dbc00);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px;  border:1px solid #808080;  color:#000;  font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;    width:48.5%; padding:0.6em 0; margin:0 0 0 1px; border-radius:1px; z-index:1000;}
-@media (min-width:768px) and (max-width:768px) { 
+@media (min-width:0px) and (max-width:800px) { 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
-}
-@media (min-width:533px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
 .stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
@@ -302,7 +301,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 .btngr { padding:11px 8px;}
 .stpcurrntAc { padding-top:7px;}
-#blackBlk .desbrdIcon .span{ margin:13px 0 0; padding:0 0 5px;background-position: right 4px;}
+#blackBlk .desbrdIcon .span{ margin:13px 0 0; padding:0;background-position: right 4px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:8%; background-position: 95% 9px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:9%; background-position: 95% 9px;}
 .stpsumry p {color: #333333; height:35px;font-size:1em; margin:7px 0 7px; overflow:scroll; line-height:1.3em;}
@@ -316,9 +315,12 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .docs-header .km-widget #docs-filter { width:80%;}
 .docs-header .km-widget #docs-filter .km-filter-wrap { background-position:center 35px;}
 .matches-view li .row3 a {padding: 3em 0em 0.5em;}
-    #blackBlk .desbrdIcon .span {background-size:10%;}
+#blackBlk .desbrdIcon .span {background-size:10%;}
 }
-@media (min-width:320px) and (max-width:320px) { 
+@media (min-width:0px) and (max-width:600px) { 
+#blackBlk .desbrdIcon .span { margin:0;}
+}
+@media (min-width:0px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
 .stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
 .stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
@@ -328,5 +330,6 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
+
 }
 

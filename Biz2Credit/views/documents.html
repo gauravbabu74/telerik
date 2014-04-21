@@ -19,7 +19,7 @@
             </div>
 
             <div class="documentContent" data-role="content">
-                <a class="inner-docs-back"   data-bind="click:gobackDocsPage,visible: innerPage">Documents</a>
+                <a class="inner-docs-back"   data-bind="click:gobackDocsPage,visible: innerPage"><span>Documents</span></a>
             	<ul id="list-edit-listview"></ul> 
             </div>
             <div data-role="popover" class="popupBox" id="popover-docs" data-popup='{"height": "10em", "width": "12em"}'>
@@ -47,6 +47,26 @@
             	</li>
             	<li>
             		<a data-role="button"  data-bind="click: moveFolder">Move</a>
+            	</li>
+            </ul>  
+        </div>
+<!--files events-->
+        <div id="tabstrip-files-events" class="folder-events" data-role="modalview"  style="width: 100%; height: 50%;" data-model="app.documentsetting.viewModel">
+            <div class="closeBt clearfix">
+                <a data-role="button" data-aligh="right"  data-click="newFolderCloseModal">Close</a>
+               </div>
+            <ul>
+            	<li>
+                 	<a data-role="button"  data-bind="click: deleteFile">Delete</a>
+                </li>
+            	<li>
+            		<a data-role="button"  data-bind="click: renameFile">Rename</a>
+            	</li>
+            	<li>
+            		<a data-role="button"  data-bind="click: moveFile">Move</a>
+            	</li>
+                <li>
+            		<a data-role="button"  data-bind="click: exportFile">Export</a>
             	</li>
             </ul>  
         </div>
@@ -96,18 +116,18 @@
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
                     	
-                    	<span class="sharedfolder"> <span>#: name #</span></span>
+                    	<span data-id="folder" class="sharedfolder"> <span data-id="folder">#: name #</span></span>
                     	
                     #}else{#
                    	 
-                    	<span class="#: docType #"><span> #: name #</span></span>
+                    	<span class="#: docType #" data-id="folder"><span data-id="folder"> #: name #</span></span>
                     	
                     #}#
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
                 	  
-                	<span class="#= ext # default-icon"><span>#: name #</span></span>
+                	<span data-id="files" class="#= ext # default-icon"><span  data-id="files">#: name #</span></span>
                 	
                 #}#
           	#}#
@@ -127,6 +147,7 @@
             	$("#tabstrip-new-folder").data("kendoMobileModalView").close();
                 $("#tabstrip-delete-folder").data("kendoMobileModalView").close();
                 $("#tabstrip-rename-folder").data("kendoMobileModalView").close();
+                $("#tabstrip-files-events").data("kendoMobileModalView").close();
                 
             }
         </script>

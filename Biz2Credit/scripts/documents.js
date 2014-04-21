@@ -160,39 +160,60 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                 	tap: function (e) { 
-                		if(!hold)
-                		{
-                            if(e.touch.currentTarget.id !== "0")
-                            {  
-                            	app.documentsetting.viewModel.setInnerPage();
-                            	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
-                            }
-                            else
-                            {
-                            	app.movedocumentsetting.viewModel.setMainPage();
-                            	app.movedocumentsetting.viewModel.setParentId(0);
-                            } 
-                        	docsBackHistory.push(e.touch.currentTarget.id);
-                        	app.documentsetting.viewModel.refreshView();
-                            
-               		 }
+                       if(e.touch.initialTouch.dataset.id === "folder")
+                        {
+                    		if(!hold)
+                    		{
+                                if(e.touch.currentTarget.id !== "0")
+                                {  
+                                	app.documentsetting.viewModel.setInnerPage();
+                                	app.documentsetting.viewModel.setParentId(e.touch.currentTarget.id);
+                                }
+                                else
+                                {
+                                	app.movedocumentsetting.viewModel.setMainPage();
+                                	app.movedocumentsetting.viewModel.setParentId(0);
+                                } 
+                            	docsBackHistory.push(e.touch.currentTarget.id);
+                            	app.documentsetting.viewModel.refreshView();
+                                
+                   		 }
+                        }
+                        else if(e.touch.initialTouch.dataset.id === "files")
+                        {
+                           //alert('tap'); 
+                        }
                 	},
                 	touchstart: function (e) {
+                         //console.log(e);
                 		hold = false;
                	 },
                 	hold: function (e) {
                         hold = true;
-
-                        if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
+                        sessionStorage.currentFId = e.touch.currentTarget.id;
+                        sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                        navigator.notification.vibrate(20);
+						if(e.touch.initialTouch.dataset.id === "folder")
                         {
-                            sessionStorage.currentFId = e.touch.currentTarget.id;
-                            sessionStorage.currentFName = e.touch.currentTarget.innerText;
-                            navigator.notification.vibrate(20);
-                			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
-                            $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
-                			$('.folderName').html('');
-                			$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
-                			$('.folderName').attr("id",e.touch.currentTarget.id)
+                            if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
+                            {
+                                
+                    			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
+                                $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
+                    			$('.folderName').html('');
+                    			$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                    			$('.folderName').attr("id",e.touch.currentTarget.id)
+                            }
+                        }
+                        else if(e.touch.initialTouch.dataset.id === "files")
+                        {
+                            console.log( $("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].clientHeight);
+                            console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
+                             $("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].scrollHeight;
+                             $("#tabstrip-files-events").data("kendoMobileModalView").open();
+                           
+                          
+                             $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
                         }
                 		
                 	}                    
