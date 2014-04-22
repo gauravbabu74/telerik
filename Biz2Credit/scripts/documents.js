@@ -162,7 +162,7 @@
                 	tap: function (e) { 
                         e.touch.currentTarget.className='km-state-active'
                         console.log(e);
-                       if(e.touch.initialTouch.dataset.id === "folder")
+                       /*if(e.touch.initialTouch.dataset.id === "folder")
                         {
                     		if(!hold)
                     		{
@@ -184,7 +184,7 @@
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
                            //alert('tap'); 
-                        }
+                        }*/
                 	},
                 	touchstart: function (e) {
                          
