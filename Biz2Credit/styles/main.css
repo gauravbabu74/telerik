@@ -276,6 +276,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .folder-events .km-scroll-container ul li {border-bottom:1px solid #cecece; padding:5px;}
 .folder-events .km-scroll-container ul li:last-child { border:0;}
 .folder-events .km-scroll-container ul li a { display:block; padding:10px 0 10px 5px; margin:0; background-color:transparent; border:0; color:#333;}
+
 /*********15-04-14************/
 /*********19-04-14************/
 .movebuttonArea { padding:10px; background-color:#fff;}
@@ -322,11 +323,11 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon .dasimg { padding:1.3%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:8%; background-position: 95% 9px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:9%; background-position: 95% 9px;}
-
+#tabstrip-scall { height:100% !important; margin:2% 0 0;}
 }
 @media (min-width:0px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
-.stpsumry h2 {color: #333333;    font-size: 15px; line-height:14px; margin:5px 5px;} 
+.stpsumry h2 {color: #333333;    font-size: 15px; line-height:18px; margin:5px 5px;} 
 .stpsumry p {color: #333333; height:35px;font-size:0.9em; margin:7px 0 0; overflow:scroll; line-height:1.3em;}
 #stps ul li strong {height:38px;}
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
@@ -338,9 +339,10 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 
 }
-@media (min-width:0px) and (max-width:450px) {
+@media (min-width:0px) and (max-width:440px) {
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:10%; background-position: 95% 11px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:11%; background-position: 95% 12px;}
+#tabstrip-scall { height:85.5% !important; margin:12% 0 0;}
 }
 @media (min-width:0px) and (max-width:360px) { 
  #blackBlk .desbrdIcon .dasimg { background-size:14%;} 
@@ -354,7 +356,6 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .docs-header .km-widget .refresh-com {width:15%;}
 .docs-header .km-widget .refresh-loading { width:15%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:16%;}  
-    .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:11%; background-position:16px 7px;}
+ .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:11%; background-position:16px 7px;}
 }
 
-#tabstrip-folder-events{height:90%}
