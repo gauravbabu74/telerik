@@ -24,6 +24,7 @@
         else
         {   //$("#tabstrip-folder-events").kendoMobileModalView("close");
             apps.navigate("#:back");
+            closeModalView();
         }
     };
 
