@@ -262,30 +262,10 @@
         <script>
            
             function closeModalView(e) {
-            // find the closest modal view, relative to the button element.
             	var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
             	modalView.close();
             }
-           /* function oneCloseModal() {
-            	$("#tabstrip-mess-one").data("kendoMobileModalView").close();
-            }
-           function twoCloseModal() {
-            	$("#tabstrip-mess-two").data("kendoMobileModalView").close();
-            }
-            function thirdCloseModal() {
-            	$("#tabstrip-mess-third").data("kendoMobileModalView").close();
-            }
-            function fourthCloseModal() {
-            	$("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
-            }
-             function dynamiceCloseModal() {
-            	$("#tabstrip-mess-dynamic").data("kendoMobileModalView").close();
-            }
-            function closeParentPopover() {
-                $("#popover-people").data("kendoMobilePopOver").close();
-                $("#popover-docs").data("kendoMobilePopOver").close();
-            }*/
-            
+          
         </script>
 
     </body>
