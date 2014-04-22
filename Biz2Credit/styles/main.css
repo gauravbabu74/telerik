@@ -245,7 +245,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .inner-docs-back {text-decoration:none; padding:.5em .7em;display:block; background-color:#fff; border:0; }
 .inner-docs-back span { padding: 0 0 0 55px;background-image: url(images/up_to_docvault_icon.png); background-size:22%; background-repeat:no-repeat;background-position:5px 0px; height:34px; display:block; color:#333; display:table-cell; vertical-align:middle;}
 .documentContent .km-listview-wrapper ul { list-style:none;}
-.documentContent .km-listview-wrapper ul li {padding:0 5px 0 0; border-bottom:1px solid #fff; background-color:#f5f5f5; color:#333;background-image: url(images/arrow_right_icon.png); background-repeat:no-repeat; background-size:100%; background-position:right 7px;}
+.documentContent .km-listview-wrapper ul li {padding:0 5px 0 0; border-bottom:1px solid #fff; background-color:#f5f5f5; color:#333;}
 .documentContent .km-listview-wrapper .km-state-active { background-color:#eeffd9;}
 .documentContent .km-listview-wrapper ul li a { text-decoration:none; }
 .documentContent .km-listview-wrapper ul li span {padding:5px 10px 5px 65px; display:block;}
@@ -321,6 +321,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon { padding:1%;}
 #blackBlk .desbrdIcon .dasimg { padding:1.3%;}
 
+
 }
 @media (min-width:0px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
@@ -334,6 +335,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 .logLogo { margin:15px auto 20px;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
+}
+@media (min-width:0px) and (max-width:420px) {
 
 }
 @media (min-width:0px) and (max-width:360px) { 
