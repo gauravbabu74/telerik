@@ -159,7 +159,7 @@
                 },
                 }).kendoTouch({ 
                 	filter: ">li",
-                	tap: function (e) {  
+                  	tap: function (e) {  
                       // e.touch.currentTarget.className='km-state-active';
                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
