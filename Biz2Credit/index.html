@@ -190,7 +190,7 @@
                         Choose a date & time in EST(Eastern Standard Time)
                     </p>
                     <div class="buttonArea">
-                        <input type="submit" data-role="button" data-bind="click: closeModal" value="Cancel" />
+                        <input type="submit" data-role="button" data-click="closeModalView" value="Cancel" />
                         <input type="submit" id="schedule" data-role="button" data-bind="click: validateSchedule" class="schedule-button" value="Schedule" />
                     </div>
                 </form>
@@ -201,7 +201,7 @@
         <div id="tabstrip-mess-one" class="modal-mess-one" data-role="modalview"  data-modal="false">
 
             <div class="closeBt clearfix">
-                <a data-role="button"  data-click="oneCloseModal">Close</a>
+                <a data-role="button"  data-click="closeModalView">Close</a>
              </div>
                 <p>To start  your application, please log on to the web version of Biz2credit.com</p>
                 
@@ -212,7 +212,7 @@
         <div id="tabstrip-mess-two" class="modal-mess-one" data-role="modalview" data-modal="false">
 
            <div class="closeBt clearfix">
-                <a data-role="button"  data-click="twoCloseModal">Close</a>
+                <a data-role="button"  data-click="closeModalView">Close</a>
                </div>
                 <p>To complete your application, please log on to the web version of Biz2credit.com</p>
                 
@@ -223,7 +223,7 @@
         <div id="tabstrip-mess-third" class="modal-mess-one" data-role="modalview"  data-modal="false">
 
             <div class="closeBt clearfix">
-                <a data-role="button"  data-click="thirdCloseModal">Close</a>
+                <a data-role="button"  data-click="closeModalView">Close</a>
                 </div>
                 <p>To avail this feature, Please log on to the web version of Biz2credit.com</p>
                 
@@ -235,14 +235,14 @@
                 <h4>Required Documents</h4>
                 </div>
                 <p class="doc-content"></p>
-                <a data-role="button"  data-click="fourthCloseModal">Close</a>
+                <a data-role="button"  data-click="closeModalView">Close</a>
         </div>
       
        <!--home message 3-->
         <div id="tabstrip-mess-dynamic" class="modal-mess-one" data-role="modalview">
 
             <div class="closeBt clearfix">
-                <a data-role="button"  data-click="dynamiceCloseModal">Close</a>
+                <a data-role="button"  data-click="closeModalView">Close</a>
                 </div>
                 <p></p>
                 
@@ -261,7 +261,12 @@
         
         <script>
            
-            function oneCloseModal() {
+            function closeModalView(e) {
+            // find the closest modal view, relative to the button element.
+            	var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
+            	modalView.close();
+            }
+           /* function oneCloseModal() {
             	$("#tabstrip-mess-one").data("kendoMobileModalView").close();
             }
            function twoCloseModal() {
@@ -279,7 +284,7 @@
             function closeParentPopover() {
                 $("#popover-people").data("kendoMobilePopOver").close();
                 $("#popover-docs").data("kendoMobilePopOver").close();
-            }
+            }*/
             
         </script>
 

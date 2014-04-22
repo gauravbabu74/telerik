@@ -357,3 +357,4 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
     .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:11%; background-position:16px 7px;}
 }
 
+#tabstrip-folder-events{height:90%}

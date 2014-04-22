@@ -257,33 +257,33 @@
         
         deleteFolder:function(e)
         { 
-             CloseModal();
+             closeModalView(e);
              $("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
-        thisFolderDelete:function()
+        thisFolderDelete:function(e)
         {
             alert('pending delete webservices');
-            CloseModal();
+            closeModalView(e);
              //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
-        deleteFile:function()
+        deleteFile:function(e)
         {
-           CloseModal();
+           closeModalView(e);
            $("#tabstrip-delete-files").data("kendoMobileModalView").open();
         } ,
-        thisFileDelete:function()
+        thisFileDelete:function(e)
         {
             alert('pending delete webservices');
-            CloseModal();
+            closeModalView(e);
              //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
         },
        
         renameFolder:function(e)
         {
-             CloseModal();
+             closeModalView(e);
              $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
         },
-        thisFolderRename:function()
+        thisFolderRename:function(e)
         {
             /*var that = this;
             var renameFolder = that.get("renameFolderName");
@@ -311,24 +311,24 @@
                 console.log(data);
             }); */
           alert('rename call');
-      	CloseModal();
+      	closeModalView(e);
           app.documentsetting.viewModel.refreshView(); 
             
         },
-        renameFile:function()
+        renameFile:function(e)
         {
-           CloseModal();
+           closeModalView(e);
              $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
         },
-        thisFileRename:function()
+        thisFileRename:function(e)
         {
             
             alert('rename file call');
-            CloseModal();
+            closeModalView(e);
         },
         moveFolder:function(e)
         {
-            CloseModal();
+            closeModalView(e);
 
             apps.navigate('views/movedocs.html');
         },   
@@ -347,7 +347,7 @@
         { 
             $("#tabstrip-new-folder").data("kendoMobileModalView").open();  
         },
-        newFolderCreate:function()
+        newFolderCreate:function(e)
         {
             var that = this;
             newFolderName = that.get("newFolderName");
@@ -374,7 +374,7 @@
 
                 console.log(data);
             });   
-            CloseModal();
+            closeModalView(e);
             app.documentsetting.viewModel.refreshView(); 
         },
         setUserLogout:function()

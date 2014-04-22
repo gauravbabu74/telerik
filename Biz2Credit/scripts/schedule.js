@@ -67,19 +67,6 @@
     };
 })(window);
 $(document).ready(function(){
-	$('#tabstrip-scall').parent().addClass('tabstrip-scall');
-    $('#tabstrip-mess-one').parent().addClass('tabstrip-mess-one');
-    $('#tabstrip-mess-two').parent().addClass('tabstrip-mess-two');
-    $('#tabstrip-mess-third').parent().addClass('tabstrip-mess-third');
-    $('#tabstrip-mess-fourth').parent().addClass('tabstrip-mess-fourth');
-    $('#tabstrip-mess-dynamic').parent().addClass('tabstrip-mess-dynamic');
-    $('#tabstrip-folder-events').parent().addClass('tabstrip-folder-events');
-    $('#tabstrip-new-folder').parent().addClass('tabstrip-new-folder');
-    $('#tabstrip-delete-folder').parent().addClass('tabstrip-delete-folder');
-    $('#tabstrip-delete-files').parent().addClass('tabstrip-delete-files');
-    $('#tabstrip-rename-folder').parent().addClass('tabstrip-rename-folder');
-    $('#tabstrip-rename-file').parent().addClass('tabstrip-rename-file');
-   
     $("#datepicker").kendoDatePicker({
        min: new Date(1950, 0, 1),
        max: new Date(2049, 11, 31),
