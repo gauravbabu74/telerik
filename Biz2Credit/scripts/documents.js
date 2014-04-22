@@ -160,7 +160,7 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                 	tap: function (e) {  
-                      //  console.log(e);
+                      // e.touch.currentTarget.className='km-state-active';
                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
                     		if(!hold)
@@ -190,7 +190,6 @@
                	 },
                 	hold: function (e) {
                         hold = true;
-                        e.touch.currentTarget.className='km-state-active';
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
                         navigator.notification.vibrate(20);

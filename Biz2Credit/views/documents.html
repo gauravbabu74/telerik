@@ -146,14 +146,14 @@
                     	
                     #}else{#
                    	 
-                    	<span class="#: docType #" data-id="folder"><span data-id="folder"> #: name #</span></span>
+                    	<a data-id="folder"><span class="#: docType #" data-id="folder"><span data-id="folder"> #: name #</span></span></a>
                     	
                     #}#
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
                 	  
-                	<span data-id="files" class="#= ext # default-icon"><span  data-id="files">#: name #</span></span>
+                	<a data-id="folder"><span data-id="files" class="#= ext # default-icon"><span  data-id="files">#: name #</span></span></a>
                 	
                 #}#
           	#}#
