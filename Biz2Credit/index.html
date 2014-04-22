@@ -190,7 +190,7 @@
                         Choose a date & time in EST(Eastern Standard Time)
                     </p>
                     <div class="buttonArea">
-                        <input type="submit" data-role="button" data-click="closeModalView" value="Cancel" />
+                        <input type="submit" data-role="button" data-bind="click:closeModal" value="Cancel" />
                         <input type="submit" id="schedule" data-role="button" data-bind="click: validateSchedule" class="schedule-button" value="Schedule" />
                     </div>
                 </form>
@@ -260,10 +260,13 @@
         </div>
         
         <script>
-           
+            
             function closeModalView(e) {
             	var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
             	modalView.close();
+            }
+             function closeParentPopover() {
+                $("#popover-people").data("kendoMobilePopOver").close();
             }
           
         </script>
