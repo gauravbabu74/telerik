@@ -33,7 +33,7 @@ closeModalView <!--Document Section---->
             </div>
         </div>
 <!--folder events-->
-        <div id="tabstrip-folder-events" class="folder-events" data-role="modalview"  data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-folder-events" class="folder-events modal-mess-Popup" data-role="modalview"  data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
                 <span class="folderName"></span>
                 <a data-role="button" data-aligh="right"  data-click="closeModalView">Close</a>
@@ -51,7 +51,7 @@ closeModalView <!--Document Section---->
             </ul>  
         </div>
 <!--files events-->
-        <div id="tabstrip-files-events" class="folder-events" data-role="modalview"   data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-files-events" class="folder-events modal-mess-Popup" data-role="modalview"   data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
                 <a data-role="button" data-aligh="right"  data-click="closeModalView">Close</a>
                </div>
@@ -71,7 +71,7 @@ closeModalView <!--Document Section---->
             </ul>  
         </div>
 <!--Add New Folder-->
-        <div id="tabstrip-new-folder" class="folder-events" data-role="modalview"  data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-new-folder" class="folder-events modal-mess-Popup" data-role="modalview"  data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
             	<span class="newfolder">New Folder</span>
             </div>
@@ -84,7 +84,7 @@ closeModalView <!--Document Section---->
             </form>
         </div>
 <!--Delete Folder-->
-        <div id="tabstrip-delete-folder" class="folder-events" data-role="modalview"  data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-delete-folder" class="folder-events modal-mess-Popup" data-role="modalview"  data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
             	<span class="folderName"></span>
             </div>
@@ -97,7 +97,7 @@ closeModalView <!--Document Section---->
             </form>
         </div>
 <!--Delete Files-->
-        <div id="tabstrip-delete-files" class="folder-events" data-role="modalview" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-delete-files" class="folder-events modal-mess-Popup" data-role="modalview" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
             	<span class="folderName"></span>
             </div>
@@ -110,7 +110,7 @@ closeModalView <!--Document Section---->
             </form>
         </div>
 <!--Rename Folder-->
-        <div id="tabstrip-rename-folder" class="folder-events" data-role="modalview" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-rename-folder" class="folder-events modal-mess-Popup" data-role="modalview" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
             	<span class="newfolder">Rename Folder</span>
             </div>
@@ -123,7 +123,7 @@ closeModalView <!--Document Section---->
             </form>
         </div>
 <!--Rename File-->
-        <div id="tabstrip-rename-file" class="folder-events" data-role="modalview" data-model="app.documentsetting.viewModel">
+        <div id="tabstrip-rename-file" class="folder-events modal-mess-Popup" data-role="modalview" data-model="app.documentsetting.viewModel">
             <div class="closeBt clearfix">
             	<span class="newfolder">Rename File</span>
             </div>
@@ -163,17 +163,4 @@ closeModalView <!--Document Section---->
                 var ext = /^.+\.([^.]+)$/.exec(filename);
                 return ext === null ? "" : ext[1];
             }#
-        </script>
-        <script>
-           /* 
-            function CloseModal() {
-            	$("#tabstrip-folder-events").data("kendoMobileModalView").close();
-                $("#tabstrip-files-events").data("kendoMobileModalView").close();
-                $("#tabstrip-new-folder").data("kendoMobileModalView").close();
-                $("#tabstrip-delete-folder").data("kendoMobileModalView").close();
-                $("#tabstrip-rename-folder").data("kendoMobileModalView").close();
-                $("#tabstrip-rename-file").data("kendoMobileModalView").close();
-                $("#tabstrip-delete-files").data("kendoMobileModalView").close();
-            }*/
-            
         </script>
