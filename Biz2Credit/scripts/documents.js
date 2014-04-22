@@ -159,10 +159,9 @@
                 },
                 }).kendoTouch({ 
                 	filter: ">li",
-                	tap: function (e) { 
-                        e.touch.currentTarget.className='km-state-active'
-                        console.log(e);
-                       /*if(e.touch.initialTouch.dataset.id === "folder")
+                	tap: function (e) {  
+                      //  console.log(e);
+                       if(e.touch.initialTouch.dataset.id === "folder")
                         {
                     		if(!hold)
                     		{
@@ -184,10 +183,9 @@
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
                            //alert('tap'); 
-                        }*/
+                        }
                 	},
                 	touchstart: function (e) {
-                         
                 		hold = false;
                	 },
                 	hold: function (e) {
@@ -210,13 +208,13 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                            console.log( $("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].clientHeight);
-                            console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
-                             $("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].scrollHeight;
+                            //console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
+                            //console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
+                             //$("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].scrollHeight;
                              $("#tabstrip-files-events").data("kendoMobileModalView").open();
                              $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
                         }
-                		e.touch.currentTarget.className='';
+                		//e.touch.currentTarget.className='';
                 	}                    
             });
             $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
