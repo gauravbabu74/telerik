@@ -311,7 +311,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 @media (min-width:0px) and (max-width:640px) { 
 #blackBlk .desbrdIcon .span { margin:0;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;}
-.documentClick .km-view-title a img {padding:5px 5px 0 0;width:37%;}
+.documentClick .km-view-title a img {padding:5px 5px 0 0;width:39%;}
 .docs-header .km-widget .docs-back { width:10%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
 .docs-header .km-widget .docs-search { width:8%;}
