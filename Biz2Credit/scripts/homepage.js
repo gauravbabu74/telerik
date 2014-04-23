@@ -337,7 +337,7 @@
         closeParentPopover:function()
         {
              $("#popover-people").data("kendoMobilePopOver").close();
-            $("#popover-docs").data("kendoMobilePopOver").close();
+             $("#popover-docs").data("kendoMobilePopOver").close();
             
         }
         

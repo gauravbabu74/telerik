@@ -157,7 +157,6 @@
                 filterable: {
                 field: "name",
                 operator: "startswith",
-                
                 },
                 }).kendoTouch({ 
                 	filter: ">li",
