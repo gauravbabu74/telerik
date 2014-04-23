@@ -280,6 +280,9 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .movebuttonArea { padding:10px; background-color:#fff;}
 .movebuttonArea .cancel {width:48.5%;  /* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#cbcbcb), to(#e7e7e7));    /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #e7e7e7, #cbcbcb);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #e7e7e7, #cbcbcb);   /* IE 10 */   background: -ms-linear-gradient(top, #e7e7e7, #cbcbcb);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #e7e7e7, #cbcbcb);  border-radius:3px;  border:1px solid #808080;color:#000; font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;   border-radius:1px;   padding:0.6em 0;   border:1px solid #808080;   z-index:1000;  margin:0 1px 0 0;}
 .movebuttonArea .moveButton {/* Safari 4-5, Chrome 1-9 */  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));   /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #9fcf0f, #8dbc00);   /* IE 10 */   background: -ms-linear-gradient(top, #9fcf0f, #8dbc00);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px;  border:1px solid #808080;  color:#000;  font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;    width:48.5%; padding:0.6em 0; margin:0 0 0 1px; border-radius:1px; z-index:1000;}
+
+
+.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}   
 @media (min-width:0px) and (max-width:800px) { 
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
@@ -305,7 +308,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget #docs-filter .km-filter-wrap { background-position:center 35px;}
 
 }
-@media (min-width:0px) and (max-width:600px) { 
+@media (min-width:0px) and (max-width:640px) { 
 #blackBlk .desbrdIcon .span { margin:0;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;}
 .documentClick .km-view-title a img { width:36%; padding:5px 5px 0 0;}
@@ -326,7 +329,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon { padding:1%;}
 #blackBlk .desbrdIcon .dasimg { padding:1.3%;}
     
-.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}   
+
 .logLogo { margin:15px auto 20px;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 }
