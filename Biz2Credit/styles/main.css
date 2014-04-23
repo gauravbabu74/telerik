@@ -293,7 +293,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stps ul li.activ  span.dnar{ height:30px; background-position:center 0px;} 
 #stps{ height:101px;}
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
-.logo { margin:20px auto;}
+.logo { margin:6% auto;}
 .documentClick .km-view-title a { padding:0px 10px 0;}
 .documentClick .km-view-title a span { padding:13px 0 0;}
 .stpsumry{ width:100%; float:none; text-align:center}
@@ -311,7 +311,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 @media (min-width:0px) and (max-width:640px) { 
 #blackBlk .desbrdIcon .span { margin:0;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;}
-.documentClick .km-view-title a img { width:36%; padding:5px 5px 0 0;}
+.documentClick .km-view-title a img {  padding:5px 5px 0 0;}
 .docs-header .km-widget .docs-back { width:10%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
 .docs-header .km-widget .docs-search { width:8%;}
