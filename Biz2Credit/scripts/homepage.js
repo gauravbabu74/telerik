@@ -130,7 +130,7 @@
                     dButtonText = "Complete Application";
                     dButtonLink ="#";
                 }*/
-            if(loan_posted === 0 && loan_saved >= 1){alert('fo');
+            if(loan_posted === 0 && loan_saved >= 1){
                 	dHeader= userName+', your loan application is incomplete.';
                     dDescription='In order to see what loan offers you qualify for, you must finish the application. Please click to resume or schedule a call to receive help from a loan expert.';
                     dButtonText = "Complete Application";
