@@ -260,7 +260,10 @@
         </div>
         
         <script>
-           
+           function closeParentPopover() {
+                $("#popover-people").data("kendoMobilePopOver").close();
+            }
+            
             function closeModalView(e) {
             	var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
             	modalView.close();

@@ -150,12 +150,14 @@
         { 
             var that = this;
             that.set("documents", data['0']);  
+            //console.log( $("#list-edit-listview"));
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
                 filterable: {
                 field: "name",
-                operator: "startswith"
+                operator: "startswith",
+                
                 },
                 }).kendoTouch({ 
                 	filter: ">li",

@@ -305,10 +305,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget #docs-filter { width:80%;}
 .docs-header .km-widget #docs-filter .km-filter-wrap { background-position:center 35px;}
 .logLogo { margin:15px auto 20px;}
-#blackBlk .desbrdIcon .dasimg { background-size:9%;}
-#blackBlk .desbrdIcon .span {background-size:9%; margin:0px 0 4px;background-position: right 12px;}
-#blackBlk .desbrdIcon { padding:1%;}
-#blackBlk .desbrdIcon .dasimg { padding:1.3%;}
 
 }
 @media (min-width:0px) and (max-width:600px) { 
@@ -327,6 +323,10 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .modal-mess-one {padding:0; width:98%; margin:0 0 0 1.3%; height:65%;}
 .matches-view li .row3 a {padding:3em 0em 0.5em;}
 .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; height:84%;}
+    #blackBlk .desbrdIcon .dasimg { background-size:9%;}
+#blackBlk .desbrdIcon .span {background-size:9%; margin:0px 0 4px;background-position: right 12px;}
+#blackBlk .desbrdIcon { padding:1%;}
+#blackBlk .desbrdIcon .dasimg { padding:1.3%;}
 
 }
 @media (min-width:0px) and (max-width:533px) { 
