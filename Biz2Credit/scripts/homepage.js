@@ -40,7 +40,7 @@
             var data = that.data();
             //console.log(data);
             app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
-           // console.log(data);
+            //console.log(data);
             pos = 1;
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var matchstatus = data[0]['results']['data']['matchstatus'];
