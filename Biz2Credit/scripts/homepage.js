@@ -40,7 +40,8 @@
             var data = that.data();
             //console.log(data);
             app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
-            //console.log(data);
+           // console.log(data);
+            pos = 1;
             var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
             var matchstatus = data[0]['results']['data']['matchstatus'];
             var totmatch = data[0]['results']['data']['totmatch'];
@@ -78,35 +79,39 @@
             }  
 
             if((cntGetStarted >= 1 && loan_posted === 0)){
-                    if(totmatch === 0)
-                    {
-                        var genmatch;
-                        if(creditscore.contains("-")){
+               
+                    if(totmatch === "0")
+                    { 
+                        
+                        if(creditscore.search("-")){
                             var tempvar = creditscore.lastIndexOf("-");
-        		  	  	var idlength = creditscore.length;
-        		        	var substr = creditscore.substring(tempvar+1,idlength+1);
-                            genmatch = getTotalMatches(substr);
+        		        	var substr = creditscore.substring(0,tempvar);
+                            totmatch = app.homesetting.viewModel.getTotalMatches(substr);
                             
                         }
                         else{
-                            genmatch = getTotalMatches(creditscore);
+                            totmatch = app.homesetting.viewModel.getTotalMatches(creditscore);
                         }
-                        dHeader ='Hi '+userName+', we have '+genmatch+' potential options for you!';
+                        dHeader ='Hi '+userName+', we have '+totmatch+' potential options for you!';
                     }
-                	dHeader ='Hi '+userName+', we have '+totmatch+' potential options for you!';
+                	else
+                	{
+                    	dHeader ='Hi '+userName+', we have '+totmatch+' potential options for you!';
+                	}
+                	
                     dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
                     dButtonText = "Start an Application";
                     dButtonLink ="#tabstrip-mess-one";
                 }
-            if((cntGetStarted>=1 && loan_total===0) || (loan_total===loan_ended)) {
-                
+           if((cntGetStarted>=1 && loan_total===0) || (loan_total===loan_ended)) {
+               
                     if(totmatch === 0 || totmatch === '')
                     {
                         dHeader='Hi '+userName+', We have 1200+ lenders to finance your needs';
                     }
                     else
                     {
-                        dHeader ='Hi '+userName+', we have '+matches+' potential options for you!'; 
+                        dHeader ='Hi '+userName+', we have '+totmatch+' potential options for you!'; 
                     }
             		
             		dDescription='Please start your application in order to get matched to pre-qualified funding opportunities';
@@ -125,13 +130,13 @@
                     dButtonText = "Complete Application";
                     dButtonLink ="#";
                 }*/
-            if(loan_posted === 0 && loan_saved >= 1){
+            if(loan_posted === 0 && loan_saved >= 1){alert('fo');
                 	dHeader= userName+', your loan application is incomplete.';
                     dDescription='In order to see what loan offers you qualify for, you must finish the application. Please click to resume or schedule a call to receive help from a loan expert.';
                     dButtonText = "Complete Application";
                     dButtonLink ="#tabstrip-mess-two";
                 }
-            if(matchstatus===0 && matches>=1) {
+            if(matchstatus===0 && matches>=1) {alert('fi');
                  dHeader= userName+', you have '+matches+' pre-qualified loan matches.';
                  dDescription='Please review your matches and select your preferred financing option(s)';
                  dButtonText = "Select a Loan Product";
@@ -166,8 +171,17 @@
 		    }
             
             $('#stps ul li').removeClass();
-            $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
-            $('#stps ul li:lt('+(pos-1)+')').addClass('dn');
+            if(pos===1)
+            {
+                 $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
+                 $('#stps ul li:lt('+(pos)+')').addClass('dn');
+            }
+            else
+            {
+       		 $('#stps ul li:eq('+(pos-1)+')').addClass('activ');
+            	$('#stps ul li:lt('+(pos-1)+')').addClass('dn'); 
+            }
+           
             
             $("#home-call-btn").html("");
             if(dButtonLink === "views/matches.html")
@@ -223,13 +237,13 @@
         {
             var strfoption = "";
             if(creditscore < 600) {        
-            	strfoption = randumNumber(50, 55);
+            	strfoption = app.homesetting.viewModel.randumNumber(50, 55);
             } else if(creditscore >=600 && creditscore <=659){         
-            	strfoption = randumNumber(56, 65);
+            	strfoption = app.homesetting.viewModel.randumNumber(56, 65);
             } else if(creditscore >=660 && creditscore <=720){        
-            	strfoption = randumNumber(66, 80);
+            	strfoption = app.homesetting.viewModel.randumNumber(66, 80);
             } else if(creditscore >=721 && creditscore <=850){         
-            	strfoption = randumNumber(81, 100);
+            	strfoption = app.homesetting.viewModel.randumNumber(81, 100);
             } else{
             	strfoption = "49";
             }

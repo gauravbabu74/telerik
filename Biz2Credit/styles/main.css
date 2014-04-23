@@ -311,12 +311,12 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 @media (min-width:0px) and (max-width:640px) { 
 #blackBlk .desbrdIcon .span { margin:0;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;}
-.documentClick .km-view-title a img {padding:5px 5px 0 0;width:39%;}
-.docs-header .km-widget .docs-back { width:10%;}
+.documentClick .km-view-title a img {padding:5px 5px 0 0;width:41%;}
+.docs-header .km-widget .docs-back { width:9%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
 .docs-header .km-widget .docs-search { width:8%;}
 .docs-header .km-widget .refresh-loading { width:9%;}
-.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:10%;}  
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:9%;}  
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:7%; background-position:16px 7px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select { background-size:8%; background-position: 95% 9px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:9%; background-position: 95% 9px;}
@@ -363,7 +363,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .logLogo { margin:17% auto;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .documentClick .km-view-title a img {padding:5px 5px 0 0; width:auto;}  
-    
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:17%;}   
+.documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:12%; background-position:16px 5px;}
+    .docs-header .km-widget .docs-back { width:15%;}
 /*.documentClick .km-view-title a img { width:41%; padding:5px 5px 0 0;}
 .docs-header .km-widget .docs-back { width:16%;}
 .docs-header .km-widget .docs-search { width:12%;}
