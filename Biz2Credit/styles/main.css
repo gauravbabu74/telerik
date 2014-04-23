@@ -67,7 +67,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .home {padding:0;}
 .home .popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:#f4f4f4;  border-radius:0;}
 .home .km-rightitem { height:100%; right:0;}
-.logo { background-image: url(../styles/images/docs-logo.png); background-repeat: no-repeat; width: 130px; height:34px; margin: 17px auto;background-position:center;}
+.logo { background-image: url(../styles/images/bizDoc-logo.png); background-repeat: no-repeat; width: 130px; height:34px; margin: 17px auto;background-position:center;}
 .km-ios #popover .km-view-title, .km-ios #popover-people .km-view-title { color: #fff; text-shadow: 0 -1px rgba(0,2,2,.5); } 
 .km-ios #popover .km-navbar, .km-root > * > #popover > .km-content {background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, rgba(255, 255, 255, 0.35)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0))) #000;} 
 .km-ios #popover .km-navbar .km-button { background-color: #000; }
@@ -295,7 +295,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stpSumAc{padding:17px 1.3em 10px 1.3em;}
 .logo { margin:6% auto;}
 .documentClick .km-view-title a { padding:0px 10px 0;}
-.documentClick .km-view-title a span { padding:13px 0 0;}
+.documentClick .km-view-title a span { padding:14% 0 0;}
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:13px; float:none; text-align:center}
 .btngr { padding:11px 8px;}
@@ -311,7 +311,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 @media (min-width:0px) and (max-width:640px) { 
 #blackBlk .desbrdIcon .span { margin:0;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;}
-.documentClick .km-view-title a img {  padding:5px 5px 0 0;}
+.documentClick .km-view-title a img {padding:5px 5px 0 0;width:37%;}
 .docs-header .km-widget .docs-back { width:10%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:64%;}
 .docs-header .km-widget .docs-search { width:8%;}
@@ -328,8 +328,9 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #blackBlk .desbrdIcon .span {background-size:9%; margin:0px 0 4px;background-position: right 12px;}
 #blackBlk .desbrdIcon { padding:1%;}
 #blackBlk .desbrdIcon .dasimg { padding:1.3%;}
-    
+  
 
+.logo { margin:3% auto;}
 .logLogo { margin:4% auto 4%;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 }
@@ -358,10 +359,10 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #blackBlk .desbrdIcon .span {background-position: right 13px;}
 }
 @media (min-width:0px) and (max-width:370px) { 
-
+.logo { margin:6% auto;}
 .logLogo { margin:17% auto;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
-    
+.documentClick .km-view-title a img {padding:5px 5px 0 0; width:auto;}  
     
 /*.documentClick .km-view-title a img { width:41%; padding:5px 5px 0 0;}
 .docs-header .km-widget .docs-back { width:16%;}

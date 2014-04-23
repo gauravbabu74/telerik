@@ -116,7 +116,7 @@
             </div>
             <div data-role="footer">
                 <div data-role="navbar" class="documentClick">
-                    <a href="views/documents.html" data-role="button">
+                    <a href="views/documents.html" data-role="button" class="clearfix">
                         <img src="styles/images/ic_launcher.png"><span>Documents</span>
                     </a>
                 </div>
@@ -260,10 +260,7 @@
         </div>
         
         <script>
-           function closeParentPopover() {
-                $("#popover-people").data("kendoMobilePopOver").close();
-            }
-            
+           
             function closeModalView(e) {
             	var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
             	modalView.close();
