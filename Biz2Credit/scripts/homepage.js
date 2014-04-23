@@ -333,6 +333,12 @@
             { 
                 that.set("toolStatus", true);
             }
+        },
+        closeParentPopover:function()
+        {
+             $("#popover-people").data("kendoMobilePopOver").close();
+            $("#popover-docs").data("kendoMobilePopOver").close();
+            
         }
         
         

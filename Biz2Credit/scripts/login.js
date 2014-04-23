@@ -94,7 +94,7 @@
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
-            closeParentPopover();
+            app.homesetting.viewModel.closeParentPopover();
             
         },
         navigateHome: function()
@@ -128,8 +128,9 @@
         refreshHome:function()
         {
             app.homesetting.viewModel.homeShow();
-            closeParentPopover();
+            app.homesetting.viewModel.closeParentPopover();
         },
+        
         checkConnection:function()
         {
             var networkState = navigator.connection.type;
