@@ -64,7 +64,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .loginSection ul li label input[type=text]:not(.k-input):focus, .loginSection ul li label input[type=password]:focus { -webkit-box-shadow: 0 0 1px 1px #90bf02 inset;-moz-box-shadow: 0 0 1px 1px #90bf02 inset;box-shadow: 0 0 1px 1px #90bf02 inset; color:#333;-webkit-appearance: none;appearance:none;-moz-appearance:none; outline:0;}
 .loginSection ul li label input[type=password] { width:99%; position:inherit; margin-top:0; border:1px solid #dcdcdc; border-radius:3px; padding:0.9em!important; -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;box-shadow: 0 0 1px 1px #dcdcdc inset;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {/* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));  /* Safari 5.1, Chrome 10+ */ background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00); /* Firefox 3.6+ */ background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); /* IE 10 */ background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); /* Opera 11.10+ */ background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px; border:1px solid #808080; color:#000; font-size:1.125em; -moz-box-shadow: inset 0px 0px 1px #7a9e0e; padding:0.9em!important;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;}
-.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}
 .home {padding:0;}
 .home .popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:#f4f4f4;  border-radius:0;}
 .home .km-rightitem { height:100%; right:0;}
@@ -304,7 +303,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget .refresh-com { width:10%;background-position: center 7px;}
 .docs-header .km-widget #docs-filter { width:80%;}
 .docs-header .km-widget #docs-filter .km-filter-wrap { background-position:center 35px;}
-.logLogo { margin:15px auto 20px;}
 
 }
 @media (min-width:0px) and (max-width:600px) { 
@@ -323,11 +321,14 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .modal-mess-one {padding:0; width:98%; margin:0 0 0 1.3%; height:65%;}
 .matches-view li .row3 a {padding:3em 0em 0.5em;}
 .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; height:84%;}
-    #blackBlk .desbrdIcon .dasimg { background-size:9%;}
+#blackBlk .desbrdIcon .dasimg { background-size:9%;}
 #blackBlk .desbrdIcon .span {background-size:9%; margin:0px 0 4px;background-position: right 12px;}
 #blackBlk .desbrdIcon { padding:1%;}
 #blackBlk .desbrdIcon .dasimg { padding:1.3%;}
-
+    
+.loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}   
+.logLogo { margin:15px auto 20px;}
+html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 }
 @media (min-width:0px) and (max-width:533px) { 
 #stps ul li span {line-height:0.688em;  color: #CCCCCC;    display: block;    font-size: 11px;    height:30px; line-height:12px;}
@@ -339,7 +340,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #stpSumAc{padding:17px 1.3em 0px 1.3em;}
 .stpsumry{ width:100%; float:none; text-align:center}
 .stpcurrntAc{ width:100%; padding-top:5px; float:none; text-align:center}
-html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
+
 .modal-mess-Requd {height:85%; text-align:center;}
 }
 @media (min-width:0px) and (max-width:440px) {
@@ -353,17 +354,19 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #blackBlk .desbrdIcon .dasimg { background-size:14%;} 
 #blackBlk .desbrdIcon .span {background-position: right 13px;}
 }
-@media (min-width:0px) and (max-width:360px) { 
+@media (min-width:0px) and (max-width:370px) { 
 
 .logLogo { margin:80px auto 20px;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
-.documentClick .km-view-title a img { width:41%; padding:5px 5px 0 0;}
+    
+    
+/*.documentClick .km-view-title a img { width:41%; padding:5px 5px 0 0;}
 .docs-header .km-widget .docs-back { width:16%;}
 .docs-header .km-widget .docs-search { width:12%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:45%;}
 .docs-header .km-widget .refresh-com {width:15%;}
 .docs-header .km-widget .refresh-loading { width:15%;}
 .documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:16%;}  
- .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:11%; background-position:16px 7px;}
+ .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:11%; background-position:16px 7px;}*/
 }
 
