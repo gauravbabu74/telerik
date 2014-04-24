@@ -187,7 +187,7 @@
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                             fileName = e.touch.currentTarget.innerText,
-                            uri = encodeURI("http://archive.org/download/Kansas_Joe_Memphis_Minnie-When_Levee_Breaks/Kansas_Joe_and_Memphis_Minnie-When_the_Levee_Breaks.mp3"),
+                            uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                             folderName = "bizdocs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
