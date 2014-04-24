@@ -417,7 +417,6 @@
         },
         downloadFile:function(uri, fileName, folderName)
         {
-            var that = this,
 		    filePath = "";
 
             	app.documentsetting.viewModel.getFilesystem(
