@@ -183,13 +183,12 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                            console.log(e);
-                            $("#tabstrip-download-file").data("kendoMobileModalView").open();
-                            fileName = e.touch.currentTarget.id+'.mp3',
+                            
+                            sessionStorage.currentFileId = e.touch.currentTarget.id;
+                            sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                            fileName = e.touch.currentTarget.innerText,
                             uri = encodeURI("http://archive.org/download/Kansas_Joe_Memphis_Minnie-When_Levee_Breaks/Kansas_Joe_and_Memphis_Minnie-When_the_Levee_Breaks.mp3"),
                             folderName = "bizdocs";
-                            $('.download-file-name').html('');
-                    		$('.download-file-name').append('<div class="docs">'+fileName+'</div>');
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
                 	},
@@ -426,14 +425,16 @@
             			if (device.platform === "Android") {
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-            					app.documentsetting.viewModel.transferFile(uri, filePath)
+                                fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+                                
             				}, function() {
             					console.log("failed to get folder");
             				});
             			}
             			else {
             				filePath = fileSystem.root.fullPath + "\/" + fileName;
-            				app.documentsetting.viewModel.transferFile(uri, filePath)
+                             console.log('other'+filePath);
+            				//app.documentsetting.viewModel.transferFile(uri, filePath)
             			}
             		},
             		function() {
@@ -441,6 +442,20 @@
             		}
             		);
            
+        },
+        fileExists:function(fileEntry)
+        {
+            alert("File " + fileEntry.fullPath + " exists!");
+        },
+        fileDoesNotExist:function()
+        {
+            alert('file No Exist');
+            fileName = sessionStorage.getItem("currentFileName");
+            ext = app.documentsetting.viewModel.getFileExtension(fileName);
+            $("#tabstrip-download-file").data("kendoMobileModalView").open();
+            $('.download-file-name').html('');
+        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
+            app.documentsetting.viewModel.transferFile(uri, filePath);
         },
         transferFile: function (uri, filePath) {
             
@@ -482,6 +497,11 @@
                     console.log("upload error code" + error.code);
                 }
             );
+        },
+        getFileExtension:function(filename)
+        {
+            var ext = /^.+\.([^.]+)$/.exec(filename);
+            return ext === null ? "" : ext[1];
         },
         
     });
