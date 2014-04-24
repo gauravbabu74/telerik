@@ -150,7 +150,7 @@
         { 
             var that = this;
             that.set("documents", data['0']);  
-            //console.log( $("#list-edit-listview"));
+            console.log( data['0']);
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
@@ -183,7 +183,11 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                           //alert('tap'); 
+                            alert('tap');
+                            fileName = "test.png",
+                            uri = encodeURI("http://www.telerik.com/sfimages/default-source/logos/app_builder.png"),
+                            folderName = "bizdocs";
+                            app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
                 	},
                 	touchstart: function (e) {
@@ -399,7 +403,65 @@
             app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
             docsBackHistory.pop()
             app.documentsetting.viewModel.refreshView(); 
-        }
+        },
+        getFilesystem:function (success, fail) {
+        	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+       	 window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, success, fail);
+        },
+
+        getFolder: function (fileSystem, folderName, success, fail) {
+        	fileSystem.root.getDirectory(folderName, {create: true, exclusive: false}, success, fail)
+        },
+        downloadFile:function(uri, fileName, folderName)
+        {
+            var that = this,
+		    filePath = "";
+        
+           
+            	app.documentsetting.viewModel.getFilesystem(
+            		function(fileSystem) {
+            			console.log("gotFS");
+                        
+            			if (device.platform === "Android") {
+            				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
+            					filePath = folder.fullPath + "\/" + fileName;
+            					that.transferFile(uri, filePath)
+            				}, function() {
+            					console.log("failed to get folder");
+            				});
+            			}
+            			else {
+            				filePath = fileSystem.root.fullPath + "\/" + fileName;
+            				app.documentsetting.viewModel.transferFile(uri, filePath)
+            			}
+            		},
+            		function() {
+            			console.log("failed to get filesystem");
+            		}
+            		);
+           
+        },
+        transferFile: function (uri, filePath) {
+            var transfer = new FileTransfer();
+            transfer.download(
+                uri,
+                filePath,
+                function(entry) {
+                    //var image = document.getElementById("downloadedImage");
+                   // image.src = entry.fullPath;
+                   // image.style.display = "block"
+                    //image.display = entry.fullPath;
+                    //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
+                    console.log("download complete: " + entry.fullPath);
+                },
+                function(error) {
+                    //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
+                    console.log("download error source " + error.source);
+                    console.log("download error target " + error.target);
+                    console.log("upload error code" + error.code);
+                }
+            );
+        },
         
     });
     app.documentsetting = {
