@@ -425,7 +425,7 @@
             			if (device.platform === "Android") {
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-                                alert(filePath);
+                               
                                 fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
@@ -446,12 +446,11 @@
         },
         fileExists:function(fileEntry)
         {
-            alert("File " + fileEntry.fullPath + " exists!");
-             window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes")
+             alert("File " + fileEntry.fullPath + " exists!");
+             window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes");
         },
-        fileDoesNotExist:function()
+        fileDoesNotExist:function(fileError)
         {
-            //alert('file No Exist');
             fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
