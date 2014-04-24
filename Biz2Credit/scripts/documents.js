@@ -446,10 +446,11 @@
         fileExists:function(fileEntry)
         {
             alert("File " + fileEntry.fullPath + " exists!");
+             window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes")
         },
         fileDoesNotExist:function()
         {
-            alert('file No Exist');
+            //alert('file No Exist');
             fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
