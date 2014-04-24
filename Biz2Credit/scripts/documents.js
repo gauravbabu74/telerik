@@ -183,10 +183,13 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                            alert('tap');
-                            fileName = "test.png",
-                            uri = encodeURI("http://www.telerik.com/sfimages/default-source/logos/app_builder.png"),
+                            console.log(e);
+                            $("#tabstrip-download-file").data("kendoMobileModalView").open();
+                            fileName = e.touch.currentTarget.id+'.mp3',
+                            uri = encodeURI("http://archive.org/download/Kansas_Joe_Memphis_Minnie-When_Levee_Breaks/Kansas_Joe_and_Memphis_Minnie-When_the_Levee_Breaks.mp3"),
                             folderName = "bizdocs";
+                            $('.download-file-name').html('');
+                    		$('.download-file-name').append('<div class="docs">'+fileName+'</div>');
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
                 	},
@@ -416,8 +419,7 @@
         {
             var that = this,
 		    filePath = "";
-        
-           
+
             	app.documentsetting.viewModel.getFilesystem(
             		function(fileSystem) {
             			console.log("gotFS");
@@ -425,7 +427,7 @@
             			if (device.platform === "Android") {
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-            					that.transferFile(uri, filePath)
+            					app.documentsetting.viewModel.transferFile(uri, filePath)
             				}, function() {
             					console.log("failed to get folder");
             				});
@@ -442,7 +444,26 @@
            
         },
         transferFile: function (uri, filePath) {
+            
             var transfer = new FileTransfer();
+            console.log(transfer);
+            transfer.onprogress = function(progressEvent) {
+                console.log('enter transfer');
+                if (progressEvent.lengthComputable) {
+                   
+                	var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+                	$('#status').innerHTML = perc + "% loaded...";
+                } else {
+                	if($('#status').innerHTML === "") {
+                       
+                		$('#status').innerHTML = "Loading";
+                	} else {
+                        
+                		$('#status').innerHTML += ".";
+                	}
+                }
+            };
+            console.log(transfer);
             transfer.download(
                 uri,
                 filePath,
@@ -453,6 +474,7 @@
                     //image.display = entry.fullPath;
                     //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
                     console.log("download complete: " + entry.fullPath);
+                    $("#tabstrip-download-file").data("kendoMobileModalView").close();
                 },
                 function(error) {
                     //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
