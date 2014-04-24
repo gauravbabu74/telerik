@@ -186,7 +186,7 @@
                             
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                            fileName = e.touch.currentTarget.innerText,
+                            fileName = 'chrome-48.png',
                             uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                             folderName = "bizdocs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
