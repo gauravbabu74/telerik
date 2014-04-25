@@ -186,7 +186,7 @@
                             
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                            fileName = e.touch.currentTarget.innerText;
+                            fileName = $.trim(e.touch.currentTarget.innerText);
                             uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                             //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
                             
