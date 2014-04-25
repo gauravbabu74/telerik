@@ -158,9 +158,44 @@
                 field: "name",
                 operator: "startswith",
                 },
+                click: function(e) {
+                    //console.log(e);
+                	    if(e.dataItem.docType === "Folder")
+                        {
+                            if(!hold)
+                    		{
+                                if(e.dataItem.id !== "0")
+                                {  
+                                	app.documentsetting.viewModel.setInnerPage();
+                                	app.documentsetting.viewModel.setParentId(e.dataItem.id);
+                                }
+                                else
+                                {
+                                	app.movedocumentsetting.viewModel.setMainPage();
+                                	app.movedocumentsetting.viewModel.setParentId(0);
+                                } 
+                            	docsBackHistory.push(e.dataItem.id);
+                            	app.documentsetting.viewModel.refreshView();
+                                
+                   		 }
+                        }
+                        else if(e.dataItem.docType === "File")
+                        {
+                          
+                            sessionStorage.currentFileId = e.dataItem.id;
+                            sessionStorage.currentFileName = e.dataItem.name;
+                            fileName = $.trim(e.dataItem.name);
+                           // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
+                            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
+                            
+                            folderName = "biz2docs";
+                            app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
+                        }
+                }
                 }).kendoTouch({ 
                 	filter: ">li",
-                  	tap: function (e) {  
+                  	/*click: function (e) { 
+                          console.log(e);
                       // e.touch.currentTarget.className='km-state-active';
                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
@@ -193,12 +228,15 @@
                             folderName = "biz2docs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
-                	},
+                	},*/
+                    
                 	touchstart: function (e) {
                 		hold = false;
+                        
                	 },
                 	hold: function (e) {
                         hold = true;
+                        
                         sessionStorage.currentFId = e.touch.currentTarget.id;
                         sessionStorage.currentFName = e.touch.currentTarget.innerText;
                         navigator.notification.vibrate(20);
@@ -222,7 +260,7 @@
                              $("#tabstrip-files-events").data("kendoMobileModalView").open();
                              $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
                         }
-                		//e.touch.currentTarget.className='';
+                		e.touch.currentTarget.className='';
                 	}                    
             });
             $("#tabstrip-docs").find(".km-scroll-container").css("-webkit-transform", "");
