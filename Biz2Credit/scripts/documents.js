@@ -445,7 +445,7 @@
         },
         fileExists:function(fileEntry)
         {
-             //alert("File " + fileEntry.fullPath + " exists!");
+             alert("File " + fileEntry.fullPath + " exists!");
              window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes");
         },
         fileDoesNotExist:function(fileError)
