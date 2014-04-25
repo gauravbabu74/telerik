@@ -158,7 +158,7 @@
                 field: "name",
                 operator: "startswith",
                 },
-                click: function(e) {
+                /*click: function(e) {
                     //console.log(e);
                 	    if(e.dataItem.docType === "Folder")
                         {
@@ -191,10 +191,10 @@
                             folderName = "biz2docs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
-                }
+                }*/
                 }).kendoTouch({ 
                 	filter: ">li",
-                  	/*click: function (e) { 
+                  	tap: function (e) { 
                           console.log(e);
                       // e.touch.currentTarget.className='km-state-active';
                        if(e.touch.initialTouch.dataset.id === "folder")
@@ -218,7 +218,8 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                            
+                          if(!hold)
+                    		{  
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                             fileName = $.trim(e.touch.currentTarget.innerText);
@@ -227,8 +228,9 @@
                             
                             folderName = "biz2docs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
+                                }
                         }
-                	},*/
+                	},
                     
                 	touchstart: function (e) {
                 		hold = false;
