@@ -460,7 +460,7 @@
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-           // app.documentsetting.viewModel.transferFile(uri, filePath);
+            app.documentsetting.viewModel.transferFile(uri, filePath);
         },
         transferFile: function (uri, filePath) {
             
