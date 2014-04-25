@@ -187,8 +187,8 @@
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                             fileName = $.trim(e.touch.currentTarget.innerText);
-                            uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                            //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
+                           // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
+                            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
                             
                             folderName = "biz2docs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
@@ -490,7 +490,7 @@
             transfer.download(
                 uri,
                 filePath,
-                function(entry) {
+                function(fileEntry) {
                     //var image = document.getElementById("downloadedImage");
                    // image.src = entry.fullPath;
                    // image.style.display = "block"
@@ -498,6 +498,15 @@
                     //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
                    // alert("download complete: " + entry.fullPath);
                     $("#tabstrip-download-file").data("kendoMobileModalView").close();
+                    console.log(fileEntry.fullPath);
+                    if(device.platform.toLowerCase() === "ios" )
+            		{
+                		window.open(encodeURI(fileEntry.fullPath),"_blank","location=yes,hidden=no");
+            		}
+            		else
+            		{
+                		window.open(encodeURI(fileEntry.fullPath),"_system","location=yes,hidden=no");
+            		}	
                 },
                 function(error) {
                     //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
@@ -506,6 +515,7 @@
                     alert("Download error code" + error.code);
                 }
             );
+            
         },
         getFileExtension:function(filename)
         {
