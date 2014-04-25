@@ -190,7 +190,7 @@
                             uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                             //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
                             
-                            folderName = "bizdocs";
+                            folderName = "biz2docs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
                 	},
@@ -501,9 +501,9 @@
                 },
                 function(error) {
                     //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
-                    console.log("download error source " + error.source);
-                    console.log("download error target " + error.target);
-                    console.log("upload error code" + error.code);
+                   // console.log("download error source " + error.source);
+                    //console.log("download error target " + error.target);
+                    alert("Download error code" + error.code);
                 }
             );
         },
