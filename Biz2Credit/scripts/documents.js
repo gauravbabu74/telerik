@@ -425,7 +425,7 @@
             			if (device.platform === "Android") {
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-                               alert(filePath);
+                              // alert(filePath);
                                 fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
@@ -488,7 +488,7 @@
                    // image.style.display = "block"
                     //image.display = entry.fullPath;
                     //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
-                    console.log("download complete: " + entry.fullPath);
+                    alert("download complete: " + entry.fullPath);
                     $("#tabstrip-download-file").data("kendoMobileModalView").close();
                 },
                 function(error) {
