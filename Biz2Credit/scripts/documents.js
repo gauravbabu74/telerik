@@ -424,11 +424,13 @@
                         
             			if (device.platform === "Android") {
                            // console.log(fileSystem);
-                            alert(fileSystem.root.fullPath);
+                           // alert(fileSystem.root.fullPath);
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
+                                console.log(folder);
             					filePath = folder.fullPath + "\/" + fileName;
-                                alert(filePath);
-                                fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+                                relPath = folder.name + "\/" + fileName;
+                               // alert(relPath);
+                                fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
             					console.log("failed to get folder");
@@ -490,7 +492,7 @@
                    // image.style.display = "block"
                     //image.display = entry.fullPath;
                     //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
-                    alert("download complete: " + entry.fullPath);
+                   // alert("download complete: " + entry.fullPath);
                     $("#tabstrip-download-file").data("kendoMobileModalView").close();
                 },
                 function(error) {
