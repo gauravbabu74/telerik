@@ -423,9 +423,11 @@
             			console.log("gotFS");
                         
             			if (device.platform === "Android") {
+                           // console.log(fileSystem);
+                            alert(fileSystem.root.fullPath);
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-                               alert(filePath);
+                                alert(filePath);
                                 fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
@@ -456,7 +458,7 @@
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-            app.documentsetting.viewModel.transferFile(uri, filePath);
+           // app.documentsetting.viewModel.transferFile(uri, filePath);
         },
         transferFile: function (uri, filePath) {
             
