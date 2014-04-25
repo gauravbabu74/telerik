@@ -448,7 +448,7 @@
         fileExists:function(fileEntry)
         {
              alert("File "+fileEntry.fullPath+" exists!");
-             window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes");
+             window.open(encodeURI(fileEntry.fullPath),"_system","location=yes,hidden=no");
         },
         fileDoesNotExist:function(fileError)
         {
