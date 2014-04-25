@@ -186,7 +186,7 @@
                             
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                            fileName = 'chrome-48.png',
+                            fileName = e.touch.currentTarget.innerText;
                             uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                             folderName = "bizdocs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
@@ -420,16 +420,11 @@
 
             	app.documentsetting.viewModel.getFilesystem(
             		function(fileSystem) {
-            			console.log("gotFS");
-                        
+            			
             			if (device.platform === "Android") {
-                           // console.log(fileSystem);
-                           // alert(fileSystem.root.fullPath);
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
-                                console.log(folder);
             					filePath = folder.fullPath + "\/" + fileName;
                                 relPath = folder.name + "\/" + fileName;
-                               // alert(relPath);
                                 fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
@@ -438,8 +433,8 @@
             			}
             			else {
             				filePath = fileSystem.root.fullPath + "\/" + fileName;
-                             console.log('other'+filePath);
-            				//app.documentsetting.viewModel.transferFile(uri, filePath)
+                            fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+            				
             			}
             		},
             		function() {
@@ -450,7 +445,7 @@
         },
         fileExists:function(fileEntry)
         {
-             alert("File " + fileEntry.fullPath + " exists!");
+             //alert("File " + fileEntry.fullPath + " exists!");
              window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes");
         },
         fileDoesNotExist:function(fileError)
@@ -465,7 +460,6 @@
         transferFile: function (uri, filePath) {
             
             var transfer = new FileTransfer();
-            console.log(transfer);
             transfer.onprogress = function(progressEvent) {
                 console.log('enter transfer');
                 if (progressEvent.lengthComputable) {
@@ -482,7 +476,6 @@
                 	}
                 }
             };
-            console.log(transfer);
             transfer.download(
                 uri,
                 filePath,
