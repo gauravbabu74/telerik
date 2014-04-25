@@ -187,7 +187,9 @@
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                             fileName = e.touch.currentTarget.innerText;
-                            uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
+                            //uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
+                            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
+                            
                             folderName = "bizdocs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                         }
@@ -445,7 +447,7 @@
         },
         fileExists:function(fileEntry)
         {
-             alert("File " + fileEntry.fullPath + " exists!");
+             alert("File "+fileEntry.fullPath+" exists!");
              window.open(encodeURI(fileEntry.fullPath),"_blank","location=no,enableViewportScale=yes");
         },
         fileDoesNotExist:function(fileError)
