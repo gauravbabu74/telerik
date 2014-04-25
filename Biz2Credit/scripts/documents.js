@@ -186,7 +186,7 @@
                             
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                            fileName = 'chrome-48.png';
+                            fileName = e.touch.currentTarget.innerText;
                             uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                             //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
                             
@@ -447,8 +447,17 @@
         },
         fileExists:function(fileEntry)
         {
-             alert("File "+fileEntry.fullPath+" exists!");
-             window.open(encodeURI(fileEntry.fullPath),"_system","location=yes,hidden=no");
+             //alert("File "+fileEntry.fullPath+" exists!");
+            
+            if(device.platform.toLowerCase() === "ios" )
+            {
+                window.open(encodeURI(fileEntry.fullPath),"_blank","location=yes,hidden=no");
+            }
+            else
+            {
+                window.open(encodeURI(fileEntry.fullPath),"_system","location=yes,hidden=no");
+            }
+             
         },
         fileDoesNotExist:function(fileError)
         {
