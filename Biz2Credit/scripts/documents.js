@@ -186,9 +186,9 @@
                             
                             sessionStorage.currentFileId = e.touch.currentTarget.id;
                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                            fileName = 'abc.pdf';
-                            //uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
+                            fileName = 'chrome-48.png';
+                            uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
+                            //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
                             
                             folderName = "bizdocs";
                             app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
