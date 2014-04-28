@@ -166,12 +166,11 @@
         },
         mobileNotification:function(msg)
         {
+            var d = new Date();
             var staticNotification = $("#staticNotification").kendoNotification({
                         appendTo: "#appendto"
                     }).data("kendoNotification");
-            staticNotification.show(kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000"), "info");
-            var container = $(staticNotification.options.appendTo);
-            container.scrollTop(container[0].scrollHeight);
+            staticNotification.show(msg, "info"); 
         }
     });
     
