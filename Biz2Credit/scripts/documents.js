@@ -16,151 +16,157 @@
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
-        				app.documentsetting.viewModel.documentShow();
+        				app.documentsetting.viewModel.documentShow(e);
         			}
 
         		}, 'Connection Error?', 'Retry,Cancel');
             }
-            app.loginService.viewModel.showloder();
-            if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined')
-            {
-            	$("#list-edit-listview").data("kendoMobileListView").destroy();
-                //$("#list-edit-listview").unwrap();
-            }
-            if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
-            {
-                parentId = e.view.params.parent;
-                app.documentsetting.viewModel.setInnerPage();
-                app.documentsetting.viewModel.setParentId(e.view.params.parent);
-                
-            }
             else
             {
-                docsBackHistory=[];
-                docsBackHistory.push(0);
-                parentId = 0;
-                app.documentsetting.viewModel.setMainPage();
-                app.documentsetting.viewModel.setParentId(0);
-            }   
-
-       	 var dataSource = new kendo.data.DataSource({         
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
+                app.loginService.viewModel.showloder();
+                if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined')
+                {
+                	$("#list-edit-listview").data("kendoMobileListView").destroy();
+                    //$("#list-edit-listview").unwrap();
                 }
-            },
-            schema: {
-                data: function(data)
-                {   var docsArray = [];
-                    if(data['results']['faultcode']===1)
-                    {
-                        var sharedFiles ="";
-                        var sharedFolders ="";
-                        $.each( data['results']['DocLists'], function( i, val ) {
+                if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
+                {
+                    parentId = e.view.params.parent;
+                    app.documentsetting.viewModel.setInnerPage();
+                    app.documentsetting.viewModel.setParentId(e.view.params.parent);
+                    
+                }
+                else
+                {
+                    docsBackHistory=[];
+                    docsBackHistory.push(0);
+                    parentId = 0;
+                    app.documentsetting.viewModel.setMainPage();
+                    app.documentsetting.viewModel.setParentId(0);
+                }   
 
-                            if(data['results']['DocLists'][i]['name']==='Shared Files'){
-                                 sharedFiles =val;
-                            }
-                            else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                                 sharedFolders =val;
-                            }
-                            else{
-                                docsArray.push(val);
-                            } 
-    					});
-                        if(sharedFiles !== '' && sharedFolders !=='')
-                        {
-                        	docsArray.unshift(sharedFiles,sharedFolders);
-                        }
+           	 var dataSource = new kendo.data.DataSource({         
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/folder/",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId} // search for tweets that contain "html5"
                     }
-                	return [docsArray];
-                }
-            },
-        });
-        dataSource.fetch(function(){
-            var that = this;
-            var data = that.data();
-            app.documentsetting.viewModel.setDocuments(data); 
-        });
+                },
+                schema: {
+                    data: function(data)
+                    {   var docsArray = [];
+                        if(data['results']['faultcode']===1)
+                        {
+                            var sharedFiles ="";
+                            var sharedFolders ="";
+                            $.each( data['results']['DocLists'], function( i, val ) {
+
+                                if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                                     sharedFiles =val;
+                                }
+                                else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                                     sharedFolders =val;
+                                }
+                                else{
+                                    docsArray.push(val);
+                                } 
+        					});
+                            if(sharedFiles !== '' && sharedFolders !=='')
+                            {
+                            	docsArray.unshift(sharedFiles,sharedFolders);
+                            }
+                        }
+                    	return [docsArray];
+                    }
+                },
+            	});
+                dataSource.fetch(function(){
+                    var that = this;
+                    var data = that.data();
+                    app.documentsetting.viewModel.setDocuments(data); 
+                });
+       	 }
        },
        refreshView:function(e)
         {
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
-            			app.documentsetting.viewModel.refreshView();
+            			app.documentsetting.viewModel.refreshView(e);
             		}
 
             	}, 'Connection Error?', 'Retry,Cancel');
             }
-            if( app.documentsetting.viewModel.parentId === 0)
-            {
-                parentId = 0;
-                app.documentsetting.viewModel.setMainPage();
-            }
             else
             {
-                parentId =  app.documentsetting.viewModel.parentId;
-                app.documentsetting.viewModel.setInnerPage();
-            }
-            if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
-            {
-            	$("#list-edit-listview").data("kendoMobileListView").destroy();
-                //$("#list-edit-listview").unwrap();
-            }
-            //app.loginService.viewModel.showloder();
-            var that = this;
-            that.set("showrefreshLoading", true);
-       	 var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder/",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
+                if( app.documentsetting.viewModel.parentId === 0)
+                {
+                    parentId = 0;
+                    app.documentsetting.viewModel.setMainPage();
                 }
-            },    
-            schema: {
-                 data: function(data)
-                {   var docsArray = [];
-                    if(data['results']['faultcode']===1)
-                    {
-                        
-                        var sharedFiles ="";
-                        var sharedFolders ="";
-                        $.each( data['results']['DocLists'], function( i, val ) {
-                            
-                            
-                            if(data['results']['DocLists'][i]['name']==='Shared Files'){
-                                 sharedFiles =val;
-                            }
-                            else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
-                                 sharedFolders =val;
-                            }
-                            else{
-                                docsArray.push(val);
-                            } 
-    					});
-                        if(sharedFiles !== '' && sharedFolders !=='')
-                        {
-                        	docsArray.unshift(sharedFiles,sharedFolders);
-                        }     
+                else
+                {
+                    parentId =  app.documentsetting.viewModel.parentId;
+                    app.documentsetting.viewModel.setInnerPage();
+                }
+                if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
+                {
+                	$("#list-edit-listview").data("kendoMobileListView").destroy();
+                    //$("#list-edit-listview").unwrap();
+                }
+                //app.loginService.viewModel.showloder();
+                var that = this;
+                that.set("showrefreshLoading", true);
+           	 var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/folder/",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:parentId}  // search for tweets that contain "html5"
                     }
-                	return [docsArray];
-                }
-            },
-     
-        });
-             
-        dataSource.fetch(function(){
-            var data = dataSource.view(); 
-            app.documentsetting.viewModel.setDocuments(data);
-            app.documentsetting.viewModel.hideRefreshLoading();
-            
-        });   
+                },    
+                schema: {
+                     data: function(data)
+                    {   var docsArray = [];
+                        if(data['results']['faultcode']===1)
+                        {
+                            
+                            var sharedFiles ="";
+                            var sharedFolders ="";
+                            $.each( data['results']['DocLists'], function( i, val ) {
+                                
+                                
+                                if(data['results']['DocLists'][i]['name']==='Shared Files'){
+                                     sharedFiles =val;
+                                }
+                                else if(data['results']['DocLists'][i]['name']==='Shared Folders' ){
+                                     sharedFolders =val;
+                                }
+                                else{
+                                    docsArray.push(val);
+                                } 
+        					});
+                            if(sharedFiles !== '' && sharedFolders !=='')
+                            {
+                            	docsArray.unshift(sharedFiles,sharedFolders);
+                            }     
+                        }
+                    	return [docsArray];
+                    }
+                },
+         
+        		});
+                 
+                dataSource.fetch(function(){
+                    var data = dataSource.view(); 
+                    app.documentsetting.viewModel.setDocuments(data);
+                    app.documentsetting.viewModel.hideRefreshLoading();
+                    
+                }); 
+            }
         },
         setDocuments: function(data)
         { 
@@ -294,54 +300,55 @@
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
-            			app.documentsetting.viewModel.thisFolderDelete();
+            			app.documentsetting.viewModel.thisFolderDelete(e);
             		}
 
             	}, 'Connection Error?', 'Retry,Cancel');
             }
-		    var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId")}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                data: function(data)
-                {   
-                	return [data];
-                }
-            },
-     
-            });
-             
-            dataSource.fetch(function(){
-                var data = dataSource.data(); 
+            else
+            {
+    		    var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/folder",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId")}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                    data: function(data)
+                    {   
+                    	return [data];
+                    }
+                },
+         
+                });
+                 
+                dataSource.fetch(function(){
+                    var data = dataSource.data(); 
 
-               // console.log(data);
-                if(data['0']['results']['faultcode'] === 1)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'success');
-                }
-                else if(data['0']['results']['faultcode'] === 0)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'info');  
-                }
-                else
-                {
-                    msg ='Some Error Occurred';
-                    app.loginService.viewModel.mobileNotification(msg,'warning');  
-                    
-                }
-            }); 
-         // alert('rename call');
-      	  closeModalView(e);
-            app.documentsetting.viewModel.refreshView(); 
-             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+                   // console.log(data);
+                    if(data['0']['results']['faultcode'] === 1)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'success');
+                    }
+                    else if(data['0']['results']['faultcode'] === 0)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                    }
+                    else
+                    {
+                        msg ='Some Error Occurred';
+                        app.loginService.viewModel.mobileNotification(msg,'warning');  
+                        
+                    }
+                }); 
+          	  closeModalView(e);
+                app.documentsetting.viewModel.refreshView(); 
+            }
         },
         deleteFile:function(e)
         {
@@ -353,52 +360,54 @@
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
-            			app.documentsetting.viewModel.thisFileDelete();
+            			app.documentsetting.viewModel.thisFileDelete(e);
             		}
 
             	}, 'Connection Error?', 'Retry,Cancel');
             }
-            var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/file",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId")}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                data: function(data)
-                {   
-                	return [data];
-                }
-            },
-     
-            });
-             
-            dataSource.fetch(function(){
-                var data = dataSource.data(); 
+            else
+            {
+                var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/file",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId")}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                    data: function(data)
+                    {   
+                    	return [data];
+                    }
+                },
+         
+                });
+                 
+                dataSource.fetch(function(){
+                    var data = dataSource.data(); 
 
-               // console.log(data);
-                if(data['0']['results']['faultcode'] === 1)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'success');
-                }
-                else if(data['0']['results']['faultcode'] === 0)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'info');  
-                }
-                else
-                {
-                    msg ='Some Error Occurred';
-                    app.loginService.viewModel.mobileNotification(msg,'warning');  
-                    
-                }
-            }); 
-      	  closeModalView(e);
-            app.documentsetting.viewModel.refreshView(); 
+                    if(data['0']['results']['faultcode'] === 1)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'success');
+                    }
+                    else if(data['0']['results']['faultcode'] === 0)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                    }
+                    else
+                    {
+                        msg ='Some Error Occurred';
+                        app.loginService.viewModel.mobileNotification(msg,'warning');  
+                        
+                    }
+                }); 
+          	  closeModalView(e);
+                app.documentsetting.viewModel.refreshView();
+			}
         },
        
         renameFolder:function(e)
@@ -411,55 +420,57 @@
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
-            			app.documentsetting.viewModel.thisFolderRename();
+            			app.documentsetting.viewModel.thisFolderRename(e);
             		}
 
             	}, 'Connection Error?', 'Retry,Cancel');
             }
-            var that = this;
-            var renameFolder = that.get("renameFolderName");
-		    var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"renamefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),folderName:renameFolder,parentID:parentId}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                data: function(data)
-                {   
-                	return [data];
-                }
-            },
-     
-            });
-             
-            dataSource.fetch(function(){
-                var data = dataSource.data(); 
+            else
+            {
+                var that = this;
+                var renameFolder = that.get("renameFolderName");
+    		    var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/folder",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"renamefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),folderName:renameFolder,parentID:parentId}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                    data: function(data)
+                    {   
+                    	return [data];
+                    }
+                },
+         
+                });
+                 
+                dataSource.fetch(function(){
+                    var data = dataSource.data(); 
 
-                // console.log(data);
-                if(data['0']['results']['faultcode'] === 1)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'success');
-                }
-                else if(data['0']['results']['faultcode'] === 0)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'info');  
-                }
-                else
-                {
-                    msg ='Some Error Occurred';
-                    app.loginService.viewModel.mobileNotification(msg,'warning');  
-                    
-                }
-            }); 
-         // alert('rename call');
-      	  closeModalView(e);
-            app.documentsetting.viewModel.refreshView(); 
+                    // console.log(data);
+                    if(data['0']['results']['faultcode'] === 1)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'success');
+                    }
+                    else if(data['0']['results']['faultcode'] === 0)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                    }
+                    else
+                    {
+                        msg ='Some Error Occurred';
+                        app.loginService.viewModel.mobileNotification(msg,'warning');  
+                        
+                    }
+                }); 
+          	  closeModalView(e);
+                app.documentsetting.viewModel.refreshView(); 
+            }
             
         },
         renameFile:function(e)
@@ -472,54 +483,57 @@
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
-            			app.documentsetting.viewModel.thisFileRename();
+            			app.documentsetting.viewModel.thisFileRename(e);
             		}
 
             	}, 'Connection Error?', 'Retry,Cancel');
             }
-            var that = this;
-            var renameFile = that.get("renameFileName");
-		    var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/file",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"renamefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),fileName:renameFile,parentID:parentId}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                data: function(data)
-                {   
-                	return [data];
-                }
-            },
-     
-            });
-             
-            dataSource.fetch(function(){
-                var data = dataSource.data(); 
+            else
+            {
+                var that = this;
+                var renameFile = that.get("renameFileName");
+    		    var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/file",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"renamefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),fileName:renameFile,parentID:parentId}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                    data: function(data)
+                    {   
+                    	return [data];
+                    }
+                },
+         
+                });
+                 
+                dataSource.fetch(function(){
+                    var data = dataSource.data(); 
 
-                // console.log(data);
-                if(data['0']['results']['faultcode'] === 1)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'success');
-                }
-                else if(data['0']['results']['faultcode'] === 0)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'info');  
-                }
-                else
-                {
-                    msg ='Some Error Occurred';
-                    app.loginService.viewModel.mobileNotification(msg,'warning');  
-                    
-                }
-            }); 
-      	  closeModalView(e);
-            app.documentsetting.viewModel.refreshView();
+                    // console.log(data);
+                    if(data['0']['results']['faultcode'] === 1)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'success');
+                    }
+                    else if(data['0']['results']['faultcode'] === 0)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                    }
+                    else
+                    {
+                        msg ='Some Error Occurred';
+                        app.loginService.viewModel.mobileNotification(msg,'warning');  
+                        
+                    }
+                }); 
+          	  closeModalView(e);
+                app.documentsetting.viewModel.refreshView();
+            }
         },
         moveFolder:function(e)
         {
@@ -547,53 +561,56 @@
             if(!app.loginService.viewModel.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
-            			app.documentsetting.viewModel.newFolderCreate();
+            			app.documentsetting.viewModel.newFolderCreate(e);
             		}
 
             	}, 'Connection Error?', 'Retry,Cancel');
             }
-            var that = this;
-            newFolderName = that.get("newFolderName");
-            var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"addfolder",userID:localStorage.getItem("userID"),parentID:parentId,folderName:newFolderName}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                 data: function(data)
-                {   
-                	return [data];
-                }
-            },
-     
-            });
-                 
-            dataSource.fetch(function(){
-                var data = dataSource.data(); 
+            else
+            {
+                var that = this;
+                newFolderName = that.get("newFolderName");
+                var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: "http://biz2services.com/mobapp/api/folder",
+                        type:"POST",
+                        dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                        data: {apiaction:"addfolder",userID:localStorage.getItem("userID"),parentID:parentId,folderName:newFolderName}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                     data: function(data)
+                    {   
+                    	return [data];
+                    }
+                },
+         
+                });
+                     
+                dataSource.fetch(function(){
+                    var data = dataSource.data(); 
 
-                if(data['0']['results']['faultcode'] === 1)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'success');
-                }
-                else if(data['0']['results']['faultcode'] === 0)
-                {
-                    msg =data['0']['results']['faultmsg'];
-                    app.loginService.viewModel.mobileNotification(msg,'info');  
-                }
-                else
-                {
-                    msg ='Some Error Occurred';
-                    app.loginService.viewModel.mobileNotification(msg,'warning');  
-                    
-                }
-            });   
-            closeModalView(e);
-            app.documentsetting.viewModel.refreshView(); 
+                    if(data['0']['results']['faultcode'] === 1)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'success');
+                    }
+                    else if(data['0']['results']['faultcode'] === 0)
+                    {
+                        msg =data['0']['results']['faultmsg'];
+                        app.loginService.viewModel.mobileNotification(msg,'info');  
+                    }
+                    else
+                    {
+                        msg ='Some Error Occurred';
+                        app.loginService.viewModel.mobileNotification(msg,'warning');  
+                        
+                    }
+                });   
+                closeModalView(e);
+                app.documentsetting.viewModel.refreshView();
+            }
         },
         setUserLogout:function()
         {

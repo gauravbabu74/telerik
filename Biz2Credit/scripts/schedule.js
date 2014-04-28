@@ -33,9 +33,12 @@
 
                 	}, 'Connection Error?', 'Retry,Cancel');
                 }
-               app.loginService.viewModel.showloder();
-               // alert('Schedule call');
-               that.setSchedule(phonenumber,sDate,sTime);  
+                else
+                {
+                	app.loginService.viewModel.showloder();
+                	// alert('Schedule call');
+                	that.setSchedule(phonenumber,sDate,sTime); 
+                }
             }
            
         },
