@@ -79,7 +79,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .documentClick .km-view-title { font-size:1em; color:#333; font-weight:700;}
 .documentClick .km-view-title a {display:inline-block; padding:7px 7px 0px; background:none; border:0; margin:0 !important;}
 .documentClick .km-view-title a img { float:left; }
-.documentClick .km-view-title a span {float:left; display:inline; padding:10px 0 0;}
+.documentClick .km-view-title a span {float:left; display:inline; padding:15px 0 0;}
 /* RETINA DISPLAY STYLES*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi) {
     .img {background-image: url(../styles/images/appbuilder2x.png); background-repeat: no-repeat; background-size: 100%; }
@@ -308,6 +308,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .schedulePopup .scheduleSection .scall-text{font-size: 1em;}
 .btngr{ padding: 16px 8px; font-size:1.3em;}
 .stpcurrntAc p a{ padding:15px 15px 15px 35px !important; background-size:15% !important; background-position:5px 11px !important;}
+.matches-logo{ background-size:15%; height:70px;}
+.home .popup { width:75px; height:75px;}
 }
 
 @media (min-width:0px) and (max-width:800px) {
@@ -369,6 +371,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .stpcurrntAc p { font-size:12px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select, .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:8%; background-position:95% 9px;}
 .stpcurrntAc p a{ padding:3px 15px 3px 25px !important; background-size:13% !important; background-position:5px 2px !important;}
+.home .popup { width:40px; height:40px;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
