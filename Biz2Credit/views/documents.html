@@ -46,7 +46,7 @@
             		<a data-role="button"  data-bind="click: renameFolder">Rename</a>
             	</li>
             	<li>
-            		<a data-role="button"  data-bind="click: moveFolder">Move</a>
+            		<a data-role="button"  data-checkStatus="folder" data-bind="click: moveFolder">Move</a>
             	</li>
             </ul>  
         </div>
@@ -63,7 +63,7 @@
             		<a data-role="button"  data-bind="click: renameFile">Rename</a>
             	</li>
             	<li>
-            		<a data-role="button"  data-bind="click: moveFolder">Move</a>
+            		<a data-role="button"  data-checkStatus="files" data-bind="click: moveFolder">Move</a>
             	</li>
                 <li>
             		<a data-role="button"  data-bind="click: exportFile">Export</a>
@@ -128,7 +128,7 @@
             	<span class="newfolder">Rename File</span>
             </div>
             <form id="new-folder-form" class="scheduleSection">
-            	<input type="text" data-bind="value: renameFolderName" class="new-folder-field" placeholder="Rename File"/>
+            	<input type="text" data-bind="value: renameFileName" class="new-folder-field" placeholder="Rename File"/>
             	<div class="buttonArea">
             		<input type="submit" data-role="button" data-click="closeModalView" value="Cancel" />
             		<input type="submit" data-role="button" data-bind="click: thisFileRename" class="new-folder-create" value="Rename" />

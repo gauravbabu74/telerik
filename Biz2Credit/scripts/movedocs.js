@@ -6,8 +6,11 @@
         documents:[],
         moveDocsId:0,
         moveInnerPage:false,
+        checkStatus:'',
+        
         movedocumentShow:function(e)
         { 
+            app.movedocumentsetting.viewModel.setCheckStatus(e.view.params.param);
             app.loginService.viewModel.showloder();
             if(typeof $(".list-move-listview").data("kendoMobileListView") !=='undefined' )
             {
@@ -148,6 +151,11 @@
             app.loginService.viewModel.hideloder();
             $("#tabstrip-movedocs").find(".km-scroll-container").css("-webkit-transform", "");
         },
+        setCheckStatus:function(status)
+        {
+            var that = this;
+            that.set("checkStatus", status);  
+        },
         setMoveInnerPage:function()
         {
             var that = this;
@@ -186,10 +194,32 @@
             backHistory.pop()
             app.movedocumentsetting.viewModel.moveRefreshView(); 
         },
-        thisFolderMove:function()
+        thisFolderMove:function(e)
         {
-         
-		    var dataSource = new kendo.data.DataSource({
+            var that = this;
+            var status = that.get("checkStatus"); 
+        if(status === 'folder')
+            {
+                var dataSource = new kendo.data.DataSource({
+                    transport: {
+                    		read: {
+                    		url: "http://biz2services.com/mobapp/api/folder",
+                    		type:"POST",
+                    		dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    		data: {apiaction:"movefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                    data: function(data)
+                    {   
+                    		return [data];
+                    }
+                },
+
+                });  
+            }
+            
+		   /* var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
                     url: "http://biz2services.com/mobapp/api/folder",
@@ -211,10 +241,28 @@
                 var data = dataSource.data(); 
 
                 console.log(data);
+                if(data['0']['results']['faultcode'] === 1)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'success');
+                }
+                else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else
+                {
+                    msg ='Some Error Occurred';
+                    app.loginService.viewModel.mobileNotification(msg,'warning');  
+                    
+                }
             });
         	//newFolderCloseModal();
         	app.documentsetting.viewModel.refreshView();
-            app.movedocumentsetting.viewModel.backDocslistPage();
+            app.movedocumentsetting.viewModel.backDocslistPage();*/
+            
+            
             
         }
     });

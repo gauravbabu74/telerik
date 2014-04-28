@@ -164,13 +164,17 @@
                 }, 'Retry', 'Cancel');
            }
         },
-        mobileNotification:function(msg)
+        mobileNotification:function(msg,status)
         {
-            var d = new Date();
+            
             var staticNotification = $("#staticNotification").kendoNotification({
-                        appendTo: "#appendto"
-                    }).data("kendoNotification");
-            staticNotification.show(msg, "info"); 
+                
+           	 appendTo: "#appendto",
+            	autoHideAfter: 9000000
+                
+            }).data("kendoNotification");
+            
+            staticNotification.show(msg, status); 
         }
     });
     

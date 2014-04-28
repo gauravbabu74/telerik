@@ -10,6 +10,7 @@
         showrefreshLoading:false,
         newFolderName:'',
         renameFolderName:'',
+        renameFileName:'',
         documentShow:function(e)
         { 
             app.loginService.viewModel.showloder();
@@ -150,7 +151,6 @@
         { 
             var that = this;
             that.set("documents", data['0']);  
-            console.log( data['0']);
             $("#list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
@@ -158,44 +158,9 @@
                 field: "name",
                 operator: "startswith",
                 },
-                /*click: function(e) {
-                    //console.log(e);
-                	    if(e.dataItem.docType === "Folder")
-                        {
-                            if(!hold)
-                    		{
-                                if(e.dataItem.id !== "0")
-                                {  
-                                	app.documentsetting.viewModel.setInnerPage();
-                                	app.documentsetting.viewModel.setParentId(e.dataItem.id);
-                                }
-                                else
-                                {
-                                	app.movedocumentsetting.viewModel.setMainPage();
-                                	app.movedocumentsetting.viewModel.setParentId(0);
-                                } 
-                            	docsBackHistory.push(e.dataItem.id);
-                            	app.documentsetting.viewModel.refreshView();
-                                
-                   		 }
-                        }
-                        else if(e.dataItem.docType === "File")
-                        {
-                          
-                            sessionStorage.currentFileId = e.dataItem.id;
-                            sessionStorage.currentFileName = e.dataItem.name;
-                            fileName = $.trim(e.dataItem.name);
-                           // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
-                            
-                            folderName = "biz2docs";
-                            app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
-                        }
-                }*/
                 }).kendoTouch({ 
                 	filter: ">li",
                   	tap: function (e) { 
-                          console.log(e);
                       // e.touch.currentTarget.className='km-state-active';
                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
@@ -218,17 +183,17 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                          if(!hold)
+                            if(!hold)
                     		{  
-                            sessionStorage.currentFileId = e.touch.currentTarget.id;
-                            sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                            fileName = $.trim(e.touch.currentTarget.innerText);
-                           // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
-                            
-                            folderName = "biz2docs";
-                            app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
-                                }
+                                sessionStorage.currentFileId = e.touch.currentTarget.id;
+                                sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                                fileName = $.trim(e.touch.currentTarget.innerText);
+                               // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
+                                uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
+                                
+                                folderName = "biz2docs";
+                                app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
+                            }
                         }
                 	},
                     
@@ -239,11 +204,12 @@
                 	hold: function (e) {
                         hold = true;
                         
-                        sessionStorage.currentFId = e.touch.currentTarget.id;
-                        sessionStorage.currentFName = e.touch.currentTarget.innerText;
+                        
                         navigator.notification.vibrate(20);
 						if(e.touch.initialTouch.dataset.id === "folder")
                         {
+                            sessionStorage.currentFId = e.touch.currentTarget.id;
+                        	sessionStorage.currentFName = e.touch.currentTarget.innerText;
                             if(e.touch.initialTouch.innerText !== "Shared Files" && e.touch.initialTouch.innerText !== "Shared Folders")
                             {
                                 
@@ -256,9 +222,8 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                            //console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
-                            //console.log( $("#tabstrip-files-events").data("kendoMobileModalView"));
-                             //$("#tabstrip-files-events").data("kendoMobileModalView").scrollerContent['0'].scrollHeight;
+                             sessionStorage.currentFileId = e.touch.currentTarget.id;
+                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                              $("#tabstrip-files-events").data("kendoMobileModalView").open();
                              $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
                         }
@@ -311,38 +276,15 @@
         },
         thisFolderDelete:function(e)
         {
-            alert('pending delete webservices');
-            closeModalView(e);
-             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
-        },
-        deleteFile:function(e)
-        {
-           closeModalView(e);
-           $("#tabstrip-delete-files").data("kendoMobileModalView").open();
-        } ,
-        thisFileDelete:function(e)
-        {
-            alert('pending delete webservices');
-            closeModalView(e);
-             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
-        },
-       
-        renameFolder:function(e)
-        {
-             closeModalView(e);
-             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
-        },
-        thisFolderRename:function(e)
-        {
-            var that = this;
-            var renameFolder = that.get("renameFolderName");
+            //alert('pending delete webservices');
+           // closeModalView(e);
 		    var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
                     url: "http://biz2services.com/mobapp/api/folder",
                     type:"POST",
                     dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"renamefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),folderName:renameFolder,parentID:parentId}  // search for tweets that contain "html5"
+                    data: {apiaction:"deletefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId")}  // search for tweets that contain "html5"
                 }
             },    
             schema: {
@@ -378,6 +320,111 @@
          // alert('rename call');
       	  closeModalView(e);
             app.documentsetting.viewModel.refreshView(); 
+             //$("#tabstrip-delete-folder").data("kendoMobileModalView").open();
+        },
+        deleteFile:function(e)
+        {
+           closeModalView(e);
+           $("#tabstrip-delete-files").data("kendoMobileModalView").open();
+        } ,
+        thisFileDelete:function(e)
+        {
+            //alert('pending delete webservices');
+            //closeModalView(e);
+            var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/file",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"deletefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId")}  // search for tweets that contain "html5"
+                }
+            },    
+            schema: {
+                data: function(data)
+                {   
+                	return [data];
+                }
+            },
+     
+            });
+             
+            dataSource.fetch(function(){
+                var data = dataSource.data(); 
+
+               // console.log(data);
+                if(data['0']['results']['faultcode'] === 1)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'success');
+                }
+                else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else
+                {
+                    msg ='Some Error Occurred';
+                    app.loginService.viewModel.mobileNotification(msg,'warning');  
+                    
+                }
+            }); 
+      	  closeModalView(e);
+            app.documentsetting.viewModel.refreshView(); 
+        },
+       
+        renameFolder:function(e)
+        {
+             closeModalView(e);
+             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
+        },
+        thisFolderRename:function(e)
+        {
+            var that = this;
+            var renameFolder = that.get("renameFolderName");
+		    var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/folder",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"renamefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),folderName:renameFolder,parentID:parentId}  // search for tweets that contain "html5"
+                }
+            },    
+            schema: {
+                data: function(data)
+                {   
+                	return [data];
+                }
+            },
+     
+            });
+             
+            dataSource.fetch(function(){
+                var data = dataSource.data(); 
+
+                // console.log(data);
+                if(data['0']['results']['faultcode'] === 1)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'success');
+                }
+                else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else
+                {
+                    msg ='Some Error Occurred';
+                    app.loginService.viewModel.mobileNotification(msg,'warning');  
+                    
+                }
+            }); 
+         // alert('rename call');
+      	  closeModalView(e);
+            app.documentsetting.viewModel.refreshView(); 
             
         },
         renameFile:function(e)
@@ -388,14 +435,55 @@
         thisFileRename:function(e)
         {
             
-            alert('rename file call');
-            closeModalView(e);
+            var that = this;
+            var renameFile = that.get("renameFileName");
+		    var dataSource = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: "http://biz2services.com/mobapp/api/file",
+                    type:"POST",
+                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    data: {apiaction:"renamefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),fileName:renameFile,parentID:parentId}  // search for tweets that contain "html5"
+                }
+            },    
+            schema: {
+                data: function(data)
+                {   
+                	return [data];
+                }
+            },
+     
+            });
+             
+            dataSource.fetch(function(){
+                var data = dataSource.data(); 
+
+                // console.log(data);
+                if(data['0']['results']['faultcode'] === 1)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'success');
+                }
+                else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else
+                {
+                    msg ='Some Error Occurred';
+                    app.loginService.viewModel.mobileNotification(msg,'warning');  
+                    
+                }
+            }); 
+      	  closeModalView(e);
+            app.documentsetting.viewModel.refreshView();
         },
         moveFolder:function(e)
         {
             closeModalView(e);
-
-            apps.navigate('views/movedocs.html');
+            var params = e.button.data();
+            apps.navigate('views/movedocs.html?param='+params.checkstatus);
         },
         hideRefreshLoading:function()
         {
