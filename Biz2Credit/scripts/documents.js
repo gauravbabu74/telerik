@@ -334,7 +334,7 @@
         },
         thisFolderRename:function(e)
         {
-            /*var that = this;
+            var that = this;
             var renameFolder = that.get("renameFolderName");
 		    var dataSource = new kendo.data.DataSource({
             transport: {
@@ -357,9 +357,13 @@
             dataSource.fetch(function(){
                 var data = dataSource.data(); 
 
-                console.log(data);
-            }); */
-          alert('rename call');
+                console.log(data['0']['results']['faultcode']);
+                if(data['0']['results']['faultcode'] === 1)
+                {
+                    app.loginService.viewModel.mobileNotification();
+                }
+            }); 
+         // alert('rename call');
       	closeModalView(e);
           app.documentsetting.viewModel.refreshView(); 
             
@@ -367,7 +371,7 @@
         renameFile:function(e)
         {
            closeModalView(e);
-             $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
+           $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
         },
         thisFileRename:function(e)
         {
@@ -380,7 +384,7 @@
             closeModalView(e);
 
             apps.navigate('views/movedocs.html');
-        },   
+        },
         hideRefreshLoading:function()
         {
             var that = this;

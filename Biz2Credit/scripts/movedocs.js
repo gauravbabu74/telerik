@@ -188,11 +188,7 @@
         },
         thisFolderMove:function()
         {
-            alert('move');
-            console.log(sessionStorage.getItem("currentFId"));
-            console.log(app.movedocumentsetting.viewModel.moveDocsId);
-            /*
-            var that = this;
+         
 		    var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -215,9 +211,9 @@
                 var data = dataSource.data(); 
 
                 console.log(data);
-            });*/
-       // 	newFolderCloseModal();
-       // 	app.documentsetting.viewModel.refreshView();
+            });
+        	//newFolderCloseModal();
+        	app.documentsetting.viewModel.refreshView();
             app.movedocumentsetting.viewModel.backDocslistPage();
             
         }

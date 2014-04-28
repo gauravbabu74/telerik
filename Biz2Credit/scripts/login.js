@@ -150,6 +150,29 @@
             }
             return true;
         },
+        checkConnectionRetrycall:function(e)
+        {
+           var that = this;
+            console.log(e)
+           if(that.checkConnection())
+           {
+                navigator.notification.confirm('Connection Error?', function (confirmed) {
+                	if (confirmed === true || confirmed === 1) {
+                		console.log(e)
+                	}
+
+                }, 'Retry', 'Cancel');
+           }
+        },
+        mobileNotification:function(msg)
+        {
+            var staticNotification = $("#staticNotification").kendoNotification({
+                        appendTo: "#appendto"
+                    }).data("kendoNotification");
+            staticNotification.show(kendo.toString(d, 'HH:MM:ss.') + kendo.toString(d.getMilliseconds(), "000"), "info");
+            var container = $(staticNotification.options.appendTo);
+            container.scrollTop(container[0].scrollHeight);
+        }
     });
     
     app.loginService = {

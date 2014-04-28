@@ -3,6 +3,7 @@
     
     // Handle device back button tap
     var onBackKeyDown = function(e) {
+        console.log(e);
         //alert(apps.view()['element']['0']['id']);
       if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
         e.preventDefault();
@@ -22,7 +23,9 @@
             e.preventDefault();
         }
         else
-        {   //$("#tabstrip-folder-events").kendoMobileModalView("close");
+        { 
+            //apps.view()['element']['0']['id'];
+            //$("#tabstrip-folder-events").kendoMobileModalView("close");
             $("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
             $("#tabstrip-mess-dynamic").data("kendoMobileModalView").close();
             $("#tabstrip-mess-third").data("kendoMobileModalView").close();

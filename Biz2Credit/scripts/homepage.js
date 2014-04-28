@@ -17,8 +17,10 @@
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
-        homeShow: function () {
+        homeShow: function (e) {
+        //var that = this;  
         app.loginService.viewModel.showloder();
+       // app.loginService.viewModel.checkConnectionRetrycall(that);
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
