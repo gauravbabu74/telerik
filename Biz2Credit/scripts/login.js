@@ -19,12 +19,12 @@
                 return;
             }
             if(!that.checkConnection()){
-                    navigator.notification.confirm('Connection Error?', function (confirmed) {
+                    navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                 	if (confirmed === true || confirmed === 1) {
                 		app.loginService.viewModel.validateUser();
                 	}
 
-                }, 'Retry', 'Cancel');
+                }, 'Connection Error?', 'Retry,Cancel');
             }
             else{
                
