@@ -19,8 +19,13 @@
                 return;
             }
             if(!that.checkConnection()){
-                    return;
-                }
+                    navigator.notification.confirm('Connection Error?', function (confirmed) {
+                	if (confirmed === true || confirmed === 1) {
+                		app.loginService.viewModel.validateUser();
+                	}
+
+                }, 'Retry', 'Cancel');
+            }
             else{
                
                that.userLogin();  
@@ -145,7 +150,7 @@
             states[Connection.CELL] = 'Cell generic connection';
             states[Connection.NONE] = 'No network connection';
             if (states[networkState] === 'No network connection') {
-                navigator.notification.alert('No active connection found!');
+               // navigator.notification.alert('No active connection found!');
                 return false;
             }
             return true;

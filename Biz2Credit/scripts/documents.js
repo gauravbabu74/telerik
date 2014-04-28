@@ -525,7 +525,22 @@
             dataSource.fetch(function(){
                 var data = dataSource.data(); 
 
-                console.log(data);
+                if(data['0']['results']['faultcode'] === 1)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'success');
+                }
+                else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else
+                {
+                    msg ='Some Error Occurred';
+                    app.loginService.viewModel.mobileNotification(msg,'warning');  
+                    
+                }
             });   
             closeModalView(e);
             app.documentsetting.viewModel.refreshView(); 

@@ -3,8 +3,7 @@
     
     // Handle device back button tap
     var onBackKeyDown = function(e) {
-        console.log(e);
-        //alert(apps.view()['element']['0']['id']);
+        
       if(apps.view()['element']['0']['id']==='tabstrip-login'|| apps.view()['element']['0']['id']==='tabstrip-home'){
         e.preventDefault();
         navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
@@ -24,21 +23,17 @@
         }
         else
         { 
-            //apps.view()['element']['0']['id'];
-            //$("#tabstrip-folder-events").kendoMobileModalView("close");
             $("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
             $("#tabstrip-mess-dynamic").data("kendoMobileModalView").close();
             $("#tabstrip-mess-third").data("kendoMobileModalView").close();
             $("#tabstrip-mess-two").data("kendoMobileModalView").close();
             $("#tabstrip-mess-one").data("kendoMobileModalView").close();
             apps.navigate("#:back");
-           
         }
     };
 
     var onDeviceReady = function() {
         navigator.splashscreen.hide();
-       // $(document.body).height(window.innerHeight);
         document.addEventListener('backbutton', onBackKeyDown, false);
        // document.addEventListener("menubutton",omenu, false);
     };
