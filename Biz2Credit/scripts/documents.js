@@ -357,15 +357,27 @@
             dataSource.fetch(function(){
                 var data = dataSource.data(); 
 
-                console.log(data['0']['results']['faultcode']);
+               // console.log(data);
                 if(data['0']['results']['faultcode'] === 1)
                 {
-                    app.loginService.viewModel.mobileNotification();
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'success');
+                }
+                else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else
+                {
+                    msg ='Some Error Occurred';
+                    app.loginService.viewModel.mobileNotification(msg,'warning');  
+                    
                 }
             }); 
          // alert('rename call');
-      	closeModalView(e);
-          app.documentsetting.viewModel.refreshView(); 
+      	  closeModalView(e);
+            app.documentsetting.viewModel.refreshView(); 
             
         },
         renameFile:function(e)
