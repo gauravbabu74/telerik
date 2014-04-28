@@ -23,8 +23,11 @@
         }
         else
         {   //$("#tabstrip-folder-events").kendoMobileModalView("close");
-            var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
-            modalView.close();
+            $("#tabstrip-mess-fourth").data("kendoMobileModalView").close();
+            $("#tabstrip-mess-dynamic").data("kendoMobileModalView").close();
+            $("#tabstrip-mess-third").data("kendoMobileModalView").close();
+            $("#tabstrip-mess-two").data("kendoMobileModalView").close();
+            $("#tabstrip-mess-one").data("kendoMobileModalView").close();
             apps.navigate("#:back");
            
         }
