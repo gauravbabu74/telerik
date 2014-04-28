@@ -18,7 +18,16 @@
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
         homeShow: function (e) { 
+        if(!app.loginService.viewModel.checkConnection()){
+                navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		app.homesetting.viewModel.homeShow();
+            	}
+
+            }, 'Connection Error?', 'Retry,Cancel');
+        }
         app.loginService.viewModel.showloder();
+            
         var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -265,6 +274,14 @@
         },
         reqDocuments: function(e)
         {
+            if(!app.loginService.viewModel.checkConnection()){
+                navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+            		app.homesetting.viewModel.reqDocuments();
+            	}
+
+            }, 'Connection Error?', 'Retry,Cancel');
+            }
             var pdata = e.button.data();
         	app.loginService.viewModel.showloder();
 

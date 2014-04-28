@@ -10,6 +10,14 @@
         
         movedocumentShow:function(e)
         { 
+            if(!app.loginService.viewModel.checkConnection()){
+                navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.movedocumentsetting.viewModel.movedocumentShow();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             app.movedocumentsetting.viewModel.setCheckStatus(e.view.params.param);
             app.loginService.viewModel.showloder();
             if(typeof $(".list-move-listview").data("kendoMobileListView") !=='undefined' )
@@ -76,6 +84,14 @@
        },
         moveRefreshView:function(e)
         { 
+            if(!app.loginService.viewModel.checkConnection()){
+                navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.movedocumentsetting.viewModel.moveRefreshView();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             app.loginService.viewModel.showloder();
             if(typeof $(".list-move-listview").data("kendoMobileListView") !=='undefined' )
             {

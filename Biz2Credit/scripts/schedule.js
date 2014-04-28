@@ -24,7 +24,15 @@
 
                 return;
             }
-            else{   
+            else{ 
+                if(!app.loginService.viewModel.checkConnection()){
+                	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+                		if (confirmed === true || confirmed === 1) {
+                			app.scheduleService.viewModel.validateSchedule();
+                		}
+
+                	}, 'Connection Error?', 'Retry,Cancel');
+                }
                app.loginService.viewModel.showloder();
                // alert('Schedule call');
                that.setSchedule(phonenumber,sDate,sTime);  

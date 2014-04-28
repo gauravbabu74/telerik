@@ -13,6 +13,14 @@
         renameFileName:'',
         documentShow:function(e)
         { 
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+        			if (confirmed === true || confirmed === 1) {
+        				app.documentsetting.viewModel.documentShow();
+        			}
+
+        		}, 'Connection Error?', 'Retry,Cancel');
+            }
             app.loginService.viewModel.showloder();
             if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined')
             {
@@ -80,7 +88,14 @@
        },
        refreshView:function(e)
         {
-         
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.documentsetting.viewModel.refreshView();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             if( app.documentsetting.viewModel.parentId === 0)
             {
                 parentId = 0;
@@ -276,8 +291,14 @@
         },
         thisFolderDelete:function(e)
         {
-            //alert('pending delete webservices');
-           // closeModalView(e);
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.documentsetting.viewModel.thisFolderDelete();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
 		    var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -329,8 +350,14 @@
         } ,
         thisFileDelete:function(e)
         {
-            //alert('pending delete webservices');
-            //closeModalView(e);
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.documentsetting.viewModel.thisFileDelete();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             var dataSource = new kendo.data.DataSource({
             transport: {
                 read: {
@@ -381,6 +408,14 @@
         },
         thisFolderRename:function(e)
         {
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.documentsetting.viewModel.thisFolderRename();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             var that = this;
             var renameFolder = that.get("renameFolderName");
 		    var dataSource = new kendo.data.DataSource({
@@ -434,7 +469,14 @@
         },
         thisFileRename:function(e)
         {
-            
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.documentsetting.viewModel.thisFileRename();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             var that = this;
             var renameFile = that.get("renameFileName");
 		    var dataSource = new kendo.data.DataSource({
@@ -502,6 +544,14 @@
         },
         newFolderCreate:function(e)
         {
+            if(!app.loginService.viewModel.checkConnection()){
+            	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            		if (confirmed === true || confirmed === 1) {
+            			app.documentsetting.viewModel.newFolderCreate();
+            		}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
             var that = this;
             newFolderName = that.get("newFolderName");
             var dataSource = new kendo.data.DataSource({
