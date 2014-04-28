@@ -198,7 +198,7 @@
         {
             var that = this;
             var status = that.get("checkStatus"); 
-        if(status === 'folder')
+        	if(status === 'folder')
             {
                 var dataSource = new kendo.data.DataSource({
                     transport: {
@@ -218,35 +218,41 @@
 
                 });  
             }
+            else
+            {
+              var dataSource = new kendo.data.DataSource({
+                    transport: {
+                    		read: {
+                    		url: "http://biz2services.com/mobapp/api/file",
+                    		type:"POST",
+                    		dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
+                    		data: {apiaction:"movefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
+                    }
+                },    
+                schema: {
+                    data: function(data)
+                    {   
+                    		return [data];
+                    }
+                },
+
+                });    
+            }
             
-		   /* var dataSource = new kendo.data.DataSource({
-            transport: {
-                read: {
-                    url: "http://biz2services.com/mobapp/api/folder",
-                    type:"POST",
-                    dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                    data: {apiaction:"movefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
-                }
-            },    
-            schema: {
-                data: function(data)
-                {   
-                	return [data];
-                }
-            },
-     
-            });
-             
             dataSource.fetch(function(){
                 var data = dataSource.data(); 
-
-                console.log(data);
+                //console.log(data);
                 if(data['0']['results']['faultcode'] === 1)
                 {
                     msg =data['0']['results']['faultmsg'];
                     app.loginService.viewModel.mobileNotification(msg,'success');
                 }
                 else if(data['0']['results']['faultcode'] === 0)
+                {
+                    msg =data['0']['results']['faultmsg'];
+                    app.loginService.viewModel.mobileNotification(msg,'info');  
+                }
+                else if(data['0']['results']['faultcode'] === 3)
                 {
                     msg =data['0']['results']['faultmsg'];
                     app.loginService.viewModel.mobileNotification(msg,'info');  
@@ -258,12 +264,10 @@
                     
                 }
             });
-        	//newFolderCloseModal();
+
         	app.documentsetting.viewModel.refreshView();
-            app.movedocumentsetting.viewModel.backDocslistPage();*/
-            
-            
-            
+            app.movedocumentsetting.viewModel.backDocslistPage();           
+             
         }
     });
     app.movedocumentsetting = {
