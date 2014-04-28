@@ -23,7 +23,8 @@
         }
         else
         {   //$("#tabstrip-folder-events").kendoMobileModalView("close");
-            closeModalView(e);
+            var modalView = e.sender.element.closest("[data-role=modalview]").data("kendoMobileModalView");
+            modalView.close();
             apps.navigate("#:back");
            
         }
