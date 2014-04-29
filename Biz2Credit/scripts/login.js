@@ -175,10 +175,30 @@
                 
            	 appendTo: "#appendto",
             	autoHideAfter: 9000000,
-                animation: false
-                
+                animation: false,
+                templates: [
+                {
+                	type: "warning",
+                	template: "<div class='notify'>#= msg #</div>"
+				},
+                {
+               
+                	type: "info",
+                	template: "<div class='notify'>#= msg #</div>"
+                },
+                {
+               
+                	type: "success",
+                	template: "<div class='notify'> #= msg #</div>"
+                },
+                {
+               
+                	type: "error",
+                	template: "<div class='notify'>#= msg #</div>"
+                }
+                ]
             }).data("kendoNotification");
-            
+           
             staticNotification.show(msg, status); 
         }
     });
