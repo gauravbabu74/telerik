@@ -283,7 +283,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .movebuttonArea .moveButton {/* Safari 4-5, Chrome 1-9 */  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));   /* Safari 5.1, Chrome 10+ */   background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00);  /* Firefox 3.6+ */   background: -moz-linear-gradient(top, #9fcf0f, #8dbc00);   /* IE 10 */   background: -ms-linear-gradient(top, #9fcf0f, #8dbc00);   /* Opera 11.10+ */   background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px;  border:1px solid #808080;  color:#000;  font-size:1.125em;  -moz-box-shadow: inset 0px 0px 1px #7a9e0e;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;    width:48.5%; padding:0.6em 0; margin:0 0 0 1px; border-radius:1px; z-index:1000;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}  
  
-.tabstrip-files-events {}
+#tabstrip-files-events.modal-mess-Popup {height:80%;}
 
 .k-notification-wrap { background-color:#000;opacity:0.8;border-radius:3px; width:88%; color:#fff; font-size:1em; margin:0 auto; padding:1.5% 2%; text-align:center;}
 
@@ -378,6 +378,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .stpcurrntAc p a{ padding:3px 15px 3px 25px !important; background-size:13% !important; background-position:5px 2px !important;}
 .home .popup { width:40px; height:40px;}
 .k-notification-wrap {font-size:0.8em;}
+#tabstrip-files-events.modal-mess-Popup {height:91%;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
@@ -404,10 +405,12 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .stpsumry p { font-size:12px; margin:0 3%; height:28px; overflow:auto;}
 .btngr{padding:6px 8px;}
 .modal-mess-one, .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; height:65%;}
+
 .km-flat .km-header .km-navbar { padding:0%;}
 #tabstrip-download-file .download-file-name .docx, #tabstrip-download-file .download-file-name .jpg, #tabstrip-download-file .download-file-name .doc, #tabstrip-download-file .download-file-name .txt, #tabstrip-download-file .download-file-name .xls, #tabstrip-download-file .download-file-name .pdf, #tabstrip-download-file .download-file-name .png {padding:35% 0 0;background-size:25%;}
 #tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;height:60%;}
 .documentClick .km-view-title a{padding: 6px 7px 0px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select{ background-size:10%; background-position:95% 12px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:10%; background-position:95% 13px;}
+#tabstrip-files-events.modal-mess-Popup {height:70%;}
 }
