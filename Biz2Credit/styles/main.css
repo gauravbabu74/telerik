@@ -284,7 +284,6 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) { margin:0 10%; text-align:left;}  
  
 #tabstrip-files-events.modal-mess-Popup {height:80%;}
-
 .k-notification-wrap { background-color:#000;opacity:0.8;border-radius:3px; width:88%; color:#fff; font-size:1em; margin:0 auto; padding:1.5% 2%; text-align:center;}
 
 @media (min-width:0px) and (max-width:1024px) {
