@@ -739,7 +739,7 @@
                     //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
                    //console.log("download error source " + error.source);
                    // console.log("download error target " + error.target);
-                    alert("Download error code" + error.code);
+                    alert("Download error code" + error.target);
                     app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {
                 			console.log(fileSystem);
