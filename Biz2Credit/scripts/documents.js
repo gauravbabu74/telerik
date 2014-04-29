@@ -739,11 +739,11 @@
                     //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
                    //console.log("download error source " + error.source);
                    // console.log("download error target " + error.target);
-                    alert("Download error code" + error.target);
+                   // alert("Download error code" + error.target);
                     app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {
-                			console.log(fileSystem);
-                			fileSystem.root.getFile(error.target, {create: false},  app.documentsetting.viewModel.gotRemoveFileEntry, console.log("failed to get filesystem"));
+                			//console.log(fileSystem);
+                			fileSystem.root.getFile(filePath, {create: false},  app.documentsetting.viewModel.gotRemoveFileEntry, alert("Download error code" + error.target));
                 		},
                 		function() {
                 			console.log("failed to get filesystem");
@@ -756,11 +756,15 @@
         },
         gotRemoveFileEntry:function(fileEntry)
         {
-          fileEntry.remove(success, fail);  
+          fileEntry.remove(function() {
+                			console.log("File is removed from filesystem");
+                		}, function() {
+                			console.log("File is not removed from filesystem");
+                		});  
         },
         transferFileAbort:function()
         {
-            console.log(transfer);
+            //console.log(transfer);
             transfer.abort();
             //transfer.remove();
         },

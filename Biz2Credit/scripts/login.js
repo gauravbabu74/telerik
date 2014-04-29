@@ -138,8 +138,7 @@
         
         checkConnection:function()
         {
-            var networkState = navigator.connection.type;
-
+            /*var networkState = navigator.connection.type;
             var states = {};
             states[Connection.UNKNOWN] = 'Unknown connection';
             states[Connection.ETHERNET] = 'Ethernet connection';
@@ -152,7 +151,7 @@
             if (states[networkState] === 'No network connection') {
                // navigator.notification.alert('No active connection found!');
                 return false;
-            }
+            }*/
             return true;
         },
         checkConnectionRetrycall:function(e)
