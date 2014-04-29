@@ -56,28 +56,25 @@
         dirContent.empty();
          
         var dirArr = new Array();
-        var fileArr = new Array();
         for(var i=0; i<entries.length; ++i){ // sort entries
             var entry = entries[i];
             if( entry.isDirectory && entry.name[0] !== '.' ) dirArr.push(entry);
-            else if( entry.isFile && entry.name[0] !== '.' ) fileArr.push(entry);
         }
          
-        var sortedArr = dirArr.concat(fileArr); // sorted entries
+
 
          
-        for(var i=0; i<sortedArr.length; ++i)
+        for(var i=0; i<dirArr.length; ++i)
         { 
-            var entry = sortedArr[i];
+            var entry = dirArr[i];
 			html = '';
             if( entry.isDirectory )
             {
+                alert(entry.name);
              html += "<li>"+entry.name+"</li>";
             }
-                
-            
         }
-            $("#dirContent").append(html);
+        $("#dirContent").append(html);
        app.loginService.viewModel.hideloder(); // hide loading message
     }, function(error){
         console.log('listDir readEntries error: '+error.code);
