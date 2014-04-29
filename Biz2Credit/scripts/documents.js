@@ -85,6 +85,7 @@
                 dataSource.fetch(function(){
                     var that = this;
                     var data = that.data();
+                    //console.log(data);
                     app.documentsetting.viewModel.setDocuments(data); 
                 });
        	 }
@@ -696,7 +697,7 @@
         },
         transferFile: function (uri, filePath) {
             
-            var transfer = new FileTransfer();
+            transfer = new FileTransfer();
             transfer.onprogress = function(progressEvent) {
                 console.log('enter transfer');
                 if (progressEvent.lengthComputable) {
@@ -736,17 +737,42 @@
                 },
                 function(error) {
                     //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
-                   // console.log("download error source " + error.source);
-                    //console.log("download error target " + error.target);
+                   //console.log("download error source " + error.source);
+                   // console.log("download error target " + error.target);
                     alert("Download error code" + error.code);
+                    app.documentsetting.viewModel.getFilesystem(
+                		function(fileSystem) {
+                			console.log(fileSystem);
+                			fileSystem.root.getFile(error.target, {create: false},  app.documentsetting.viewModel.gotRemoveFileEntry, console.log("failed to get filesystem"));
+                		},
+                		function() {
+                			console.log("failed to get filesystem");
+                		}
+            		);
+                    
                 }
             );
             
+        },
+        gotRemoveFileEntry:function(fileEntry)
+        {
+          fileEntry.remove(success, fail);  
+        },
+        transferFileAbort:function()
+        {
+            console.log(transfer);
+            transfer.abort();
+            //transfer.remove();
         },
         getFileExtension:function(filename)
         {
             var ext = /^.+\.([^.]+)$/.exec(filename);
             return ext === null ? "" : ext[1];
+        },
+        closeFileDownloadProcess:function()
+        {
+            $("#tabstrip-download-file").data("kendoMobileModalView").close();
+            app.documentsetting.viewModel.transferFileAbort();
         },
         
     });
