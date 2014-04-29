@@ -736,16 +736,16 @@
             		}	
                 },
                 function(error) {
-                    alert("Download error code" + error.target)
-                    /*app.documentsetting.viewModel.getFilesystem(
+                    //alert("Download error code" + error.target)
+                    app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {
                 			//console.log(fileSystem);
-                			fileSystem.root.getFile(filePath, {create: false},  app.documentsetting.viewModel.gotRemoveFileEntry, alert("Download error code" + error.target));
+                			fileSystem.root.getFile(filePath, {create: false,exclusive:true},  app.documentsetting.viewModel.gotRemoveFileEntry, alert("Download error code" + error.target));
                 		},
                 		function() {
                 			console.log("failed to get filesystem");
                 		}
-            		);*/
+            		);
                     
                 }
             );
@@ -761,9 +761,14 @@
         },
         transferFileAbort:function()
         {
-            //console.log(transfer);
-            transfer.abort();
-            //transfer.remove();
+            if(transfer)
+            {
+               transfer.abort(function() {
+                			console.log("File transfer aborted");
+                		}, function() {
+                			console.log("File transfer aborted fail.");
+                		}); 
+            }
         },
         getFileExtension:function(filename)
         {
