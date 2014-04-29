@@ -1,0 +1,29 @@
+ <!--Document Section---->
+        <div id="tabstrip-file-export"  data-role="view" data-show="app.fileexportsetting.viewModel.filedocumentShow" data-model="app.fileexportsetting.viewModel">
+            <div data-role="header" class="docs-header">
+                <div data-role="navbar">
+                    <span data-role="view-title">
+                    	<a class="docs-back" data-role="button" data-bind="click: backDocslistPage">Back</a>
+                    	<p class="docs-docu">Biz2Credit</p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="documentContent" data-role="content">
+                <a id="movePageback" class="inner-docs-back"   data-bind="click:gobackFileExportPage,visible: exportInnerPage"><span>Documents</span></a>
+            	<ul id="dirContent"></ul> 
+            </div>
+            
+            <div data-role="footer">
+                <div class="movebuttonArea">
+            		<input type="submit" class="cancel" data-role="button" data-bind="click: backDocslistPage" value="Cancel" />
+            		<input type="submit" data-role="button" data-bind="click: thisFileExport" class="moveButton new-folder-create" value="Export" />
+            	</div>
+            </div>
+        </div>
+
+<!-- Matches page template -->
+        <script type="text/x-kendo-template" id="docsmove-template">
+           
+            
+        </script>

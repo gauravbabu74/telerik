@@ -536,6 +536,11 @@
                 app.documentsetting.viewModel.refreshView();
             }
         },
+        exportFile:function(e)
+        {	
+             closeModalView(e);
+             apps.navigate('views/fileExport.html');
+        },
         moveFolder:function(e)
         {
             closeModalView(e);
