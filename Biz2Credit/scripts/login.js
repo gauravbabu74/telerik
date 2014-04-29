@@ -174,7 +174,8 @@
             var staticNotification = $("#staticNotification").kendoNotification({
                 
            	 appendTo: "#appendto",
-            	autoHideAfter: 9000000
+            	autoHideAfter: 9000000,
+                animation: false
                 
             }).data("kendoNotification");
             

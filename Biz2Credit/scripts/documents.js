@@ -763,11 +763,7 @@
         {
             if(transfer)
             {
-               transfer.abort(function() {
-                			console.log("File transfer aborted");
-                		}, function() {
-                			console.log("File transfer aborted fail.");
-                		}); 
+               transfer.abort(); 
             }
         },
         getFileExtension:function(filename)
