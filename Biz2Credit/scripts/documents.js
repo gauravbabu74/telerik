@@ -736,11 +736,8 @@
             		}	
                 },
                 function(error) {
-                    //document.getElementById("result").innerHTML = "An error has occurred: Code = " + error.code;
-                   //console.log("download error source " + error.source);
-                   // console.log("download error target " + error.target);
-                   // alert("Download error code" + error.target);
-                    app.documentsetting.viewModel.getFilesystem(
+                    alert("Download error code" + error.target)
+                    /*app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {
                 			//console.log(fileSystem);
                 			fileSystem.root.getFile(filePath, {create: false},  app.documentsetting.viewModel.gotRemoveFileEntry, alert("Download error code" + error.target));
@@ -748,7 +745,7 @@
                 		function() {
                 			console.log("failed to get filesystem");
                 		}
-            		);
+            		);*/
                     
                 }
             );
