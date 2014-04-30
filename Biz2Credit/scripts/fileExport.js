@@ -119,10 +119,12 @@
         
         thisFileExport:function(e)
         {
+            console.log(currentDir);
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
             fileName = sessionStorage.getItem("currentFileName");
             filePath = currentDir.fullPath + "\/" + fileName;
-            currentDir.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+            relPath = currentDir.name + "\/" + fileName;
+            currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
             
            // ext = app.documentsetting.viewModel.getFileExtension(fileName);
            // $("#tabstrip-download-file").data("kendoMobileModalView").open();
