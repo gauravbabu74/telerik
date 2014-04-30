@@ -11,11 +11,11 @@
 
             <div class="documentContent" data-role="content">
                 <a id="movePageback" class="inner-docs-back"   data-bind="click:gobackFileExportPage,visible: exportInnerPage"><span>Documents</span></a>
-            	<ul id="dirContent"></ul> 
+            	<ul id="dirContent" class="export"></ul> 
             </div>
             
             <div data-role="footer">
-                <div class="movebuttonArea">
+                <div class="movebuttonArea clearfix">
             		<input type="submit" class="cancel" data-role="button" data-bind="click: backDocslistPage" value="Cancel" />
             		<input type="submit" data-role="button" data-bind="click: thisFileExport" class="moveButton new-folder-create" value="Export" />
             	</div>
