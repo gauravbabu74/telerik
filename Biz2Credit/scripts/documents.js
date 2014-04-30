@@ -680,7 +680,7 @@
         },
         fileExists:function(fileEntry)
         {
-             //alert("File "+fileEntry.fullPath+" exists!");
+             alert("File "+fileEntry.fullPath+" exists!");
             
             if(device.platform.toLowerCase() === "ios" )
             {
@@ -694,6 +694,7 @@
         },
         fileDoesNotExist:function(fileError)
         {
+             alert("Not Exist");
             fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();

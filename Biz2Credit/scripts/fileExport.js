@@ -114,10 +114,11 @@
         {
             
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
-            fileName = sessionStorage.getItem("currentFileName");
+            //fileName = sessionStorage.getItem("currentFileName");
+            fileName = 'abc.pdf';
             filePath = currentDir.fullPath + "\/" + fileName;
-            relPath = currentDir.name + "\/" + fileName;
-            currentDir.getFile("\/" +fileName, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+            relPath = "\/" +fileName;
+            currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
 
         },
         setExportInnerPage:function()
