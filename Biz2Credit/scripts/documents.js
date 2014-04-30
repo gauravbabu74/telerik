@@ -171,6 +171,7 @@
         },
         setDocuments: function(data)
         { 
+            console.log(data);
             var that = this;
             that.set("documents", data['0']);  
             $("#list-edit-listview").kendoMobileListView({
@@ -210,9 +211,10 @@
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 fileName = $.trim(e.touch.currentTarget.innerText);
+                                fileId = $.trim(sessionStorage.currentFileId)+'.file';
                                // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                                uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
-                                
+                                uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
+                                console.log(uri);
                                 folderName = "biz2docs";
                                 app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                             }
@@ -744,6 +746,7 @@
             		}	
                 },
                 function(error) {
+                    console.log(error);
                     //alert("Download error code" + error.target)
                     app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {

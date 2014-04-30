@@ -321,6 +321,13 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .docs-header .km-widget .refresh-loading { width:8%; background-position:center 0; background-size:50%; margin:1.9% 0 0;}
 #tabstrip-files-events.modal-mess-Popup {height:65%;}
 .modal-mess-one, .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; height:45.5%;}
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {background-size: 8.3%;background-position: 15px 7px;}
+.documentContent .km-listview-wrapper ul li span {padding:17px 10px 17px 11%;}
+.documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size: 5.7%;background-position: 28px 5px;}
+.documentContent ul.export {list-style:none;} 
+.documentContent ul.export li {}
+.documentContent ul.export li span {padding:17px 10px 17px 10%;background-size:8.3%;}
+.documentContent ul.export li .folder {background-image: url(images/folder.png); background-repeat:no-repeat;background-position:5px 7px;}
 }
 
 @media (min-width:0px) and (max-width:800px) {
@@ -340,11 +347,15 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .logLogo {margin: 34% auto 10%;}
 }
 @media (min-width:0px) and (max-width:640px) { 
-  
-
 .logo { margin:3% auto;}
 .logLogo { margin:40% auto 10%;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
+.documentClick .km-view-title a {padding: 5px 7px 0px;}
+.documentClick .km-view-title a span{ padding-top:10px;}
+#blackBlk .desbrdIcon .dasimg {width: 10%;}
+#blackBlk .desbrdIcon .span {font-size: 1.2em;}
+#blackBlk .desbrdIcon .span span {padding: 2% 0 0;}
+#blackBlk .desbrdIcon {padding: 2%;}
 }
 @media (min-width:0px) and (max-width:600px) { 
 #tabstrip-files-events.modal-mess-Popup {height:50%;}
@@ -353,7 +364,14 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .docs-header .km-widget .docs-search { width:8%; margin:0;}
 .docs-header .km-widget .refresh-com, .docs-header .km-widget .refresh-loading { width:11%; margin:0; background-position:center 12px;}
 .docs-header .km-widget .refresh-loading { background-position: center 17px;}
-    .docs-header .km-widget .docs-back { height:57px;}
+.docs-header .km-widget .docs-back { height:57px;}
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {background-size: 12%;background-position:7px 7px;}
+.documentContent .km-listview-wrapper ul li span {padding: 12px 10px 12px 16%;}
+.documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size: 8.5%;background-position: 20px 5px;}
+.documentContent ul.export {list-style:none;} 
+.documentContent ul.export li {}
+.documentContent ul.export li span {padding:12px 10px 12px 15%;background-size: 12%;}
+.documentContent ul.export li .folder {background-image: url(images/folder.png); background-repeat:no-repeat;background-position:5px 7px;}
 }
 @media (min-width:0px) and (max-width:533px) { 
 #blackBlk .desbrdIcon {padding: 2%;display: block;}
@@ -376,7 +394,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .docs-header .km-widget .docs-search { width:7%; margin:0;background-position: center 7px;}
 .docs-header .km-widget .refresh-com { width:9%;background-position: center 7px; background-size:70%;}
 .docs-header .km-widget .refresh-loading { width:9%;}
-.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:9%;padding: 5px 10px 5px 12%; } 
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder { background-size:9%;padding: 5px 10px 5px 12%;background-position: 5px 7px;} 
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:7%; background-position:12px 7px;padding: 5px 10px 5px 12%;}
 .modal-mess-one, .modal-mess-Popup {padding:0; width:98%; margin:0 0 0 1.3%; height:82%;}
 .km-flat .km-header .km-navbar { padding:0%;}
@@ -395,13 +413,17 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .k-notification-wrap {font-size:0.8em;}
 #tabstrip-files-events.modal-mess-Popup {height:91%;}
 .docs-header .km-widget .refresh-loading{background-position: center 12px;}
+.documentContent ul.export {list-style:none;} 
+.documentContent ul.export li {}
+.documentContent ul.export li span {padding: 5px 10px 5px 12%;background-size: 9%;}
+.documentContent ul.export li .folder {background-image: url(images/folder.png); background-repeat:no-repeat;background-position:5px 7px;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
 .logLogo { margin:17% auto;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 
-.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {padding: 5px 10px 5px 22%; background-size:17%;}   
+.documentContent .km-listview-wrapper ul li .sharedfolder, .documentContent .km-listview-wrapper ul li .Folder {padding: 5px 10px 5px 22%; background-size:17%;background-position: 5px 7px;}   
 .documentContent .km-listview-wrapper ul li .docx, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .default-icon, .documentContent .km-listview-wrapper ul li .jpg, .documentContent .km-listview-wrapper ul li .doc, .documentContent .km-listview-wrapper ul li .txt, .documentContent .km-listview-wrapper ul li .xls, .documentContent .km-listview-wrapper ul li .pdf, .documentContent .km-listview-wrapper ul li .png {background-size:12%; background-position:16px 5px;padding: 5px 10px 5px 22%;}
 .docs-header .km-widget .docs-back { width:18%;}
 .docs-header .km-widget .docs-docu  { padding:5px 0 0; width:44%;}
@@ -430,5 +452,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:10%; background-position:95% 13px;}
 #tabstrip-files-events.modal-mess-Popup {height:70%;}
 .docs-header .km-widget #docs-filter .km-filter-wrap { background-position:5px 39px; margin:0; padding:0; background-size:97%; width:90%;}
-    .docs-header .km-widget #docs-filter .km-filter-wrap input {padding:0 0 0 10px; }
+.docs-header .km-widget #docs-filter .km-filter-wrap input {padding:0 0 0 10px; }
+.documentContent ul.export {list-style:none;} 
+.documentContent ul.export li {}
+.documentContent ul.export li span {padding: 5px 10px 5px 22%;background-size: 17%;}
+.documentContent ul.export li .folder {background-image: url(images/folder.png); background-repeat:no-repeat;background-position:5px 7px;}
 }
