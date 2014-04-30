@@ -14,14 +14,43 @@
             window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
                 function(fileSystem){ // success get file system
                	 root = fileSystem.root;
-                    
                 	app.fileexportsetting.viewModel.listDir(root);
-                    
                 }, 
                 function(evt){ // error get file system
                 	console.log("File System Error: "+evt.target.error.code);
                 }
             );		
+        },
+        listDir:function(directoryEntry){
+            
+            if(typeof $("#dirContent").data("kendoMobileListView") !=='undefined')
+            {
+            	$("#dirContent").data("kendoMobileListView").destroy();
+            }
+            app.loginService.viewModel.showloder(); // show loading message
+            currentDir = directoryEntry; // set current directory
+            directoryEntry.getParent(function(par){ // success get parent
+            parentDir = par; // set parent directory
+            	if( currentDir.name === root.name) app.fileexportsetting.viewModel.setExportRootPage();
+            	}, function(error){ // error get parent
+            		console.log('Get parent error: '+error.code);
+            	});
+
+            var directoryReader = directoryEntry.createReader();
+            directoryReader.readEntries(function(entries){
+            var dirContent = $('#dirContent');
+            dirContent.empty();
+            var dirArr = new Array();
+            for(var i=0; i<entries.length; ++i){ // sort entries
+            	var entry = entries[i];
+            	if( entry.isDirectory && entry.name[0] !== '.' ) dirArr.push(entry);
+            }
+            app.fileexportsetting.viewModel.setExportDocs(dirArr);
+            app.loginService.viewModel.hideloder(); // hide loading message
+            }, function(error){
+            	console.log('listDir readEntries error: '+error.code);
+
+            });
         },
         getActiveItem:function(name)
         {   
@@ -55,44 +84,11 @@
             }
  
         },
-        listDir:function(directoryEntry){
-            if(typeof $("#dirContent").data("kendoMobileListView") !=='undefined')
-            {
-            	$("#dirContent").data("kendoMobileListView").destroy();
-            
-            }
-            app.loginService.viewModel.showloder(); // show loading message
-			
-            currentDir = directoryEntry; // set current directory
-            directoryEntry.getParent(function(par){ // success get parent
-            parentDir = par; // set parent directory
-            	if( currentDir.name === root.name) app.fileexportsetting.viewModel.setExportRootPage();
-            	}, function(error){ // error get parent
-            		console.log('Get parent error: '+error.code);
-            	});
-
-            var directoryReader = directoryEntry.createReader();
-            directoryReader.readEntries(function(entries){
-            var dirContent = $('#dirContent');
-            dirContent.empty();
-
-            var dirArr = new Array();
-            for(var i=0; i<entries.length; ++i){ // sort entries
-            	var entry = entries[i];
-            	if( entry.isDirectory && entry.name[0] !== '.' ) dirArr.push(entry);
-            }
-            app.fileexportsetting.viewModel.setExportDocs(dirArr);
-            app.loginService.viewModel.hideloder(); // hide loading message
-            }, function(error){
-            	console.log('listDir readEntries error: '+error.code);
-
-            });
-        },
         setExportDocs:function(data)
         {
             var that = this;
             that.set("expDocs", data);
-             $("#dirContent").kendoMobileListView({
+            $("#dirContent").kendoMobileListView({
                 dataSource: app.fileexportsetting.viewModel.expDocs,
                 template: $("#docs-export-template").html(),
                 }).kendoTouch({ 
@@ -111,7 +107,6 @@
         },
         gobackFileExportPage:function(e)
         {
-           // alert('back call');
              app.fileexportsetting.viewModel.listDir(parentDir);
         },
         
@@ -122,17 +117,8 @@
             fileName = sessionStorage.getItem("currentFileName");
             filePath = currentDir.fullPath + "\/" + fileName;
             relPath = currentDir.name + "\/" + fileName;
-            //console.log(relPath);
-            currentDir.getFile(fileName, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
-            
-           // ext = app.documentsetting.viewModel.getFileExtension(fileName);
-           // $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            //$('.download-file-name').html('');
-        	//$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-            //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
-            
-            //console.log(currentDir);
-            //app.documentsetting.viewModel.transferFile(uri, filePath);
+            currentDir.getFile("\/" +fileName, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+
         },
         setExportInnerPage:function()
         {
