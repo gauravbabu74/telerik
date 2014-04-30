@@ -701,7 +701,8 @@
             app.documentsetting.viewModel.transferFile(uri, filePath);
         },
         transferFile: function (uri, filePath) {
-            
+            console.log(uri);
+            console.log(filePath);
             transfer = new FileTransfer();
             transfer.onprogress = function(progressEvent) {
                 console.log('enter transfer');

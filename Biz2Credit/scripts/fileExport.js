@@ -39,7 +39,22 @@
             }
  
         },
-
+		getActivePitem:function(name)
+        {   
+            activePitem ='';
+            if(currentDir !== null ){
+                currentDir.getParent(name, {create:false},
+                    function(dir){ // success find directory
+                    	activePitem = dir;
+                        app.fileexportsetting.viewModel.listDir(activePitem);
+                    }, 
+                    function(error){ // error find directory
+                    	console.log('Unable to find directory: '+error.code);
+                    }
+                );
+            }
+ 
+        },
         listDir:function(directoryEntry){
             if(typeof $("#dirContent").data("kendoMobileListView") !=='undefined')
             {
@@ -51,7 +66,7 @@
             currentDir = directoryEntry; // set current directory
             directoryEntry.getParent(function(par){ // success get parent
             parentDir = par; // set parent directory
-            	if( (parentDir.name === 'sdcard' && currentDir.name !== 'sdcard') || parentDir.name !== 'sdcard' ) $('#backBtn').show();
+            	if( currentDir.name === root.name) app.fileexportsetting.viewModel.setExportRootPage();
             	}, function(error){ // error get parent
             		console.log('Get parent error: '+error.code);
             	});
@@ -75,7 +90,8 @@
         },
         setExportDocs:function(data)
         {
-            console.log(data);
+             console.log(currentDir);
+             console.log(parentDir);
             var that = this;
             that.set("expDocs", data);
              $("#dirContent").kendoMobileListView({
@@ -89,19 +105,33 @@
                 	},
                 
             });
+            $("#tabstrip-file-export").find(".km-scroll-container").css("-webkit-transform", "");
         },
         backDocslistPage:function(e)
         {
-            
+            apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId); 
         },
         gobackFileExportPage:function(e)
         {
-            
+           // alert('back call');
+             app.fileexportsetting.viewModel.listDir(parentDir);
         },
         
         thisFileExport:function(e)
         {
+            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
+            fileName = sessionStorage.getItem("currentFileName");
+            filePath = currentDir.fullPath + "\/" + fileName;
+            currentDir.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
             
+           // ext = app.documentsetting.viewModel.getFileExtension(fileName);
+           // $("#tabstrip-download-file").data("kendoMobileModalView").open();
+            //$('.download-file-name').html('');
+        	//$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
+            //uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf"),
+            
+            //console.log(currentDir);
+            //app.documentsetting.viewModel.transferFile(uri, filePath);
         },
         setExportInnerPage:function()
         {
