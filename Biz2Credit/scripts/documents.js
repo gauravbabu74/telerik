@@ -659,6 +659,7 @@
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
                                 relPath = folder.name + "\/" + fileName;
+                                console.log(relPath);
                                 fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {

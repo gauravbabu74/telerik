@@ -90,8 +90,6 @@
         },
         setExportDocs:function(data)
         {
-             console.log(currentDir);
-             console.log(parentDir);
             var that = this;
             that.set("expDocs", data);
              $("#dirContent").kendoMobileListView({
@@ -119,12 +117,13 @@
         
         thisFileExport:function(e)
         {
-            console.log(currentDir);
+            
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
             fileName = sessionStorage.getItem("currentFileName");
             filePath = currentDir.fullPath + "\/" + fileName;
             relPath = currentDir.name + "\/" + fileName;
-            currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+            //console.log(relPath);
+            currentDir.getFile(fileName, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
             
            // ext = app.documentsetting.viewModel.getFileExtension(fileName);
            // $("#tabstrip-download-file").data("kendoMobileModalView").open();
