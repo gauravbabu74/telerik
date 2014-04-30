@@ -114,8 +114,7 @@
         {
             
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
-            //fileName = sessionStorage.getItem("currentFileName");
-            fileName = 'abc.pdf';
+            fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
             relPath = "\/" +fileName;
             currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
