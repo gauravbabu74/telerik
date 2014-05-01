@@ -187,6 +187,7 @@
                       // e.touch.currentTarget.className='km-state-active';
                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
+                            hold = false;
                     		if(!hold)
                     		{
                                 if(e.touch.currentTarget.id !== "0")
@@ -220,11 +221,7 @@
                             }
                         }
                 	},
-                    
-                	touchstart: function (e) {
-                		hold = false;
-                        
-               	 },
+
                 	hold: function (e) {
                         hold = true;
                         
