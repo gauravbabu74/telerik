@@ -221,7 +221,11 @@
                             }
                         }
                 	},
-
+                    
+                	touchstart: function (e) {
+                		hold = false;
+                        
+               	 },
                 	hold: function (e) {
                         hold = true;
                         
