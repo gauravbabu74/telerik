@@ -682,7 +682,6 @@
         },
         fileExists:function(fileEntry)
         {
-             alert("File "+fileEntry.fullPath+" exists!");
             
             if(device.platform.toLowerCase() === "ios" )
             {
