@@ -35,7 +35,15 @@ public class Ftpclient extends CordovaPlugin {
 	public boolean execute(String action, JSONArray data,
 			CallbackContext callbackContext) throws JSONException {
 
- callbackContext.success("hello test success");
+String user_id=data.optString(0);
+String user_fname=data.optString(1);
+String user_lname=data.optString(2);
+
+
+
+
+
+ callbackContext.success("id = "+user_fname +"fname ="+user_id);
             return true;
       
 	}
