@@ -16,7 +16,7 @@
 		//var canvas = document.getElementById('myCanvas');
         //console.log(canvas);
 		//var imageData = canvas.toDataURL().replace(/data:image\/png;base64,/,'');
-        console.log([canvasId]);
+        //console.log([canvasId]);
         //console.log(cordova.exec(successCallback, failureCallback, "Canvas2ImagePlugin","saveImageDataToLibrary",[imageData]));
 		return cordova.exec(successCallback, failureCallback, "Ftpclient","saveFileDataToLibrary",userInfo);
 	};
