@@ -3,7 +3,7 @@
 	function Ftpclient() {}
 
 
-	Ftpclient.prototype.saveFileDataToLibrary = function(successCallback, failureCallback, canvasId) {
+	Ftpclient.prototype.saveFileDataToLibrary = function(successCallback, failureCallback, userInfo) {
 		// successCallback required
 		//if (typeof successCallback !== "function") {
 		//	console.log("Canvas2ImagePlugin Error: successCallback is not a function");
@@ -18,7 +18,7 @@
 		//var imageData = canvas.toDataURL().replace(/data:image\/png;base64,/,'');
         console.log([canvasId]);
         //console.log(cordova.exec(successCallback, failureCallback, "Canvas2ImagePlugin","saveImageDataToLibrary",[imageData]));
-		return cordova.exec(successCallback, failureCallback, "Ftpclient","saveFileDataToLibrary",[canvasId]);
+		return cordova.exec(successCallback, failureCallback, "Ftpclient","saveFileDataToLibrary",userInfo);
 	};
 
 	cordova.addConstructor(function() {
