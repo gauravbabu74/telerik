@@ -217,8 +217,24 @@
                                 uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
                                 console.log(uri);
                                 folderName = "biz2docs";
-                                app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
-                            }
+                                //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
+                                var ftpclient = window.plugins.ftpclient; 
+            
+                                ftpclient.saveFileDataToLibrary(
+                                    function(msg){
+                                    	//alert("success");
+                                    	navigator.notification.alert(msg, function() {
+
+                                    	});
+                                    }, 
+                                    function(err){
+                                    	alert("failure again");
+                                    	navigator.notification.alert(err);
+
+                                    }, 
+                                    'anchit'
+                                	);
+                                }
                         }
                 	},
                     
