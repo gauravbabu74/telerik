@@ -32,7 +32,8 @@
 
     <!-- android -->
     <platform name="android">
-
+		<source-file src="src/android/Libs/ftp4j-1.7.2.jar"
+		target-dir="Libs" />
     	<asset src="www/Ftpclient.js" target="Ftpclient.js" />
 
         <config-file target="AndroidManifest.xml" parent="/*">
@@ -53,7 +54,9 @@
         	</feature> 
         </config-file>
 
-        <source-file src="src/android/com/telerik/Biz2credit/Ftpclient.java" 
+      
+		
+ <source-file src="src/android/com/telerik/Biz2credit/Ftpclient.java" 
         target-dir="src/com/telerik/Biz2credit" />
 
     </platform>

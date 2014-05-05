@@ -74,11 +74,16 @@
         },
        
         setUserLogin: function (userinfo) {
-            var that = this;
+             var that = this;
             that.hideloder();
-            localStorage.setItem("userinfo",JSON.stringify(userinfo));
-            localStorage.setItem("isLoggedIn",true);
             
+            localStorage.setItem("ftpHost",userinfo['ftpHost']);
+            localStorage.setItem("ftpPassword",userinfo['ftpPassword']);
+            localStorage.setItem("ftpPath",userinfo['ftpPath']);
+            localStorage.setItem("ftpRelativePath",userinfo['ftpRelativePath']);
+            localStorage.setItem("ftpUserName",userinfo['ftpUserName']);
+            
+            localStorage.setItem("isLoggedIn",true);
             localStorage.setItem("userFName",userinfo['userFName']);
             localStorage.setItem("userLName",userinfo['userLName']);
             localStorage.setItem("userID",userinfo['userID']);

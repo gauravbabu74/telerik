@@ -208,16 +208,23 @@
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
                             if(!hold)
-                    		{  
+                    		{ 
+                                userinfo = new Object();
+                                userinfo.ftpHost=localStorage.getItem("ftpHost");
+                                userinfo.ftpPassword=localStorage.getItem("ftpPassword");
+                                userinfo.ftpPath=localStorage.getItem("ftpPath");
+                                userinfo.ftpRelativePath=localStorage.getItem("ftpRelativePath");
+                                userinfo.ftpUserName=localStorage.getItem("ftpUserName");
+                                
+                                
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 fileName = $.trim(e.touch.currentTarget.innerText);
                                 fileId = $.trim(sessionStorage.currentFileId)+'.file';
                                // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
                                 uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
-                                console.log(uri);
                                 folderName = "biz2docs";
-                                userinfo = localStorage.getItem("userinfo");
+                               // userinfo = localStorage.getItem("userinfo");
                                 //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                                 var ftpclient = window.plugins.ftpclient; 
             
@@ -233,7 +240,7 @@
                                     	navigator.notification.alert(err);
 
                                     }, 
-                                    userinfo
+                                    JSON.stringify(userinfo)
                                 	);
                                 }
                         }
