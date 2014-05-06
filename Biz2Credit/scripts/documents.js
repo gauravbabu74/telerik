@@ -212,9 +212,6 @@
                                 userinfo.push(localStorage.getItem("ftpPath"));
                                 userinfo.push(localStorage.getItem("ftpRelativePath"));
                                 userinfo.push(localStorage.getItem("ftpUserName"));
-                               
-                                
-                                
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 fileName = $.trim(e.touch.currentTarget.innerText);
