@@ -24,10 +24,10 @@
             else
             {
                 app.loginService.viewModel.showloder();
-                if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined')
+                if(typeof $(".list-edit-listview").data("kendoMobileListView") !=='undefined')
                 {
-                	$("#list-edit-listview").data("kendoMobileListView").destroy();
-                    //$("#list-edit-listview").unwrap();
+                	$(".list-edit-listview").data("kendoMobileListView").destroy();
+                    //$(".list-edit-listview").unwrap();
                 }
                 if(typeof e.view.params.parent !== "undefined" && e.view.params.parent !== "0")
                 {
@@ -112,12 +112,10 @@
                     parentId =  app.documentsetting.viewModel.parentId;
                     app.documentsetting.viewModel.setInnerPage();
                 }
-                if(typeof $("#list-edit-listview").data("kendoMobileListView") !=='undefined' )
+                if(typeof $(".list-edit-listview").data("kendoMobileListView") !=='undefined' )
                 {
-                	$("#list-edit-listview").data("kendoMobileListView").destroy();
-                    //$("#list-edit-listview").unwrap();
+                	$(".list-edit-listview").data("kendoMobileListView").destroy();
                 }
-                //app.loginService.viewModel.showloder();
                 var that = this;
                 that.set("showrefreshLoading", true);
            	 var dataSource = new kendo.data.DataSource({
@@ -171,10 +169,9 @@
         },
         setDocuments: function(data)
         { 
-            console.log(data);
             var that = this;
             that.set("documents", data['0']);  
-            $("#list-edit-listview").kendoMobileListView({
+            $(".list-edit-listview").kendoMobileListView({
                 dataSource: app.documentsetting.viewModel.documents,
                 template: $("#docs-template").html(),
                 filterable: {
@@ -184,9 +181,9 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                   	tap: function (e) { 
-                      // e.touch.currentTarget.className='km-state-active';
+                      // e.touch.currentTarget.className='km-state-active';  
                        if(e.touch.initialTouch.dataset.id === "folder")
-                        {
+                        { 
                             hold = false;
                     		if(!hold)
                     		{
@@ -304,7 +301,7 @@
             var that = this;
             if(app.documentsetting.viewModel.parentId === 0)
             {
-                 $("#list-edit-listview").html("");
+                 $(".list-edit-listview").html("");
             }
             that.set("innerPage", true); 
         },
@@ -313,7 +310,7 @@
             var that = this;
             if(app.documentsetting.viewModel.parentId !== 0)
             {
-                 $("#list-edit-listview").html("");
+                 $(".list-edit-listview").html("");
             }
             that.set("innerPage", false);  
         },
@@ -357,7 +354,6 @@
                 dataSource.fetch(function(){
                     var data = dataSource.data(); 
 
-                   // console.log(data);
                     if(data['0']['results']['faultcode'] === 1)
                     {
                         msg =data['0']['results']['faultmsg'];
@@ -478,8 +474,6 @@
                  
                 dataSource.fetch(function(){
                     var data = dataSource.data(); 
-
-                    // console.log(data);
                     if(data['0']['results']['faultcode'] === 1)
                     {
                         msg =data['0']['results']['faultmsg'];
@@ -542,7 +536,6 @@
                 dataSource.fetch(function(){
                     var data = dataSource.data(); 
 
-                    // console.log(data);
                     if(data['0']['results']['faultcode'] === 1)
                     {
                         msg =data['0']['results']['faultmsg'];
@@ -652,21 +645,25 @@
         },
         gobackDocsPage:function()
         {
-            if(app.documentsetting.viewModel.parentId !== "0")
-            {
-            	app.documentsetting.viewModel.setInnerPage();
-            }
-            else
-            {
-            	app.documentsetting.viewModel.setMainPage();
+            var that = this;
+            if(!that.get("showrefreshLoading")){
+                if(app.documentsetting.viewModel.parentId !== "0")
+                {
+                	app.documentsetting.viewModel.setInnerPage();
+                }
+                else
+                {
+                	app.documentsetting.viewModel.setMainPage();
 
+                }
+                if(docsBackHistory[docsBackHistory.length-2] === 0){
+                	app.documentsetting.viewModel.setMainPage(); 
+                }
+                app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
+                docsBackHistory.pop();
+                app.documentsetting.viewModel.refreshView();
             }
-            if(docsBackHistory[docsBackHistory.length-2] === 0){
-               app.documentsetting.viewModel.setMainPage(); 
-            }
-            app.documentsetting.viewModel.setParentId(docsBackHistory[docsBackHistory.length-2]);
-            docsBackHistory.pop()
-            app.documentsetting.viewModel.refreshView(); 
+             
         },
         getFilesystem:function (success, fail) {
         	window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
@@ -687,7 +684,6 @@
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
                                 relPath = folder.name + "\/" + fileName;
-                                console.log(relPath);
                                 fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
@@ -729,11 +725,8 @@
             app.documentsetting.viewModel.transferFile(uri, filePath);
         },
         transferFile: function (uri, filePath) {
-            console.log(uri);
-            console.log(filePath);
             transfer = new FileTransfer();
             transfer.onprogress = function(progressEvent) {
-                console.log('enter transfer');
                 if (progressEvent.lengthComputable) {
                    
                 	var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
@@ -759,7 +752,6 @@
                     //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
                    // alert("download complete: " + entry.fullPath);
                     $("#tabstrip-download-file").data("kendoMobileModalView").close();
-                    console.log(fileEntry.fullPath);
                     if(device.platform.toLowerCase() === "ios" )
             		{
                 		window.open(encodeURI(fileEntry.fullPath),"_blank","location=yes,hidden=no");
@@ -770,11 +762,8 @@
             		}	
                 },
                 function(error) {
-                    console.log(error);
-                    //alert("Download error code" + error.target)
                     app.documentsetting.viewModel.getFilesystem(
                 		function(fileSystem) {
-                			//console.log(fileSystem);
                 			fileSystem.root.getFile(filePath, {create: false,exclusive:true},  app.documentsetting.viewModel.gotRemoveFileEntry, alert("Download error code" + error.target));
                 		},
                 		function() {
