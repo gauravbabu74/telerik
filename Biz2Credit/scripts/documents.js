@@ -225,44 +225,9 @@
                                 uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
                                 folderName = "biz2docs";
                                // userinfo = localStorage.getItem("userinfo");
-                                //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
+                               //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                                 
-                                app.documentsetting.viewModel.getFilesystem(
-                                function(fileSystem) {
-
-                                    if (device.platform === "Android") {
-                                   	 app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
-                                   	 filePath = folder.fullPath + "\/" + fileName;
-                                   	 relPath = folder.name + "\/" + fileName;
-                                   	 console.log(relPath);
-                                    	//var ftpClient = new FtpClient();
-                                		var downStatus = window.plugins.ftpclient.get(relPath, "ftp://b2cdocs:4Lz}+u&ZiizD5o1y@107.21.114.127:21/public_html/components/com_brief/files/12516/10022.file;type=i", app.documentsetting.viewModel.win, app.documentsetting.viewModel.fail);
-                                            alert('downStatus'+downStatus);
-
-                                    }, function() {
-                                    	console.log("failed to get folder");
-                                    });
-                                    }
-                                    else {
-                                    	filePath = fileSystem.root.fullPath + "\/" + fileName;
-                                    	fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
-
-                                    }
-                                    },
-                                    function() {
-                                    	console.log("failed to get filesystem");
-                                    }
-                                );
-                                
-                                
-                                
-                                
-                                
-                               // var paths = navigator.fileMgr.getRootPaths();
-                               // console.log(navigator);
-                               // var ftpClient = new FtpClient();
-                                //ftpClient.put(paths[0]+"/putfile.txt", "ftp://b2cdocs:4Lz}+u&ZiizD5o1y@107.21.114.127:21/public_html/components/com_brief/files/12516/10022.file;type=i", null, null);
-                              /*  var ftpclient = window.plugins.ftpclient; 
+                               var ftpclient = window.plugins.ftpclient; 
             
                                 ftpclient.saveFileDataToLibrary(
                                     function(msg){
@@ -277,18 +242,10 @@
 
                                     }, 
                                     userinfo
-                                	);*/
+                                	);
                                 }
                         }
-                	},
-                    win:function()
-                    {
-                       alert("win"); 
-                    },
-                    fail:function()
-                    {
-                       alert("fail"); 
-                    },
+                	}, 
                 	touchstart: function (e) {
                 		hold = false;
                         

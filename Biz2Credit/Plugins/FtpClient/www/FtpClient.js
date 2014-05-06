@@ -1,26 +1,22 @@
 (function(cordova) {
 
 	function FtpClient() {}
-
+/*
         FtpClient.prototype.put = function(file, url, successCallback, errorCallback) {
-            console.log(file);
-            console.log(url);
+           // console.log(file);
+           // console.log(url);
+           // return 'aaa';
              return cordova.exec(successCallback, errorCallback, "FtpClient", "put", [file, url]);
         };
 
-        /**
-        * Download a file from a FTP server
-        *
-        * @param file The file to be uploaded to the server
-        * @param url The url of the ftp server
-        * @param successCallback The success callback
-        * @param errorCallback The error callback
-        */
+       
         FtpClient.prototype.get = function(file, url, successCallback, errorCallback) {
+            console.log(file);
+            console.log(url);
+           // return 'aaa';
              return cordova.exec(successCallback, errorCallback, "FtpClient", "get", [file, url]);
         };
-
-
+*/
 	FtpClient.prototype.saveFileDataToLibrary = function(successCallback, failureCallback, userInfo) {
 		// successCallback required
 		//if (typeof successCallback !== "function") {
@@ -36,7 +32,7 @@
 		//var imageData = canvas.toDataURL().replace(/data:image\/png;base64,/,'');
         console.log([userInfo]);
         //console.log(cordova.exec(successCallback, failureCallback, "Canvas2ImagePlugin","saveImageDataToLibrary",[imageData]));
-		return cordova.exec(successCallback, failureCallback, "Ftpclient","saveFileDataToLibrary",userInfo);
+		return cordova.exec(successCallback, failureCallback, "FtpClient","saveFileDataToLibrary",userInfo);
 	};
 
 	cordova.addConstructor(function() {
