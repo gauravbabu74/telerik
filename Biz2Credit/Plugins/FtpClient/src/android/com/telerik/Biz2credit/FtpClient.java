@@ -28,7 +28,7 @@ import android.util.Log;
  *
  * @author Vegard LÃ¸kken <vegard@headspin.no>
  */
-public class Ftpclient extends CordovaPlugin {
+public class FtpClient extends CordovaPlugin {
 	public static final String ACTION = "saveImageDataToLibrary";
 
 	@Override
@@ -36,13 +36,7 @@ public class Ftpclient extends CordovaPlugin {
 			CallbackContext callbackContext) throws JSONException {
 
             String user_id=data.optString(0);
-
-
-
-
-
-
- callbackContext.success("id = "+user_id);
+ 		   callbackContext.success("id = "+user_id);
             return true;
       
 	}

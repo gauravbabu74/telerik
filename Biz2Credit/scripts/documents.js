@@ -210,11 +210,12 @@
                             if(!hold)
                     		{ 
                                 userinfo = [];
-                                userinfo['ftpHost']=localStorage.getItem("ftpHost");
-                                userinfo['ftpPassword']=localStorage.getItem("ftpPassword");
-                                userinfo['ftpPath']=localStorage.getItem("ftpPath");
-                                userinfo['ftpRelativePath']=localStorage.getItem("ftpRelativePath");
-                                userinfo['ftpUserName']=localStorage.getItem("ftpUserName");
+                                userinfo.push(localStorage.getItem("ftpHost"));
+                                userinfo.push(localStorage.getItem("ftpPassword"));
+                                userinfo.push(localStorage.getItem("ftpPath"));
+                                userinfo.push(localStorage.getItem("ftpRelativePath"));
+                                userinfo.push(localStorage.getItem("ftpUserName"));
+                               
                                 
                                 
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
