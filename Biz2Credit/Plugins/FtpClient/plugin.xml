@@ -17,7 +17,7 @@
 
     <!-- ios -->
     <platform name="ios">
-        <config-file target="config.xml" parent="/*">
+         <config-file target="config.xml" parent="/*">
             <feature name="FtpClient">
                 <param name="ios-package" value="FtpClient"/>
                 <param name="onload" value="true" />
@@ -48,7 +48,7 @@
         </activity>
         </config-file>
 
-        <config-file target="res/xml/config.xml" parent="widget">
+        <config-file target="config.xml" parent="widget/plugins">
         	<feature name="FtpClient">
 
         		<!--<plugin name="Canvas2ImagePlugin" value="com.telerik.Biz2Credit.Canvas2ImagePlugin" /> -->

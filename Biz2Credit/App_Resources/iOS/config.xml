@@ -42,6 +42,7 @@
         <plugin name="Battery" value="CDVBattery" />
         <plugin name="Globalization" value="CDVGlobalization" />
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
+        <plugin name="FtpClient" value="FtpClient" />
     </plugins>
 
     <access origin="*" />

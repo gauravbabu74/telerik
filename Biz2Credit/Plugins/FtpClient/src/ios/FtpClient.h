@@ -10,7 +10,7 @@
 
 #import <Cordova/CDVPlugin.h>
 
-@interface Canvas2ImagePlugin : CDVPlugin
+@interface FtpClient : CDVPlugin
 {
 	NSString* callbackId;
 }

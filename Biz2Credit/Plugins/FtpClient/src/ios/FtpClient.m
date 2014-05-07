@@ -7,10 +7,10 @@
 //	MIT Licensed
 //
 
-#import "Canvas2ImagePlugin.h"
+#import "FtpClient.h"
 #import <Cordova/CDV.h>
 
-@implementation Canvas2ImagePlugin
+@implementation FtpClient
 @synthesize callbackId;
 
 //-(CDVPlugin*) initWithWebView:(UIWebView*)theWebView
@@ -21,11 +21,16 @@
 
 - (void)saveImageDataToLibrary:(CDVInvokedUrlCommand*)command
 {
-    self.callbackId = command.callbackId;
-	NSData* imageData = [NSData dataFromBase64String:[command.arguments objectAtIndex:0]];
+
+      NSLog(@"command %@",command.arguments);
+     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:[command.arguments objectAtIndex:0] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
+        
+   // self.callbackId = command.callbackId;
+//	NSData* imageData = [NSData dataFromBase64String:[command.arguments objectAtIndex:0]];
 	
-	UIImage* image = [[[UIImage alloc] initWithData:imageData] autorelease];	
-	UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+	//UIImage* image = [[[UIImage alloc] initWithData:imageData] autorelease];	
+	//UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 	
 }
 
