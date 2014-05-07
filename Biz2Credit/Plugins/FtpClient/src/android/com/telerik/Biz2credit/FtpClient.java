@@ -94,17 +94,21 @@ public class FtpClient extends CordovaPlugin {
 			}
 		}, 1);
 		
-		if (action.equals(ACTION_DOWNLOAD)) {
-			if(isConnected()){
-			String status=downloadFile("abc.pdf", "abc.pdf");
-			if(status.equalsIgnoreCase(SUCCESS)){
-				callbackContext.success("Success");
-			}
-			}
-			else
-				callbackContext.error("Connection to Server Failed");
-				
-		}
+        if(action.equals(ACTION_DOWNLOAD)) {
+            if(isConnected())
+        	{
+            	String status=downloadFile("154724.file","abc.pdf");
+            	if(status.equalsIgnoreCase(SUCCESS)){
+            		callbackContext.success("Successd");
+            	}
+            }
+            else
+        	{
+            	callbackContext.error("Connection to Server Failed");
+				return false;
+        	}
+
+        }
 		
 		return true;
       
@@ -121,7 +125,7 @@ public String downloadFile(String serverFileName,
 		try {
 			
 			// upar se uthana h (Gaurav sir)
-			String fullPath="/public_html/components/com_brief/files/12516";
+			String fullPath="/public_html/components/com_brief/files/12516/";
 			Log.i("FTP full path : ", fullPath);
 			ftpClient.changeDirectory(fullPath);
 			ftpClient.download(serverFileName,file);

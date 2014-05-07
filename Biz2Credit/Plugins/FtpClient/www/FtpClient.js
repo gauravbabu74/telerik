@@ -7,7 +7,7 @@
 		
         console.log(userInfo);
         
-		return cordova.exec(successCallback, failureCallback, "FtpClient","saveFileDataToLibrary",userInfo);
+		return cordova.exec(successCallback, failureCallback, "FtpClient","downloadFile",userInfo);
 	};
 
 	cordova.addConstructor(function() {

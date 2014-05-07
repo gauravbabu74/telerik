@@ -206,14 +206,19 @@
                         {
                             if(!hold)
                     		{ 
+                                sessionStorage.currentFileId = e.touch.currentTarget.id;
+                                sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                                
                                 userinfo = [];
+                                
                                 userinfo.push(localStorage.getItem("ftpHost"));
                                 userinfo.push(localStorage.getItem("ftpPassword"));
                                 userinfo.push(localStorage.getItem("ftpPath"));
                                 userinfo.push(localStorage.getItem("ftpRelativePath"));
                                 userinfo.push(localStorage.getItem("ftpUserName"));
-                                sessionStorage.currentFileId = e.touch.currentTarget.id;
-                                sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                                userinfo.push(sessionStorage.currentFileId);
+                                userinfo.push(sessionStorage.currentFileName);
+                                
                                 fileName = $.trim(e.touch.currentTarget.innerText);
                                 fileId = $.trim(sessionStorage.currentFileId)+'.file';
                                // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
