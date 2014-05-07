@@ -106,7 +106,7 @@ public class FtpClient extends CordovaPlugin {
 				
 		}
 		
-		return false;
+		return true;
       
 	}
 
