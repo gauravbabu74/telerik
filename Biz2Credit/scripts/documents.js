@@ -208,7 +208,8 @@
                     		{ 
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                                
+                                fileName = $.trim(e.touch.currentTarget.innerText);
+                                serverFileName = $.trim(sessionStorage.currentFileId)+'.file';
                                 userinfo = [];
                                 
                                 userinfo.push(localStorage.getItem("ftpHost"));
@@ -216,18 +217,13 @@
                                 userinfo.push(localStorage.getItem("ftpPath"));
                                 userinfo.push(localStorage.getItem("ftpRelativePath"));
                                 userinfo.push(localStorage.getItem("ftpUserName"));
-                                userinfo.push(sessionStorage.currentFileId);
-                                userinfo.push(sessionStorage.currentFileName);
-                                
-                                fileName = $.trim(e.touch.currentTarget.innerText);
-                                fileId = $.trim(sessionStorage.currentFileId)+'.file';
-                               // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                               //uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
+                                userinfo.push(serverFileName);
+                                userinfo.push(fileName);
                                 folderName = "biz2docs";
-                               // userinfo = localStorage.getItem("userinfo");
+                               
                                //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
-                                
-                               var ftpclient = window.plugins.ftpclient; 
+                                app.documentsetting.viewModel.downloadFile(userinfo,folderName);
+                               /*var ftpclient = window.plugins.ftpclient; 
             
                                 ftpclient.saveFileDataToLibrary(
                                     function(msg){
@@ -242,7 +238,7 @@
 
                                     }, 
                                     userinfo
-                                	);
+                                	);*/
                                 }
                         }
                 	}, 
@@ -675,7 +671,7 @@
         getFolder: function (fileSystem, folderName, success, fail) {
         	fileSystem.root.getDirectory(folderName, {create: true, exclusive: false}, success, fail)
         },
-        downloadFile:function(uri, fileName, folderName)
+        downloadFile:function(userinfo,folderName)
         {
 		    filePath = "";
 
@@ -724,7 +720,25 @@
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-            app.documentsetting.viewModel.transferFile(uri, filePath);
+            //app.documentsetting.viewModel.transferFile(uri, filePath);
+            
+            var ftpclient = window.plugins.ftpclient; 
+            
+            ftpclient.saveFileDataToLibrary(
+                function(msg){
+                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                	navigator.notification.alert(msg, function() {
+
+                	});
+                }, 
+                function(err){
+                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                	navigator.notification.alert(err);
+
+                }, 
+                userinfo
+            );
+                                
         },
         transferFile: function (uri, filePath) {
             transfer = new FileTransfer();
