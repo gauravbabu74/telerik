@@ -86,6 +86,7 @@ public class FtpClient extends CordovaPlugin {
                 }
             }
         }, 1);
+		return true;
 		}
         
         if(action.equals(ACTION_DOWNLOAD)) {
@@ -93,7 +94,7 @@ public class FtpClient extends CordovaPlugin {
             {
                 String status=downloadFile("154724.file","abc.pdf");
                 if(status.equalsIgnoreCase(SUCCESS)){
-                    callbackContext.success("Successd");
+                    callbackContext.success("Success");
                     return true;
                 }
             }
