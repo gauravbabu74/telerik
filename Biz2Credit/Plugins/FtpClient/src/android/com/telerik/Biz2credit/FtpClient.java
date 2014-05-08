@@ -67,7 +67,7 @@ public class FtpClient extends CordovaPlugin {
             final CallbackContext callbackContext) throws JSONException {
 
             host=data.optString(0);
-            String PASSWORD=data.optString(1);
+            PASSWORD=data.optString(1);
             ftp_path=data.optString(2);
 
             String ftpRelativePath=data.optString(3);
