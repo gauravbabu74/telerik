@@ -56,10 +56,10 @@ public class FtpClient extends CordovaPlugin {
     
     public static  String host ;// storagetest.in
     public static  String user_name;
-public static  String ftp_path;
-public static  String server_file_name;
-public static  String file_name;
-    public static final String PASSWORD = "4Lz}+u&ZiizD5o1y";
+	public static  String ftp_path;
+	public static  String server_file_name;
+	public static  String file_name;
+    public static  String PASSWORD;
     
 
     @Override
@@ -67,12 +67,12 @@ public static  String file_name;
             final CallbackContext callbackContext) throws JSONException {
 
             host=data.optString(0);
-            String ftpPassword=data.optString(1);
+            String PASSWORD=data.optString(1);
             ftp_path=data.optString(2);
 
             String ftpRelativePath=data.optString(3);
             user_name=data.optString(4);
-           server_file_name=data.optString(5);
+            server_file_name=data.optString(5);
             file_name=data.optString(6);
 
             if(action.equalsIgnoreCase(ACTION_CONNECT)){

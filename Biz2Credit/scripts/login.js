@@ -78,7 +78,7 @@
             that.hideloder();
             
             localStorage.setItem("ftpHost",userinfo['ftpHost']);
-            localStorage.setItem("ftpPassword",userinfo['ftpPassword']);
+            localStorage.setItem("ftpPassword",Base64.decode(userinfo['ftpPassword']));
             localStorage.setItem("ftpPath",userinfo['ftpPath']);
             localStorage.setItem("ftpRelativePath",userinfo['ftpRelativePath']);
             localStorage.setItem("ftpUserName",userinfo['ftpUserName']);
