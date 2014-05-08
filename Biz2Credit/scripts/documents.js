@@ -681,8 +681,8 @@
             			if (device.platform === "Android") {
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-                                //relPath = folder.name + "\/" + fileName;
-                                relPath =fileName;
+                                relPath = folder.name + "\/" + fileName;
+                                //relPath =fileName;
                                 fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {

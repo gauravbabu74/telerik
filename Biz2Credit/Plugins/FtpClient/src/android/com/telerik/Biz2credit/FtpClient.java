@@ -54,8 +54,11 @@ public class FtpClient extends CordovaPlugin {
     public static final String SOCKET_TIMEOUTEXCEPTION = "socket_timeout";
     public static final String SOCKET_NOEXCEPTION = "socket_noexception";
     
-    public static final String HOST = "107.21.114.127";// storagetest.in
-    public static final String USER_NAME = "b2cdocs";
+    public static  String host ;// storagetest.in
+    public static  String user_name;
+public static  String ftp_path;
+public static  String server_file_name;
+public static  String file_name;
     public static final String PASSWORD = "4Lz}+u&ZiizD5o1y";
     
 
@@ -63,14 +66,14 @@ public class FtpClient extends CordovaPlugin {
     public boolean execute(String action, JSONArray data,
             final CallbackContext callbackContext) throws JSONException {
 
-            String ftpHost=data.optString(0);
+            host=data.optString(0);
             String ftpPassword=data.optString(1);
-            String ftpPath=data.optString(2);
+            ftp_path=data.optString(2);
 
             String ftpRelativePath=data.optString(3);
-            String ftpUserName=data.optString(4);
-            String serverFileName=data.optString(5);
-            String fileName=data.optString(6);
+            user_name=data.optString(4);
+           server_file_name=data.optString(5);
+            file_name=data.optString(6);
 
             if(action.equalsIgnoreCase(ACTION_CONNECT)){
                Handler h=new Handler();
@@ -92,7 +95,7 @@ public class FtpClient extends CordovaPlugin {
         if(action.equals(ACTION_DOWNLOAD)) {
             if(isConnected())
             {
-                String status=downloadFile("154724.file","abc.pdf");
+                String status=downloadFile(server_file_name,file_name,ftp_path);
                 if(status.equalsIgnoreCase(SUCCESS)){
                     callbackContext.success("Success");
                     return true;
@@ -112,16 +115,16 @@ public class FtpClient extends CordovaPlugin {
 
 
 public String downloadFile(String serverFileName,
-            String localFileName) {
+            String localFileName,String fullPath) {
         String result = "";
         
         // download in sdcard
-        File root = Environment.getExternalStorageDirectory();
+		String pat=Environment.getExternalStorageDirectory()+"/biz2docs";
+        File root = new File(pat);
         File file = new File(root, localFileName);
         try {
             
-            // upar se uthana h (Gaurav sir)
-            String fullPath="/public_html/components/com_brief/files/12516/";
+            
             Log.i("FTP full path : ", fullPath);
             ftpClient.changeDirectory(fullPath);
             ftpClient.download(serverFileName,file);
@@ -178,8 +181,8 @@ public String setFtpConnection() {
         String exception = SOCKET_NOEXCEPTION;
         if (!ftpClient.isConnected()) {
             try {
-                ftpClient.connect(HOST, 21);
-                ftpClient.login(USER_NAME, PASSWORD);
+                ftpClient.connect(host, 21);
+                ftpClient.login(user_name, PASSWORD);
                 ftpClient.setType(FTPClient.TYPE_BINARY);
                 exception = SOCKET_NOEXCEPTION;
             } catch (IllegalStateException e) {
