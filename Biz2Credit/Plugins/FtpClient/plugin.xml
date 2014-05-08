@@ -17,18 +17,18 @@
 
     <!-- ios -->
     <platform name="ios">
-         <config-file target="config.xml" parent="/*">
-            <feature name="FtpClient">
-                <param name="ios-package" value="FtpClient"/>
-                <param name="onload" value="true" />
-            </feature>
-        </config-file>
+       <config-file target="config.xml" parent="/*">
+           <feature name="FtpClient">
+               <param name="ios-package" value="FtpClient"/>
+               <param name="onload" value="true" />
+           </feature>
+       </config-file>
 
-        <header-file src="src/ios/FtpClient.h" />
+       <header-file src="src/ios/FtpClient.h" />
 
-        <source-file src="src/ios/FtpClient.m"
-            compiler-flags="-fno-objc-arc" />
-    </platform>
+       <source-file src="src/ios/FtpClient.m"
+           compiler-flags="-fno-objc-arc" />
+   </platform>
 
     <!-- android -->
     <platform name="android">
