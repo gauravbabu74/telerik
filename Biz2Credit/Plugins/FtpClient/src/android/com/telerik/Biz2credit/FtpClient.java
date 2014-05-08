@@ -63,13 +63,15 @@ public class FtpClient extends CordovaPlugin {
     public boolean execute(String action, JSONArray data,
             final CallbackContext callbackContext) throws JSONException {
 
-        String Host=data.optString(0);
-        String user_name=data.optString(1);
-        String Password=data.optString(2);
-		callbackContext.success("user_name = "+user_name);
-		callbackContext.success("Password = "+Password);
+            String ftpHost=data.optString(0);
+            String ftpPassword=data.optString(1);
+            String ftpPath=data.optString(2);
 
-        
+            String ftpRelativePath=data.optString(3);
+            String ftpUserName=data.optString(4);
+            String serverFileName=data.optString(5);
+            String fileName=data.optString(6);
+
             if(action.equalsIgnoreCase(ACTION_CONNECT)){
                Handler h=new Handler();
                h.postDelayed(new Runnable() {
