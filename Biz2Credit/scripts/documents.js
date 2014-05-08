@@ -222,7 +222,7 @@
                                 fileName = $.trim(e.touch.currentTarget.innerText);
                                 fileId = $.trim(sessionStorage.currentFileId)+'.file';
                                // uri = encodeURI("https://www.google.co.in/images/icons/product/chrome-48.png"),
-                                uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
+                               //uri = encodeURI("https://107.21.114.127/public_html/components/com_brief/files/12516/"+fileId),
                                 folderName = "biz2docs";
                                // userinfo = localStorage.getItem("userinfo");
                                //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);

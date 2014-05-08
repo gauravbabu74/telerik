@@ -3,13 +3,10 @@ package com.telerik.Biz2Credit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Calendar;
-
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,30 +15,15 @@ import android.os.Build;
 import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
-
-
-
-
 import android.os.Environment;
-
 import android.util.Log;
-
-
 import it.sauronsoftware.ftp4j.FTPAbortedException;
 import it.sauronsoftware.ftp4j.FTPClient;
 import it.sauronsoftware.ftp4j.FTPDataTransferException;
 import it.sauronsoftware.ftp4j.FTPException;
 import it.sauronsoftware.ftp4j.FTPIllegalReplyException;
-
-
 import java.io.IOException;
-
-
-
-
-
 import android.content.Context;
-
 import android.os.Handler;
 
 
