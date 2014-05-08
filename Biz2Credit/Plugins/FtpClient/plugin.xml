@@ -55,9 +55,7 @@
         		<param name="android-package" value="com.telerik.Biz2Credit.FtpClient"/>
         	</feature> 
         </config-file>
-
       
-		
  <source-file src="src/android/com/telerik/Biz2credit/FtpClient.java" 
         target-dir="src/com/telerik/Biz2credit" />
 		

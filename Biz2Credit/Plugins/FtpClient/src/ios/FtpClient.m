@@ -19,11 +19,13 @@
 //    return self;
 //}
 
-- (void)saveImageDataToLibrary:(CDVInvokedUrlCommand*)command
+
+//- (void)saveImageDataToLibrary:(CDVInvokedUrlCommand*)command
+- (void)downloadFile:(CDVInvokedUrlCommand*)command
 {
 
-      NSLog(@"command %@",command.arguments);
-     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:[command.arguments objectAtIndex:0] delegate:self cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+    ///  NSLog(@"command %@",command.arguments);
+     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"Abhishek msg" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
         [alert show];
         
    // self.callbackId = command.callbackId;
