@@ -681,7 +681,8 @@
             			if (device.platform === "Android") {
             				app.documentsetting.viewModel.getFolder(fileSystem, folderName, function(folder) {
             					filePath = folder.fullPath + "\/" + fileName;
-                                relPath = folder.name + "\/" + fileName;
+                                //relPath = folder.name + "\/" + fileName;
+                                relPath =fileName;
                                 fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
@@ -718,18 +719,23 @@
             fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
-            $('.download-file-name').html('');
-        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-            //app.documentsetting.viewModel.transferFile(uri, filePath);
-            
             var ftpclient = window.plugins.ftpclient; 
-            
-            ftpclient.saveFileDataToLibrary(
+            ftpclient.Connect(
                 function(msg){
-                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	navigator.notification.alert(msg, function() {
+                    ftpclient.downloadFile(
+                        function(downmsg){
+                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                        	navigator.notification.alert(downmsg, function() {
 
-                	});
+                        	});
+                        }, 
+                        function(downerr){
+                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                        	navigator.notification.alert(downerr);
+
+                        }, 
+                        userinfo
+                    );
                 }, 
                 function(err){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -738,6 +744,13 @@
                 }, 
                 userinfo
             );
+            $('.download-file-name').html('');
+        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
+            //app.documentsetting.viewModel.transferFile(uri, filePath);
+            
+            
+            
+            
                                 
         },
         transferFile: function (uri, filePath) {
