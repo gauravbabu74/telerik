@@ -108,7 +108,11 @@ public class FtpClient extends CordovaPlugin {
             }
 
         }
-
+        if(action.equals(ACTION_DISCONNECT)) {
+     
+            callbackContext.success("Success");
+            return true;
+        }
         return false;
       
     }

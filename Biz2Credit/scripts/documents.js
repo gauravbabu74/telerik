@@ -184,7 +184,7 @@
                       // e.touch.currentTarget.className='km-state-active';  
                        if(e.touch.initialTouch.dataset.id === "folder")
                         { 
-                            hold = false;
+                            //hold = false;
                     		if(!hold)
                     		{
                                 if(e.touch.currentTarget.id !== "0")
@@ -727,10 +727,24 @@
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                         	app.loginService.viewModel.mobileNotification(downmsg,'success');
+                                ftpclient.Disconnect(
+                                    function(downmsg){	
+                                    }, 
+                                    function(downerr){
+                                    }, 
+                                    userinfo
+                                );
                         }, 
                         function(downerr){
-                        	 $("#tabstrip-download-file").data("kendoMobileModalView").close();
+                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                         	navigator.notification.alert(downerr);
+                            ftpclient.Disconnect(
+                                    function(downmsg){	
+                                    }, 
+                                    function(downerr){
+                                    }, 
+                                    userinfo
+                                );
 
                         }, 
                         userinfo
@@ -738,7 +752,7 @@
                 }, 
                 function(err){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	navigator.notification.alert(err);
+                	navigator.notification.alert("Connection to Server Failed");
 
                 }, 
                 userinfo
@@ -763,10 +777,6 @@
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
             //app.documentsetting.viewModel.transferFile(uri, filePath);
-            
-            
-            
-            
                                 
         },
         transferFile: function (uri, filePath) {
@@ -789,13 +799,7 @@
             transfer.download(
                 uri,
                 filePath,
-                function(fileEntry) {
-                    //var image = document.getElementById("downloadedImage");
-                   // image.src = entry.fullPath;
-                   // image.style.display = "block"
-                    //image.display = entry.fullPath;
-                    //document.getElementById("result").innerHTML = "File saved to: " + entry.fullPath;;
-                   // alert("download complete: " + entry.fullPath);
+                function(fileEntry) { 
                     $("#tabstrip-download-file").data("kendoMobileModalView").close();
                     if(device.platform.toLowerCase() === "ios" )
             		{
