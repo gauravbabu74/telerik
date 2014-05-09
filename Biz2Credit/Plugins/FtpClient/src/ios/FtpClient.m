@@ -73,7 +73,8 @@
     }
      UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"startDownloadFile" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
         [alert show];
-    downloadData = [[NSMutableData alloc]init];
+   // downloadData = [[NSMutableData alloc]init];
+    downloadData = [NSMutableData dataWithCapacity:1];
     downloadFile.path = @"/public_html/components/com_brief/files/12516/154724.file";
     NSArray *arr = [downloadFile.path componentsSeparatedByString:@"/"];
     fileName = [arr lastObject];
@@ -123,9 +124,10 @@
 - (void) requestDataAvailable: (BRRequestDownload *) request;
 {
 
-       UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"requestDataAvailable" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+ NSString *length = [NSString stringWithFormat:@"%d",request.receivedData.length];
+       UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:length delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
         [alert show];
-    [downloadData appendData:request.receivedData];
+   // [downloadData appendData:request.receivedData];
     
 }
 -(void) requestCompleted: (BRRequest *) request
@@ -140,7 +142,7 @@
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *tempFolderPath = [documentsDirectory stringByAppendingPathComponent:@"Downloads"];
+        NSString *tempFolderPath = [documentsDirectory stringByAppendingPathComponent:@"biz2docs"];
         
         [[NSFileManager defaultManager] createDirectoryAtPath:tempFolderPath withIntermediateDirectories:YES attributes:nil error:NULL];
         tempFolderPath = [tempFolderPath stringByAppendingPathComponent:fileName];
@@ -168,6 +170,10 @@
 
 - (void) percentCompleted: (BRRequest *) request
 {
+
+  NSString *length = [NSString stringWithFormat:@"%f",request.percentCompleted];
+ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:length delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     NSLog(@"%f completed...",request.percentCompleted);
     NSLog(@"%ld bytes this iteration", request.bytesSent);
     NSLog(@"%ld total bytes",request.totalBytesSent);
