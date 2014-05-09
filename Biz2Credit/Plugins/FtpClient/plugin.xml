@@ -28,6 +28,44 @@
 
        <source-file src="src/ios/FtpClient.m"
            compiler-flags="-fno-objc-arc" />
+
+ <!-- FtpClient header files -->
+<header-file src="src/ios/headers/BRGlobal.h" target-dir="FtpClient" /> 
+
+<header-file src="src/ios/headers/WhiteRaccoon.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/WhiteRaccoon.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequest.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequest.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequest+_UserData.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequest+_UserData.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestCreateDirectory.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestCreateDirectory.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestDelete.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestDelete.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestDownload.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestDownload.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestError.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestError.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestQueue.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestQueue.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestListDirectory.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestListDirectory.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRRequestUpload.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRRequestUpload.m" target-dir="FtpClient" />
+
+<header-file src="src/ios/headers/BRStreamInfo.h" target-dir="FtpClient" />
+<source-file src="src/ios/headers/BRStreamInfo.m" target-dir="FtpClient" />
+
+     <framework src="CFNetwork.framework" weak="true" />
    </platform>
 
     <!-- android -->

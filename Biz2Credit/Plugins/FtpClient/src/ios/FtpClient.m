@@ -44,11 +44,12 @@
 
 - (void)downloadFile:(CDVInvokedUrlCommand*)command
 {
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"Abhishek msg" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
-        [alert show];
+ //   UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"Abhishek msg" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+  //      [alert show];
     recievedCommand = command;
     
     [self startDownloadFile:command.arguments];
+
 }
 
 -(void)startDownloadFile:(NSArray*)arrOfParams
@@ -70,15 +71,16 @@
         Username = [arrOfParams objectAtIndex:2];
         Password = [arrOfParams objectAtIndex:3];
     }
-    
+     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"startDownloadFile" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     downloadData = [[NSMutableData alloc]init];
-    downloadFile.path = @"/public_html/components/com_brief/files/12516/2243.file";
+    downloadFile.path = @"/public_html/components/com_brief/files/12516/154724.file";
     NSArray *arr = [downloadFile.path componentsSeparatedByString:@"/"];
     fileName = [arr lastObject];
     [downloadFile setHostname:@"107.21.114.127"];
     [downloadFile setUsername:@"b2cdocs"];
     
-    [downloadFile setPassword:@"NEx6fSt1JlppaXpENW8xeQ=="];
+    [downloadFile setPassword:@"4Lz}+u&ZiizD5o1y"];
     
     
     //we start the request
@@ -89,6 +91,8 @@
 
 - (long) requestDataSendSize: (BRRequestUpload *) request
 {
+ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"requestDataSendSize" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     //----- user returns the total size of data to send. Used ONLY for percentComplete
     return [uploadData length];
     
@@ -96,6 +100,9 @@
 
 - (NSData *)requestDataToSend:(BRRequestUpload *) request
 {
+
+ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"requestDataToSend" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     //----- returns data object or nil when complete
     //----- basically, first time we return the pointer to the NSData.
     //----- and BR will upload the data.
@@ -115,12 +122,16 @@
 
 - (void) requestDataAvailable: (BRRequestDownload *) request;
 {
+
+       UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"requestDataAvailable" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     [downloadData appendData:request.receivedData];
     
 }
 -(void) requestCompleted: (BRRequest *) request
 {
-    
+     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"requestCompleted" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     NSLog(@"%@ completed!", request);
     
     if (request == downloadFile)
