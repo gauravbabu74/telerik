@@ -435,9 +435,10 @@ dispatch_queue_t dispatch_get_local_queue()
 
 - (void)streamComplete:(BRRequest *)request
 {
-    [request.delegate requestCompleted:request];
-    [request.streamInfo close:request];
+    [request.delegate requestCompleted: request];
+    [request.streamInfo close: request];
 }
+
 
 
 //-----

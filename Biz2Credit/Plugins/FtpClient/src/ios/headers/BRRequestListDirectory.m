@@ -181,8 +181,7 @@
     
     //----- open the read stream and check for errors calling delegate methods
     //----- if things fail. This encapsulates the streamInfo object and cleans up our code.
-    [self.streamInfo openRead:self];
-    
+    [self.streamInfo openRead: self];
 }
 
 
