@@ -32,9 +32,6 @@
  <!-- FtpClient header files -->
 <header-file src="src/ios/headers/BRGlobal.h" target-dir="FtpClient" /> 
 
-<header-file src="src/ios/headers/WhiteRaccoon.h" target-dir="FtpClient" />
-<source-file src="src/ios/headers/WhiteRaccoon.m" target-dir="FtpClient" />
-
 <header-file src="src/ios/headers/BRRequest.h" target-dir="FtpClient" />
 <source-file src="src/ios/headers/BRRequest.m" target-dir="FtpClient" />
 

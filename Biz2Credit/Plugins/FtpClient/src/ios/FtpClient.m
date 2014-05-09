@@ -48,8 +48,10 @@
   //      [alert show];
     recievedCommand = command;
     
-    [self startDownloadFile:command.arguments];
-
+   
+//[self.commandDelegate runInBackground:^{
+        [self startDownloadFile:command.arguments];
+ //   }];
 }
 
 -(void)startDownloadFile:(NSArray*)arrOfParams
@@ -75,7 +77,7 @@
         [alert show];
    // downloadData = [[NSMutableData alloc]init];
     downloadData = [NSMutableData dataWithCapacity:1];
-    downloadFile.path = @"/public_html/components/com_brief/files/12516/36051.file";
+    downloadFile.path = @"/public_html/components/com_brief/files/12516/154728.file";
     NSArray *arr = [downloadFile.path componentsSeparatedByString:@"/"];
     fileName = [arr lastObject];
     [downloadFile setHostname:@"107.21.114.127"];

@@ -102,7 +102,7 @@
 @synthesize timeout;
 @synthesize cancelRequestFlag;
 @synthesize cancelDoesNotCallDelegate;
-
+@synthesize loadComplete;
 
 //-----
 //
@@ -333,6 +333,7 @@ dispatch_queue_t dispatch_get_local_queue()
         if ([request.delegate respondsToSelector:@selector(percentCompleted:)])
         {
             [request.delegate percentCompleted: request];
+
         }
         
         return data;
@@ -435,6 +436,9 @@ dispatch_queue_t dispatch_get_local_queue()
 
 - (void)streamComplete:(BRRequest *)request
 {
+
+ UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"streamComplete BRRInfo" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
+        [alert show];
     [request.delegate requestCompleted: request];
     [request.streamInfo close: request];
 }
