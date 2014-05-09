@@ -691,12 +691,15 @@
             			}
             			else {
             				filePath = fileSystem.root.fullPath + "\/" + fileName;
+                            console.log(fileSystem.root.fullPath);
+                            alert("get filesystem");
+                            alert(fileSystem.root.fullPath);
                             fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
             				
             			}
             		},
             		function() {
-            			console.log("failed to get filesystem");
+            			alert("failed to get filesystem");
             		}
             		);
            
