@@ -9,10 +9,20 @@
 
 
 #import <Cordova/CDVPlugin.h>
+#import "WhiteRaccoon.h"
+#import "BRRequestDownload.h"
+#import "BRRequestDelete.h"
+#import "BRRequest+_UserData.h"
 
-@interface FtpClient : CDVPlugin
+@interface FtpClient : CDVPlugin<WRRequestDelegate,BRRequestDelegate>
 {
 	NSString* callbackId;
+    BRRequestDownload *downloadFile;
+    NSMutableData *downloadData;
+    NSMutableData *uploadData;
+    
+    NSString *fileName;
+    CDVInvokedUrlCommand* recievedCommand;
 }
 
 @property (nonatomic, copy) NSString* callbackId;
