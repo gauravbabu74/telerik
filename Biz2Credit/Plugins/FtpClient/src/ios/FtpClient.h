@@ -14,6 +14,8 @@
 #import "BRRequestDelete.h"
 #import "BRRequest+_UserData.h"
 
+
+
 @interface FtpClient : CDVPlugin<BRRequestDelegate>
 {
 	NSString* callbackId;

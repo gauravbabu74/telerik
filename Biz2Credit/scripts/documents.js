@@ -765,8 +765,9 @@
                 ftpclient.downloadFile(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	app.loginService.viewModel.mobileNotification(downmsg,'success');
+                	//app.loginService.viewModel.mobileNotification(downmsg,'success');
                     navigator.notification.alert(downmsg);
+                   // console.log(downmsg);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();

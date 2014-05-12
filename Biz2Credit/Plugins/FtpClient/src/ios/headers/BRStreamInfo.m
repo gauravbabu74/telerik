@@ -102,7 +102,6 @@
 @synthesize timeout;
 @synthesize cancelRequestFlag;
 @synthesize cancelDoesNotCallDelegate;
-@synthesize loadComplete;
 
 //-----
 //
