@@ -706,7 +706,6 @@
         },
         fileExists:function(fileEntry)
         {
-            alert(fileEntry.fullPath);
             if(device.platform.toLowerCase() === "ios" )
             {
                 window.open(encodeURI(fileEntry.fullPath),"_blank","location=yes,hidden=no");
@@ -729,8 +728,7 @@
                     ftpclient.downloadFile(
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                            //window.open(encodeURI(relPath),"_system","location=yes,hidden=no");
-                        	 alert(filePath);
+                            window.open(encodeURI(filePath),"_system","location=yes,hidden=no");
                             app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 ftpclient.Disconnect(
                                     function(downmsg){	
