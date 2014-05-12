@@ -155,7 +155,7 @@
             states[Connection.CELL] = 'Cell generic connection';
             states[Connection.NONE] = 'No network connection';
             if (states[networkState] === 'No network connection') {
-                navigator.notification.alert('No active connection found!');
+                //navigator.notification.alert('No active connection found!');
                 return false;
             }
             return true;
