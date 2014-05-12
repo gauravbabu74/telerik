@@ -24,7 +24,7 @@
 {
    // recievedCommand = command;
     // [self startDownloadFile:command.arguments]; 
-
+NSLog(@"%@ fa!123", command.callbackId);
     NSDictionary *jsonObj =[[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"isPaused",nil];
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: jsonObj];
 	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
