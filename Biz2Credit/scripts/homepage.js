@@ -311,14 +311,18 @@
                 var that = this;
                 var data = that.data();
                 $("#tabstrip-mess-fourth p").html("");
-                html ="<ol class='rdocs'>";
-                for(i =0; i < data[0]['results']['docLists'].length; i ++)
+                if(typeof data[0]['results']['docLists'] !== "undefined")
                 {
-                   html += "<li>"+data[0]['results']['docLists'][i]+"</li>"; 
+                    html ="<ol class='rdocs'>";
+                    for(i =0; i < data[0]['results']['docLists'].length; i ++)
+                    {
+                    	html += "<li>"+data[0]['results']['docLists'][i]+"</li>"; 
+                    }
+                    html +="</ol>";
+                    $(".doc-content").append(html);
+                    $("#tabstrip-mess-fourth").data("kendoMobileModalView").open();  
                 }
-				html +="</ol>";
-                $(".doc-content").append(html);
-                $("#tabstrip-mess-fourth").data("kendoMobileModalView").open();
+                
                 $("#tabstrip-mess-fourth").find(".km-scroll-container").css("-webkit-transform", "");
                 app.loginService.viewModel.hideloder();
             });    
@@ -363,8 +367,7 @@
              $("#popover-docs").data("kendoMobilePopOver").close();
             
         }
-        
-        
+  
     });
     app.homesetting = {
         checkMatchesStatus: function(msdata)

@@ -68,6 +68,10 @@
             app.loginService.viewModel.hideloder();  
         	alert(data[0]['results']['faultmsg']);  
            });
+        },
+        ScheduleCloseModalView:function()
+        {
+           $("#tabstrip-scall").data("kendoMobileModalView").close();  
         }
       
         
