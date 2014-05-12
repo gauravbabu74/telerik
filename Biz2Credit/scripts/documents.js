@@ -730,7 +730,7 @@
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                             //window.open(encodeURI(relPath),"_system","location=yes,hidden=no");
-                        	 alert(relPath);
+                        	 alert(filePath);
                             app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 ftpclient.Disconnect(
                                     function(downmsg){	
