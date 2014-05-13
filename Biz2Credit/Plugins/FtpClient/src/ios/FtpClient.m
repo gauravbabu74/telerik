@@ -22,28 +22,22 @@
 
 - (void)downloadFile:(CDVInvokedUrlCommand*)command
 {
-	NSString *downloadingPath= [command argumentAtIndex:2];
+    NSString *downloadingPath= [command argumentAtIndex:2];
     NSString *Hostname = [command argumentAtIndex:0];
     NSString *Username= [command argumentAtIndex:4];
     NSString *Password= [command argumentAtIndex:1];
     NSString *ServerFileName= [command argumentAtIndex:5];
     NSString *fileName= [command argumentAtIndex:6];
-     NSArray *arrOfParams = [NSArray arrayWithObjects:Hostname,Password,downloadingPath,Username,ServerFileName,fileName, nil];
+    NSArray *arrOfParams = [NSArray arrayWithObjects:Hostname,Password,downloadingPath,Username,ServerFileName,fileName, nil];
     callback = [[NSString alloc]initWithString:command.callbackId];
     recievedCommand = command;
     [self startDownloadFile:arrOfParams]; 
-   // NSLog(@"%@ fa!123", command.callbackId);
-    //NSDictionary *jsonObj =[[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"isPaused",nil];
-
-//    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"gaurav"];
-  //  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+  
 }
 
 
 -(void)startDownloadFile:(NSArray*)arrOfParams
 {
-    
-  
     downloadFile = [[BRRequestDownload alloc] initWithDelegate:self];
     NSString *downloadingPath;
     NSString *Hostname;
@@ -60,25 +54,31 @@
         ServerFileName = [arrOfParams objectAtIndex:4];
         fileName = [arrOfParams objectAtIndex:5];
     }
-	NSLog(@" arrOfParams~~~~121212~");
-	NSLog(@"%@ downloadingPath~~~~~", downloadingPath);
-	NSLog(@"%@ Hostname~~~~~", Hostname);
-	NSLog(@"%@ Username~~~~~", Username);
-	NSLog(@"%@ Password~~~~~", Password);
-	NSLog(@"%@ ServerFileName~~~~~", ServerFileName);
-	NSLog(@"%@ fileName~~~~~", fileName);
+    
+	//requestCancelled =NO;
     downloadData = [[NSMutableData alloc]init];
     NSString* str = @"";
     NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
     [downloadData appendData:data];
-    downloadFile.path = @"/public_html/components/com_brief/files/12516/154728.file";
-    NSArray *arr = [downloadFile.path componentsSeparatedByString:@"/"];
-    fileName = [arr lastObject];
-    [downloadFile setHostname:@"107.21.114.127"];
-    [downloadFile setUsername:@"b2cdocs"];
-    [downloadFile setPassword:@"4Lz}+u&ZiizD5o1y"];
+    downloadFile.path = [downloadingPath stringByAppendingPathComponent:ServerFileName];
+    savedfileName = [[NSString alloc]initWithString:fileName];
+   
+    [downloadFile setHostname:Hostname];
+    [downloadFile setUsername:Username];
+    [downloadFile setPassword:Password];
     [downloadFile start]; 
 }
+
+-(void)Disconnect:(CDVInvokedUrlCommand*)command
+{
+	//requestCancelled =YES;
+	NSLog(@" cancelRequest...");
+	[downloadFile cancelRequest];
+	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"cancelRequest"];
+	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+
+}
+
 
 - (long) requestDataSendSize: (BRRequestUpload *) request
 {
@@ -115,7 +115,8 @@
 }
 -(void) requestCompleted: (BRRequest *) request
 {
-    if (request == downloadFile)
+
+    if (request == downloadFile && request.streamInfo.cancelRequestFlag == NO)
     {
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -125,7 +126,7 @@
         NSString *tempFolderPath = [documentsDirectory stringByAppendingPathComponent:@"biz2docs"];
 
         [[NSFileManager defaultManager] createDirectoryAtPath:tempFolderPath withIntermediateDirectories:YES attributes:nil error:NULL];
-        tempFolderPath = [tempFolderPath stringByAppendingPathComponent:@"154728.file"];
+		tempFolderPath = [tempFolderPath stringByAppendingPathComponent:savedfileName];
 
         if (![[NSFileManager defaultManager] fileExistsAtPath:tempFolderPath]) {
         [[NSFileManager defaultManager] createFileAtPath:tempFolderPath contents:nil attributes:nil];
@@ -133,29 +134,25 @@
         BOOL success;
         success  = [downloadData writeToFile:tempFolderPath atomically:YES];
         if (success) {
-			NSLog(@"%@ su!123", request);
-             NSLog(@"%@ tempFolderPath 123", tempFolderPath);
-            //NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:tempFolderPath, @"savedFilePath",@"true", @"success",nil];
-            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Sucess"];
-             NSLog(@"%@ recievedCommand.callbackId 123", callback);
+			
+            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
 			[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
+
       	 }else{
-           // NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:@"", @"savedFilePath",@"false", @"success",nil];
-            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Fail"];
+
+            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Server not responding properly"];
             [self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
-        	NSLog(@"%@ fa!123", request);
+
        }
-        downloadData = nil;
+        
     }
-    
+    downloadData = nil;
 }
 
 - (void) percentCompleted: (BRRequest *) request
 {
 
-  NSString *length = [NSString stringWithFormat:@"%f",request.percentCompleted];
- UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:length delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
-        //[alert show];
+ 
     NSLog(@"%f completed...",request.percentCompleted);
     NSLog(@"%ld bytes this iteration", request.bytesSent);
     NSLog(@"%ld total bytes",request.totalBytesSent);
@@ -164,16 +161,10 @@
 
 -(void) requestFailed:(BRRequest *) request
 {
-    
-    NSLog(@"%@",request.error.message);
-   // NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:request.error.message, @"savedFilePath",@"false", @"success",nil];
+   
     CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Fail"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
-    
    
-    
 }
-
-
 
 @end

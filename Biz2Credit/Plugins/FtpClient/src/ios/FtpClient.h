@@ -22,13 +22,13 @@
     BRRequestDownload *downloadFile;
     NSMutableData *downloadData;
     NSMutableData *uploadData;
-    
-    NSString *fileName;
+    //BOOL requestCancelled;
+    NSString *savedfileName;
     CDVInvokedUrlCommand* recievedCommand;
 }
 
 @property (nonatomic, copy) NSString* callback;
 
-//- (void)saveImageDataToLibrary:(CDVInvokedUrlCommand*)command;
 - (void)downloadFile:(CDVInvokedUrlCommand*)command;
+- (void)Disconnect:(CDVInvokedUrlCommand*)command;
 @end

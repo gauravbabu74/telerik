@@ -690,10 +690,10 @@
             				});
             			}
             			else {
-            				filePath = fileSystem.root.fullPath + "\/" + fileName;
-                            console.log(fileSystem.root.fullPath);
-                            alert("get filesystem");
-                            alert(fileSystem.root.fullPath);
+            				filePath = fileSystem.root.fullPath + "\/" +"biz2docs\/" +fileName;
+                            //console.log(fileSystem.root.fullPath);
+                             alert(filePath);
+                            //alert(fileSystem.root.fullPath);
                             fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
             				
             			}
@@ -767,8 +767,8 @@
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	//app.loginService.viewModel.mobileNotification(downmsg,'success');
                     navigator.notification.alert(downmsg);
-                    navigator.notification.alert("su");
-                   // console.log(downmsg);
+                    window.open(encodeURI(filePath),"_blank","location=yes,hidden=no");
+                    console.log(filePath);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -841,10 +841,23 @@
         },
         transferFileAbort:function()
         {
-            if(transfer)
-            {
-               transfer.abort(); 
-            }
+           
+            var ftpclient = window.plugins.ftpclient;
+            ftpclient.Disconnect(
+                function(downmsg){
+                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                	//app.loginService.viewModel.mobileNotification(downmsg,'success');
+                    //alert(downmsg);
+                    
+                }, 
+                function(downerr){
+                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                	//console.log(downerr);
+                    
+                }, 
+                userinfo
+                );
+            	
         },
         getFileExtension:function(filename)
         {
