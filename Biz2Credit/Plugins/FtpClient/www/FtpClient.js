@@ -11,8 +11,6 @@
 	};
 	FtpClient.prototype.Disconnect = function(successCallback, failureCallback, userInfo) {
 		
-        console.log(userInfo);
-        alert("Disconnect");
 		return cordova.exec(successCallback, failureCallback, "FtpClient","Disconnect",userInfo);
 	};
     FtpClient.prototype.downloadFile = function(successCallback, failureCallback, userInfo) {

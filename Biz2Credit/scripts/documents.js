@@ -842,8 +842,8 @@
         transferFileAbort:function()
         {
            
-            var ftpclient = window.plugins.ftpclient;
-            ftpclient.Disconnect(
+            var disFtpclient = window.plugins.ftpclient;
+            disFtpclient.Disconnect(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	//app.loginService.viewModel.mobileNotification(downmsg,'success');
@@ -866,8 +866,14 @@
         },
         closeFileDownloadProcess:function()
         {
-            $("#tabstrip-download-file").data("kendoMobileModalView").close();
-            app.documentsetting.viewModel.transferFileAbort();
+            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+				if (confirmed === true || confirmed === 1) {
+               	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+            	   app.documentsetting.viewModel.transferFileAbort();
+            	}
+                
+        	}, 'exit', 'Ok,Cancel');
+            
         },
         
     });

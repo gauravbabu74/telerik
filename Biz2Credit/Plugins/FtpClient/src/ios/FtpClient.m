@@ -72,23 +72,35 @@
 -(void)Disconnect:(CDVInvokedUrlCommand*)command
 {
 	//requestCancelled =YES;
-	NSLog(@" cancelRequest...");
-	[downloadFile cancelRequest];
-	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"cancelRequest"];
-	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+	NSLog(@"%@ cancelRequest...",downloadFile);
+    if(downloadFile != nil && downloadFile != NULL)
+    {
+		NSLog(@"~~~~~~~cancelRequest...");
+        downloadFile.cancelDoesNotCallDelegate = TRUE;
+        [downloadFile cancelRequest];
+        downloadFile = nil;
+        savedfileName = nil;
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"cancelRequest"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }
+	
 
 }
 
 
 - (long) requestDataSendSize: (BRRequestUpload *) request
 {
-    //----- user returns the total size of data to send. Used ONLY for percentComplete
+    
+ NSLog(@"%@~~~~~~~requestDataSendSize...",request);
+//----- user returns the total size of data to send. Used ONLY for percentComplete
     return [uploadData length];
+
 }
 
 - (NSData *)requestDataToSend:(BRRequestUpload *) request
 {
-
+  
+NSLog(@"%@~~~~~~~requestDataToSend...",request);
    //----- returns data object or nil when complete
     //----- basically, first time we return the pointer to the NSData.
     //----- and BR will upload the data.
@@ -109,8 +121,12 @@
 - (void) requestDataAvailable: (BRRequestDownload *) request;
 {
 
+ if (request == downloadFile){
+   NSLog(@"%@~~~~~~~requestDataAvailable...",request);
     NSString *length = [NSString stringWithFormat:@"%d",request.receivedData.length];
     [downloadData appendData:request.receivedData];
+
+}
    
 }
 -(void) requestCompleted: (BRRequest *) request
@@ -118,8 +134,8 @@
 
     if (request == downloadFile && request.streamInfo.cancelRequestFlag == NO)
     {
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSLog(@"%@~~~~~~~requestCompleted...",request);       
+         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 
         NSString *documentsDirectory = [paths objectAtIndex:0];
 
@@ -147,15 +163,19 @@
         
     }
     downloadData = nil;
+    downloadFile = nil;
 }
 
 - (void) percentCompleted: (BRRequest *) request
 {
 
- 
+ if (request == downloadFile){
+  NSLog(@"%@ percentCompleted...",request);
     NSLog(@"%f completed...",request.percentCompleted);
     NSLog(@"%ld bytes this iteration", request.bytesSent);
     NSLog(@"%ld total bytes",request.totalBytesSent);
+
+}
     
 }
 
