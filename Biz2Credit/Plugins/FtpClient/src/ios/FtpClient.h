@@ -18,7 +18,7 @@
 
 @interface FtpClient : CDVPlugin<BRRequestDelegate>
 {
-	NSString* callbackId;
+	NSString* callback;
     BRRequestDownload *downloadFile;
     NSMutableData *downloadData;
     NSMutableData *uploadData;
@@ -27,7 +27,7 @@
     CDVInvokedUrlCommand* recievedCommand;
 }
 
-@property (nonatomic, copy) NSString* callbackId;
+@property (nonatomic, copy) NSString* callback;
 
 //- (void)saveImageDataToLibrary:(CDVInvokedUrlCommand*)command;
 - (void)downloadFile:(CDVInvokedUrlCommand*)command;

@@ -767,11 +767,13 @@
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	//app.loginService.viewModel.mobileNotification(downmsg,'success');
                     navigator.notification.alert(downmsg);
+                    navigator.notification.alert("su");
                    // console.log(downmsg);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	navigator.notification.alert(downerr);
+                    navigator.notification.alert("fail");
 
                 }, 
                 userinfo

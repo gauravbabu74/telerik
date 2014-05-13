@@ -11,23 +11,32 @@
 #import <Cordova/CDV.h>
 
 @implementation FtpClient
-@synthesize callbackId;
+@synthesize callback;
 
 
 - (void)dealloc
 {	
-	[callbackId release];
+	[callback release];
     [super dealloc];
 }
 
 - (void)downloadFile:(CDVInvokedUrlCommand*)command
 {
-   // recievedCommand = command;
-    // [self startDownloadFile:command.arguments]; 
-NSLog(@"%@ fa!123", command.callbackId);
-    NSDictionary *jsonObj =[[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"isPaused",nil];
-    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary: jsonObj];
-	[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+	NSString *downloadingPath= [command argumentAtIndex:2];
+    NSString *Hostname = [command argumentAtIndex:0];
+    NSString *Username= [command argumentAtIndex:4];
+    NSString *Password= [command argumentAtIndex:1];
+    NSString *ServerFileName= [command argumentAtIndex:5];
+    NSString *fileName= [command argumentAtIndex:6];
+     NSArray *arrOfParams = [NSArray arrayWithObjects:Hostname,Password,downloadingPath,Username,ServerFileName,fileName, nil];
+    callback = [[NSString alloc]initWithString:command.callbackId];
+    recievedCommand = command;
+    [self startDownloadFile:arrOfParams]; 
+   // NSLog(@"%@ fa!123", command.callbackId);
+    //NSDictionary *jsonObj =[[NSDictionary alloc] initWithObjectsAndKeys:@"true", @"isPaused",nil];
+
+//    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"gaurav"];
+  //  [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 
@@ -40,14 +49,24 @@ NSLog(@"%@ fa!123", command.callbackId);
     NSString *Hostname;
     NSString *Username;
     NSString *Password;
-    
-    if (arrOfParams!=nil) {
-        downloadingPath = [arrOfParams objectAtIndex:0];
-        Hostname = [arrOfParams objectAtIndex:1];
-        Username = [arrOfParams objectAtIndex:2];
-        Password = [arrOfParams objectAtIndex:3];
-    }
+    NSString *ServerFileName;
+	NSString *fileName;
 
+    if (arrOfParams!=nil) {
+        downloadingPath = [arrOfParams objectAtIndex:2];
+        Hostname = [arrOfParams objectAtIndex:0];
+        Username = [arrOfParams objectAtIndex:3];
+        Password = [arrOfParams objectAtIndex:1];
+        ServerFileName = [arrOfParams objectAtIndex:4];
+        fileName = [arrOfParams objectAtIndex:5];
+    }
+	NSLog(@" arrOfParams~~~~121212~");
+	NSLog(@"%@ downloadingPath~~~~~", downloadingPath);
+	NSLog(@"%@ Hostname~~~~~", Hostname);
+	NSLog(@"%@ Username~~~~~", Username);
+	NSLog(@"%@ Password~~~~~", Password);
+	NSLog(@"%@ ServerFileName~~~~~", ServerFileName);
+	NSLog(@"%@ fileName~~~~~", fileName);
     downloadData = [[NSMutableData alloc]init];
     NSString* str = @"";
     NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -115,12 +134,14 @@ NSLog(@"%@ fa!123", command.callbackId);
         success  = [downloadData writeToFile:tempFolderPath atomically:YES];
         if (success) {
 			NSLog(@"%@ su!123", request);
-            NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:tempFolderPath, @"savedFilePath",@"true", @"success",nil];
-            CDVPluginResult *pluginResult =[CDVPluginResult resultWithStatus: CDVCommandStatus_OK messageAsDictionary :jsonObj];
-            [self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
+             NSLog(@"%@ tempFolderPath 123", tempFolderPath);
+            //NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:tempFolderPath, @"savedFilePath",@"true", @"success",nil];
+            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Sucess"];
+             NSLog(@"%@ recievedCommand.callbackId 123", callback);
+			[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
       	 }else{
-            NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:@"", @"savedFilePath",@"false", @"success",nil];
-            CDVPluginResult *pluginResult =[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary :jsonObj];
+           // NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:@"", @"savedFilePath",@"false", @"success",nil];
+            CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Fail"];
             [self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
         	NSLog(@"%@ fa!123", request);
        }
@@ -145,12 +166,11 @@ NSLog(@"%@ fa!123", command.callbackId);
 {
     
     NSLog(@"%@",request.error.message);
-    NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:request.error.message, @"savedFilePath",@"false", @"success",nil];
-    CDVPluginResult *pluginResult =[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary :jsonObj];
+   // NSDictionary *jsonObj =[[NSDictionary alloc]initWithObjectsAndKeys:request.error.message, @"savedFilePath",@"false", @"success",nil];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Fail"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
     
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:request.error.message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] ;
-    [alert show];
+   
     
 }
 

@@ -436,8 +436,7 @@ dispatch_queue_t dispatch_get_local_queue()
 - (void)streamComplete:(BRRequest *)request
 {
 
- UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Message" message:@"streamComplete BRRInfo" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles: nil] ;
-        [alert show];
+
     [request.delegate requestCompleted: request];
     [request.streamInfo close: request];
 }
