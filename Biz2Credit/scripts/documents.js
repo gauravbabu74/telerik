@@ -220,25 +220,7 @@
                                 userinfo.push(serverFileName);
                                 userinfo.push(fileName);
                                 folderName = "biz2docs";
-                               
-                               //app.documentsetting.viewModel.downloadFile(uri, fileName, folderName);
                                 app.documentsetting.viewModel.downloadFile(userinfo,folderName);
-                               /*var ftpclient = window.plugins.ftpclient; 
-            
-                                ftpclient.saveFileDataToLibrary(
-                                    function(msg){
-                                    	//alert("success");
-                                    	navigator.notification.alert(msg, function() {
-
-                                    	});
-                                    }, 
-                                    function(err){
-                                    	alert("failure again");
-                                    	navigator.notification.alert(err);
-
-                                    }, 
-                                    userinfo
-                                	);*/
                                 }
                         }
                 	}, 
@@ -861,6 +843,7 @@
         },
         closeFileDownloadProcess:function()
         {
+           if (device.platform === "ios") {
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -868,7 +851,7 @@
             	}
                 
         	}, 'exit', 'Ok,Cancel');
-            
+            }
         },
         
     });
