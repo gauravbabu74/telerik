@@ -24,6 +24,16 @@
 
                 return;
             }
+            if (!$.isNumeric(phonenumber)) {
+                navigator.notification.alert("Phone Number should be numeric.");
+
+                return;
+            }
+            if (phonenumber.length !== 10) {
+                navigator.notification.alert("Phone Number should be 10 digits.");
+
+                return;
+            }
             else{ 
                 if(!app.loginService.viewModel.checkConnection()){
                 	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
@@ -65,6 +75,7 @@
             dataSource.fetch(function(){
             var that = this;
             var data = that.data();
+                console.log(data);
             app.loginService.viewModel.hideloder();  
         	alert(data[0]['results']['faultmsg']);  
            });

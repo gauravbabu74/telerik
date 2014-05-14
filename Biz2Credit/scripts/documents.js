@@ -843,7 +843,7 @@
         },
         closeFileDownloadProcess:function()
         {
-           if (device.platform === "ios") {
+           if (device.platform.toLowerCase() === "ios") {
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();

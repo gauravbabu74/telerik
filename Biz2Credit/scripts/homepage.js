@@ -30,8 +30,7 @@
         }
         else
         {    
-            app.loginService.viewModel.showloder();
-                
+            app.loginService.viewModel.showloder();  
             var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
@@ -52,7 +51,6 @@
             dataSource.fetch(function(){
                 var that = this;
                 var data = that.data();
-                //console.log(data);
                 app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
                 pos = 1;
                 var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
@@ -342,6 +340,7 @@
         {
 
             var that = this;
+            that.set("toolStatus",false);
             that.set("LoanAmt", "$"+data['loanamt']);
             that.set("YearsBus", data['ageofbuss']+" yrs.");
             that.set("AnnnualRevenue", "$"+data['annrevenue']);
