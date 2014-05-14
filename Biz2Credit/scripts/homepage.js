@@ -330,7 +330,7 @@
             app.loginService.viewModel.showloder();
             // this space for send mail
             $("#tabstrip-mess-dynamic p").html("");
-            html ="To apply for this product, Please log on to the web version of Biz2credit.com";
+            html ="To apply for this product, Please log on to the web version of Biz2Credit.com";
             $("#tabstrip-mess-dynamic p").append(html);
             $("#tabstrip-mess-dynamic").data("kendoMobileModalView").open();
             
