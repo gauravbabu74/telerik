@@ -102,6 +102,13 @@
             localStorage.removeItem("userID");
             localStorage.removeItem("userEmail");
             localStorage.removeItem("userMobile");
+            localStorage.removeItem("ftpHost");
+            localStorage.removeItem("ftpPassword");
+            localStorage.removeItem("ftpPath");
+            localStorage.removeItem("ftpRelativePath");
+            localStorage.removeItem("ftpUserName");
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("userMobile");
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();

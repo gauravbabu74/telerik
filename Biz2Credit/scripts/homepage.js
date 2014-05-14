@@ -340,12 +340,16 @@
         },
         setHomeToolTips:function(data)
         {
+
             var that = this;
             that.set("LoanAmt", "$"+data['loanamt']);
             that.set("YearsBus", data['ageofbuss']+" yrs.");
             that.set("AnnnualRevenue", "$"+data['annrevenue']);
             that.set("CreditScore", data['creditscore']);
             that.set("State",data['state']);
+            that.set("name",localStorage.getItem("userFName"));
+            that.set("email",localStorage.getItem("userEmail"));
+            that.set("phone","+"+localStorage.getItem("userMobile"));
          
         },
         setToolTips:function()
