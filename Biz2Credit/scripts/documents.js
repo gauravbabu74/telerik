@@ -691,9 +691,6 @@
             			}
             			else {
             				filePath = fileSystem.root.fullPath + "\/" +"biz2docs\/" +fileName;
-                            //console.log(fileSystem.root.fullPath);
-                             alert(filePath);
-                            //alert(fileSystem.root.fullPath);
                             fileSystem.root.getFile(filePath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
             				
             			}
