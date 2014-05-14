@@ -206,7 +206,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .matches-view li .row3 a.appy {background-image: url(images/icon_apply_1.png); background-repeat:no-repeat; background-size:23%; background-position:center 4px;}
 /*********29-04-14**************/
 /*********1-04-14****************/
-.matches-logo { background-image: url(images/logo.png); text-align:left; background-repeat:no-repeat; background-size:25%; background-position:10px 14px;height:50px; position:fixed; background-color:#e9e9e9; padding:0.5em; border-bottom:1px solid #99cc00; width:100%;}
+.matches-logo { background-image: url(images/back-logo.png); text-align:left; background-repeat:no-repeat; background-size:25%; background-position:10px 14px;height:50px; position:fixed; background-color:#e9e9e9; padding:0.5em; border-bottom:1px solid #99cc00; width:100%;}
 .matches-logo a {background-color:transparent; border:0; height:auto; font-size:0; display:block; width:25%;}
 .reqWindow { border-bottom:1px solid #99cc00;}
 .reqWindow h4 { color:#99cc00; font-size:1.3em; font-weight:normal; margin:15px 10px;}
