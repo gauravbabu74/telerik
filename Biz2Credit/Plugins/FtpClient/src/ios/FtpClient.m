@@ -75,12 +75,12 @@
     {
         downloadFile.cancelDoesNotCallDelegate = TRUE;
         [downloadFile cancelRequest];
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"cancelRequest"];
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Download process aborted successfully"];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
     else
     {
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"cancelRequestFail"];
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Cancel Request Fail"];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
 	
