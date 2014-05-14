@@ -22,7 +22,6 @@
     BRRequestDownload *downloadFile;
     NSMutableData *downloadData;
     NSMutableData *uploadData;
-    //BOOL requestCancelled;
     NSString *savedfileName;
     CDVInvokedUrlCommand* recievedCommand;
 }

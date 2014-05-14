@@ -160,10 +160,10 @@ NSLog(@"%@~~~~~~~requestDataToSend...",request);
             [self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
 
        }
-        
-    }
     downloadData = nil;
     downloadFile = nil;
+    }
+    
 }
 
 - (void) percentCompleted: (BRRequest *) request
