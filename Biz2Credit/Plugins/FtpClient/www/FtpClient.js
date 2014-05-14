@@ -4,8 +4,6 @@
 	function FtpClient() {}
 
 	FtpClient.prototype.Connect = function(successCallback, failureCallback, userInfo) {
-		
-        console.log(userInfo);
         
 		return cordova.exec(successCallback, failureCallback, "FtpClient","Connect",userInfo);
 	};
@@ -14,8 +12,6 @@
 		return cordova.exec(successCallback, failureCallback, "FtpClient","Disconnect",userInfo);
 	};
     FtpClient.prototype.downloadFile = function(successCallback, failureCallback, userInfo) {
-		
-        console.log(userInfo);
         
 		return cordova.exec(successCallback, failureCallback, "FtpClient","downloadFile",userInfo);
 	};

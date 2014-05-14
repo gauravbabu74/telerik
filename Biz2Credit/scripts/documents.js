@@ -766,14 +766,14 @@
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	//app.loginService.viewModel.mobileNotification(downmsg,'success');
-                    navigator.notification.alert(downmsg);
+                    //navigator.notification.alert(downmsg);
                     window.open(encodeURI(filePath),"_blank","location=yes,hidden=no");
-                    console.log(filePath);
+                    //console.log(filePath);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	navigator.notification.alert(downerr);
-                    navigator.notification.alert("fail");
+                   //navigator.notification.alert("fail");
 
                 }, 
                 userinfo
@@ -846,13 +846,11 @@
             disFtpclient.Disconnect(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	//app.loginService.viewModel.mobileNotification(downmsg,'success');
-                    //alert(downmsg);
-                    
+                    navigator.notification.alert(downmsg);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	//console.log(downerr);
+                    navigator.notification.alert(downerr);
                     
                 }, 
                 userinfo
