@@ -116,8 +116,9 @@
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
+            alert(filePath);
             relPath = "\/" +fileName;
-            currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
+           // currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
 
         },
         setExportInnerPage:function()
