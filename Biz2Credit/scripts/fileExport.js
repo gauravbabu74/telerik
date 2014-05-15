@@ -120,8 +120,7 @@
             app.fileexportsetting.viewModel.historyPath.shift()
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
-            fileName = $.trim(sessionStorage.currentFileName);
-            serverFileName = $.trim(sessionStorage.currentFileId)+'.file';
+            serverFileName = $.trim(sessionStorage.getItem("currentFileId"))+'.file';
             userinfo.push(localStorage.getItem("ftpHost"));
             userinfo.push(localStorage.getItem("ftpPassword"));
             userinfo.push(localStorage.getItem("ftpPath"));
@@ -131,6 +130,7 @@
             userinfo.push(fileName);
             userinfo.push(app.fileexportsetting.viewModel.historyPath.join("/"));
             folderName = "biz2docs";
+            console.log(userinfo);
 			app.fileexportsetting.viewModel.exportDownloadFile(userinfo,folderName);
 
         },
@@ -193,6 +193,8 @@
                 userinfo
                 );
             }
+            $('.download-file-name').html('');
+        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
            
         },
         
