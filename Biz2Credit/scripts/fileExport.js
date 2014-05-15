@@ -26,8 +26,6 @@
             if(app.fileexportsetting.viewModel.historyPath[app.fileexportsetting.viewModel.historyPath.length-1] !== directoryEntry.name){
             	app.fileexportsetting.viewModel.historyPath.push(directoryEntry.name);
             }
-      
-			alert(app.fileexportsetting.viewModel.historyPath.join("/"));
             if(typeof $("#dirContent").data("kendoMobileListView") !=='undefined')
             {
             	$("#dirContent").data("kendoMobileListView").destroy();
@@ -118,16 +116,10 @@
         
         thisFileExport:function(e)
         {
+            userinfo = [];
             app.fileexportsetting.viewModel.historyPath.shift()
-             
-            uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
-            console.log(currentDir);
-            alert(filePath);
-            relPath = "\/" +fileName;
-            userinfo = [];
-            
             fileName = $.trim(sessionStorage.currentFileName);
             serverFileName = $.trim(sessionStorage.currentFileId)+'.file';
             userinfo.push(localStorage.getItem("ftpHost"));
@@ -139,9 +131,7 @@
             userinfo.push(fileName);
             userinfo.push(app.fileexportsetting.viewModel.historyPath.join("/"));
             folderName = "biz2docs";
-            console.log(userinfo);
 			app.fileexportsetting.viewModel.exportDownloadFile(userinfo,folderName);
-           // currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
 
         },
         setExportInnerPage:function()

@@ -60,6 +60,7 @@ public class FtpClient extends CordovaPlugin {
 	public static  String server_file_name;
 	public static  String file_name;
     public static  String PASSWORD;
+	public static  String file_path;
     
 
     @Override
