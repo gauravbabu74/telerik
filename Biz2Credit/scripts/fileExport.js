@@ -156,7 +156,11 @@
                     ftpclient.downloadFile(
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                            navigator.notification.alert("File export successfully.");
+                            navigator.notification.confirm('File export successfully.', function (confirmed) {
+                            if (confirmed === true || confirmed === 1) {
+                            	apps.navigate('views/documents.html?parent='+app.documentsetting.viewModel.parentId);
+                            }
+                            }, 'Message');
                             app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 ftpclient.Disconnect(
                                     function(downmsg){	
