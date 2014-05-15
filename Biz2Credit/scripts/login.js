@@ -56,8 +56,6 @@
             dataSource.fetch(function(){
                 
             	var data = this.data();              
-                //var loginMsg = data[0]['results']['faultmsg'];
-                console.log(data);
             	if(data[0]['results']['faultcode'] === '1')
                 {
                     that.setUserLogin(data[0]['results']['UserData']);

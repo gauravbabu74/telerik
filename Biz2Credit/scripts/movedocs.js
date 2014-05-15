@@ -30,11 +30,12 @@
                 {
                     moveParentId = e.view.params.parent;
                     app.movedocumentsetting.viewModel.setmoveDocsId(e.view.params.parent);
-                    
+                    console.log(backHistory); 
                 }
                 else
                 {   
                     backHistory=[];
+                    console.log(backHistory);
                     backHistory.push(0);
                     moveParentId = 0;
                     app.movedocumentsetting.viewModel.setMoveMainPage();
@@ -149,7 +150,11 @@
         setDocuments: function(data)
         { 
             var that = this;
-            that.set("documents", data['0']);  
+            that.set("documents", data['0']);
+            if(typeof $(".list-move-listview").data("kendoMobileListView") !=='undefined' )
+            {
+            	$(".list-move-listview").data("kendoMobileListView").destroy();
+            }
             $(".list-move-listview").kendoMobileListView({
                 dataSource: app.movedocumentsetting.viewModel.documents,
                 template: $("#docsmove-template").html(),
