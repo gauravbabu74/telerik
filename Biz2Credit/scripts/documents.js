@@ -224,6 +224,7 @@
                                 userinfo.push(localStorage.getItem("ftpUserName"));
                                 userinfo.push(serverFileName);
                                 userinfo.push(fileName);
+                                userinfo.push("biz2docs");
                                 folderName = "biz2docs";
                                 app.documentsetting.viewModel.downloadFile(userinfo,folderName);
                                 }

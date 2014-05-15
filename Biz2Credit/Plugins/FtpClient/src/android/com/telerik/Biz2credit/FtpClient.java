@@ -74,6 +74,7 @@ public class FtpClient extends CordovaPlugin {
             user_name=data.optString(4);
             server_file_name=data.optString(5);
             file_name=data.optString(6);
+			file_path=data.optString(7);
 
             if(action.equalsIgnoreCase(ACTION_CONNECT)){
                Handler h=new Handler();
@@ -95,7 +96,7 @@ public class FtpClient extends CordovaPlugin {
         if(action.equals(ACTION_DOWNLOAD)) {
             if(isConnected())
             {
-                String status=downloadFile(server_file_name,file_name,ftp_path);
+                String status=downloadFile(server_file_name,file_name,ftp_path,file_path);
                 if(status.equalsIgnoreCase(SUCCESS)){
                     callbackContext.success("Success");
                     return true;
@@ -119,11 +120,11 @@ public class FtpClient extends CordovaPlugin {
 
 
 public String downloadFile(String serverFileName,
-            String localFileName,String fullPath) {
+            String localFileName,String fullPath,String file_path) {
         String result = "";
         
         // download in sdcard
-		String pat=Environment.getExternalStorageDirectory()+"/biz2docs";
+		String pat=Environment.getExternalStorageDirectory()+"/"+file_path;
         File root = new File(pat);
         File file = new File(root, localFileName);
         try {

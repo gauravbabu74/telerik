@@ -118,7 +118,8 @@
         
         thisFileExport:function(e)
         {
-            
+            app.fileexportsetting.viewModel.historyPath.shift()
+             
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
@@ -136,9 +137,10 @@
             userinfo.push(localStorage.getItem("ftpUserName"));
             userinfo.push(serverFileName);
             userinfo.push(fileName);
+            userinfo.push(app.fileexportsetting.viewModel.historyPath.join("/"));
             folderName = "biz2docs";
             console.log(userinfo);
-			//app.documentsetting.viewModel.downloadFile(userinfo,folderName);
+			app.fileexportsetting.viewModel.exportDownloadFile(userinfo,folderName);
            // currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
 
         },
@@ -151,7 +153,55 @@
         {
             var that = this;
             that.set("exportInnerPage", false);  
-        }
+        },
+        exportDownloadFile:function(userinfo,folderName)
+        {
+		    fileName = sessionStorage.getItem("currentFileName");
+            ext = app.documentsetting.viewModel.getFileExtension(fileName);
+            $("#tabstrip-download-file").data("kendoMobileModalView").open();
+            var ftpclient = window.plugins.ftpclient;
+            if (device.platform === "Android") {
+                ftpclient.Connect(
+                function(msg){
+                    ftpclient.downloadFile(
+                        function(downmsg){
+                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                            navigator.notification.alert("File export successfully.");
+                            app.loginService.viewModel.mobileNotification(downmsg,'success');
+                                ftpclient.Disconnect(
+                                    function(downmsg){	
+                                    }, 
+                                    function(downerr){
+                                    }, 
+                                    userinfo
+                                );
+                        }, 
+                        function(downerr){
+                        	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                        	navigator.notification.alert(downerr);
+                            ftpclient.Disconnect(
+                                    function(downmsg){	
+                                    }, 
+                                    function(downerr){
+                                    }, 
+                                    userinfo
+                                );
+
+                        }, 
+                        userinfo
+                    );
+                }, 
+                function(err){
+                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
+                	navigator.notification.alert("Connection to Server Failed");
+
+                }, 
+                userinfo
+                );
+            }
+           
+        },
+        
     });
     app.fileexportsetting = {
         
