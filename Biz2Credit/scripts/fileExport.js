@@ -4,6 +4,7 @@
 
     fileExportViewModel = kendo.data.ObservableObject.extend({
         expDocs:[],
+        historyPath:[],
         exportInnerPage:false,
         filedocumentShow:function(e)
         {
@@ -22,7 +23,11 @@
             );		
         },
         listDir:function(directoryEntry){
-            
+            if(app.fileexportsetting.viewModel.historyPath[app.fileexportsetting.viewModel.historyPath.length-1] !== directoryEntry.name){
+            	app.fileexportsetting.viewModel.historyPath.push(directoryEntry.name);
+            }
+      
+			alert(app.fileexportsetting.viewModel.historyPath.join("/"));
             if(typeof $("#dirContent").data("kendoMobileListView") !=='undefined')
             {
             	$("#dirContent").data("kendoMobileListView").destroy();
@@ -107,6 +112,7 @@
         },
         gobackFileExportPage:function(e)
         {
+             app.fileexportsetting.viewModel.historyPath.pop(currentDir.name);
              app.fileexportsetting.viewModel.listDir(parentDir);
         },
         
@@ -116,8 +122,23 @@
             uri = encodeURI("http://www.grkendo.com/docs/GRKK_Beginning_Kendo.pdf");
             fileName =  $.trim(sessionStorage.getItem("currentFileName"));
             filePath = currentDir.fullPath + "\/" + fileName;
+            console.log(currentDir);
             alert(filePath);
             relPath = "\/" +fileName;
+            userinfo = [];
+            
+            fileName = $.trim(sessionStorage.currentFileName);
+            serverFileName = $.trim(sessionStorage.currentFileId)+'.file';
+            userinfo.push(localStorage.getItem("ftpHost"));
+            userinfo.push(localStorage.getItem("ftpPassword"));
+            userinfo.push(localStorage.getItem("ftpPath"));
+            userinfo.push(localStorage.getItem("ftpRelativePath"));
+            userinfo.push(localStorage.getItem("ftpUserName"));
+            userinfo.push(serverFileName);
+            userinfo.push(fileName);
+            folderName = "biz2docs";
+            console.log(userinfo);
+			//app.documentsetting.viewModel.downloadFile(userinfo,folderName);
            // currentDir.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
 
         },
