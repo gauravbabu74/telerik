@@ -849,6 +849,7 @@
         },
         closeFileDownloadProcess:function()
         {
+            $("#tabstrip-download-file").data("kendoMobileModalView").close();
            if (device.platform.toLowerCase() === "ios") {
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
