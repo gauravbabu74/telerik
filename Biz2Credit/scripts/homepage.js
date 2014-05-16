@@ -273,8 +273,6 @@
         { 
                var that = this;
                that.set("Matches", data);
-               //console.log(data);
-               //app.loginService.viewModel.hideloder();
         },
         reqDocuments: function(e)
         {
@@ -338,7 +336,6 @@
         },
         setHomeToolTips:function(data)
         {
-console.log(data);
             var that = this;
             that.set("toolStatus",false);
             that.set("LoanAmt", "$"+data['loanamt']);
