@@ -18,7 +18,7 @@
 
                 return;
             }
-            if(!that.checkConnection()){
+            if(window.connectionInfo.checkConnection()){
                     navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                 	if (confirmed === true || confirmed === 1) {
                 		app.loginService.viewModel.validateUser();
@@ -149,6 +149,9 @@
         
         checkConnection:function()
         {
+            //console.log(navigator);
+            //console.log(navigator.connection);
+            //console.log(navigator.app);
             /* if(typeof navigator.connection.type !== "undefined")
             {
                var networkState = navigator.connection.type;
