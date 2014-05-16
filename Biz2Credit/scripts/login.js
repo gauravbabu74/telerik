@@ -18,6 +18,7 @@
 
                 return;
             }
+              console.log(window);
             if(!window.connectionInfo.checkConnection()){
                     navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                 	if (confirmed === true || confirmed === 1) {
@@ -143,8 +144,23 @@
         },
         refreshHome:function()
         {
-            app.homesetting.viewModel.homeShow();
-            app.homesetting.viewModel.closeParentPopover();
+           
+           
+            if(!window.connectionInfo.checkConnection()){
+               
+                navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
+            	if (confirmed === true || confirmed === 1) {
+                   
+            		app.loginService.viewModel.refreshHome();
+            	}
+
+            	}, 'Connection Error?', 'Retry,Cancel');
+            }
+            else
+            { 
+               app.homesetting.viewModel.homeShow(); 
+            }
+             app.homesetting.viewModel.closeParentPopover();
         },
         mobileNotification:function(msg,status)
         {

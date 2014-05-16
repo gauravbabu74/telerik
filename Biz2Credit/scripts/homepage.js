@@ -17,19 +17,7 @@
         dDescription:(window.localStorage.getItem("dDescription") !== null) ?  localStorage.getItem("dDescription") : '',
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
-        homeShow: function (e) { 
-        if(!window.connectionInfo.checkConnection()){
-               
-                navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
-            	if (confirmed === true || confirmed === 1) {
-                   
-            		app.homesetting.viewModel.homeShow();
-            	}
-
-            }, 'Connection Error?', 'Retry,Cancel');
-        }
-        else
-        {    
+        homeShow: function (e) {  
             app.loginService.viewModel.showloder();  
             var dataSource = new kendo.data.DataSource({
                 transport: {
@@ -209,7 +197,6 @@
                  app.homesetting.viewModel.setcache(dHeader,dDescription,dButtonText,dButtonLink);
                
             });
-        }
         },       
 		setcache:function(dHeader,dDescription,dButtonText,dButtonLink)
         {

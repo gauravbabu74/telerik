@@ -46,8 +46,7 @@
     function ConnectionApp() {
 	}
  
-    ConnectionApp.prototype = {
-    	
+    ConnectionApp.prototype = { 	
     	checkConnection: function() {
     			if(typeof navigator.connection.type !== "undefined")
                 {
