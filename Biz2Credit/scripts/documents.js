@@ -849,15 +849,16 @@
         },
         closeFileDownloadProcess:function()
         {
-           $("#tabstrip-download-file").data("kendoMobileModalView").close();
+            alert("call");
+          // $("#tabstrip-download-file").data("kendoMobileModalView").close();
            //if (device.platform.toLowerCase() === "ios") {
-            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+           /* navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
             	   app.documentsetting.viewModel.transferFileAbort();
             	}
                 
-        	}, 'exit', 'Ok,Cancel');
+        	}, 'exit', 'Ok,Cancel');*/
            // }
         },
         
