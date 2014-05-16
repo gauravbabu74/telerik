@@ -85,7 +85,7 @@
                 dataSource.fetch(function(){
                     var that = this;
                     var data = that.data();
-                    //console.log(data);
+                    console.log(data);
                     app.documentsetting.viewModel.setDocuments(data); 
                 });
        	 }

@@ -12,13 +12,18 @@
             var that = this,
             username = that.get("username").trim(),
             password = that.get("password").trim();
-            if (username === "" || password === "") {
-                navigator.notification.alert("Both fields are required!",
+            if (username === "") {
+                navigator.notification.alert("Please enter username",
                     function () { }, "Login failed", 'OK');
 
                 return;
             }
-              console.log(window);
+            if (password === "") {
+                navigator.notification.alert("Please enter password",
+                    function () { }, "Login failed", 'OK');
+
+                return;
+            }
             if(!window.connectionInfo.checkConnection()){
                     navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                 	if (confirmed === true || confirmed === 1) {
@@ -65,7 +70,7 @@
                 else{
                     that.hideloder();
                     localStorage.setItem("isLoggedIn",false);
-                    alert('Please check username and password.');
+                    alert('Login failed. Invalid username/password');
                     return;
                 }            
           
@@ -73,7 +78,7 @@
         },
        
         setUserLogin: function (userinfo) {
-             var that = this;
+            var that = this;
             that.hideloder();
             
             localStorage.setItem("ftpHost",userinfo['ftpHost']);

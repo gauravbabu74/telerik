@@ -10,6 +10,7 @@
         {
             //var that = this,
             $("#tabstrip-scall").data("kendoMobileModalView").close();
+            
            
         },
         validateSchedule:function()
@@ -82,7 +83,11 @@
         },
         ScheduleCloseModalView:function()
         {
-           $("#tabstrip-scall").data("kendoMobileModalView").close();  
+            $("#tabstrip-scall").data("kendoMobileModalView").close();
+            var that =this;
+            that.set("phonenumber","");
+            that.set("sDate","");
+            $("#timepicker").val("");
         }
       
         
