@@ -136,11 +136,12 @@
             </form>
         </div>
 <!--Download File-->
-        <div id="tabstrip-download-file" class="folder-events modal-mess-Popup" data-role="modalview" data-model="app.documentsetting.viewModel">
-           
+        <div id="tabstrip-download-file" class="folder-events modal-mess-Popup" data-role="modalview" data-model="app.loginService.viewModel">
+            <div class="downloadWrpr">
                 <a data-role="button"  data-bind="click:closeFileDownloadProcess" data-aligh="right">Close</a>
-                
-           
+                <div class="download-file-name"></div>
+                <div id="status" class="status">status</div>
+            </div>
         </div>
 <!-- Matches page template -->
         <script type="text/x-kendo-template" id="docs-template">
