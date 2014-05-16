@@ -18,7 +18,7 @@
         dButtonText :(window.localStorage.getItem("dButtonText") !== null) ?  localStorage.getItem("dButtonText") : '',
         dButtonLink:(window.localStorage.getItem("dButtonLink") !== null) ?  localStorage.getItem("dButtonLink") : '',
         homeShow: function (e) { 
-        if(!app.loginService.viewModel.checkConnection()){
+        if(!window.connectionInfo.checkConnection()){
                
                 navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             	if (confirmed === true || confirmed === 1) {
@@ -278,7 +278,7 @@
         },
         reqDocuments: function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
                 navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             	if (confirmed === true || confirmed === 1) {
             		app.homesetting.viewModel.reqDocuments();

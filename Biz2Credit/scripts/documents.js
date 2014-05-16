@@ -13,7 +13,7 @@
         renameFileName:'',
         documentShow:function(e)
         { 
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
         			if (confirmed === true || confirmed === 1) {
         				app.documentsetting.viewModel.documentShow(e);
@@ -92,7 +92,7 @@
        },
        refreshView:function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.documentsetting.viewModel.refreshView(e);
@@ -309,7 +309,7 @@
         },
         thisFolderDelete:function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.documentsetting.viewModel.thisFolderDelete(e);
@@ -368,7 +368,7 @@
         } ,
         thisFileDelete:function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.documentsetting.viewModel.thisFileDelete(e);
@@ -428,7 +428,7 @@
         },
         thisFolderRename:function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.documentsetting.viewModel.thisFolderRename(e);
@@ -489,7 +489,7 @@
         },
         thisFileRename:function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.documentsetting.viewModel.thisFileRename(e);
@@ -571,7 +571,7 @@
         },
         newFolderCreate:function(e)
         {
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
             	navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.documentsetting.viewModel.newFolderCreate(e);

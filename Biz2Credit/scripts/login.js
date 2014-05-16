@@ -146,46 +146,6 @@
             app.homesetting.viewModel.homeShow();
             app.homesetting.viewModel.closeParentPopover();
         },
-        
-        checkConnection:function()
-        {
-            //console.log(navigator);
-            //console.log(navigator.connection);
-            //console.log(navigator.app);
-            /* if(typeof navigator.connection.type !== "undefined")
-            {
-               var networkState = navigator.connection.type;
-                var states = {};
-                states[Connection.UNKNOWN] = 'Unknown connection';
-                states[Connection.ETHERNET] = 'Ethernet connection';
-                states[Connection.WIFI] = 'WiFi connection';
-                states[Connection.CELL_2G] = 'Cell 2G connection';
-                states[Connection.CELL_3G] = 'Cell 3G connection';
-                states[Connection.CELL_4G] = 'Cell 4G connection';
-                states[Connection.CELL] = 'Cell generic connection';
-                states[Connection.NONE] = 'No network connection';
-                if (states[networkState] === 'No network connection') {
-                    //navigator.notification.alert('No active connection found!');
-                    return false;
-                }
-            }*/
-            
-            return true;
-        },
-        checkConnectionRetrycall:function(e)
-        {
-           var that = this;
-            console.log(e)
-           if(that.checkConnection())
-           {
-                navigator.notification.confirm('Connection Error?', function (confirmed) {
-                	if (confirmed === true || confirmed === 1) {
-                		console.log(e)
-                	}
-
-                }, 'Retry', 'Cancel');
-           }
-        },
         mobileNotification:function(msg,status)
         {
             

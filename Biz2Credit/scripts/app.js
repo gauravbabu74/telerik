@@ -49,7 +49,6 @@
     ConnectionApp.prototype = {
     	
     	checkConnection: function() {
-            console.log(navigator.connection.type);
     			if(typeof navigator.connection.type !== "undefined")
                 {
                     var networkState = navigator.connection.type;
@@ -63,7 +62,6 @@
                     states[Connection.CELL] = 'Cell generic connection';
                     states[Connection.NONE] = 'No network connection';
                     if (states[networkState] === 'No network connection') {
-                        //navigator.notification.alert('No active connection found!');
                         return false;
                     }
                 }

@@ -10,7 +10,7 @@
         
         movedocumentShow:function(e)
         { 
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
                 navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.movedocumentsetting.viewModel.movedocumentShow(e);
@@ -88,7 +88,7 @@
        },
         moveRefreshView:function(e)
         { 
-            if(!app.loginService.viewModel.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
                 navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
             		if (confirmed === true || confirmed === 1) {
             			app.movedocumentsetting.viewModel.moveRefreshView(e);
