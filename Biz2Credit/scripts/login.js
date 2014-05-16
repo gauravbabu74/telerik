@@ -136,7 +136,9 @@
         },
         showloder:function()
         {	apps.showLoading();
-             setTimeout(function(){apps.hideLoading()}, 10000);
+             setTimeout(function(){
+                 apps.hideLoading();
+             }, 10000);
         },
         hideloder:function()
         {

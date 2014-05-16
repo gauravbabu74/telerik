@@ -707,7 +707,7 @@
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             var ftpclient = window.plugins.ftpclient;
-            if (device.platform === "Android") {
+            /*if (device.platform === "Android") {
                 ftpclient.Connect(
                 function(msg){
                     ftpclient.downloadFile(
@@ -764,7 +764,7 @@
                 userinfo
                 );
             	
-            }
+            }*/
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
@@ -850,7 +850,7 @@
         closeFileDownloadProcess:function()
         {
            $("#tabstrip-download-file").data("kendoMobileModalView").close();
-           if (device.platform.toLowerCase() === "ios") {
+           //if (device.platform.toLowerCase() === "ios") {
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -858,7 +858,7 @@
             	}
                 
         	}, 'exit', 'Ok,Cancel');
-            }
+           // }
         },
         
     });
