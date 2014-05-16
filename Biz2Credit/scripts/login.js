@@ -18,7 +18,7 @@
 
                 return;
             }
-            if(window.connectionInfo.checkConnection()){
+            if(!window.connectionInfo.checkConnection()){
                     navigator.notification.confirm('No Active Connection Found.', function (confirmed) {
                 	if (confirmed === true || confirmed === 1) {
                 		app.loginService.viewModel.validateUser();
