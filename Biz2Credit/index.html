@@ -126,7 +126,7 @@
                 </div>
             </div>
             
-            <div data-role="popover" class="popupBox" id="popover-people">
+            <div data-role="popover" class="popupBox refreshPop" id="popover-people" data-popup='{"height": "100%", "width": "100%"}'>
                 <div data-role="view" data-model="app.loginService.viewModel">
                     <ul data-role="listview">
                         <li data-bind="click: refreshHome" >Refresh</li>
@@ -138,7 +138,7 @@
         </div>
 
         <!--Login-->
-        <div id="tabstrip-login" data-role="view" data-model="app.loginService.viewModel">
+        <div id="tabstrip-login" data-role="view" data-model="app.loginService.viewModel" >
 
             <div class="view-content">
                 <div class="logLogo"></div>
@@ -192,7 +192,7 @@
 
         </div>
         <!--Schedule a Call-->
-        <div id="tabstrip-scall" class="schedulePopup" data-role="modalview"  data-model="app.scheduleService.viewModel">
+        <div id="tabstrip-scall" class="schedulePopup" data-role="modalview"  data-model="app.scheduleService.viewModel" data-width="100%" data-height="100%">
 
             <div class="view-content">
                 <h3>Schedule a FREE Loan Consultation</h3>
