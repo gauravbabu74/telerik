@@ -876,6 +876,11 @@
         	}, 'exit', 'Ok,Cancel');
 
         },
+        onSettingPage:function()
+        {
+             app.loginService.viewModel.onSettingPage();
+        }
+       
         
     });
     app.documentsetting = {

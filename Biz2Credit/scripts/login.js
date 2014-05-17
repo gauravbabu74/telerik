@@ -7,6 +7,8 @@
         isLoggedIn:(localStorage.getItem("isLoggedIn") === true) ?  true : false,
         username: "",
         password: "",
+        email:(localStorage.getItem("userEmail")) ?  localStorage.getItem("userEmail") : "",
+        name:(localStorage.getItem("userFName")) ?  localStorage.getItem("userFName") : "",
         validateUser:function()
         {
             var that = this,
@@ -203,6 +205,11 @@
            
             staticNotification.show(msg, status); 
         },
+        onSettingPage:function(e)
+        {	apps.navigate('#tabstrip-Setting');
+             app.homesetting.viewModel.closeParentPopover();
+            
+        }
         
     });
     

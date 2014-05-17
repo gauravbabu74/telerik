@@ -355,6 +355,7 @@
              $("#popover-docs").data("kendoMobilePopOver").close();
             
         }
+
   
     });
     app.homesetting = {
