@@ -13,14 +13,14 @@
             username = that.get("username").trim(),
             password = that.get("password").trim();
             if (username === "") {
-                navigator.notification.alert("Please enter username",
-                    function () { }, "Login failed", 'OK');
+                navigator.notification.alert("Please enter your username",
+                    function () { }, "Notification", 'OK');
 
                 return;
             }
             if (password === "") {
-                navigator.notification.alert("Please enter password",
-                    function () { }, "Login failed", 'OK');
+                navigator.notification.alert("Please enter your password",
+                    function () { }, "Notification", 'OK');
 
                 return;
             }
@@ -70,7 +70,8 @@
                 else{
                     that.hideloder();
                     localStorage.setItem("isLoggedIn",false);
-                    alert('Login failed. Invalid username/password');
+                    navigator.notification.alert("Login failed. Invalid username/password",
+                    function () { }, "Notification", 'OK');
                     return;
                 }            
           
