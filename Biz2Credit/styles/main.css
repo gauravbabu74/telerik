@@ -482,3 +482,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 }
 #scheduleForm span.k-i-calendar{display:none;}
 #scheduleForm span.k-i-clock{display:none;}
+input     
+{         
+    -webkit-appearance: none;         
+    -webkit-tap-highlight-color: white;     /* Not entirely necessary */
+}

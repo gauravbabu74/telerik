@@ -98,12 +98,21 @@
     };
 })(window);
 $(document).ready(function(){
-    $("#datepicker").kendoDatePicker({
-       min: new Date(1950, 0, 1),
-       max: new Date(2049, 11, 31),
-       format: "MM-dd-yyyy",
-       
-    });
+ 
+    var todaysDate = new Date();
+    var pastDate = new Date(2013, 1, 1);
+
+    var dp = $("#datepicker").kendoDatePicker({
+    value: pastDate,
+    min: pastDate,
+    format: "MM-dd-yyyy",
+    open: function(e) {
+        if ( dp.min() === pastDate)  {
+        		dp.value(todaysDate);
+        		dp.min(todaysDate);
+        	}
+        }
+    }).data("kendoDatePicker");
     $('#datepicker').attr('disabled','disabled');
     $("#timepicker").kendoTimePicker();
     $('#timepicker').attr('disabled','disabled');
