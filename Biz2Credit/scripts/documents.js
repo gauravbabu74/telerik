@@ -255,10 +255,13 @@
                         }
                         else if(e.touch.initialTouch.dataset.id === "files")
                         {
-                             sessionStorage.currentFileId = e.touch.currentTarget.id;
-                             sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                             $("#tabstrip-files-events").data("kendoMobileModalView").open();
-                             $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                sessionStorage.currentFileId = e.touch.currentTarget.id;
+                                sessionStorage.currentFileName = e.touch.currentTarget.innerText;
+                                $("#tabstrip-files-events").data("kendoMobileModalView").open();
+                                $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                $('.folderName').html('');
+                                $('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                                $('.folderName').attr("id",e.touch.currentTarget.id)
                         }
                 		e.touch.currentTarget.className='';
                 	}                    
@@ -342,7 +345,7 @@
 
                     if(data['0']['results']['faultcode'] === 1)
                     {
-                        msg =data['0']['results']['faultmsg'];
+                        msg ="Folder Deleted Successfully.";
                         app.loginService.viewModel.mobileNotification(msg,'success');
                     }
                     else if(data['0']['results']['faultcode'] === 0)
@@ -401,7 +404,7 @@
 
                     if(data['0']['results']['faultcode'] === 1)
                     {
-                        msg =data['0']['results']['faultmsg'];
+                        msg ="File Deleted Successfully.";
                         app.loginService.viewModel.mobileNotification(msg,'success');
                     }
                     else if(data['0']['results']['faultcode'] === 0)
@@ -423,8 +426,10 @@
        
         renameFolder:function(e)
         {
-             closeModalView(e);
-             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
+            closeModalView(e);
+            var that = this;
+			that.set("renameFolderName","");
+            $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
         },
         thisFolderRename:function(e)
         {
@@ -484,8 +489,10 @@
         },
         renameFile:function(e)
         {
-           closeModalView(e);
-           $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
+            closeModalView(e);
+            var that = this;
+            that.set("renameFileName","");
+            $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
         },
         thisFileRename:function(e)
         {
@@ -567,6 +574,8 @@
       
         newFolderModal:function()
         { 
+            var that = this;
+            that.set("newFolderName", "");
             $("#tabstrip-new-folder").data("kendoMobileModalView").open();  
         },
         newFolderCreate:function(e)
@@ -583,6 +592,12 @@
             {
                 var that = this;
                 newFolderName = that.get("newFolderName");
+                if (newFolderName === "") {
+                    navigator.notification.alert("Please enter folder name",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
                 var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
@@ -606,7 +621,7 @@
 
                     if(data['0']['results']['faultcode'] === 1)
                     {
-                        msg =data['0']['results']['faultmsg'];
+                        msg ="New Folder Created";
                         app.loginService.viewModel.mobileNotification(msg,'success');
                     }
                     else if(data['0']['results']['faultcode'] === 0)
@@ -622,6 +637,7 @@
                     }
                 });   
                 closeModalView(e);
+                that.get("newFolderName","");
                 app.documentsetting.viewModel.refreshView();
             }
         },
@@ -674,7 +690,7 @@
                                 fileSystem.root.getFile(relPath, { create: false }, app.documentsetting.viewModel.fileExists, app.documentsetting.viewModel.fileDoesNotExist);
                                 
             				}, function() {
-            					console.log("failed to get folder");
+            					console.log("Failed to get folder");
             				});
             			}
             			else {
@@ -684,7 +700,7 @@
             			}
             		},
             		function() {
-            			alert("failed to get filesystem");
+            			alert("Failed to get filesystem");
             		}
             		);
            
@@ -831,11 +847,11 @@
             disFtpclient.Disconnect(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                    navigator.notification.alert(downmsg);
+                    //navigator.notification.alert(downmsg);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                    navigator.notification.alert(downerr);
+                   // navigator.notification.alert(downerr);
                     
                 }, 
                 userinfo
@@ -851,7 +867,6 @@
         {
            
            $("#tabstrip-download-file").data("kendoMobileModalView").close();
-           //if (device.platform.toLowerCase() === "ios") {
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -859,7 +874,7 @@
             	}
                 
         	}, 'exit', 'Ok,Cancel');
-           // }
+
         },
         
     });

@@ -39,6 +39,7 @@
             dataSource.fetch(function(){
                 var that = this;
                 var data = that.data();
+                console.log(data);
                 app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
                 pos = 1;
                 var cntGetStarted = data[0]['results']['data']['cntGetStarted'];
