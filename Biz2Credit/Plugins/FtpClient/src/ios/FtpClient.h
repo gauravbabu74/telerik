@@ -12,13 +12,14 @@
 #import  <NMSSH/NMSSH.h>
 
 
-@interface FtpClient : CDVPlugin
+@interface FtpClient : CDVPlugin<NMSSHSessionDelegate>
 {
 	NSString* callback;
-   
+   NSString* disconnectcallback;
 
     NSString *savedfileName;
     NMSFTP *nmsft;
+     bool isDisconnected;
 }
 
 @property (nonatomic, copy) NSString* callback;

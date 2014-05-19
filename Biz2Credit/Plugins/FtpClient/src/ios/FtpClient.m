@@ -65,7 +65,7 @@ NSLog(@"~~~ServerFileName%@",ServerFileName);
     
     if (session.isConnected) 
     {
-                NSLog(@"~~~~session.isConnected");
+                NSLog(@"~~~~session.isConnected%@",nmsft);
 
     	[session authenticateByPassword:Password];
         if (session.isAuthorized) 
@@ -113,11 +113,21 @@ NSLog(@"~~~downloadingPathWithServerFileName%@",downloadingPathWithServerFileNam
 }
 
 - (void)Disconnect:(CDVInvokedUrlCommand*)command{
-[self.commandDelegate runInBackground:^{
-		[nmsft.session disconnect];
+//[self.commandDelegate runInBackground:^{
+ NSLog(@"~~~~nmsft %@",nmsft);
+ if (nmsft.session.isConnected){
+		[nmsft disconnect];
+		disconnectcallback = [[NSString alloc]initWithString:command.callbackId];
+}
+    	
+
+//}];
+}
+
+- (void)session:(NMSSHSession *)session didDisconnectWithError:(NSError *)error{
+
 		CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
-}];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:disconnectcallback];
 }
 
 @end
