@@ -257,9 +257,16 @@
                         {
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
-                                $("#tabstrip-files-events").data("kendoMobileModalView").open();
-                                $("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
-                                $('.folderName').html('');
+                                if (device.platform === "Android") {
+                            		$("#tabstrip-files-events").data("kendoMobileModalView").open();
+                                	$("#tabstrip-files-events").find(".km-scroll-container").css("-webkit-transform", "");
+                                }
+                            	else
+                            	{
+                                    $("#tabstrip-files-events-ios").data("kendoMobileModalView").open();
+                                	$("#tabstrip-files-events-ios").find(".km-scroll-container").css("-webkit-transform", "");
+                                }
+                            	$('.folderName').html('');
                                 $('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
                                 $('.folderName').attr("id",e.touch.currentTarget.id)
                         }
