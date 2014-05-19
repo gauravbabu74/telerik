@@ -12,11 +12,11 @@
 #import  <NMSSH/NMSSH.h>
 
 
-@interface FtpClient : CDVPlugin<BRRequestDelegate>
+@interface FtpClient : CDVPlugin
 {
 	NSString* callback;
    
-    NSMutableData *downloadData;
+
     NSString *savedfileName;
     NMSFTP *nmsft;
 }

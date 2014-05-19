@@ -54,7 +54,8 @@
         fileName = [arrOfParams objectAtIndex:5];
     }
     
-    
+    NSLog(@"~~~downloadingPath%@",downloadingPath);
+NSLog(@"~~~ServerFileName%@",ServerFileName);
     NSString *downloadingPathWithServerFileName = [downloadingPath stringByAppendingPathComponent:ServerFileName];
     savedfileName = [[NSString alloc]initWithString:fileName];
     
@@ -69,9 +70,11 @@
         if (session.isAuthorized) 
         {
          		NSLog(@"~~~~session.isAuthorized");
+NSLog(@"~~~downloadingPathWithServerFileName%@",downloadingPathWithServerFileName);
             nmsft = [NMSFTP  connectWithSession:session];
+
             NSData*downloadedData = [nmsft contentsAtPath:downloadingPathWithServerFileName];
-            NSLog(@"~~~~downloadedData-->%@ ",downloadedData.length);
+            NSLog(@"~~~~downloadedData--");
 
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
             
@@ -99,7 +102,7 @@
             {
             
             	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Server not responding properly"];
-            	[self.commandDelegate sendPluginResult:pluginResult callbackId:recievedCommand.callbackId];
+            	[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
             
         	}
        }
@@ -108,21 +111,6 @@
 
 }
 
--(void)Disconnect:(CDVInvokedUrlCommand*)command
-{
-    if(downloadFile)
-    {
-    	downloadFile.cancelDoesNotCallDelegate = TRUE;
-        [downloadFile cancelRequest];
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Download process aborted successfully"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    }
-    else
-    {
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Cancel Request Fail"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    }
 
-}
 
 @end
