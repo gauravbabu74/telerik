@@ -161,18 +161,22 @@
                 }).kendoTouch({ 
                 	filter: ">li",
                 	tap: function (e) {
-                        if(e.touch.currentTarget.id !== "0")
-                        {  
-                        	app.movedocumentsetting.viewModel.setMoveInnerPage();
-                        	app.movedocumentsetting.viewModel.setMoveDocsId(e.touch.currentTarget.id);
-                        }
-                        else
+                        if(e.touch.initialTouch.dataset.id === "folder")
                         {
-                        	app.movedocumentsetting.viewModel.setMoveMainPage();
-                        	app.movedocumentsetting.viewModel.setMoveDocsId(0);
-                        } 
-                        backHistory.push(e.touch.currentTarget.id);
-                        app.movedocumentsetting.viewModel.moveRefreshView();
+                            if(e.touch.currentTarget.id !== "0")
+                            {  
+                            	app.movedocumentsetting.viewModel.setMoveInnerPage();
+                            	app.movedocumentsetting.viewModel.setMoveDocsId(e.touch.currentTarget.id);
+                            }
+                            else
+                            {
+                            	app.movedocumentsetting.viewModel.setMoveMainPage();
+                            	app.movedocumentsetting.viewModel.setMoveDocsId(0);
+                            } 
+                            backHistory.push(e.touch.currentTarget.id);
+                            app.movedocumentsetting.viewModel.moveRefreshView();  
+                        }
+                        
                 	},          	                  
             }); 
             app.loginService.viewModel.hideloder();

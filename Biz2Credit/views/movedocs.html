@@ -29,18 +29,18 @@
                 #if(docType === "Folder"){#
                     #if(name === "Shared Files" || name === "Shared Folders"){#
                     	
-                    	<span class="sharedfolder"> <span>#: name #</span></span>
+                    	<span data-id="folder" class="sharedfolder"> <span data-id="folder">#: name #</span></span>
                     	
                     #}else{#
                    	 
-                    	<span class="#: docType #"><span> #: name #</span></span>
+                    	<span data-id="folder" class="#: docType #"><span data-id="folder"> #: name #</span></span>
                     	
                     #}#
 
                 #}else{#
                 	# var ext = getFileExtension(name) #
                 	  
-                	<span class="#= ext # default-icon"><span>#: name #</span></span>
+                	<span data-id="files" class="#= ext # default-icon"><span data-id="files">#: name #</span></span>
                 	
                 #}#
           	#}#
