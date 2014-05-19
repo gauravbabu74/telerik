@@ -35,11 +35,11 @@
                 else
                 {   
                     backHistory=[];
-                    console.log(backHistory);
                     backHistory.push(0);
                     moveParentId = 0;
+                   // setMoveDocsId(0);
                     app.movedocumentsetting.viewModel.setMoveMainPage();
-                    app.movedocumentsetting.viewModel.setMoveDocsId(app.movedocumentsetting.viewModel.moveDocsId);
+                    app.movedocumentsetting.viewModel.setMoveDocsId(0);
                 } 
 
            	 var dataSource = new kendo.data.DataSource({         
