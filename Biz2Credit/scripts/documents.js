@@ -858,7 +858,7 @@
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                   // navigator.notification.alert(downerr);
+                  // navigator.notification.alert(downerr);
                     
                 }, 
                 userinfo
@@ -873,7 +873,7 @@
         closeFileDownloadProcess:function()
         {
            
-           $("#tabstrip-download-file").data("kendoMobileModalView").close();
+          // $("#tabstrip-download-file").data("kendoMobileModalView").close();
             navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();

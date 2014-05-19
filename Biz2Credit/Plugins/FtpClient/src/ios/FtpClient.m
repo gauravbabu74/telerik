@@ -112,6 +112,12 @@ NSLog(@"~~~downloadingPathWithServerFileName%@",downloadingPathWithServerFileNam
 }];
 }
 
-
+- (void)Disconnect:(CDVInvokedUrlCommand*)command{
+[self.commandDelegate runInBackground:^{
+		[nmsft.session disconnect];
+		CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
+}];
+}
 
 @end
