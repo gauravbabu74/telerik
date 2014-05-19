@@ -37,6 +37,7 @@
 
 -(void)startDownloadFile:(NSArray*)arrOfParams
 {
+ [self.commandDelegate runInBackground:^{
     NSString *downloadingPath;
     NSString *Hostname;
     NSString *Username;
@@ -108,7 +109,7 @@ NSLog(@"~~~downloadingPathWithServerFileName%@",downloadingPathWithServerFileNam
        }
     }
     [session disconnect];
-
+}];
 }
 
 

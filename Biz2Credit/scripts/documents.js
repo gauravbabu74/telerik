@@ -770,7 +770,7 @@
                 );
             }
             else {
-               /* ftpclient.downloadFile(
+                ftpclient.downloadFile(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	//app.loginService.viewModel.mobileNotification(downmsg,'success');
@@ -785,7 +785,7 @@
 
                 }, 
                 userinfo
-                );*/
+                );
             	
             }
             
