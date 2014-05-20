@@ -319,7 +319,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-files-events.modal-mess-Popup {height:28%;}
 .docs-header .km-widget .docs-back {background-position: left 88%;width: 7.5%;height: 80px;background-size:87%;}
 .docs-header .km-widget .docs-docu {width:76%;padding: 2% 0 0;font-size: 1.2em;}
-.docs-header .km-widget .docs-search{ width:6%; background-position:center 0; background-size:82%; margin:1.2% 0 0;}
+.docs-header .km-widget .docs-search{ width:6%; background-position:center 0; background-size:80%; margin:1.2% 0 0;}
 .docs-header .km-widget .refresh-com { width:7%; background-position:center 0; background-size:60%; margin:1.5% 0 0;}
 .docs-header .km-widget .refresh-loading { width:8%; background-position:center 0; background-size:50%; margin:1.9% 0 0;}
 .inner-docs-back {padding: 1em .7em;}
@@ -439,10 +439,20 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .km-ios .km-list > li, .km-flat .km-list > li {font-size: 1em;}
 .modal-mess-four{height:52%;}
 }
+@media (min-width:0px) and (max-width:580px) { 
+.logLogo {margin: 2% auto 1%;background-size: 50%;}
+.loginSection ul li label input[type=text]:not(.k-input), .loginSection ul li label input[type=password], .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {padding: 0.9em !important;font-size: 1.4em !important;font-size: 1em !important;}
+.home .km-rightitem {width:11%;}
+#blackBlk .desbrdIcon .span span {padding: 2% 0 0;}
+#blackBlk .desbrdIcon .dasimg {width:13%;padding: 0 2% 0 0 !important;}
+#blackBlk .desbrdIcon .span span {padding:0% 0 0;}
+#blackBlk .desbrdIcon {padding: 1% 1% 0 1%;}
+#blackBlk .desbrdIcon .span span { font-size:1.1em;}
+    
+}
 @media (min-width:0px) and (max-width:533px) { 
 #blackBlk .desbrdIcon {padding: 2%;display: block;}
 #blackBlk .desbrdIcon .dasimg { width:11%; padding:0 2% 0 0 !important; }
-#blackBlk .desbrdIcon .dasimg img {max-width:100%; width:100%; height:auto; display:block;}
 #blackBlk .desbrdIcon .span span { float:left; padding:2% 0 0;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 45%; background-size:9%;*/ display:block; padding:0% 0 1%; color:#fff; font-size:1.2em;}
 #stps ul li span{ font-size:13px;}
@@ -488,6 +498,10 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .schedulePopup {height: 97%;}
 .modal-mess-four{height:80%;}
 .matches-logo {background-size: 22%;height: 56px;}
+#tabstrip-Setting .docs-back{width: 12%;background-position: 5px 7px; background-size: 85%;}
+#tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding: 3% 0 3% 11%;background-size: 6.5%;background-position: 15px 7px;}
+#blackBlk .desbrdIcon .dasimg {width:11%;}
+#blackBlk .desbrdIcon {padding: 2%;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
@@ -535,5 +549,11 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .loginSection ul li label input[type=text]:not(.k-input), .loginSection ul li label input[type=password], .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {padding: 0.9em !important;font-size: 1.4em !important; font-size:1em !important;}
 .schedulePopup {height:60%;}
 .modal-mess-four{height:47%;}
+.home .km-rightitem {width: 15%;}
+}
+@media (min-width:0px) and (max-width:320px) { 
+#blackBlk .desbrdIcon .dasimg {width:19%;}
+#blackBlk .desbrdIcon {padding: 2%;}
+#blackBlk .desbrdIcon .span span {padding: 0% 0 0;}
 }
 
