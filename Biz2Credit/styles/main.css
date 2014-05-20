@@ -65,9 +65,9 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .loginSection ul li label input[type=password] { width:99%; position:inherit; margin-top:0; border:1px solid #dcdcdc; border-radius:3px; padding:0.9em!important; -webkit-box-shadow: 0 0 1px 1px #dcdcdc inset;-moz-box-shadow: 0 0 1px 1px #dcdcdc inset;box-shadow: 0 0 1px 1px #dcdcdc inset;}
 .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {/* Safari 4-5, Chrome 1-9 */ background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8dbc00), to(#9fcf0f));  /* Safari 5.1, Chrome 10+ */ background: -webkit-linear-gradient(top, #9fcf0f, #8dbc00); /* Firefox 3.6+ */ background: -moz-linear-gradient(top, #9fcf0f, #8dbc00); /* IE 10 */ background: -ms-linear-gradient(top, #9fcf0f, #8dbc00); /* Opera 11.10+ */ background: -o-linear-gradient(top, #9fcf0f, #8dbc00); border-radius:3px; border:1px solid #808080; color:#000; font-size:1.125em; -moz-box-shadow: inset 0px 0px 1px #7a9e0e; padding:0.9em!important;-webkit-box-shadow: inset 0px -1px 1px #7a9e0e;box-shadow: inset 0px 0px 1px #7a9e0e;}
 .home {padding:0;}
-.home .popup { text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:#f4f4f4;  border-radius:0;}
+.home .popup {background-image: url(../styles/images/ic_action_overflow.png); text-indent:-9000px; width:40px; background-position:center center; height:40px; background-repeat:no-repeat; margin:0; padding:5px; border:0; background-color:#f4f4f4;  border-radius:0;}
 .home .km-rightitem { height:100%; right:0;}
-.logo { background-image: url(../styles/images/bizDoc-logo.png); background-repeat: no-repeat; width: 130px; height:34px; margin: 2% auto;background-position:center;}
+.logo {width: 130px; height:34px; margin: 2% auto;background-position:center;}
 .km-ios #popover .km-view-title, .km-ios #popover-people .km-view-title { color: #fff; text-shadow: 0 -1px rgba(0,2,2,.5); } 
 .km-ios #popover .km-navbar, .km-root > * > #popover > .km-content {background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, rgba(255, 255, 255, 0.35)), color-stop(0.5, rgba(255, 255, 255, 0.1)), color-stop(0.5, rgba(255, 255, 255, 0)), color-stop(1, rgba(255, 255, 255, 0))) #000;} 
 .km-ios #popover .km-navbar .km-button { background-color: #000; }
@@ -417,6 +417,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 #blackBlk .desbrdIcon .span span {padding: 2% 0 0;}
 #blackBlk .desbrdIcon {padding: 2%;}
 .home .km-rightitem { height:100%; right:0;width: 17%;}
+
 }
 @media (min-width:0px) and (max-width:600px) { 
 #tabstrip-files-events.modal-mess-Popup {height:50%;}
@@ -439,10 +440,28 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .km-ios .km-list > li, .km-flat .km-list > li {font-size: 1em;}
 .modal-mess-four{height:52%;}
 }
+@media (min-width:0px) and (max-width:580px) { 
+.logLogo {margin: 2% auto 1%;background-size: 50%;}
+.loginSection ul li label input[type=text]:not(.k-input), .loginSection ul li label input[type=password], .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {padding: 0.9em !important;font-size: 1.4em !important;font-size: 1em !important;}
+.home .km-rightitem {width:11%;}
+#blackBlk .desbrdIcon .span span {padding: 2% 0 0;}
+#blackBlk .desbrdIcon .dasimg {width:13%;padding: 0 2% 0 0 !important;}
+#blackBlk .desbrdIcon .span span {padding:0% 0 0;}
+#blackBlk .desbrdIcon {padding: 1% 1% 0 1%;}
+#blackBlk .desbrdIcon .span span { font-size:1.1em;}
+#tabstrip-Setting .docs-docu{font-size: 0.9em;padding: 0 0 0 0.5%;line-height: 2.5em;} 
+#tabstrip-Setting .docs-back {width: 10%;background-position: center 2px;}
+#tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li {padding:4% 0 4% 11%;background-size: 7%;}
+.matches-view li .row1 span {background-color: #45b508;font-size: 0.6em;}
+.matches-view li .row3 a.appy, .matches-view li .row3 a {background-size: 20%;padding:2.2em 0em 0.5em;font-size: 0.9em;}
+.matches-view li .row3 a.pending{background-size: 20%;}
+.matches-logo {background-size:20%;height: 55px;}
+.schedulePopup {height:98%;}
+.schedulePopup h3 {font-size: 1.3em;}
+}
 @media (min-width:0px) and (max-width:533px) { 
 #blackBlk .desbrdIcon {padding: 2%;display: block;}
 #blackBlk .desbrdIcon .dasimg { width:11%; padding:0 2% 0 0 !important; }
-#blackBlk .desbrdIcon .dasimg img {max-width:100%; width:100%; height:auto; display:block;}
 #blackBlk .desbrdIcon .span span { float:left; padding:2% 0 0;}
 #blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; background-position: right 45%; background-size:9%;*/ display:block; padding:0% 0 1%; color:#fff; font-size:1.2em;}
 #stps ul li span{ font-size:13px;}
@@ -489,7 +508,11 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .modal-mess-four{height:80%;}
 .matches-logo {background-size: 22%;height: 56px;}
 #tabstrip-Setting .docs-back{width: 12%;background-position: 5px 7px; background-size: 85%;}
-    #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding: 3% 0 3% 11%;background-size: 6.5%;background-position: 15px 7px;}
+#tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding: 3% 0 3% 11%;background-size: 6.5%;background-position: 15px 7px;}
+#blackBlk .desbrdIcon .dasimg {width:11%;}
+#blackBlk .desbrdIcon {padding: 2%;}
+.matches-view li .row3 a.appy, .matches-view li .row3 a {background-size: 20%;padding: 1.5em 0em 0.5em;font-size: 0.8em;}
+.matches-view li .row3 a.pending{background-size: 20%;}
 }
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
@@ -537,5 +560,16 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .loginSection ul li label input[type=text]:not(.k-input), .loginSection ul li label input[type=password], .loginSection .km-listview-wrapper+*:not(.km-listview-wrapper) input[type=submit] {padding: 0.9em !important;font-size: 1.4em !important; font-size:1em !important;}
 .schedulePopup {height:60%;}
 .modal-mess-four{height:47%;}
+.home .km-rightitem {width: 15%;}
+#tabstrip-Setting .docs-back {width: 15%;background-size: 90%; height:40px;background-position: 5px 5px;}
+}
+@media (min-width:0px) and (max-width:320px) { 
+#blackBlk .desbrdIcon .dasimg {width:19%;}
+#blackBlk .desbrdIcon {padding: 2%;}
+#blackBlk .desbrdIcon .span span {padding: 0% 0 0;}
+#tabstrip-Setting .docs-docu{font-size: 0.8em;line-height:3em;padding: 0 0 0 0.2%; background-position:left 5px;} 
+#tabstrip-Setting .Setting-ac {padding: 4% 0 4% 18%;background-size: 8.5%;background-position: 20px 7px;}
+ #tabstrip-Setting ul#settingpage li {padding: 4% 0 4% 18%;background-size: 8.5%;background-position: 20px 7px;}
+#tabstrip-Setting .docs-back {width:18%;background-size:90%; height:50px;background-position: 5px 5px; background-position:left 7px;}
 }
 

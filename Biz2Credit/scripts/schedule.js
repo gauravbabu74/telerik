@@ -19,9 +19,9 @@
             phonenumber = that.get("phonenumber").trim(),
             sDate = kendo.toString(that.get("sDate"), "MM-dd-yyyy");
             sTime = $("#timepicker").val();
-            if (phonenumber === "" || sDate === "" || sTime ==="") {
-                navigator.notification.alert("All fields are required!",
-                    function () { }, "Schedule failed", 'OK');
+            if (phonenumber === "") {
+                navigator.notification.alert("Please enter phone number.",
+                    function () { }, "Notification", 'OK');
 
                 return;
             }
@@ -32,6 +32,18 @@
             }
             if (phonenumber.length !== 10) {
                 navigator.notification.alert("Phone Number should be 10 digits.");
+
+                return;
+            }
+            if (sDate === "") {
+                navigator.notification.alert("Please select date..",
+                    function () { }, "Notification", 'OK');
+
+                return;
+            }
+            if (sTime ==="") {
+                navigator.notification.alert("Please select time.",
+                    function () { }, "Notification", 'OK');
 
                 return;
             }
