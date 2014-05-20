@@ -7,8 +7,8 @@
         isLoggedIn:(localStorage.getItem("isLoggedIn") === true) ?  true : false,
         username: "",
         password: "",
-        email:(localStorage.getItem("userEmail")) ?  localStorage.getItem("userEmail") : "",
-        name:(localStorage.getItem("userFName")) ?  localStorage.getItem("userFName") : "",
+        email:"",
+        name:"",
         validateUser:function()
         {
             var that = this,
@@ -96,6 +96,7 @@
             localStorage.setItem("userID",userinfo['userID']);
             localStorage.setItem("userEmail",userinfo['userEmail']);
             localStorage.setItem("userMobile",userinfo['userMobile']);
+            that.setSettingsPage();
             that.navigateHome();
         },
         
@@ -116,6 +117,8 @@
             localStorage.removeItem("ftpUserName");
             localStorage.removeItem("isLoggedIn");
             localStorage.removeItem("userMobile");
+            that.set("email", "");
+            that.set("name", "");
             apps.navigate("#tabstrip-login");
             kendo.history.navigate("#tabstrip-login");
             that.clearForm();
@@ -209,6 +212,13 @@
         {	apps.navigate('#tabstrip-Setting');
              app.homesetting.viewModel.closeParentPopover();
             
+        },
+        setSettingsPage:function()
+        {
+ 
+            var that = this;
+            that.set("email", localStorage.getItem("userEmail"));
+            that.set("name", localStorage.getItem("userFName")+' '+localStorage.getItem("userLName"));
         }
         
     });

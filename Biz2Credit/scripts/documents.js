@@ -465,6 +465,12 @@
 
                     return;
                 }
+                if (renameFolder.length > 255) {
+                    navigator.notification.alert("Folder name should be less than 255 chracters",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
     		    var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
@@ -543,6 +549,13 @@
 
                     return;
                 }
+                if (renameFile.length > 255) {
+                    navigator.notification.alert("File name should be less than 255 chracters",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
+                
     		    var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
@@ -629,6 +642,12 @@
                 newFolderName = that.get("newFolderName");
                 if (newFolderName === "") {
                     navigator.notification.alert("Please enter folder name",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
+                if (newFolderName.length > 255) {
+                    navigator.notification.alert("Folder name should be less than 255 chracters",
                     function () { }, "Notification", 'OK');
 
                     return;

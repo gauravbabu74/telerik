@@ -22,6 +22,7 @@
 
 - (void)downloadFile:(CDVInvokedUrlCommand*)command
 {
+	isDisconnected=NO;
     NSString *downloadingPath= [command argumentAtIndex:2];
     NSString *Hostname = [command argumentAtIndex:0];
     NSString *Username= [command argumentAtIndex:4];
@@ -54,80 +55,79 @@
         ServerFileName = [arrOfParams objectAtIndex:4];
         fileName = [arrOfParams objectAtIndex:5];
     }
-    
-    NSLog(@"~~~downloadingPath%@",downloadingPath);
-NSLog(@"~~~ServerFileName%@",ServerFileName);
+
     NSString *downloadingPathWithServerFileName = [downloadingPath stringByAppendingPathComponent:ServerFileName];
     savedfileName = [[NSString alloc]initWithString:fileName];
-    
-    NMSSHSession *session = [NMSSHSession connectToHost:Hostname
-    withUsername:Username];
-    
+
+    NMSSHSession *session = [NMSSHSession connectToHost:Hostname withUsername:Username];
+
     if (session.isConnected) 
     {
-                NSLog(@"~~~~session.isConnected%@",nmsft);
-
+                
     	[session authenticateByPassword:Password];
         if (session.isAuthorized) 
         {
-         		NSLog(@"~~~~session.isAuthorized");
-NSLog(@"~~~downloadingPathWithServerFileName%@",downloadingPathWithServerFileName);
-            nmsft = [NMSFTP  connectWithSession:session];
 
-            NSData*downloadedData = [nmsft contentsAtPath:downloadingPathWithServerFileName];
-            NSLog(@"~~~~downloadedData--");
+            nmsft = [NMSFTP  connectWithSession:session];
+            NSData*downloadedData;
+            downloadedData = [nmsft contentsAtPath:downloadingPathWithServerFileName];
+            
+    				
 
             NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            
+
             NSString *documentsDirectory = [paths objectAtIndex:0];
-            
+
             NSString *tempFolderPath = [documentsDirectory stringByAppendingPathComponent:@"biz2docs"];
-            
+
             [[NSFileManager defaultManager] createDirectoryAtPath:tempFolderPath withIntermediateDirectories:YES attributes:nil error:NULL];
             tempFolderPath = [tempFolderPath stringByAppendingPathComponent:savedfileName];
-            
+
             if (![[NSFileManager defaultManager] fileExistsAtPath:tempFolderPath]) 
             {
-            	[[NSFileManager defaultManager] createFileAtPath:tempFolderPath contents:nil attributes:nil];
+            [[NSFileManager defaultManager] createFileAtPath:tempFolderPath contents:nil attributes:nil];
             }
             BOOL success;
             success  = [downloadedData writeToFile:tempFolderPath atomically:YES];
-            if (success) 
-            {
-                 NSLog(@"~~~~downloadedData saved in local biz2docs ");
-            	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
-            	[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
             
-            }
-            else
-            {
-            
-            	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Server not responding properly"];
-            	[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
-            
-        	}
-       }
+            if(!isDisconnected){
+                if (success) 
+                {
+                	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
+                	[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
+
+                }
+                else
+                {
+
+                	CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Server not responding properly"];
+                	[self.commandDelegate sendPluginResult:pluginResult callbackId:callback];
+
+                }
+			}
+		}
     }
-    [session disconnect];
+   [session disconnect];
 }];
 }
 
 - (void)Disconnect:(CDVInvokedUrlCommand*)command{
-//[self.commandDelegate runInBackground:^{
- NSLog(@"~~~~nmsft %@",nmsft);
- if (nmsft.session.isConnected){
-		[nmsft disconnect];
+	isDisconnected=YES;
+	if([nmsft.session  isConnected]){
+		[nmsft.session disconnect];
 		disconnectcallback = [[NSString alloc]initWithString:command.callbackId];
+	}else{
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Success"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:disconnectcallback];
+     }
+			
 }
-    	
 
-//}];
-}
 
 - (void)session:(NMSSHSession *)session didDisconnectWithError:(NSError *)error{
 
-		CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:disconnectcallback];
+    CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Success"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:disconnectcallback];
 }
 
 @end
