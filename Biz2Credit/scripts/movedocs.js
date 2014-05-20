@@ -231,6 +231,12 @@
             var status = that.get("checkStatus"); 
         	if(status === 'folder')
             {
+                if ( app.documentsetting.viewModel.parentId === app.movedocumentsetting.viewModel.moveDocsId) {
+                    navigator.notification.alert("Folder can not move in same location",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
                 var dataSource = new kendo.data.DataSource({
                     transport: {
                     		read: {
@@ -251,7 +257,13 @@
             }
             else
             {
-              var dataSource = new kendo.data.DataSource({
+                if ( app.documentsetting.viewModel.parentId === app.movedocumentsetting.viewModel.moveDocsId) {
+                    navigator.notification.alert("File can not move in same location",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
+              	var dataSource = new kendo.data.DataSource({
                     transport: {
                     		read: {
                     		url: "http://biz2services.com/mobapp/api/file",

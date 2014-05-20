@@ -459,6 +459,12 @@
             {
                 var that = this;
                 var renameFolder = that.get("renameFolderName");
+                if (renameFolder === "") {
+                    navigator.notification.alert("Please enter folder name",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
     		    var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
@@ -504,9 +510,9 @@
         renameFile:function(e)
         {
             closeModalView(e);
-            console.log(e);
             var that = this;
-            that.set("renameFileName",sessionStorage.getItem("currentFileName"));
+            var fileNameWithoutExt= sessionStorage.getItem("currentFileName").substr(0, sessionStorage.getItem("currentFileName").lastIndexOf('.'));
+            that.set("renameFileName",fileNameWithoutExt);
             $("#tabstrip-rename-file .new-folder-field").val(that.get("renameFileName"));
             $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
         },
@@ -531,6 +537,12 @@
             {
                 var that = this;
                 var renameFile = that.get("renameFileName");
+                if (renameFile === "") {
+                    navigator.notification.alert("Please enter file name",
+                    function () { }, "Notification", 'OK');
+
+                    return;
+                }
     		    var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
