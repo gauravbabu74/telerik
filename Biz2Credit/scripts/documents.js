@@ -267,8 +267,15 @@
                                 	$("#tabstrip-files-events-ios").find(".km-scroll-container").css("-webkit-transform", "");
                                 }
                             	$('.folderName').html('');
-                                $('.folderName').append('<span>'+e.touch.currentTarget.innerText.substring(0, 20)+'...</span>');
-                                $('.folderName').attr("id",e.touch.currentTarget.id)
+                                if(e.touch.currentTarget.innerText.length >= 20)
+                                {
+                                   $('.folderName').append('<span>'+e.touch.currentTarget.innerText.substring(0, 20)+'...</span>'); 
+                                }
+                                else
+                                {
+                                    $('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                                }
+                                
                         }
                 		e.touch.currentTarget.className='';
                 	}                    
