@@ -38,31 +38,31 @@
                 </div>
                 <div class="row2">
                     #if(typeof minloc_amt !== "undefined"){#
-                    	<p>Funding Amount:$#: minloc_amt# - $#:maxloc_amt#</p>
+                    	<p>Funding Amount: $#: minloc_amt# - $#:maxloc_amt#</p>
                     #}else{#
-                    	<p>Funding Amount:$#: minaloc_amt# - $#:maxaloc_amt#</p>
+                    	<p>Funding Amount: $#: minaloc_amt# - $#:maxaloc_amt#</p>
                     #}#
             		<p>
 
                     #if(prodtype==="ACH" || prodtype==="Cashadvance"){#
                     	#if(typeof maxfactor !== "undefined"){#
 
-                    		#:"Factor Rate:" # #: minfactor # - #: maxfactor #
+                    		#:"Factor Rate:" # #: minfactor #-#: maxfactor #
 
                     	#}else{#
 
-                    		#:"Factor Rate:" # #: min_interestrate # - #: max_interestrate #
+                    		#:"Factor Rate:" # #: min_interestrate #-#: max_interestrate #
 
                     	#}#
                     #}else{#
 
                     	#if(typeof maxfactor !== "undefined"){#
 
-                    		#:"Factor Rate:" # #: minfactor # - #: maxfactor #
+                    		#:"Factor Rate:" # #: minfactor #-#: maxfactor #
 
                     	#}else{#
 
-                    		#:"Interest Rate:" # #: min_interestrate # - #: max_interestrate ##: "% APR"#
+                    		#:"Interest Rate:" # #: min_interestrate #-#: max_interestrate ##: "% APR"#
 
                     	#}#
                     #}#
@@ -96,7 +96,7 @@
                     	#}#
                     #}#
             		</p>
-					<p>Average Processing Time:#: expected_time+ " week(s)"#</p>
+					<p>Average Processing Time: #: expected_time+ " week(s)"#</p>
 					<p><a data-prodid="#= prodid #" data-prodtype="#= prodtype #" data-bind="click: reqDocuments" data-rel='modalview' data-role='button'>Documents Required:#= totaldoc #</a></p>
 				</div>
 				<div class="row3">

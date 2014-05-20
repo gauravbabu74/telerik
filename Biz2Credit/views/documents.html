@@ -134,7 +134,7 @@
             <form id="new-folder-form" class="scheduleSection">
             	<input type="text" data-bind="value: renameFolderName" class="new-folder-field" placeholder="Rename Folder"/>
             	<div class="buttonArea">
-            		<input type="submit" data-role="button" data-click="closeModalView" value="Cancel" />
+            		<input type="submit" data-role="button" data-bind="click:thisFolderRenameCancle" value="Cancel" />
             		<input type="submit" data-role="button" data-bind="click: thisFolderRename" class="new-folder-create" value="Rename" />
             	</div>
             </form>
@@ -147,7 +147,7 @@
             <form id="new-folder-form" class="scheduleSection">
             	<input type="text" data-bind="value: renameFileName" class="new-folder-field" placeholder="Rename File"/>
             	<div class="buttonArea">
-            		<input type="submit" data-role="button" data-click="closeModalView" value="Cancel" />
+            		<input type="submit" data-role="button" data-bind="click:thisFileRenameCancle" value="Cancel" />
             		<input type="submit" data-role="button" data-bind="click: thisFileRename" class="new-folder-create" value="Rename" />
             	</div>
             </form>

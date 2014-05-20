@@ -435,8 +435,15 @@
         {
             closeModalView(e);
             var that = this;
-			that.set("renameFolderName","");
+            that.set("renameFolderName",sessionStorage.getItem("currentFName"));
+            $("#tabstrip-rename-folder .new-folder-field").val(that.get("renameFolderName"));
             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
+        },
+        thisFolderRenameCancle:function(e)
+        {
+            var that = this;
+            that.set("renameFolderName","");
+            $("#tabstrip-rename-folder").data("kendoMobileModalView").close();  
         },
         thisFolderRename:function(e)
         {
@@ -497,9 +504,18 @@
         renameFile:function(e)
         {
             closeModalView(e);
+            console.log(e);
+            var that = this;
+            that.set("renameFileName",sessionStorage.getItem("currentFileName"));
+            $("#tabstrip-rename-file .new-folder-field").val(that.get("renameFileName"));
+            $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
+        },
+        
+        thisFileRenameCancle:function(e)
+        {
             var that = this;
             that.set("renameFileName","");
-            $("#tabstrip-rename-file").data("kendoMobileModalView").open(); 
+            $("#tabstrip-rename-file").data("kendoMobileModalView").close();  
         },
         thisFileRename:function(e)
         {
