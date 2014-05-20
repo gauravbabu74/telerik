@@ -267,7 +267,7 @@
                                 	$("#tabstrip-files-events-ios").find(".km-scroll-container").css("-webkit-transform", "");
                                 }
                             	$('.folderName').html('');
-                                $('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                                $('.folderName').append('<span>'+e.touch.currentTarget.innerText.substring(0, 20)+'...</span>');
                                 $('.folderName').attr("id",e.touch.currentTarget.id)
                         }
                 		e.touch.currentTarget.className='';
