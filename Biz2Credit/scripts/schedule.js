@@ -110,7 +110,7 @@
     };
 })(window);
 $(document).ready(function(){
- $('#tabstrip-scall').data('kendoMobileModalView').scroller.reset()
+ 
     var todaysDate = new Date();
     var pastDate = new Date(2013, 1, 1);
 
