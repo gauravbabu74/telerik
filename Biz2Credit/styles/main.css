@@ -456,7 +456,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .matches-view li .row3 a.appy, .matches-view li .row3 a {background-size: 20%;padding:2.2em 0em 0.5em;font-size: 0.9em;}
 .matches-view li .row3 a.pending{background-size: 20%;}
 .matches-logo {background-size:20%;height: 55px;}
-.schedulePopup {height:98%;}
+.schedulePopup {height:100%;}
 .schedulePopup h3 {font-size: 1.3em;}
 }
 @media (min-width:0px) and (max-width:533px) { 
