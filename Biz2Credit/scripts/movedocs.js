@@ -45,7 +45,7 @@
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
                     read: {
-                        url: "http://biz2services.com/mobapp/api/folder/",
+                        url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:moveParentId} // search for tweets that contain "html5"
@@ -106,7 +106,7 @@
            	 var dataSource = new kendo.data.DataSource({         
                 transport: {
                     read: {
-                        url: "http://biz2services.com/mobapp/api/folder/",
+                        url: "https://www.biz2services.com/mobapp/api/folder/",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                         data: {apiaction:"getlistfilesfolders",userID:localStorage.getItem("userID"),parentID:app.movedocumentsetting.viewModel.moveDocsId} // search for tweets that contain "html5"
@@ -240,7 +240,7 @@
                 var dataSource = new kendo.data.DataSource({
                     transport: {
                     		read: {
-                    		url: "http://biz2services.com/mobapp/api/folder",
+                    		url: "https://www.biz2services.com/mobapp/api/folder",
                     		type:"POST",
                     		dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     		data: {apiaction:"movefolder",userID:localStorage.getItem("userID"),folderID:sessionStorage.getItem("currentFId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
@@ -266,7 +266,7 @@
               	var dataSource = new kendo.data.DataSource({
                     transport: {
                     		read: {
-                    		url: "http://biz2services.com/mobapp/api/file",
+                    		url: "https://www.biz2services.com/mobapp/api/file",
                     		type:"POST",
                     		dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
                     		data: {apiaction:"movefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),parentID:app.movedocumentsetting.viewModel.moveDocsId}  // search for tweets that contain "html5"
