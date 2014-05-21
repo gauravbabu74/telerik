@@ -940,6 +940,7 @@
         },
         closeFileDownloadProcess:function()
         {
+            alert('debug tap just for checking close');
            app.documentsetting.viewModel.transferFileAbort();
           // $("#tabstrip-download-file").data("kendoMobileModalView").close();
            /* navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
