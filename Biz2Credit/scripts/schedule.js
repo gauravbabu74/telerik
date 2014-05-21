@@ -100,11 +100,26 @@
             that.set("phonenumber","");
             that.set("sDate","");
             $("#timepicker").val("");
+        },
+        isOrientationPortrait:function()
+        {
+            if ($(window).height() > $(window).width()){ 
+            	return true; 
+            } else { 
+            	return false; 
+            } 
         }
       
         
     });
-    
+    $(window).on('orientationchange', function () {
+        alert("test");
+      if(app.scheduleService.viewModel.isOrientationPortrait()){
+        alert("Portrait");
+      } else {
+        alert("Landscape"); 
+      }
+    });
     app.scheduleService = {
         viewModel: new ScheduleViewModel()	
     };
@@ -113,13 +128,6 @@ $(document).ready(function(){
  
     var todaysDate = new Date();
     var pastDate = new Date(2013, 1, 1);
-    $(window).on('orientationchange', function () {
-  if(isOrientationPortrait()){
-    console.log("Portrait");
-  } else {
-    console.log("Landscape"); 
-  }
-});
     var dp = $("#datepicker").kendoDatePicker({
     value: pastDate,
     min: pastDate,
@@ -142,4 +150,7 @@ $(document).ready(function(){
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">02PM - 04PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">04PM - 06PM</li>');
     listOfTimes.append('<li tabindex="-1" role="option" class="k-item" selectable="on">06PM - 08PM</li>');
+    
+
+    
 });
