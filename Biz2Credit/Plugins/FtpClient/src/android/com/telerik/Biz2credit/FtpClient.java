@@ -78,8 +78,10 @@ public class FtpClient extends CordovaPlugin {
 			file_path=data.optString(7);
 
             if(action.equalsIgnoreCase(ACTION_CONNECT)){
-               cordova.getActivity().runOnUiThread(new Runnable() {
-
+               Handler h=new Handler();
+               h.postDelayed(new Runnable() {
+            
+                @Override
                 public void run() {
                 // TODO Auto-generated method stub
                 String s=setFtpConnection();
@@ -88,10 +90,10 @@ public class FtpClient extends CordovaPlugin {
                     callbackContext.success("Success");
                 }
             }
-        });
+        }, 1);
 		return true;
 		}
-        
+
         if(action.equals(ACTION_DOWNLOAD)) {
             if(isConnected())
             {
