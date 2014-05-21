@@ -113,7 +113,13 @@ $(document).ready(function(){
  
     var todaysDate = new Date();
     var pastDate = new Date(2013, 1, 1);
-    alert(window.orientation);
+    $(window).on('orientationchange', function () {
+  if(isOrientationPortrait()){
+    console.log("Portrait");
+  } else {
+    console.log("Landscape"); 
+  }
+});
     var dp = $("#datepicker").kendoDatePicker({
     value: pastDate,
     min: pastDate,
