@@ -794,7 +794,7 @@
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             var ftpclient = window.plugins.ftpclient;
-            if (device.platform === "Android") {
+          /*  if (device.platform === "Android") {
                 ftpclient.Connect(
                 function(msg){
                     ftpclient.downloadFile(
@@ -847,10 +847,10 @@
                 userinfo
                 );
             	
-            }
+            }*/
             
             $('.download-file-name').html('');
-        	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
+        	$('.download-file-name').append('<div class="unkown '+ext+'">'+fileName+'</div>');
                                 
         },
         transferFile: function (uri, filePath) {
