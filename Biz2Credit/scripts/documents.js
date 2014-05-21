@@ -211,7 +211,6 @@
                         {
                             if(!hold)
                     		{
-                                alert('debug tap just for checking1');
                                 sessionStorage.currentFileId = e.touch.currentTarget.id;
                                 sessionStorage.currentFileName = e.touch.currentTarget.innerText;
                                 fileName = $.trim(e.touch.currentTarget.innerText);
@@ -797,7 +796,6 @@
         },
         fileDoesNotExist:function(fileError)
         {
-            alert('debug tap just for checking2');
             fileName = sessionStorage.getItem("currentFileName");
             ext = app.documentsetting.viewModel.getFileExtension(fileName);
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
@@ -810,14 +808,14 @@
                         function(downmsg){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                             window.open(encodeURI(filePath),"_system","location=yes,hidden=no");
-                            app.loginService.viewModel.mobileNotification(downmsg,'success');
+                            /*app.loginService.viewModel.mobileNotification(downmsg,'success');
                                 ftpclient.Disconnect(
                                     function(downmsg){	
                                     }, 
                                     function(downerr){
                                     }, 
                                     userinfo
-                                );
+                                );*/
                         }, 
                         function(downerr){
                         	$("#tabstrip-download-file").data("kendoMobileModalView").close();
@@ -942,13 +940,14 @@
         {
            
            $("#tabstrip-download-file").data("kendoMobileModalView").close();
-            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+           app.documentsetting.viewModel.transferFileAbort();
+           /* navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
             	   app.documentsetting.viewModel.transferFileAbort();
             	}
                 
-        	}, 'exit', 'Ok,Cancel');
+        	}, 'exit', 'Ok,Cancel');*/
 
         },
         onSettingPage:function()
