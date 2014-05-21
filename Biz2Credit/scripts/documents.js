@@ -250,7 +250,14 @@
                     			$("#tabstrip-folder-events").data("kendoMobileModalView").open();
                                 $("#tabstrip-folder-events").find(".km-scroll-container").css("-webkit-transform", "");
                     			$('.folderName').html('');
-                    			$('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                    			if(e.touch.currentTarget.innerText.length >= 20)
+                                {
+                                   $('.folderName').append('<span>'+e.touch.currentTarget.innerText.substring(0, 20)+'...</span>'); 
+                                }
+                                else
+                                {
+                                    $('.folderName').append('<span>'+e.touch.currentTarget.innerText+'</span>');
+                                }
                     			$('.folderName').attr("id",e.touch.currentTarget.id)
                             }
                         }
