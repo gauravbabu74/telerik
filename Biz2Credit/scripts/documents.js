@@ -803,7 +803,7 @@
             $("#tabstrip-download-file").data("kendoMobileModalView").open();
             alert('debug tap just for checking3');
             var ftpclient = window.plugins.ftpclient;
-           /* if (device.platform === "Android") {
+            if (device.platform === "Android") {
                 ftpclient.Connect(
                 function(msg){
                     ftpclient.downloadFile(
@@ -856,7 +856,7 @@
                 userinfo
                 );
             	
-            }*/
+            }
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="unkown '+ext+'">'+fileName+'</div>');
