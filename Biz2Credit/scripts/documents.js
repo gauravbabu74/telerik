@@ -11,6 +11,7 @@
         newFolderName:'',
         renameFolderName:'',
         renameFileName:'',
+        fileExt:'',
         documentShow:function(e)
         { 
             if(!window.connectionInfo.checkConnection()){
@@ -442,7 +443,7 @@
         {
             closeModalView(e);
             var that = this;
-            that.set("renameFolderName",sessionStorage.getItem("currentFName"));
+            that.set("renameFolderName",$.trim(sessionStorage.getItem("currentFName")));
             $("#tabstrip-rename-folder .new-folder-field").val(that.get("renameFolderName"));
             $("#tabstrip-rename-folder").data("kendoMobileModalView").open();
         },
@@ -524,6 +525,7 @@
         {
             closeModalView(e);
             var that = this;
+            that.set("fileExt",$.trim(that.getFileExtension(sessionStorage.getItem("currentFileName"))));
             var fileNameWithoutExt= sessionStorage.getItem("currentFileName").substr(0, sessionStorage.getItem("currentFileName").lastIndexOf('.'));
             that.set("renameFileName",fileNameWithoutExt);
             $("#tabstrip-rename-file .new-folder-field").val(that.get("renameFileName"));
@@ -550,6 +552,14 @@
             {
                 var that = this;
                 var renameFile = that.get("renameFileName");
+                if(that.get("fileExt") === '.' || that.get("fileExt") === '')
+                {
+					renameFileExt = ''; 
+                }
+                else
+                {
+    				renameFileExt = '.'+that.get("fileExt");
+                }
                 if (renameFile === "") {
                     navigator.notification.alert("Please enter file name",
                     function () { }, "Notification", 'OK');
@@ -569,7 +579,7 @@
                         url: "http://biz2services.com/mobapp/api/file",
                         type:"POST",
                         dataType: "json", // "jsonp" is required for cross-domain requests; use "json" for same-domain requests
-                        data: {apiaction:"renamefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),fileName:renameFile,parentID:parentId}  // search for tweets that contain "html5"
+                        data: {apiaction:"renamefile",userID:localStorage.getItem("userID"),fileID:sessionStorage.getItem("currentFileId"),fileName:renameFile+renameFileExt,parentID:parentId}  // search for tweets that contain "html5"
                     }
                 },    
                 schema: {

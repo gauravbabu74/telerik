@@ -232,7 +232,7 @@
         	if(status === 'folder')
             {
                 if ( app.documentsetting.viewModel.parentId === app.movedocumentsetting.viewModel.moveDocsId) {
-                    navigator.notification.alert("Folder can not move in same location",
+                    navigator.notification.alert("Folder cannot move in same location",
                     function () { }, "Notification", 'OK');
 
                     return;
@@ -258,7 +258,7 @@
             else
             {
                 if ( app.documentsetting.viewModel.parentId === app.movedocumentsetting.viewModel.moveDocsId) {
-                    navigator.notification.alert("File can not move in same location",
+                    navigator.notification.alert("File cannot move in same location",
                     function () { }, "Notification", 'OK');
 
                     return;
