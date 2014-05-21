@@ -101,24 +101,10 @@
             that.set("sDate","");
             $("#timepicker").val("");
         },
-        isOrientationPortrait:function()
-        {
-            if ($(window).height() > $(window).width()){ 
-            	return true; 
-            } else { 
-            	return false; 
-            } 
-        }
-      
-        
+   
     });
     $(window).on('orientationchange', function () {
-        alert("test");
-      if(app.scheduleService.viewModel.isOrientationPortrait()){
-        alert("Portrait");
-      } else {
-        alert("Landscape"); 
-      }
+      app.homesetting.viewModel.closeParentPopover();
     });
     app.scheduleService = {
         viewModel: new ScheduleViewModel()	
