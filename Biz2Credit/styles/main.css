@@ -210,6 +210,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .matches-logo a {background-color:transparent; border:0; height:auto; font-size:0; display:block; width:25%; font-size:0px; text-indent:-9000px;}
 .reqWindow { border-bottom:1px solid #99cc00;}
 .reqWindow h4 { color:#99cc00; font-size:1.3em; font-weight:normal; margin:15px 10px;}
+.reqWindow .closeBt { float:right;}
+.reqWindow .closeBt a {background-image: url(images/cross.png); background-repeat:no-repeat; background-size:50%; border-radius:2px; float:right; margin:0px 5px 0 0; height:30px; width:30px; border:0; text-indent:-9000px; background-position:center 8px; background-color:#ddd; text-shadow:0;}
 .reqWindow + .doc-content { padding:0; margin:0;}
 .reqWindow + .doc-content ol {list-style-position: inside; text-indent:-15px; margin:3px 0 0 0; font-size:0.8em; color:#333; text-align:left; line-height:1.2em; padding:0px; min-height:100px;}
 .reqWindow + .doc-content ol li { padding:9px 0px 9px 20px; border-top:1px solid #8b8b8b;}
@@ -303,6 +305,8 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 #scheduleForm span.k-i-calendar{display:none;}
 #scheduleForm span.k-i-clock{display:none;}
 .modal-mess-four{padding: 0;width: 98%;margin: 0 0 0 1.3%;}
+.popupBox { padding:0;}
+.popupBox .km-scroll-wrapper { height:60px;}
 /********18-05-14********/
 .refreshPop { width:45% !important; height:25%!important;}
 @media (min-width:0px) and (max-width:1280px) {
@@ -330,6 +334,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .inner-docs-back {padding: 1em .7em;}
 .schedulePopup {height: 46%;padding: 8px 3% 0 3.3%;}
 .matches-view li .row2 p a { font-size:1.2em;}
+.modal-mess-four { height:40%;}
+.reqWindow + .doc-content ol {min-height: 200px; font-size:1.1em;}
 }
 @media (min-width:0px) and (max-width:1024px) {
 #tabstrip-download-file {padding:2%; height:47%; background-color:#fff;}
@@ -419,8 +425,8 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-files-events.modal-mess-Popup {height: 28%;}
 .schedulePopup {height: 35%;}
 .schedulePopup {padding: 8px 1.7% 0 2.2%}
-.modal-mess-four { height:45%;}
-.reqWindow + .doc-content ol {min-height: 280px; font-size:1em;}
+.modal-mess-four { height:40%;}
+.reqWindow + .doc-content ol {min-height: 200px; font-size:1em;}
 .matches-view li .row3 a.pending{background-size: 20%;padding: 2.5em 0em 0.5em;font-size: 1em;} 
 #tabstrip-Setting .docs-back{height: 62px;width: 10%;background-position: center 0px;}
 #tabstrip-Setting .docs-docu {padding-left: 2%;}
@@ -588,6 +594,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 .modal-mess-four{height:47%;}
 .home .km-rightitem {width: 15%;}
 #tabstrip-Setting .docs-back {width: 15%;background-size: 90%; height:40px;background-position: 5px 5px;}
+.matches-view li .row3 a.pending {padding: 1.5em 0em 0.5em;font-size:0.8em; line-height:15px;}
 }
 @media (min-width:0px) and (max-width:320px) { 
 #blackBlk .desbrdIcon .dasimg {width:19%;}
