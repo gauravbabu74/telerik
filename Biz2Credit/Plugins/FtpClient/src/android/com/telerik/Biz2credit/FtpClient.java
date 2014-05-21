@@ -97,7 +97,7 @@ public class FtpClient extends CordovaPlugin {
         if(action.equals(ACTION_DOWNLOAD)) {
             if(isConnected())
             {
-    			cordova.getActivity().runOnUiThread(new Runnable() {
+    			cordova.getThreadPool().execute(new Runnable() {
                 public void run() {
                     String status=downloadFile(server_file_name,file_name,ftp_path,file_path);
                             if(status.equalsIgnoreCase(SUCCESS)){

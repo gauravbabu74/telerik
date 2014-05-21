@@ -939,14 +939,14 @@
         {
            
            $("#tabstrip-download-file").data("kendoMobileModalView").close();
-           app.documentsetting.viewModel.transferFileAbort();
-           /* navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
+           //app.documentsetting.viewModel.transferFileAbort();
+            navigator.notification.confirm('Do you really want to exit?', function (confirmed) {
 				if (confirmed === true || confirmed === 1) {
                	$("#tabstrip-download-file").data("kendoMobileModalView").close();
             	   app.documentsetting.viewModel.transferFileAbort();
             	}
                 
-        	}, 'exit', 'Ok,Cancel');*/
+        	}, 'exit', 'Ok,Cancel');
 
         },
         onSettingPage:function()
