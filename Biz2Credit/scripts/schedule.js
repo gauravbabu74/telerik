@@ -113,7 +113,7 @@ $(document).ready(function(){
  
     var todaysDate = new Date();
     var pastDate = new Date(2013, 1, 1);
-
+    alert(window.orientation);
     var dp = $("#datepicker").kendoDatePicker({
     value: pastDate,
     min: pastDate,
