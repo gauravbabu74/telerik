@@ -39,21 +39,9 @@
 		window.connectionInfo.checkConnection();
        // document.addEventListener("menubutton",omenu, false);
     };
-	var doOnOrientationChange = function() {
-        switch(window.orientation) 
-        {  
-            case -90:
-            case 90:
-            alert('landscape');
-            break; 
-            default:
-            alert('portrait');
-            break; 
-        }
-    };
+
     // Handle "deviceready" event
     document.addEventListener('deviceready', onDeviceReady, false);
-    document.addEventListener('orientationchange', orientationchange, false);
    /// alert(localStorage.getItem("isLoggedIn"));
     function ConnectionApp() {
 	}
@@ -81,9 +69,6 @@
     	},
         
     }
-
-  // Initial execution if needed
-  doOnOrientationChange();
     if(localStorage.getItem("isLoggedIn") === 'true')
     {
         
