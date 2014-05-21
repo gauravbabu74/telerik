@@ -14,7 +14,8 @@
             var that = this,
             username = that.get("username").trim(),
             password = that.get("password").trim();
-            alert(device.model);
+            
+            
             if (username === "") {
                 navigator.notification.alert("Please enter your username",
                     function () { }, "Notification", 'OK');

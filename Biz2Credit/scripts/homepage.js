@@ -38,6 +38,7 @@
             });
             dataSource.fetch(function(){
                 var that = this;
+                app.loginService.viewModel.setSettingsPage();
                 var data = that.data();
                 console.log(data);
                 app.homesetting.viewModel.setMatches(data['0']['results']['data']['loan']['matchrows']);
