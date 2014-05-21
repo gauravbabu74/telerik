@@ -837,15 +837,11 @@
                 ftpclient.downloadFile(
                 function(downmsg){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
-                	//app.loginService.viewModel.mobileNotification(downmsg,'success');
-                    //navigator.notification.alert(downmsg);
                     window.open(encodeURI(filePath),"_blank","location=yes,hidden=no");
-                    //console.log(filePath);
                 }, 
                 function(downerr){
                 	$("#tabstrip-download-file").data("kendoMobileModalView").close();
                 	navigator.notification.alert(downerr);
-                   //navigator.notification.alert("fail");
 
                 }, 
                 userinfo
@@ -855,7 +851,6 @@
             
             $('.download-file-name').html('');
         	$('.download-file-name').append('<div class="'+ext+'">'+fileName+'</div>');
-            //app.documentsetting.viewModel.transferFile(uri, filePath);
                                 
         },
         transferFile: function (uri, filePath) {
