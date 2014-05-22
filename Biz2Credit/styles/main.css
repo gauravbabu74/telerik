@@ -1,4 +1,4 @@
-body, html { margin: 0;height: 100% !important; width: 100%;}
+body, html { margin: 0;height: 100% ; width: 100%;}
 /* COMMON STYLES*/
 .view-content h1 {color: #42454a; font-size: 1.8em;}
 .view-content h1.welcome {text-align: center;}
