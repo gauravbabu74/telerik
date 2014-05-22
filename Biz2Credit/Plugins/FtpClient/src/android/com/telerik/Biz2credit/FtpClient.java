@@ -95,29 +95,26 @@ public class FtpClient extends CordovaPlugin {
 		}
 
         if(action.equals(ACTION_DOWNLOAD)) {
-            cordova.getThreadPool().execute(new Runnable() {
+           if(isConnected())
+            {
+    			cordova.getActivity().runOnUiThread(new Runnable() {
                 public void run() {
-                    cordova.getThreadPool().execute(new Runnable() {
-                        public void run() {      
-                            if(isConnected())
-                            {
-                            	String status=downloadFile(server_file_name,file_name,ftp_path,file_path);
-                            	if(status.equalsIgnoreCase(SUCCESS)){
+                    String status=downloadFile(server_file_name,file_name,ftp_path,file_path);
+                            if(status.equalsIgnoreCase(SUCCESS)){
 
-                            		callbackContext.success("Success");
-
-                            	}
-                            	return true;
+                            	callbackContext.success("Success");
+                            	
                             }
-                            else
-                            {
-                            	callbackContext.error("Connection to Server Failed");
-                            	return false;
-                            }
-                        }
-                    });
                 }
-            });
+            	});
+
+				return true;
+            }
+            else
+            {
+                callbackContext.error("Connection to Server Failed");
+                return false;
+            }
 
         }
         if(action.equals(ACTION_DISCONNECT)) {
