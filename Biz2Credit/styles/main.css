@@ -77,7 +77,7 @@ html body .loginSection .km-flat, .km-flat .km-navbar, .km-flat .km-content { co
 .popupBox li { color:#333;}
 .documentClick {padding:0;}
 .documentClick .km-view-title { font-size:1em; color:#333; font-weight:normal;}
-.documentClick .km-view-title a {display:inline-block; padding:7px 7px 0px; background:none; border:0; margin:0 !important;}
+.documentClick .km-view-title a {display:inline-block; padding:7px 0px 0px; background:none; border:0; margin:0 !important;}
 .documentClick .km-view-title a img { float:left; }
 .documentClick .km-view-title a span {float:left; display:inline; padding:15px 0 0;}
 /* RETINA DISPLAY STYLES*/
@@ -362,7 +362,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #blackBlk .desbrdIcon .span {background-position: left 0%;}
 #blackBlk .desbrdIcon .span{font-size: 1.8em;}
 .logo  { margin:3% auto;}
-.documentClick .km-view-title a{padding: 15px 7px 0px;}
+.documentClick .km-view-title a{padding: 15px 0px 0px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select{ background-size:5%; background-position:97% 50%;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:7%; background-position:97% 50%;}
 .schedulePopup h3{font-size: 1.7em;}
@@ -446,7 +446,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 .logo { margin:3% auto;}
 .logLogo { margin:40% auto 10%;}
 html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
-.documentClick .km-view-title a {padding: 5px 7px 0px;}
+.documentClick .km-view-title a {padding: 5px 0px 0px;}
 .documentClick .km-view-title a span{ padding-top:10px;}
 #blackBlk .desbrdIcon .dasimg {width: 10%;}
 #blackBlk .desbrdIcon .span {font-size: 1.2em;}
@@ -535,7 +535,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .schedulePopup h3{font-size: 1em;}
 .schedulePopup .scheduleSection .scall-text { font-size:0.75em;}
 .btngr{ padding: 10px 8px; font-size:1.1em;}
-.documentClick .km-view-title a {padding: 5px 7px 0px;}
+.documentClick .km-view-title a {padding: 5px 0px 0px;}
 .stpcurrntAc p { font-size:12px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select, .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:8%; background-position:95% 9px;}
 .stpcurrntAc p a{ padding:3px 15px 3px 25px !important; background-size:13% !important; background-position:5px 2px !important;}
@@ -594,7 +594,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;height:32%;}
 #tabstrip-download-file .download-file-name .unkown {padding: 25% 0 0;}
 #tabstrip-download-file .download-file-name .unkown, #tabstrip-download-file .download-file-name .jpeg, #tabstrip-download-file .download-file-name .gif, #tabstrip-download-file .download-file-name .ppt, #tabstrip-download-file .download-file-name .png, #tabstrip-download-file .download-file-name .txt, #tabstrip-download-file .download-file-name .docx, #tabstrip-download-file .download-file-name .xls, #tabstrip-download-file .download-file-name .xlsx, #tabstrip-download-file .download-file-name .rtf, #tabstrip-download-file .download-file-name .png, #tabstrip-download-file .download-file-name .pptx {background-size: 18%;}
-.documentClick .km-view-title a{padding:4px 7px 0px;}
+.documentClick .km-view-title a{padding:4px 0px 0px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select{ background-size:10%; background-position:95% 12px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:10%; background-position:95% 13px;}
 #tabstrip-files-events.modal-mess-Popup {height:53%;}
