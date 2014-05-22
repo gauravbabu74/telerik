@@ -1,4 +1,4 @@
-body, html { margin: 0;height: 100%; width: 100%;}
+body, html { margin: 0;height: 100% !important; width: 100%;}
 /* COMMON STYLES*/
 .view-content h1 {color: #42454a; font-size: 1.8em;}
 .view-content h1.welcome {text-align: center;}
@@ -397,7 +397,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li {margin: 0 0 3%;}
 #tabstrip-Setting .docs-back{height: 62px;width: 7.5%;background-position: center 0px;}
 #tabstrip-Setting .docs-docu {padding-left: 2%;}
 #tabstrip-Setting .Setting-ac, #tabstrip-Setting ul#settingpage li{padding:3% 0 2% 10%;background-size: 5%;background-position: 22px 10px;}
-#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:11%;display: block;padding:2% 13% 4%;color: #fff;font-size: 1.5em;}
+#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:9%;display: block;padding:3% 11% 4%;color: #fff;font-size: 1.5em;}
 }
 
 @media (min-width:0px) and (max-width:800px) {
@@ -502,7 +502,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .modal-mess-four {height:82%;}
 #tabstrip-download-file.modal-mess-Popup {height: 66%;}
 .km-popup-wrapper {height: 152px !important;}
-#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:11%;display: block;padding:3% 14% 5%;color: #fff;font-size: 1.2em;}        
+#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:10%;display: block;padding:3% 13% 5%;color: #fff;font-size: 1.2em;}        
 }
 @media (min-width:0px) and (max-width:533px) { 
 #blackBlk .desbrdIcon {padding: 2%;display: block;}
@@ -560,8 +560,9 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:2%;}
 .matches-view li .row3 a.pending{background-size: 20%;}
 .modal-mess-one, .modal-mess-Popup {height: 77%;}
 .km-popup-wrapper {height: 152px !important;}
-#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:16%;display: block;padding: 5% 20% 5%;color: #fff;font-size: 1.2em;}
+#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:10%;display: block;padding:3% 13% 3%;color: #fff;font-size: 1.2em;}
 }
+
 @media (min-width:0px) and (max-width:370px) { 
 .logo { margin:6% auto;}
 .logLogo { margin:17% auto;height: 60px;background-size:50%;}
@@ -579,7 +580,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #blackBlk .desbrdIcon .dasimg { width:13%; padding:0 2% 0 0 !important; }
 #blackBlk .desbrdIcon .dasimg img {max-width:100%; width:100%; height:auto; display:block;}
 #blackBlk .desbrdIcon .span span { float:left; padding:2.2% 0 0;}
-#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:16%;display: block;padding: 5% 20% 5%;color: #fff;font-size: 1.2em;}
+#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:17%;display: block;padding:1% 17% 1%;color: #fff;font-size: 1.2em;}
 #stps ul li span{ font-size:11px;}
 .stpsumry h2 { font-size:1.1em; margin:1%; line-height:20px;}
 #stpSumAc { padding:12px 2% 2px;}
@@ -593,7 +594,7 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
 #tabstrip-download-file.modal-mess-Popup { padding: 0;width: 98%;margin: 0 0 0 1.3%;height:32%;}
 #tabstrip-download-file .download-file-name .unkown {padding: 25% 0 0;}
 #tabstrip-download-file .download-file-name .unkown, #tabstrip-download-file .download-file-name .jpeg, #tabstrip-download-file .download-file-name .gif, #tabstrip-download-file .download-file-name .ppt, #tabstrip-download-file .download-file-name .png, #tabstrip-download-file .download-file-name .txt, #tabstrip-download-file .download-file-name .docx, #tabstrip-download-file .download-file-name .xls, #tabstrip-download-file .download-file-name .xlsx, #tabstrip-download-file .download-file-name .rtf, #tabstrip-download-file .download-file-name .png, #tabstrip-download-file .download-file-name .pptx {background-size: 18%;}
-.documentClick .km-view-title a{padding: 04px 7px 0px;}
+.documentClick .km-view-title a{padding:4px 7px 0px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li .k-select{ background-size:10%; background-position:95% 12px;}
 .schedulePopup .scheduleSection .km-listview-wrapper ul li + li .k-select{ background-size:10%; background-position:95% 13px;}
 #tabstrip-files-events.modal-mess-Popup {height:53%;}
@@ -624,5 +625,6 @@ html body .loginSection .km-list:not(.km-virtual-list)>li { margin-bottom:5%;}
  #tabstrip-Setting ul#settingpage li {padding: 4% 0 4% 18%;background-size: 8.5%;background-position: 20px 7px;}
 #tabstrip-Setting .docs-back {width:18%;background-size:90%; height:50px;background-position: 5px 5px; background-position:left 7px;}
 .modal-mess-one, .modal-mess-Popup {height: 45%;}
+#blackBlk .desbrdIcon .span {/*background-image: url("images/dshbord-bgIcon.png"); background-repeat:no-repeat; */ background-size:42px;display: block;padding: 15px 17%;color: #fff;font-size: 1.2em;background-position: left 4px;}
 }
 
